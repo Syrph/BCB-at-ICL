@@ -11,8 +11,6 @@ sidebar:
   nav: docs
 ---
 
-# Biodiversity and Conservation Biology (Imperial College London)
-
 ## Basics in R
 
 ### 1. Introduction and resources
@@ -23,7 +21,6 @@ For your practicals we will be using `RStudio`. `RStudio` is a IDE (Interactive 
 
 Practicals will be in the format of notebooks, and you should type the code in each block into your own `RStudio` environment on your laptop. You will learn much more from manually typing each block of code into `RStudio` than by copying and pasting, so try not be tempted! For anyone who has trouble with accessing or running `R`/`RStudio` on their own laptop or a university computer, we have a second option to run the notebooks online in a browser using `google colab`. However, coding your coursework (and future work!) will be easier if you've taken the time to set up your own R environment on your laptop, so this should be a last resort!
 
-<br> 
 
 #### Working directory and using scripts
 
@@ -43,7 +40,6 @@ You can open a new script by going to `File -> New File -> R script`. Also on wi
 
 To run a single line of your script at a time in windows, a convinent short cut is `CTRL + ENTER`.
 
-<br>
 
 #### Installing packages for practicals
 
@@ -144,7 +140,7 @@ d
 .list-inline>li {display: inline-block}
 .list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
 </style>
-<ol class=list-inline><li>0</li><li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li><li>8</li><li>9</li></ol>
+<ol class="list-inline"><li>0</li><li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li><li>8</li><li>9</li></ol>
 
 
 
@@ -161,7 +157,7 @@ e
 .list-inline>li {display: inline-block}
 .list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
 </style>
-<ol class=list-inline><li>0</li><li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li><li>8</li><li>9</li></ol>
+<ol class="list-inline"><li>0</li><li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li><li>8</li><li>9</li></ol>
 
 
 
@@ -180,7 +176,7 @@ f
 .list-inline>li {display: inline-block}
 .list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
 </style>
-<ol class=list-inline><li>0</li><li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li><li>8</li><li>9</li><li>0</li><li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li><li>8</li><li>9</li></ol>
+<ol class="list-inline"><li>0</li><li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li><li>8</li><li>9</li><li>0</li><li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li><li>8</li><li>9</li></ol>
 
 
 
@@ -198,7 +194,7 @@ class(g)
 .list-inline>li {display: inline-block}
 .list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
 </style>
-<ol class=list-inline><li>'red'</li><li>'blue'</li><li>'green'</li></ol>
+<ol class="list-inline"><li>'red'</li><li>'blue'</li><li>'green'</li></ol>
 
 
 
@@ -219,7 +215,7 @@ class(h)
 .list-inline>li {display: inline-block}
 .list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
 </style>
-<ol class=list-inline><li>TRUE</li><li>TRUE</li><li>FALSE</li></ol>
+<ol class="list-inline"><li>TRUE</li><li>TRUE</li><li>FALSE</li></ol>
 
 
 
@@ -276,7 +272,7 @@ e[-4] # e without the fourth element
 .list-inline>li {display: inline-block}
 .list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
 </style>
-<ol class=list-inline><li>0</li><li>1</li><li>2</li><li>3</li><li>4</li></ol>
+<ol class="list-inline"><li>0</li><li>1</li><li>2</li><li>3</li><li>4</li></ol>
 
 
 
@@ -286,7 +282,7 @@ e[-4] # e without the fourth element
 .list-inline>li {display: inline-block}
 .list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
 </style>
-<ol class=list-inline><li>0</li><li>3</li></ol>
+<ol class="list-inline"><li>0</li><li>3</li></ol>
 
 
 
@@ -296,7 +292,7 @@ e[-4] # e without the fourth element
 .list-inline>li {display: inline-block}
 .list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
 </style>
-<ol class=list-inline><li>0</li><li>1</li><li>2</li><li>4</li><li>5</li><li>6</li><li>7</li><li>8</li><li>9</li></ol>
+<ol class="list-inline"><li>0</li><li>1</li><li>2</li><li>4</li><li>5</li><li>6</li><li>7</li><li>8</li><li>9</li></ol>
 
 
 
@@ -338,7 +334,7 @@ class(all.numbers)
 .list-inline>li {display: inline-block}
 .list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
 </style>
-<ol class=list-inline><li>'matrix'</li><li>'array'</li></ol>
+<ol class="list-inline"><li>'matrix'</li><li>'array'</li></ol>
 
 
 
@@ -392,7 +388,7 @@ class(both.types[numbers])
 .list-inline>li {display: inline-block}
 .list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
 </style>
-<ol class=list-inline><li>'1'</li><li>'2'</li><li>'3'</li><li>'4'</li><li>'5'</li></ol>
+<ol class="list-inline"><li>'1'</li><li>'2'</li><li>'3'</li><li>'4'</li><li>'5'</li></ol>
 
 
 
@@ -561,7 +557,7 @@ colnames(all.numbers)
 .list-inline>li {display: inline-block}
 .list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
 </style>
-<ol class=list-inline><li>'small_numbers'</li><li>'large_numbers'</li></ol>
+<ol class="list-inline"><li>'small_numbers'</li><li>'large_numbers'</li></ol>
 
 
 
@@ -578,7 +574,7 @@ colnames(all.numbers)
 .list-inline>li {display: inline-block}
 .list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
 </style>
-<ol class=list-inline><li>'one_to_ten'</li><li>'large_numbers'</li></ol>
+<ol class="list-inline"><li>'one_to_ten'</li><li>'large_numbers'</li></ol>
 
 
 
@@ -609,7 +605,7 @@ all.numbers[,1]
 .list-inline>li {display: inline-block}
 .list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
 </style>
-<ol class=list-inline><li>1</li><li>2</li><li>3</li><li>4</li><li>5</li></ol>
+<ol class="list-inline"><li>1</li><li>2</li><li>3</li><li>4</li><li>5</li></ol>
 
 
 
@@ -625,7 +621,7 @@ all.numbers[1,]
 .dl-inline>dt, .dl-inline>dd {float: none; width: auto; display: inline-block}
 .dl-inline>dt::after {content: ":\0020"; padding-right: .5ex}
 .dl-inline>dt:not(:first-of-type) {padding-left: .5ex}
-</style><dl class=dl-inline><dt>one_to_ten</dt><dd>1</dd><dt>large_numbers</dt><dd>6</dd></dl>
+</style><dl class="dl-inline"><dt>one_to_ten</dt><dd>1</dd><dt>large_numbers</dt><dd>6</dd></dl>
 
 
 
@@ -646,7 +642,7 @@ all.numbers[,"large_numbers"]
 .list-inline>li {display: inline-block}
 .list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
 </style>
-<ol class=list-inline><li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li><li>8</li><li>9</li><li>10</li></ol>
+<ol class="list-inline"><li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li><li>8</li><li>9</li><li>10</li></ol>
 
 
 
@@ -656,7 +652,7 @@ all.numbers[,"large_numbers"]
 .list-inline>li {display: inline-block}
 .list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
 </style>
-<ol class=list-inline><li>100</li><li>200</li><li>300</li><li>400</li><li>500</li><li>600</li><li>700</li><li>800</li><li>900</li><li>1000</li></ol>
+<ol class="list-inline"><li>100</li><li>200</li><li>300</li><li>400</li><li>500</li><li>600</li><li>700</li><li>800</li><li>900</li><li>1000</li></ol>
 
 
 
@@ -730,11 +726,11 @@ plot(density(normal.distribution), main = "My distribution", xlab = "sample valu
 ```
 
 
-![png](Practical_1_files/Practical_1_47_0.png)
+![png](Practical_1_47_0.png)
 
 
 
-![png](Practical_1_files/Practical_1_47_1.png)
+![png](Practical_1_47_1.png)
 
 
 
@@ -746,7 +742,7 @@ plot(density(normal.distribution), main = "My distribution", xlab = "sample valu
 ```
 
 
-![png](Practical_1_files/Practical_1_48_0.png)
+![png](Practical_1_48_0.png)
 
 
 
@@ -840,7 +836,7 @@ bio[[12]]
 .list-inline>li {display: inline-block}
 .list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
 </style>
-<ol class=list-inline><li>'matrix'</li><li>'array'</li></ol>
+<ol class="list-inline"><li>'matrix'</li><li>'array'</li></ol>
 
 
 
@@ -874,7 +870,7 @@ plot(bio[[12]], col=rainbow_colours)
 ```
 
 
-![png](Practical_1_files/Practical_1_57_0.png)
+![png](Practical_1_57_0.png)
 
 
 You can also create blank rasters of the desired extent and resolution. The following code creates a raster of the same extent and resolution as the precipitation raster. We can also assign values to the cells, such as 0 in this case.
@@ -929,7 +925,7 @@ plot(Egypt)
 
 
 
-![png](Practical_1_files/Practical_1_61_1.png)
+![png](Practical_1_61_1.png)
 
 
 Now we can crop our rainfall layer to just Egypt.
@@ -944,7 +940,7 @@ plot(Egypt_rain)
 ```
 
 
-![png](Practical_1_files/Practical_1_63_0.png)
+![png](Practical_1_63_0.png)
 
 
 If you want to make the resolution higher, download the bioclim variables again and change the resolution.
@@ -1009,7 +1005,7 @@ plot(P_ayeaye_presab)
 ```
 
 
-![png](Practical_1_files/Practical_1_69_0.png)
+![png](Practical_1_69_0.png)
 
 
 Phyllomedusa ayeaye has a tiny range! If we want to make a more impressive map, we can use data on all 32 species to create a map of species richness.
@@ -1024,7 +1020,7 @@ plot(species_richness)
 ```
 
 
-![png](Practical_1_files/Practical_1_71_0.png)
+![png](Practical_1_71_0.png)
 
 
 Of course, you can play around with plot settings to create some impressive maps! 
