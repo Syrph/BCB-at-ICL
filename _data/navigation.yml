@@ -1,13 +1,11 @@
 main:
-  - title: "Posts"
-    url: /posts/
-  - title: "Categories"
-    url: /categories/
-  - title: "Tags"
-    url: /tags/
-  - title: "About"
-    url: /about/
   - title: "1. Basics in R"
+    url: /Practical_1/
+  - title: "2. Phylogenetics in R"
+    url: /Practical_1/
+  - title: "3. Macroecology Analyses in R"
+    url: /Practical_1/
+  - title: "4. Setting conservation priorities"
     url: /Practical_1/
     
 docs:
