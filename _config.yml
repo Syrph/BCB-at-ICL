@@ -55,8 +55,6 @@ plugins:
   - jemoji
   - jekyll-include-cache
   
-sidebar:
-  nav: "docs"
 
 footer:
   links:
@@ -88,6 +86,8 @@ defaults:
       type: pages
     values:
       layout: single
+      sidebar:
+          nav: "docs"
       author_profile: false
 
 category_archive:
