@@ -24,3 +24,18 @@ docs:
         url: Practical_1/#5-handling-spatial-data
       - title: "Using the tidyverse"
         url: Practical_1/#6-using-the-tidyverse
+  - title: "2. Phylogenetics in R"
+    url: /Practical_2/
+    children:
+      - title: "Introduction and resources"
+        url: Practical_2/#1-introduction-and-resources
+      - title: "A refresher of phylogenetic trees"
+        url: Practical_2/#2-a-refresher-of-phylogenetic-trees
+      - title: "Loading your phylogeny and data into R"
+        url: Practical_2/#3-loading-your-phylogeny-and-data-into-r
+      - title: "Basic tree viewing"
+        url: Practical_1/#4-basic-tree-viewing-in-r
+      - title: "Manipulating phylogenetic trees"
+        url: Practical_2/#5-manipulating-phylogenetic-trees-in-r
+      - title: "Adding trait data to trees"
+        url: Practical_2/#6-adding-trait-data-to-trees-in-r
