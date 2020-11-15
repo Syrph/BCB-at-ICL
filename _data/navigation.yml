@@ -2,7 +2,7 @@ main:
   - title: "Practical 1"
     url: /Practical_1/
   - title: "Practical 2"
-    url: /Practical_1/
+    url: /Practical_test/
   - title: "Practical 3"
     url: /Practical_1/
   - title: "Practical 4"
@@ -13,6 +13,3 @@ docs:
     children:
       - title: "1. Basics in R"
         url: /Practical_1/
-        children:
-          - title: "Reading and Writing"
-            url: /Practical_1/#3.-Reading,-writing-and-.Rdata-files/
