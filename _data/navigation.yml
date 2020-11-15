@@ -15,3 +15,5 @@ docs:
     children:
       - title: "1. Basics in R"
         url: /Practical_1/
+          - title: "Reading and Writing"
+            url: /#3.-Reading,-writing-and-.Rdata-files/
