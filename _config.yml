@@ -56,7 +56,7 @@ plugins:
   - jekyll-include-cache
   
 sidebar:
-  nav: "Docs"
+  nav: "docs"
 
 author:
   name   : "First Lastname"
