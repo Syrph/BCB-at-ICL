@@ -204,7 +204,7 @@ class(g)
 .list-inline>li {display: inline-block}
 .list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
 </style>
-<ol> class="list-inline"><li>'red'</li><li>'blue'</li><li>'green'</li></ol>
+<ol class="list-inline"><li>'red'</li><li>'blue'</li><li>'green'</li></ol>
 
 
 
