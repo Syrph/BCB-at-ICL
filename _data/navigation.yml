@@ -12,4 +12,4 @@ docs:
   -title: "Practicals"
    children:
       -title: "1. Basics in R"
-       url: Practical_1
+       url: _pages/Practical_1.html
