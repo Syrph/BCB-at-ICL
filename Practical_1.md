@@ -1,6 +1,6 @@
 ---
 title: ""
-permalink: /Practical_test/
+permalink: /Practical_1/
 excerpt: ""
 last_modified_at: 2020-07-27
 redirect_from:
@@ -633,7 +633,7 @@ all.numbers[1,]
 .dl-inline>dt, .dl-inline>dd {float: none; width: auto; display: inline-block}
 .dl-inline>dt::after {content: ":\0020"; padding-right: .5ex}
 .dl-inline>dt:not(:first-of-type) {padding-left: .5ex}
-</style><dl class=dl-inline><dt>one_to_ten</dt><dd>1</dd><dt>large_numbers</dt><dd>6</dd></dl>
+</style><dl class="dl-inline"><dt>one_to_ten</dt><dd>1</dd><dt>large_numbers</dt><dd>6</dd></dl>
 
 
 
