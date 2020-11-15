@@ -5,8 +5,8 @@ excerpt: ""
 last_modified_at: 2020-07-27
 redirect_from:
   - /theme-setup/
-toc: true
 layout: single
+classes: wide
 ---
 
 
