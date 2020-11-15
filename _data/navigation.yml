@@ -11,7 +11,7 @@ main:
 docs:
   -title: "Practicals"
    children: 
-      -title: 1. "Basics in R"
+      -title: "1. Basics in R"
        url: docs/Practical_1
       -title: Practical 2
       -title: Practical 3
