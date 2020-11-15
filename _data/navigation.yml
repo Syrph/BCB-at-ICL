@@ -7,3 +7,9 @@ main:
     url: /tags/
   - title: "About"
     url: /about/
+    
+Docs:
+  -title: Practical 1
+  -title: Practical 2
+  -title: Practical 3
+  -title: Practical 4
