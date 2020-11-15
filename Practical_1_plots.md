@@ -1,3 +1,15 @@
+---
+title: ""
+permalink: /Practical_1/
+excerpt: ""
+last_modified_at: 2020-07-27
+redirect_from:
+  - /theme-setup/
+layout: single
+classes: wide
+sidebar:
+  nav: docs
+---
 
 # Biodiversity and Conservation Biology (Imperial College London)
 
@@ -687,7 +699,7 @@ plot(x, y, pch=16, col="red", main="My plot", xlab="x values", ylab="y values")
 ```
 
 
-![png](Practical_1_files/Practical_1_43_0.png)
+![png](Practical_1_43_0.png)
 
 
 `pch` stands for 'point character' and is the symbol to denote values. Try changing it to other values!
@@ -700,7 +712,7 @@ plot(x, y, col="red", main="My plot", xlab="x values", ylab="y values", type = "
 ```
 
 
-![png](Practical_1_files/Practical_1_45_0.png)
+![png](Practical_1_45_0.png)
 
 
 Some of the most useful plots for visualling the spread of data are histograms and density plots. R comes built in with functions for sampling distributions we can use for plots.
