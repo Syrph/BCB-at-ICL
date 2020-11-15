@@ -7,6 +7,8 @@ redirect_from:
   - /theme-setup/
 layout: single
 classes: wide
+sidebar:
+  nav: docs
 ---
 
 
