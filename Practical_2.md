@@ -1,3 +1,15 @@
+---
+title: ""
+permalink: /Practical_2/
+excerpt: ""
+last_modified_at: 2020-07-27
+redirect_from:
+  - /theme-setup/
+layout: single
+classes: wide
+sidebar:
+  nav: docs
+---
 
 ## Phylogenetics in R
 
@@ -67,7 +79,7 @@ text(-0.6, 3, "Tip")
 ```
 
 
-![png](Practical_2_files/Practical_2_8_0.png)
+![png](Practical_2_8_0.png)
 
 
 When we select a node to act as the base of a tree, the tree is said to be **rooted**. At the bottom of a tree, is the **root node** (or simply the **root**).
@@ -85,7 +97,7 @@ text(0.5, 3.18, "Root")
 ```
 
 
-![png](Practical_2_files/Practical_2_10_0.png)
+![png](Practical_2_10_0.png)
 
 
 Phylogenetic trees of the kind shown above are fairly simple and lack information about time or character changes occurring along a branch. We can assign branch length in the form of either time or the amount of change/substitution along a branch. A tree with **branch lengths** depicted can be called a **phylogram**.
@@ -100,7 +112,7 @@ axisPhylo()
 ```
 
 
-![png](Practical_2_files/Practical_2_12_0.png)
+![png](Practical_2_12_0.png)
 
 
 #### B. Informatic representations of tree
@@ -151,7 +163,7 @@ nodelabels() ; tiplabels()
 ```
 
 
-![png](Practical_2_files/Practical_2_14_0.png)
+![png](Practical_2_14_0.png)
 
 
 #### Records & pointers
@@ -278,7 +290,7 @@ names(anoledata)
 .list-inline>li {display: inline-block}
 .list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
 </style>
-<ol class=list-inline><li>'species'</li><li>'AVG.SVL'</li><li>'AVG.hl'</li><li>'AVG.hw'</li><li>'AVG.hh'</li><li>'AVG.ljl'</li><li>'AVG.outlever'</li><li>'AVG.jugal.to.symphysis'</li><li>'AVG.femur'</li><li>'AVG.tibia'</li><li>'AVG.met'</li><li>'AVG.ltoe.IV'</li><li>'AVG.toe.IV.lam.width'</li><li>'AVG.humerus'</li><li>'AVG.radius'</li><li>'AVG.lfing.IV'</li><li>'AVG.fing.IV.lam.width'</li><li>'AVG.pelv.ht'</li><li>'AVG.pelv.wd'</li><li>'Foot.Lam.num'</li><li>'Hand.Lam.num'</li><li>'Avg.lnSVL2'</li><li>'Avg.ln.t1'</li></ol>
+<ol class="list-inline"><li>'species'</li><li>'AVG.SVL'</li><li>'AVG.hl'</li><li>'AVG.hw'</li><li>'AVG.hh'</li><li>'AVG.ljl'</li><li>'AVG.outlever'</li><li>'AVG.jugal.to.symphysis'</li><li>'AVG.femur'</li><li>'AVG.tibia'</li><li>'AVG.met'</li><li>'AVG.ltoe.IV'</li><li>'AVG.toe.IV.lam.width'</li><li>'AVG.humerus'</li><li>'AVG.radius'</li><li>'AVG.lfing.IV'</li><li>'AVG.fing.IV.lam.width'</li><li>'AVG.pelv.ht'</li><li>'AVG.pelv.wd'</li><li>'Foot.Lam.num'</li><li>'Hand.Lam.num'</li><li>'Avg.lnSVL2'</li><li>'Avg.ln.t1'</li></ol>
 
 
 
@@ -411,7 +423,7 @@ plot(fishtree, cex = 0.5)
 ```
 
 
-![png](Practical_2_files/Practical_2_36_0.png)
+![png](Practical_2_36_0.png)
 
 
 `cex = 0.5` reduces the size of the tip labels so we can read them. 
@@ -424,7 +436,7 @@ zoom(fishtree, grep("Gymnothorax", fishtree$tip.label), subtree = FALSE, cex = 0
 ```
 
 
-![png](Practical_2_files/Practical_2_38_0.png)
+![png](Practical_2_38_0.png)
 
 
 The `grep` function is a generic function in `R` that allows to *grab* any element in an object containing the desired characters.
@@ -440,7 +452,7 @@ zoom(fishtree, grep("Gymnothorax", fishtree$tip.label), subtree = TRUE, cex = 0.
 ```
 
 
-![png](Practical_2_files/Practical_2_40_0.png)
+![png](Practical_2_40_0.png)
 
 
 Note that `zoom` is a specific plotting function that will automatically set the plotting window to display two plots at once. This might create some conflicts if you're using RStudio. The bug can be easily solved though by typing `dev.off()` to reinitialise the plotting window and then proceed to the normal `zoom(...)` function as written above.
@@ -472,7 +484,7 @@ plot(fishtree, type = "unrooted", edge.color = "deeppink", tip.color = "springgr
 ```
 
 
-![png](Practical_2_files/Practical_2_46_0.png)
+![png](Practical_2_46_0.png)
 
 
 Or try
@@ -483,7 +495,7 @@ plot(ladderize(fishtree), type = "c", edge.color = "darkviolet", tip.color = "ho
 ```
 
 
-![png](Practical_2_files/Practical_2_48_0.png)
+![png](Practical_2_48_0.png)
 
 
 The `ladderize` function allows to display the branches from shortest to longest.
@@ -508,7 +520,7 @@ plotTree(Ran_Turdidae_tree,type="fan",fsize=0.4,lwd=0.5,ftype="i")
 ```
 
 
-![png](Practical_2_files/Practical_2_54_0.png)
+![png](Practical_2_54_0.png)
 
 
 First, lets see what species are in the tree.
@@ -524,7 +536,7 @@ Ran_Turdidae_tree$tip.label
 .list-inline>li {display: inline-block}
 .list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
 </style>
-<ol class=list-inline><li>'Zoothera_everetti'</li><li>'Zoothera_naevia'</li><li>'Zoothera_pinicola'</li><li>'Hylocichla_mustelina'</li><li>'Catharus_aurantiirostris'</li><li>'Catharus_mexicanus'</li><li>'Catharus_dryas'</li><li>'Catharus_fuscater'</li><li>'Catharus_ustulatus'</li><li>'Catharus_bicknelli'</li><li>'Catharus_fuscescens'</li><li>'Catharus_minimus'</li><li>'Catharus_frantzii'</li><li>'Catharus_guttatus'</li><li>'Catharus_occidentalis'</li><li>'Catharus_gracilirostris'</li><li>'Entomodestes_coracinus'</li><li>'Entomodestes_leucotis'</li><li>'Cichlopsis_leucogenys'</li><li>'Turdus_mupinensis'</li><li>'Psophocichla_litsitsirupa'</li><li>'Turdus_viscivorus'</li><li>'Turdus_menachensis'</li><li>'Turdus_plebejus'</li><li>'Turdus_helleri'</li><li>'Turdus_olivaceus'</li><li>'Turdus_ludoviciae'</li><li>'Turdus_iliacus'</li><li>'Turdus_lherminieri'</li><li>'Turdus_subalaris'</li><li>'Turdus_tephronotus'</li><li>'Turdus_merula'</li><li>'Turdus_pelios'</li><li>'Turdus_leucops'</li><li>'Turdus_fulviventris'</li><li>'Turdus_olivater'</li><li>'Turdus_serranus'</li><li>'Turdus_fuscater'</li><li>'Turdus_nigriceps'</li><li>'Turdus_chiguanco'</li><li>'Nesocichla_eremita'</li><li>'Turdus_ignobilis'</li><li>'Turdus_maranonicus'</li><li>'Turdus_amaurochalinus'</li><li>'Turdus_reevei'</li><li>'Turdus_rufopalliatus'</li><li>'Turdus_lawrencii'</li><li>'Turdus_flavipes'</li><li>'Turdus_obsoletus'</li><li>'Turdus_albicollis'</li><li>'Turdus_assimilis'</li><li>'Turdus_fumigatus'</li><li>'Turdus_hauxwelli'</li><li>'Turdus_leucomelas'</li><li>'Turdus_rufiventris'</li><li>'Turdus_grayi'</li><li>'Turdus_haplochrous'</li><li>'Turdus_nudigenis'</li><li>'Turdus_maculirostris'</li><li>'Turdus_daguae'</li><li>'Turdus_falcklandii'</li><li>'Turdus_olivaceofuscus'</li><li>'Turdus_libonyanus'</li><li>'Turdus_bewsheri'</li><li>'Turdus_rufitorques'</li><li>'Turdus_migratorius'</li><li>'Turdus_infuscatus'</li><li>'Turdus_nigrescens'</li><li>'Turdus_plumbeus'</li><li>'Turdus_aurantius'</li><li>'Turdus_jamaicensis'</li><li>'Turdus_swalesi'</li><li>'Turdus_boulboul'</li><li>'Turdus_hortulorum'</li><li>'Turdus_cardis'</li><li>'Turdus_unicolor'</li><li>'Turdus_dissimilis'</li><li>'Turdus_rubrocanus'</li><li>'Turdus_albocinctus'</li><li>'Turdus_kessleri'</li><li>'Turdus_pilaris'</li><li>'Turdus_ruficollis'</li><li>'Turdus_naumanni'</li><li>'Turdus_torquatus'</li><li>'Turdus_poliocephalus'</li><li>'Turdus_feae'</li><li>'Turdus_obscurus'</li><li>'Turdus_pallidus'</li><li>'Turdus_celaenops'</li><li>'Turdus_chrysolaus'</li><li>'Turdus_philomelos'</li><li>'Zoothera_guttata'</li><li>'Zoothera_gurneyi'</li><li>'Zoothera_wardii'</li><li>'Zoothera_crossleyi'</li><li>'Zoothera_oberlaenderi'</li><li>'Zoothera_machiki'</li><li>'Zoothera_piaggiae'</li><li>'Zoothera_tanganjicae'</li><li>'Zoothera_major'</li><li>'Zoothera_princei'</li><li>'Cataponera_turdoides'</li><li>'Zoothera_camaronensis'</li><li>'Zoothera_imbricata'</li><li>'Zoothera_spiloptera'</li><li>'Zoothera_citrina'</li><li>'Zoothera_interpres'</li><li>'Zoothera_dohertyi'</li><li>'Zoothera_leucolaema'</li><li>'Zoothera_peronii'</li><li>'Zoothera_cinerea'</li><li>'Zoothera_mendeni'</li><li>'Zoothera_erythronota'</li><li>'Zoothera_turipavae'</li><li>'Zoothera_schistacea'</li><li>'Zoothera_margaretae'</li><li>'Zoothera_sibirica'</li><li>'Zoothera_lunulata'</li><li>'Zoothera_heinei'</li><li>'Zoothera_dumasi'</li><li>'Zoothera_talaseae'</li><li>'Zoothera_dauma'</li><li>'Zoothera_andromedae'</li><li>'Zoothera_monticola'</li><li>'Zoothera_joiceyi'</li><li>'Zoothera_marginata'</li><li>'Zoothera_mollissima'</li><li>'Zoothera_dixoni'</li><li>'Cochoa_purpurea'</li><li>'Cochoa_azurea'</li><li>'Cochoa_viridis'</li><li>'Cochoa_beccarii'</li><li>'Chlamydochaera_jefferyi'</li><li>'Geomalia_heinrichi'</li><li>'Sialia_currucoides'</li><li>'Sialia_mexicana'</li><li>'Sialia_sialis'</li><li>'Myadestes_genibarbis'</li><li>'Myadestes_ralloides'</li><li>'Myadestes_melanops'</li><li>'Myadestes_coloratus'</li><li>'Myadestes_palmeri'</li><li>'Myadestes_elisabeth'</li><li>'Myadestes_townsendi'</li><li>'Myadestes_obscurus'</li><li>'Myadestes_occidentalis'</li><li>'Myadestes_unicolor'</li><li>'Myadestes_lanaiensis'</li><li>'Neocossyphus_poensis'</li><li>'Stizorhina_fraseri'</li><li>'Stizorhina_finschi'</li><li>'Neocossyphus_rufus'</li><li>'Alethe_fuelleborni'</li><li>'Alethe_choloensis'</li><li>'Alethe_poliophrys'</li><li>'Alethe_poliocephala'</li><li>'Alethe_diademata'</li><li>'Myophonus_borneensis'</li><li>'Myophonus_castaneus'</li><li>'Myophonus_melanurus'</li><li>'Myophonus_blighi'</li><li>'Myophonus_robinsoni'</li><li>'Myophonus_insularis'</li><li>'Myophonus_horsfieldii'</li><li>'Myophonus_caeruleus'</li><li>'Myophonus_glaucinus'</li><li>'Brachypteryx_stellata'</li><li>'Brachypteryx_montana'</li><li>'Brachypteryx_hyperythra'</li><li>'Brachypteryx_leucophrys'</li><li>'Heinrichia_calligyna'</li></ol>
+<ol class="list-inline"><li>'Zoothera_everetti'</li><li>'Zoothera_naevia'</li><li>'Zoothera_pinicola'</li><li>'Hylocichla_mustelina'</li><li>'Catharus_aurantiirostris'</li><li>'Catharus_mexicanus'</li><li>'Catharus_dryas'</li><li>'Catharus_fuscater'</li><li>'Catharus_ustulatus'</li><li>'Catharus_bicknelli'</li><li>'Catharus_fuscescens'</li><li>'Catharus_minimus'</li><li>'Catharus_frantzii'</li><li>'Catharus_guttatus'</li><li>'Catharus_occidentalis'</li><li>'Catharus_gracilirostris'</li><li>'Entomodestes_coracinus'</li><li>'Entomodestes_leucotis'</li><li>'Cichlopsis_leucogenys'</li><li>'Turdus_mupinensis'</li><li>'Psophocichla_litsitsirupa'</li><li>'Turdus_viscivorus'</li><li>'Turdus_menachensis'</li><li>'Turdus_plebejus'</li><li>'Turdus_helleri'</li><li>'Turdus_olivaceus'</li><li>'Turdus_ludoviciae'</li><li>'Turdus_iliacus'</li><li>'Turdus_lherminieri'</li><li>'Turdus_subalaris'</li><li>'Turdus_tephronotus'</li><li>'Turdus_merula'</li><li>'Turdus_pelios'</li><li>'Turdus_leucops'</li><li>'Turdus_fulviventris'</li><li>'Turdus_olivater'</li><li>'Turdus_serranus'</li><li>'Turdus_fuscater'</li><li>'Turdus_nigriceps'</li><li>'Turdus_chiguanco'</li><li>'Nesocichla_eremita'</li><li>'Turdus_ignobilis'</li><li>'Turdus_maranonicus'</li><li>'Turdus_amaurochalinus'</li><li>'Turdus_reevei'</li><li>'Turdus_rufopalliatus'</li><li>'Turdus_lawrencii'</li><li>'Turdus_flavipes'</li><li>'Turdus_obsoletus'</li><li>'Turdus_albicollis'</li><li>'Turdus_assimilis'</li><li>'Turdus_fumigatus'</li><li>'Turdus_hauxwelli'</li><li>'Turdus_leucomelas'</li><li>'Turdus_rufiventris'</li><li>'Turdus_grayi'</li><li>'Turdus_haplochrous'</li><li>'Turdus_nudigenis'</li><li>'Turdus_maculirostris'</li><li>'Turdus_daguae'</li><li>'Turdus_falcklandii'</li><li>'Turdus_olivaceofuscus'</li><li>'Turdus_libonyanus'</li><li>'Turdus_bewsheri'</li><li>'Turdus_rufitorques'</li><li>'Turdus_migratorius'</li><li>'Turdus_infuscatus'</li><li>'Turdus_nigrescens'</li><li>'Turdus_plumbeus'</li><li>'Turdus_aurantius'</li><li>'Turdus_jamaicensis'</li><li>'Turdus_swalesi'</li><li>'Turdus_boulboul'</li><li>'Turdus_hortulorum'</li><li>'Turdus_cardis'</li><li>'Turdus_unicolor'</li><li>'Turdus_dissimilis'</li><li>'Turdus_rubrocanus'</li><li>'Turdus_albocinctus'</li><li>'Turdus_kessleri'</li><li>'Turdus_pilaris'</li><li>'Turdus_ruficollis'</li><li>'Turdus_naumanni'</li><li>'Turdus_torquatus'</li><li>'Turdus_poliocephalus'</li><li>'Turdus_feae'</li><li>'Turdus_obscurus'</li><li>'Turdus_pallidus'</li><li>'Turdus_celaenops'</li><li>'Turdus_chrysolaus'</li><li>'Turdus_philomelos'</li><li>'Zoothera_guttata'</li><li>'Zoothera_gurneyi'</li><li>'Zoothera_wardii'</li><li>'Zoothera_crossleyi'</li><li>'Zoothera_oberlaenderi'</li><li>'Zoothera_machiki'</li><li>'Zoothera_piaggiae'</li><li>'Zoothera_tanganjicae'</li><li>'Zoothera_major'</li><li>'Zoothera_princei'</li><li>'Cataponera_turdoides'</li><li>'Zoothera_camaronensis'</li><li>'Zoothera_imbricata'</li><li>'Zoothera_spiloptera'</li><li>'Zoothera_citrina'</li><li>'Zoothera_interpres'</li><li>'Zoothera_dohertyi'</li><li>'Zoothera_leucolaema'</li><li>'Zoothera_peronii'</li><li>'Zoothera_cinerea'</li><li>'Zoothera_mendeni'</li><li>'Zoothera_erythronota'</li><li>'Zoothera_turipavae'</li><li>'Zoothera_schistacea'</li><li>'Zoothera_margaretae'</li><li>'Zoothera_sibirica'</li><li>'Zoothera_lunulata'</li><li>'Zoothera_heinei'</li><li>'Zoothera_dumasi'</li><li>'Zoothera_talaseae'</li><li>'Zoothera_dauma'</li><li>'Zoothera_andromedae'</li><li>'Zoothera_monticola'</li><li>'Zoothera_joiceyi'</li><li>'Zoothera_marginata'</li><li>'Zoothera_mollissima'</li><li>'Zoothera_dixoni'</li><li>'Cochoa_purpurea'</li><li>'Cochoa_azurea'</li><li>'Cochoa_viridis'</li><li>'Cochoa_beccarii'</li><li>'Chlamydochaera_jefferyi'</li><li>'Geomalia_heinrichi'</li><li>'Sialia_currucoides'</li><li>'Sialia_mexicana'</li><li>'Sialia_sialis'</li><li>'Myadestes_genibarbis'</li><li>'Myadestes_ralloides'</li><li>'Myadestes_melanops'</li><li>'Myadestes_coloratus'</li><li>'Myadestes_palmeri'</li><li>'Myadestes_elisabeth'</li><li>'Myadestes_townsendi'</li><li>'Myadestes_obscurus'</li><li>'Myadestes_occidentalis'</li><li>'Myadestes_unicolor'</li><li>'Myadestes_lanaiensis'</li><li>'Neocossyphus_poensis'</li><li>'Stizorhina_fraseri'</li><li>'Stizorhina_finschi'</li><li>'Neocossyphus_rufus'</li><li>'Alethe_fuelleborni'</li><li>'Alethe_choloensis'</li><li>'Alethe_poliophrys'</li><li>'Alethe_poliocephala'</li><li>'Alethe_diademata'</li><li>'Myophonus_borneensis'</li><li>'Myophonus_castaneus'</li><li>'Myophonus_melanurus'</li><li>'Myophonus_blighi'</li><li>'Myophonus_robinsoni'</li><li>'Myophonus_insularis'</li><li>'Myophonus_horsfieldii'</li><li>'Myophonus_caeruleus'</li><li>'Myophonus_glaucinus'</li><li>'Brachypteryx_stellata'</li><li>'Brachypteryx_montana'</li><li>'Brachypteryx_hyperythra'</li><li>'Brachypteryx_leucophrys'</li><li>'Heinrichia_calligyna'</li></ol>
 
 
 
@@ -549,7 +561,7 @@ drop.species
 .list-inline>li {display: inline-block}
 .list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
 </style>
-<ol class=list-inline><li>'Myadestes_genibarbis'</li><li>'Myadestes_ralloides'</li><li>'Myadestes_melanops'</li><li>'Myadestes_coloratus'</li><li>'Myadestes_palmeri'</li><li>'Myadestes_elisabeth'</li><li>'Myadestes_townsendi'</li><li>'Myadestes_obscurus'</li><li>'Myadestes_occidentalis'</li><li>'Myadestes_unicolor'</li><li>'Myadestes_lanaiensis'</li></ol>
+<ol class="list-inline"><li>'Myadestes_genibarbis'</li><li>'Myadestes_ralloides'</li><li>'Myadestes_melanops'</li><li>'Myadestes_coloratus'</li><li>'Myadestes_palmeri'</li><li>'Myadestes_elisabeth'</li><li>'Myadestes_townsendi'</li><li>'Myadestes_obscurus'</li><li>'Myadestes_occidentalis'</li><li>'Myadestes_unicolor'</li><li>'Myadestes_lanaiensis'</li></ol>
 
 
 
@@ -563,7 +575,7 @@ plotTree(Ran_Turdidae_tree_NM,type="fan",fsize=0.4,lwd=0.5,ftype="i")
 ```
 
 
-![png](Practical_2_files/Practical_2_60_0.png)
+![png](Practical_2_60_0.png)
 
 
 Alternatively, lets say we want to extract the clade within the tree that includes the pre identified selected range of species.
@@ -577,7 +589,7 @@ plotTree(pruned_birdtree,ftype="i")
 ```
 
 
-![png](Practical_2_files/Practical_2_62_0.png)
+![png](Practical_2_62_0.png)
 
 
 **Remember, always to save your new revised tree. As this will save you time from having to prune it everytime. Use `write.tree` or `write.nexus` the same as you would to save a dataframe.**
@@ -678,7 +690,7 @@ plotTree(genera_tree,ftype="i")
 ```
 
 
-![png](Practical_2_files/Practical_2_67_0.png)
+![png](Practical_2_67_0.png)
 
 
 As the tree has dropped all but one species per genus, this means we will finally need to also rename the tip labels as well to reflect this change.
@@ -696,7 +708,7 @@ plotTree(genera_tree,ftype="i")
 ```
 
 
-![png](Practical_2_files/Practical_2_69_0.png)
+![png](Practical_2_69_0.png)
 
 
 It is important to note, that a big limitation with this approach is that by selecting only one species per genus to keep, that you may run the risk of unintentially dropping tips of species that are paraphyletic. For example, Zoothera genus is spread throughout Turdidae tree.
@@ -708,11 +720,11 @@ zoom(Ran_Turdidae_tree, grep("Zoothera", Ran_Turdidae_tree$tip.label), subtree =
 ```
 
 
-![png](Practical_2_files/Practical_2_71_0.png)
+![png](Practical_2_71_0.png)
 
 
 
-![png](Practical_2_files/Practical_2_71_1.png)
+![png](Practical_2_71_1.png)
 
 
 This means that when collapsing a phylogenetic tree you run the risk of miss representing the relationship between the different genera. The only way to get round this is by:
@@ -785,7 +797,7 @@ turdidae_data$Jetz_Name %in% Ran_Turdidae_tree$tip.label
 .list-inline>li {display: inline-block}
 .list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
 </style>
-<ol class=list-inline><li>FALSE</li><li>FALSE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>FALSE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li></ol>
+<ol class="list-inline"><li>FALSE</li><li>FALSE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>FALSE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li></ol>
 
 
 
@@ -837,7 +849,7 @@ plotTree(turdi_tree,ftype="i")
 ```
 
 
-![png](Practical_2_files/Practical_2_85_0.png)
+![png](Practical_2_85_0.png)
 
 
 Now lets try using ggtree to plot our data with our phylogeny. First we need to install `ggtree`. This package was intentionally left out of the 'install.R' script. Because not all packages are available from `CRAN` directly through `R`, we'll install `BiocManager`. `devtools` is another great package for installing packages from github.
@@ -905,7 +917,7 @@ turdidae_plot
 ```
 
 
-![png](Practical_2_files/Practical_2_90_0.png)
+![png](Practical_2_90_0.png)
 
 
 Now we'll create a simple one column dataframe with just the habitat data to plot and the species names as row names.
@@ -945,7 +957,7 @@ plot(gheat)
 
 
 
-![png](Practical_2_files/Practical_2_94_1.png)
+![png](Practical_2_94_1.png)
 
 
 And now we have a plot where we can see the spread of habitat types in Thrushes. Try experimenting with different colours and sizes to create some beautiful trees that put this one to shame! There's also lots of other ways you can label trees. For more info this guide is a great place to start: 
