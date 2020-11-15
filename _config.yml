@@ -72,12 +72,12 @@ footer:
       url: "https://instagram.com/"
 
 defaults:
-  # docs
+  # _docs
   - scope:
       path: ""
       type: docs
     values:
-      layout: wide
+      layout: single
       author_profile: false
       read_time: true
       comments: true
@@ -90,7 +90,7 @@ defaults:
       path: "_pages"
       type: pages
     values:
-      layout: wide
+      layout: single
       author_profile: false
 
 category_archive:
