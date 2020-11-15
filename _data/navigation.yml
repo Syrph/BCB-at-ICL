@@ -1,11 +1,11 @@
 main:
-  - title: "1. Basics in R"
+  - title: "Practical 1"
     url: /Practical_1/
-  - title: "2. Phylogenetics in R"
+  - title: "Practical 2"
     url: /Practical_1/
-  - title: "3. Macroecology Analyses in R"
+  - title: "Practical 3"
     url: /Practical_1/
-  - title: "4. Setting conservation priorities"
+  - title: "Practical 4"
     url: /Practical_1/
     
 docs:
