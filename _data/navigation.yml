@@ -9,7 +9,8 @@ main:
     url: /Practical_1/
     
 docs:
-  - title: "Practicals"
+  - title: "1. Basics in R"
+    url: /Practical_1/
     children:
-      - title: "1. Basics in R"
-        url: /Practical_1/
+      - title: "Revision of data types"
+        url: Practical_1/#2.-Revision-of-data-types
