@@ -55,6 +55,9 @@ plugins:
   - jemoji
   - jekyll-include-cache
   
+  
+sidebar:
+     -title: "TEST"
 
 footer:
   links:
