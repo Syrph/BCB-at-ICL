@@ -12,5 +12,15 @@ docs:
   - title: "1. Basics in R"
     url: /Practical_1/
     children:
+      - title: "Introduction and resources"
+        url: Practical_1/#1-introduction-and-resources
       - title: "Revision of data types"
         url: Practical_1/#2.-Revision-of-data-types
+      - title: "Reading, writing and rdata files"
+        url: Practical_1/#3-reading-writing-and-rdata-files
+      - title: "Plotting data"
+        url: Practical_1/#4-plotting-data
+      - title: "Handling spatial data"
+        url: Practical_1/#5-handling-spatial-data
+      - title: "Using the tidyverse"
+        url: Practical_1/#6-using-the-tidyverse
