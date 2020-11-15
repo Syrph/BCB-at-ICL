@@ -9,7 +9,7 @@ main:
     url: /about/
     
 docs:
-  -title: Practicals
+  -title: "Practicals"
    children: 
       -title: 1. "Basics in R"
        url: docs/Practical_1
