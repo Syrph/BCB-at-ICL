@@ -71,7 +71,7 @@ footer:
       url: "https://instagram.com/"
 
 defaults:
-  # _posts
+  # docs
   - scope:
       path: ""
       type: docs
