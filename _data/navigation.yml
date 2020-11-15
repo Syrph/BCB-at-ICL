@@ -2,11 +2,11 @@ main:
   - title: "Practical 1"
     url: /Practical_1/
   - title: "Practical 2"
-    url: /Practical_test/
+    url: /Practical_2/
   - title: "Practical 3"
-    url: /Practical_1/
+    url: /Practical_3/
   - title: "Practical 4"
-    url: /Practical_1/
+    url: /Practical_4/
     
 docs:
   - title: "1. Basics in R"
