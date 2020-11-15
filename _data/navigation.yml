@@ -8,7 +8,7 @@ main:
   - title: "About"
     url: /about/
   - title: "1. Basics in R"
-    url: /Practical_1/
+    url: /pages/Practical_1/
     
 docs:
   - title: "Practicals"
