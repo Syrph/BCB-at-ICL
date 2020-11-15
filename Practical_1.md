@@ -22,7 +22,6 @@ For your practicals we will be using `RStudio`. `RStudio` is a IDE (Interactive 
 
 Practicals will be in the format of notebooks, and you should type the code in each block into your own `RStudio` environment on your laptop. You will learn much more from manually typing each block of code into `RStudio` than by copying and pasting, so try not be tempted! For anyone who has trouble with accessing or running `R`/`RStudio` on their own laptop or a university computer, we have a second option to run the notebooks online in a browser using `google colab`. However, coding your coursework (and future work!) will be easier if you've taken the time to set up your own R environment on your laptop, so this should be a last resort!
 
-<br> 
 
 #### Working directory and using scripts
 
@@ -42,7 +41,6 @@ You can open a new script by going to `File -> New File -> R script`. Also on wi
 
 To run a single line of your script at a time in windows, a convinent short cut is `CTRL + ENTER`.
 
-<br>
 
 #### Installing packages for practicals
 
@@ -170,7 +168,7 @@ e
 .list-inline>li {display: inline-block}
 .list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
 </style>
-<ol> class=list-inline<li>0</li><li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li><li>8</li><li>9</li></ol>
+<ol> class="list-inline"<li>0</li><li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li><li>8</li><li>9</li></ol>
 
 
 
@@ -188,7 +186,7 @@ f
 .list-inline>li {display: inline-block}
 .list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
 </style>
-<ol> class=list-inline><li>0</li><li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li><li>8</li><li>9</li><li>0</li><li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li><li>8</li><li>9</li></ol>
+<ol> class="list-inline"><li>0</li><li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li><li>8</li><li>9</li><li>0</li><li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li><li>8</li><li>9</li></ol>
 
 
 
@@ -206,7 +204,7 @@ class(g)
 .list-inline>li {display: inline-block}
 .list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
 </style>
-<ol> class=list-inline><li>'red'</li><li>'blue'</li><li>'green'</li></ol>
+<ol> class="list-inline"><li>'red'</li><li>'blue'</li><li>'green'</li></ol>
 
 
 
@@ -227,7 +225,7 @@ class(h)
 .list-inline>li {display: inline-block}
 .list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
 </style>
-<ol class=list-inline><li>TRUE</li><li>TRUE</li><li>FALSE</li></ol>
+<ol class="list-inline"><li>TRUE</li><li>TRUE</li><li>FALSE</li></ol>
 
 
 
@@ -284,7 +282,7 @@ e[-4] # e without the fourth element
 .list-inline>li {display: inline-block}
 .list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
 </style>
-<ol class=list-inline><li>0</li><li>1</li><li>2</li><li>3</li><li>4</li></ol>
+<ol class="list-inline"><li>0</li><li>1</li><li>2</li><li>3</li><li>4</li></ol>
 
 
 
@@ -294,7 +292,7 @@ e[-4] # e without the fourth element
 .list-inline>li {display: inline-block}
 .list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
 </style>
-<ol class=list-inline><li>0</li><li>3</li></ol>
+<ol class="list-inline"><li>0</li><li>3</li></ol>
 
 
 
@@ -304,7 +302,7 @@ e[-4] # e without the fourth element
 .list-inline>li {display: inline-block}
 .list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
 </style>
-<ol class=list-inline><li>0</li><li>1</li><li>2</li><li>4</li><li>5</li><li>6</li><li>7</li><li>8</li><li>9</li></ol>
+<ol class="list-inline"><li>0</li><li>1</li><li>2</li><li>4</li><li>5</li><li>6</li><li>7</li><li>8</li><li>9</li></ol>
 
 
 
@@ -347,7 +345,7 @@ class(all.numbers)
 .list-inline>li {display: inline-block}
 .list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
 </style>
-<ol class=list-inline><li>'matrix'</li><li>'array'</li></ol>
+<ol class="list-inline"><li>'matrix'</li><li>'array'</li></ol>
 
 
 
@@ -402,7 +400,7 @@ class(both.types[numbers])
 .list-inline>li {display: inline-block}
 .list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
 </style>
-<ol class=list-inline><li>'1'</li><li>'2'</li><li>'3'</li><li>'4'</li><li>'5'</li></ol>
+<ol class="list-inline"><li>'1'</li><li>'2'</li><li>'3'</li><li>'4'</li><li>'5'</li></ol>
 
 
 
@@ -571,7 +569,7 @@ colnames(all.numbers)
 .list-inline>li {display: inline-block}
 .list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
 </style>
-<ol class=list-inline><li>'small_numbers'</li><li>'large_numbers'</li></ol>
+<ol class="list-inline"><li>'small_numbers'</li><li>'large_numbers'</li></ol>
 
 
 
@@ -588,7 +586,7 @@ colnames(all.numbers)
 .list-inline>li {display: inline-block}
 .list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
 </style>
-<ol class=list-inline><li>'one_to_ten'</li><li>'large_numbers'</li></ol>
+<ol class="list-inline"><li>'one_to_ten'</li><li>'large_numbers'</li></ol>
 
 
 
@@ -619,7 +617,7 @@ all.numbers[,1]
 .list-inline>li {display: inline-block}
 .list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
 </style>
-<ol class=list-inline><li>1</li><li>2</li><li>3</li><li>4</li><li>5</li></ol>
+<ol class="list-inline"><li>1</li><li>2</li><li>3</li><li>4</li><li>5</li></ol>
 
 
 
@@ -656,7 +654,7 @@ all.numbers[,"large_numbers"]
 .list-inline>li {display: inline-block}
 .list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
 </style>
-<ol class=list-inline><li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li><li>8</li><li>9</li><li>10</li></ol>
+<ol class="list-inline"><li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li><li>8</li><li>9</li><li>10</li></ol>
 
 
 
@@ -666,7 +664,7 @@ all.numbers[,"large_numbers"]
 .list-inline>li {display: inline-block}
 .list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
 </style>
-<ol class=list-inline><li>100</li><li>200</li><li>300</li><li>400</li><li>500</li><li>600</li><li>700</li><li>800</li><li>900</li><li>1000</li></ol>
+<ol class="list-inline"><li>100</li><li>200</li><li>300</li><li>400</li><li>500</li><li>600</li><li>700</li><li>800</li><li>900</li><li>1000</li></ol>
 
 
 
@@ -851,7 +849,7 @@ bio[[12]]
 .list-inline>li {display: inline-block}
 .list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
 </style>
-<ol class=list-inline><li>'matrix'</li><li>'array'</li></ol>
+<ol class="list-inline"><li>'matrix'</li><li>'array'</li></ol>
 
 
 
