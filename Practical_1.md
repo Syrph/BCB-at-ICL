@@ -1,5 +1,16 @@
+---
+title: ""
+permalink: /Practical_test/
+excerpt: ""
+last_modified_at: 2020-07-27
+redirect_from:
+  - /theme-setup/
+toc: true
+layout: single
+sidebar:
+  nav: "docs"
+---
 
-# Biodiversity and Conservation Biology (Imperial College London)
 
 ## Basics in R
 
@@ -293,9 +304,6 @@ e[-4] # e without the fourth element
 
 Vectors can be combined into a matrix.
 
-<br>
-<br>
-<br>
 
 
 ```R
@@ -375,11 +383,6 @@ class(both.types)
 
 What happened there? 'both.types' was a matrix and not a dataframe. Be careful combining strings and numbers together without specifying that you want a dataframe. R will coerce the numbers in strings, so each value is represented as "1", "2", "3"... rather than as actual numbers.
 
-<br>
-<br>
-<br>
-<br>
-<br>
 
 
 ```R
@@ -444,18 +447,6 @@ class(both.types$numbers)
 **An important note: It's tempting to name variables as single letters (a, b, c) as we did at the beginning of the practical. However, for anything slightly more complex than what we've done this becomes confusing very quickly. It's much better to use longer variables like 'numbers' or 'letters'. This describes what the variable is, and makes it easier for yourself and others to read your code and understand it! An easy way to separate words is to use periods '.' or underscores '_'.**
 
 Dataframes have lots of useful functions that make them easy to use. First we'll make a slightly longer dataframe.
-
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
 
 
 ```R
@@ -673,10 +664,6 @@ all.numbers[,"large_numbers"]
 
 
 
-<br>
-<br>
-<br>
-
 ### 3. Reading, writing and .Rdata files ###
 
 Because we're working with jupyter notebooks we won't cover reading and writing in much detail. Briefly, you can export data (especially dataframes) using a few simple functions: 
@@ -698,16 +685,6 @@ To read files back in:
 
 Objects can also be saved as .RData and loaded back into R at a later time using save() and load(). This is handy when models may take a long time to run, and you don't have to rerun them everytime you start a new R session.
 
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
 
 ### 4. Plotting data
 
