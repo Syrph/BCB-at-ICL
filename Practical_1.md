@@ -141,7 +141,7 @@ d
 .list-inline>li {display: inline-block}
 .list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
 </style>
-<ol> class=list-inline
+<ol class="list-inline">
 	<li>0</li>
 	<li>1</li>
 	<li>2</li>
