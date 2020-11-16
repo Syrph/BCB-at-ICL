@@ -39,7 +39,7 @@ docs:
         url: Practical_2/#5-manipulating-phylogenetic-trees-in-r
       - title: "Adding trait data to trees"
         url: Practical_2/#6-adding-trait-data-to-trees-in-r
- - title: "3. Macroecology analyses"
+  - title: "3. Macroecology analyses"
     url: /Practical_3/
     children:
       - title: "Introduction and resources"
