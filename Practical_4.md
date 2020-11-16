@@ -1,6 +1,6 @@
 ---
 title: ""
-permalink: /Practical_4/
+permalink: /Practical_4_not_ready/
 excerpt: ""
 last_modified_at: 2020-07-27
 redirect_from:
