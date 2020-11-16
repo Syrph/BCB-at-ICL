@@ -34,8 +34,21 @@ docs:
       - title: "Loading your phylogeny and data into R"
         url: Practical_2/#3-loading-your-phylogeny-and-data-into-r
       - title: "Basic tree viewing"
-        url: Practical_1/#4-basic-tree-viewing-in-r
+        url: Practical_2/#4-basic-tree-viewing-in-r
       - title: "Manipulating phylogenetic trees"
         url: Practical_2/#5-manipulating-phylogenetic-trees-in-r
       - title: "Adding trait data to trees"
         url: Practical_2/#6-adding-trait-data-to-trees-in-r
+ - title: "3. Macroecology analyses"
+    url: /Practical_3/
+    children:
+      - title: "Introduction and resources"
+        url: Practical_3/#1-introduction-and-resources
+      - title: "Linear Models"
+        url: Practical_3/#2-linear-models
+      - title: "Phylogenetic generalised least squares models"
+        url: Practical_3/#3-phylogenetic-generalised-least-squares-models
+      - title: "Rapoport's Rule"
+        url: Practical_3/#4-rapoports-rule
+      - title: "Latitudinal diversity gradient"
+        url: Practical_3/#5-latitudinal-diversity-gradient
