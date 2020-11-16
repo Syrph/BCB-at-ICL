@@ -120,7 +120,7 @@ Now we need to load in our tree. For this practical we're using a random tree ex
 
 Because we're not sure on the exact placement of some species tips, the Jetz tree has multiple versions, each with a slightly different layout. Normally this only means a few species have swapped places slighly. This is why we've chosen a random tree for our analysis. There are other (better) methods for dealing with this uncertainty, but for these practicals it will be enough to use a random tree. If you're interested in these methods then this is a good paper to check out:
 
-https://academic.oup.com/cz/article/61/6/959/1800551
+https://academic.oup.com/sysbio/article-abstract/68/4/632/5267840?redirectedFrom=fulltext
 
 
 ```R
@@ -352,7 +352,7 @@ head(Accip_EDGE)
 
 We can now calculate our EDGE scores using some simple maths:
 
-$$EDGE=ln⁡(1+ED)+GE×ln⁡(2)$$
+$$ EDGE=ln⁡(1+ED)+GE×ln⁡(2) $$
 
 We have already done the first half. Now we just need to multiply GE scores by the natural log of 2, and combine them.
 
@@ -605,7 +605,7 @@ FD[FD$FDn == max(FD$FDn),]
 
 So the species with the largest FD score is	*Gyps himalayensis*, the Himalayan Griffon. Not suprising seeing as Himalayan Griffons are one of the heaviest flying birds alive today! We can also combine GE scores to see how IUCN categories change our priorities. We use the same formula as before:
 
-$$FUDGE=ln⁡(1+FD)+GE×ln⁡(2)$$
+$$ FUDGE=ln⁡(1+FD)+GE×ln⁡(2) $$
 
 
 ```R
@@ -744,7 +744,7 @@ As we can see, all of the higest FUDGE scores are critically endangered. This ha
 
 So we've used EDGE scores to combine extinction risk with evolutionary diversity, and FUDGE scores to do the same with functional diversity. However, both are important, and we might want to combine all three into one metric. This is exactly what EcoEDGE scores do. And we've pretty much done all the hard work already. The equation is similar to the ones we've used, but we give ED and FD scores equal weighting:
 
-$$EcoEDGE= (0.5×EDn + 0.5×FDn) + GE×ln⁡(2)$$
+$$ EcoEDGE= (0.5×EDn + 0.5×FDn) + GE×ln⁡(2) $$
 
 And remember our EDn and FDn scores have already been logged, so we don't need to log them now.
 
