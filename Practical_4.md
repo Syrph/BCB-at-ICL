@@ -1,16 +1,18 @@
+---
+title: ""
+permalink: /Practical_4/
+excerpt: ""
+last_modified_at: 2020-07-27
+redirect_from:
+  - /theme-setup/
+layout: single
+classes: wide
+sidebar:
+  nav: docs
+---
 
 ## EDGE Scores and Conservation Strategy
 
-
-```R
-#@title ### Run to set up notebook (Takes ~ 15 minutes).
-# Clone github repository, install spatial dependencies for linux, install R packages
-dir.create("My Git Repo")
-git2r::clone("https://github.com/Syrph/BCB_Practicals", "My Git Repo")
-setwd("My Git Repo")
-system("sudo apt-get update")
-system("sudo apt-get install libgdal-dev libproj-dev libgeos-dev libudunits2-dev libv8-dev libprotobuf-dev libjq-dev")
-source("install.R")
 
 # Load in all the accip maps and combine them into one big sp datafame
 library(rgdal)
@@ -307,7 +309,7 @@ plot(bird_tree)
 
 
 
-![png](Practical_4_files/Practical_4_9_1.png)
+![png](Practical_4_9_1.png)
 
 
 ### 2. ED Scores
@@ -462,7 +464,7 @@ unique(Accip_data$Redlist_cat)
 .list-inline>li {display: inline-block}
 .list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
 </style>
-<ol class=list-inline><li>'LC'</li><li>'VU'</li><li>'NT'</li><li>'EN'</li><li>'CR'</li><li>'DD'</li></ol>
+<ol class="list-inline"><li>'LC'</li><li>'VU'</li><li>'NT'</li><li>'EN'</li><li>'CR'</li><li>'DD'</li></ol>
 
 
 
@@ -477,7 +479,7 @@ unique(Accip_data$GE)
 .list-inline>li {display: inline-block}
 .list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
 </style>
-<ol class=list-inline><li>0</li><li>2</li><li>1</li><li>3</li><li>4</li></ol>
+<ol class="list-inline"><li>0</li><li>2</li><li>1</li><li>3</li><li>4</li></ol>
 
 
 
@@ -605,7 +607,7 @@ hist(Accip_EDGE$EDGE, breaks = 20)
 ```
 
 
-![png](Practical_4_files/Practical_4_29_0.png)
+![png](Practical_4_29_0.png)
 
 
 
@@ -698,7 +700,7 @@ plot(trait_tree, cex=0.4)
 ```
 
 
-![png](Practical_4_files/Practical_4_37_0.png)
+![png](Practical_4_37_0.png)
 
 
 FD trees can fail if there are too many NAs in the data. If this is the case for your taxa, either impute missing data using genus averages (following Swenson et al. 2013) or remove species or traits with high NA counts from FD analysis. Note, however, that the bird data is very complete so there should be no need to remove NA species from the dataset; this should be a last resort so only do this if the analyses are failing repeatedly.
@@ -1245,7 +1247,7 @@ hist(Accip_EcoEDGE$EcoEDGE, breaks = 20)
 
 
 
-![png](Practical_4_files/Practical_4_53_3.png)
+![png](Practical_4_53_3.png)
 
 
 Unsuprisingly, the 	Philippine Eagle is again the highest species. However, most birds in Accipitridae are not currently threatened by extinction according to IUCN criteria. For your own taxa, this may be a very different story, and ED and FD scores may matter a lot more. It's also up to you if you want to down weight GE scores, or you agree that conservation priority goes to those species most threatened with extinction. How you chose to interpret and present your results is up to you, and will depend on the group that you've chosen.
@@ -1315,7 +1317,7 @@ head(Accip_maps)
 .list-inline>li {display: inline-block}
 .list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
 </style>
-<ol class=list-inline><li>'sf'</li><li>'data.frame'</li></ol>
+<ol class="list-inline"><li>'sf'</li><li>'data.frame'</li></ol>
 
 
 
