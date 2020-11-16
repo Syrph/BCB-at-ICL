@@ -1,176 +1,17 @@
+---
+title: ""
+permalink: /Practical_3/
+excerpt: ""
+last_modified_at: 2020-07-27
+redirect_from:
+  - /theme-setup/
+layout: single
+classes: wide
+sidebar:
+  nav: docs
+---
 
 ## Macroecology analyses
-
-
-```R
-#@title ### Run to set up notebook (Takes ~ 15 minutes).
-# Clone github repository, install spatial dependencies for linux, install R packages
-dir.create("My Git Repo")
-git2r::clone("https://github.com/Syrph/BCB_Practicals", "My Git Repo")
-setwd("My Git Repo")
-system("sudo apt-get update")
-system("sudo apt-get install libgdal-dev libproj-dev libgeos-dev libudunits2-dev libv8-dev libprotobuf-dev libjq-dev")
-source("install.R")
-
-# Load in all the accip maps and combine them into one big sp datafame
-library(rgdal)
-library(raster)
-library(dplyr)
-
-# Get the file names that are Rdata objects
-file_names <- list.files()
-indices <- grep("*Rdata", file_names)
-file_names <- file_names[indices]
-
-# load in the first map and create a vector ready
-load("Accipiter_albogularis_maps.Rdata")
-assign("Accipiter_albogularis_maps", species_map)
-Accip_maps <- Accipiter_albogularis_maps
-
-# Load in the rest of the maps and combine them
-for (file in file_names[2:248]){
-  name <- gsub(".Rdata", "", file)
-  load(file)
-  assign(name, species_map)
-  Accip_maps <- rbind(Accip_maps, get(name))
-}
-
-# Save it back as an R.data object
-save(Accip_maps, file = "Accipitridae_maps.Rdata")
-rm(list=ls())
-
-# Remove the packages for students to load back in later
-detach("package:raster", unload = TRUE)
-detach("package:rgdal", unload = TRUE)
-detach("package:dplyr", unload= TRUE)
-```
-
-    cloning into 'My Git Repo'...
-    Receiving objects:   1% (5/460),   12 kb
-    Receiving objects:  11% (51/460),   36 kb
-    Receiving objects:  21% (97/460), 19799 kb
-    Receiving objects:  31% (143/460), 55267 kb
-    Receiving objects:  41% (189/460), 89391 kb
-    Receiving objects:  51% (235/460), 143079 kb
-    Receiving objects:  61% (281/460), 181330 kb
-    Receiving objects:  71% (327/460), 196545 kb
-    Receiving objects:  81% (373/460), 196945 kb
-    Receiving objects:  91% (419/460), 204416 kb
-    Receiving objects: 100% (460/460), 205293 kb, done.
-
-
-
-    Local:    master /content/My Git Repo
-    Remote:   master @ origin (https://github.com/Syrph/BCB_Practicals)
-    Head:     [2ec98a8] 2020-11-09: Add files via upload
-
-
-    Installing package into ‘/usr/local/lib/R/site-library’
-    (as ‘lib’ is unspecified)
-    
-    Installing package into ‘/usr/local/lib/R/site-library’
-    (as ‘lib’ is unspecified)
-    
-    Installing package into ‘/usr/local/lib/R/site-library’
-    (as ‘lib’ is unspecified)
-    
-    also installing the dependency ‘mvtnorm’
-    
-    
-    also installing the dependencies ‘tmvnsim’, ‘quadprog’, ‘igraph’, ‘fastmatch’, ‘maps’, ‘clusterGeneration’, ‘coda’, ‘combinat’, ‘expm’, ‘gtools’, ‘mnormt’, ‘numDeriv’, ‘phangorn’, ‘plotrix’, ‘scatterplot3d’
-    
-    
-    Installing package into ‘/usr/local/lib/R/site-library’
-    (as ‘lib’ is unspecified)
-    
-    also installing the dependencies ‘subplex’, ‘deSolve’, ‘ncbit’
-    
-    
-    Installing package into ‘/usr/local/lib/R/site-library’
-    (as ‘lib’ is unspecified)
-    
-    also installing the dependency ‘sp’
-    
-    
-    Installing package into ‘/usr/local/lib/R/site-library’
-    (as ‘lib’ is unspecified)
-    
-    also installing the dependencies ‘dotCall64’, ‘spam’, ‘XML’, ‘geosphere’, ‘fields’, ‘maptools’, ‘rgdal’, ‘rgeos’
-    
-    
-    Installing package into ‘/usr/local/lib/R/site-library’
-    (as ‘lib’ is unspecified)
-    
-    also installing the dependencies ‘e1071’, ‘triebeard’, ‘classInt’, ‘units’, ‘urltools’, ‘httpcode’, ‘protolite’, ‘sf’, ‘crul’, ‘V8’, ‘geojson’, ‘jqr’
-    
-    
-    Downloading GitHub repo rstudio/reticulate@HEAD
-    
-
-
-    rappdirs (NA -> 0.3.1) [CRAN]
-
-
-    Installing 1 packages: rappdirs
-    
-    Installing package into ‘/usr/local/lib/R/site-library’
-    (as ‘lib’ is unspecified)
-    
-
-
-    [32m✔[39m  [90mchecking for file ‘/tmp/Rtmpm5Uv4O/remotes393ddcbc18/rstudio-reticulate-6a0e23f/DESCRIPTION’[39m[36m[39m
-    [90m─[39m[90m  [39m[90mpreparing ‘reticulate’:[39m[36m[39m
-    [32m✔[39m  [90mchecking DESCRIPTION meta-information[39m[36m[39m
-    [90m─[39m[90m  [39m[90mcleaning src[39m[36m[39m
-    [90m─[39m[90m  [39m[90mchecking for LF line-endings in source and make files and shell scripts[39m[36m[39m
-    [90m─[39m[90m  [39m[90mchecking for empty or unneeded directories[39m[36m[39m
-    [90m─[39m[90m  [39m[90mbuilding ‘reticulate_1.18-9000.tar.gz’[39m[36m[39m
-       
-
-
-    Installing package into ‘/usr/local/lib/R/site-library’
-    (as ‘lib’ is unspecified)
-    
-    Installing package into ‘/usr/local/lib/R/site-library’
-    (as ‘lib’ is unspecified)
-    
-    Installing package into ‘/usr/local/lib/R/site-library’
-    (as ‘lib’ is unspecified)
-    
-    Installing package into ‘/usr/local/lib/R/site-library’
-    (as ‘lib’ is unspecified)
-    
-    Loading required package: sp
-    
-    rgdal: version: 1.5-18, (SVN revision 1082)
-    Geospatial Data Abstraction Library extensions to R successfully loaded
-    Loaded GDAL runtime: GDAL 2.2.3, released 2017/11/20
-    Path to GDAL shared files: /usr/share/gdal/2.2
-    GDAL binary built with GEOS: TRUE 
-    Loaded PROJ runtime: Rel. 4.9.3, 15 August 2016, [PJ_VERSION: 493]
-    Path to PROJ shared files: (autodetected)
-    Linking to sp version:1.4-4
-    
-    
-    Attaching package: ‘dplyr’
-    
-    
-    The following objects are masked from ‘package:raster’:
-    
-        intersect, select, union
-    
-    
-    The following objects are masked from ‘package:stats’:
-    
-        filter, lag
-    
-    
-    The following objects are masked from ‘package:base’:
-    
-        intersect, setdiff, setequal, union
-    
-    
-
 
 ### 1. Introduction and resources
 
@@ -234,7 +75,7 @@ plot(Body_Mass ~ abs_latitude, data = duck_data)
 ```
 
 
-![png](Practical_3_files/Practical_3_8_0.png)
+![png](Practical_3_8_0.png)
 
 
 Now there doesn't seem to be much of a relationship at all from our plot. However, to double check we should look at the spread of data for both variables. In particular, body mass is often logarithmically distributed, with lots of small species and fewer large ones. Therefore we might not be seeing the true relationship! 
@@ -246,7 +87,7 @@ hist(duck_data$Body_Mass)
 ```
 
 
-![png](Practical_3_files/Practical_3_10_0.png)
+![png](Practical_3_10_0.png)
 
 
 As we suspected! The histogram suggests a log-normal distribution. If we take logs we might see a more normal distribution.
@@ -258,7 +99,7 @@ hist(duck_data$log_BM)
 ```
 
 
-![png](Practical_3_files/Practical_3_12_0.png)
+![png](Practical_3_12_0.png)
 
 
 Now we've got some data that resembles a more normal distribution! We'll now look at the spread of latitude.
@@ -269,7 +110,7 @@ hist(duck_data$abs_latitude)
 ```
 
 
-![png](Practical_3_files/Practical_3_14_0.png)
+![png](Practical_3_14_0.png)
 
 
 Not great, but no obvious signs of left or right skews in the data, so we can work with it. We'll leave it as it is.
@@ -281,7 +122,7 @@ plot(log_BM ~ abs_latitude, data = duck_data)
 ```
 
 
-![png](Practical_3_files/Practical_3_16_0.png)
+![png](Practical_3_16_0.png)
 
 
 Now we're starting to see some kind of relationship! There's a lot of spread to the points, but we can see the smallest species at the lowest latitudes, and the largest at the highest. To really find out if there's a relationship we can test our hypothesis with a linear model. 
@@ -366,7 +207,7 @@ segments(x, y, x, predict(linear))
 ```
 
 
-![png](Practical_3_files/Practical_3_20_0.png)
+![png](Practical_3_20_0.png)
 
 
 From the plots we can see that the blue linear model line passes closer to all of our data points than simply using the mean line. The black lines from our data points to the linear model are the residual variation left over once we've accounted for x. This is often referred to as the residuals.
@@ -413,7 +254,7 @@ abline(duck_model)
 ```
 
 
-![png](Practical_3_files/Practical_3_24_0.png)
+![png](Practical_3_24_0.png)
 
 
 Of course, we can see that many data points don't fit this line. If we look at the adjusted R-squared, we can see that our model explains roughly 9% of the variation in body size. Most macroevolutionary studies have low R-squared values, so this is quite high! We could potentially increase this more by including other predictors which influence body size. Have a think about what these predictors could be. 
@@ -429,7 +270,7 @@ plot(density(duck_model$residuals))
 ```
 
 
-![png](Practical_3_files/Practical_3_26_0.png)
+![png](Practical_3_26_0.png)
 
 
 Our residuals look pretty normally distributed. It's normally good enough just to inspect these plots by eye, to check there's no extreme left or right skew to the distribution. 
@@ -457,7 +298,7 @@ plot(duck_tree)
 
 
 
-![png](Practical_3_files/Practical_3_28_1.png)
+![png](Practical_3_28_1.png)
 
 
 We now need to attach our body mass data and tree together, and we can do this by creating a comparative data object from the `caper` package.
@@ -560,7 +401,7 @@ plot(duck_comp$phy)
 ```
 
 
-![png](Practical_3_files/Practical_3_33_0.png)
+![png](Practical_3_33_0.png)
 
 
 So we can see that our comparative object has worked as it should. Now we can run a pgls to see if information on the phylogeny makes any difference.
@@ -649,7 +490,7 @@ plot(lambda_0_tree, show.tip.label = FALSE, direction = "downwards", main = "0.0
 ```
 
 
-![png](Practical_3_files/Practical_3_39_0.png)
+![png](Practical_3_39_0.png)
 
 
 What's actually happening is the lambda value shortens all the interal branches (everything except the tips). This reduces the difference between species. In the last plot we can see a lambda value of zero, and all the branches are equally close to the root, and therefore to each other. This means that all our species are now independent points, and if we ran a pgls we would get similar results to a linear model. Try it out running a pgls with different lambda values and see what happens!
@@ -667,7 +508,7 @@ plot(lambda_likelihood)
 ```
 
 
-![png](Practical_3_files/Practical_3_41_0.png)
+![png](Practical_3_41_0.png)
 
 
 On the horizontal axis we can see potential lambda values, and on the vertical is how likely they are. Red lines show the 95% confidence intervals. This shows that we are fairly confident in our lambda value. It's always worth plotting the our lambda profile, as a flatter line would mean we're less confident in our lambda, and might not have controlled for our phylogeny properly. Also be wary of smaller phylogenies, as the lambda value is harder to estimate. Try and pick a group with more than 100 species for your coursework just to be safe. 
@@ -878,7 +719,7 @@ plot(final_layer, col=rainbow(2))
 ```
 
 
-![png](Practical_3_files/Practical_3_52_0.png)
+![png](Practical_3_52_0.png)
 
 
 So now we can see where all the small range sizes are relative to the large ones. However, it doesn't look very pretty and countries without any ranges are left off the map. We can make a much clearer map using `ggplot2`. Again don't be worried about all the code. This is mainly for aesthetic purposes!
@@ -942,7 +783,7 @@ range_plot
 
 
 
-![png](Practical_3_files/Practical_3_54_1.png)
+![png](Practical_3_54_1.png)
 
 
 That looks much better than the first. Experiment with your own maps to create a map for your report. Try changing how you show ranges, such as what detirmines if a range is large or small, or anything else you can think of! You can save your plots as a file using different formats like a jpeg. Watch out for how the map transforms when it's saved and edit your plots accordingly.
@@ -993,7 +834,7 @@ hist(Accip_data$lat.bins, breaks = 7)
 ```
 
 
-![png](Practical_3_files/Practical_3_58_0.png)
+![png](Practical_3_58_0.png)
 
 
 It definetly looks like a pattern is going on there! We can investigate this using a model. Because the data is count, it looks like it has a poisson distribution. For this reason we might want to utilise a generalised linear model instead. GLMs are similar to linear models, but they use link-functions to transform the equation. For more information look at this blog:
@@ -1091,7 +932,7 @@ lines(species_richness$lat.bins, accip_model$fitted.values)
 ```
 
 
-![png](Practical_3_files/Practical_3_64_0.png)
+![png](Practical_3_64_0.png)
 
 
 Don't worry if that seems confusing! It's initially quite hard to understand, but in the plot you can see that there's roughly a 5% decrease in species richness with every 1 degree latitude increase. 
@@ -1121,7 +962,7 @@ plot(final_layer)
 ```
 
 
-![png](Practical_3_files/Practical_3_66_0.png)
+![png](Practical_3_66_0.png)
 
 
 Again we can make this map nicer!
