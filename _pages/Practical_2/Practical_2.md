@@ -81,7 +81,7 @@ text(-0.6, 3, "Tip")
 ```
 
 
-![png](Practical%202_9_0.png)
+![png](Practical 2_9_0.png)
 
 
 When we select a node to act as the base of a tree, the tree is said to be **rooted**. At the bottom of a tree, is the **root node** (or simply the **root**).
@@ -99,7 +99,7 @@ text(0.5, 3.18, "Root")
 ```
 
 
-![png](Practical%202_11_0.png)
+![png](Practical 2_11_0.png)
 
 
 Phylogenetic trees of the kind shown above are fairly simple and lack information about time or character changes occurring along a branch. We can assign branch length in the form of either time or the amount of change/substitution along a branch. A tree with **branch lengths** depicted can be called a **phylogram**.
@@ -114,7 +114,7 @@ axisPhylo()
 ```
 
 
-![png](Practical%202_13_0.png)
+![png](Practical 2_13_0.png)
 
 
 #### B. Informatic representations of tree
@@ -165,7 +165,7 @@ nodelabels() ; tiplabels()
 ```
 
 
-![png](Practical%202_15_0.png)
+![png](Practical 2_15_0.png)
 
 
 #### Records & pointers
@@ -425,7 +425,7 @@ plot(fishtree, cex = 0.5)
 ```
 
 
-![png](Practical%202_37_0.png)
+![png](Practical 2_37_0.png)
 
 
 `cex = 0.5` reduces the size of the tip labels so we can read them. 
@@ -438,7 +438,7 @@ zoom(fishtree, grep("Gymnothorax", fishtree$tip.label), subtree = FALSE, cex = 0
 ```
 
 
-![png](Practical%202_39_0.png)
+![png](Practical 2_39_0.png)
 
 
 The `grep` function is a generic function in `R` that allows to *grab* any element in an object containing the desired characters.
@@ -454,7 +454,7 @@ zoom(fishtree, grep("Gymnothorax", fishtree$tip.label), subtree = TRUE, cex = 0.
 ```
 
 
-![png](Practical%202_41_0.png)
+![png](Practical 2_41_0.png)
 
 
 Note that `zoom` is a specific plotting function that will automatically set the plotting window to display two plots at once. This might create some conflicts if you're using RStudio. The bug can be easily solved though by typing `dev.off()` to reinitialise the plotting window and then proceed to the normal `zoom(...)` function as written above.
@@ -486,7 +486,7 @@ plot(fishtree, type = "unrooted", edge.color = "deeppink", tip.color = "springgr
 ```
 
 
-![png](Practical%202_47_0.png)
+![png](Practical 2_47_0.png)
 
 
 Or try
@@ -497,7 +497,7 @@ plot(ladderize(fishtree), type = "c", edge.color = "darkviolet", tip.color = "ho
 ```
 
 
-![png](Practical%202_49_0.png)
+![png](Practical 2_49_0.png)
 
 
 The `ladderize` function allows to display the branches from shortest to longest.
@@ -522,7 +522,7 @@ plotTree(Ran_Turdidae_tree,type="fan",fsize=0.4,lwd=0.5,ftype="i")
 ```
 
 
-![png](Practical%202_55_0.png)
+![png](Practical 2_55_0.png)
 
 
 First, lets see what species are in the tree.
@@ -577,7 +577,7 @@ plotTree(Ran_Turdidae_tree_NM,type="fan",fsize=0.4,lwd=0.5,ftype="i")
 ```
 
 
-![png](Practical%202_61_0.png)
+![png](Practical 2_61_0.png)
 
 
 Alternatively, lets say we want to extract the clade within the tree that includes the pre identified selected range of species.
@@ -591,7 +591,7 @@ plotTree(pruned_birdtree,ftype="i")
 ```
 
 
-![png](Practical%202_63_0.png)
+![png](Practical 2_63_0.png)
 
 
 **Remember, always to save your new revised tree. As this will save you time from having to prune it everytime. Use `write.tree` or `write.nexus` the same as you would to save a dataframe.**
@@ -676,7 +676,7 @@ plotTree(genera_tree,ftype="i")
 ```
 
 
-![png](Practical%202_68_0.png)
+![png](Practical 2_68_0.png)
 
 
 As the tree has dropped all but one species per genus, this means we will finally need to also rename the tip labels as well to reflect this change.
@@ -694,7 +694,7 @@ plotTree(genera_tree,ftype="i")
 ```
 
 
-![png](Practical%202_70_0.png)
+![png](Practical 2_70_0.png)
 
 
 It is important to note, that a big limitation with this approach is that by selecting only one species per genus to keep, that you may run the risk of unintentially dropping tips of species that are paraphyletic. For example, Zoothera genus is spread throughout Turdidae tree.
@@ -706,11 +706,11 @@ zoom(Ran_Turdidae_tree, grep("Zoothera", Ran_Turdidae_tree$tip.label), subtree =
 ```
 
 
-![png](Practical%202_72_0.png)
+![png](Practical 2_72_0.png)
 
 
 
-![png](Practical%202_72_1.png)
+![png](Practical 2_72_1.png)
 
 
 This means that when collapsing a phylogenetic tree you run the risk of miss representing the relationship between the different genera. The only way to get round this is by:
@@ -835,7 +835,7 @@ plotTree(turdi_tree,ftype="i")
 ```
 
 
-![png](Practical%202_86_0.png)
+![png](Practical 2_86_0.png)
 
 
 Now lets try using ggtree to plot our data with our phylogeny. First we need to install `ggtree`. This package was intentionally left out of the 'install.R' script. Because not all packages are available from `CRAN` directly through `R`, we'll install `BiocManager`. `devtools` is another great package for installing packages from github.
@@ -875,7 +875,7 @@ turdidae_plot
 ```
 
 
-![png](Practical%202_91_0.png)
+![png](Practical 2_91_0.png)
 
 
 Now we'll create a simple one column dataframe with just the habitat data to plot and the species names as row names.
@@ -915,7 +915,7 @@ plot(gheat)
 
 
 
-![png](Practical%202_95_1.png)
+![png](Practical 2_95_1.png)
 
 
 And now we have a plot where we can see the spread of habitat types in Thrushes. Try experimenting with different colours and sizes to create some beautiful trees that put this one to shame! There's also lots of other ways you can label trees. For more info this guide is a great place to start: 
