@@ -34,12 +34,12 @@ $type-size-8 : 0.625em;  // ~10px
 
 /* rescale text and images */
 body {
-font-size: 75%;
+font-size: 85%;
 }
 
 img[alt="png"] {
-   width: 750px;
-   height: 750px;
+   width: 900px;
+   height: 900px;
 }
 
 @import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}"; // skin
