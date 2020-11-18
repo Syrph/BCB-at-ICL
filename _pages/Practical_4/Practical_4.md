@@ -555,9 +555,6 @@ And does including IUCN categories change our conservation priorities?
 ```R
 # Find the highest EDGE score
 Accip_FUDGE[Accip_FUDGE$FUDGE == max(Accip_FUDGE$FUDGE),]
-
-# Find the EDGE score for Gyps himalayensis
-Accip_FUDGE[Accip_FUDGE$Jetz_Name == "Gyps_himalayensis",]
 ```
 
 <table>
@@ -570,6 +567,11 @@ Accip_FUDGE[Accip_FUDGE$Jetz_Name == "Gyps_himalayensis",]
 	<tr><th scope=row>213</th><td>Pithecophaga jefferyi</td><td>Philippine Eagle</td><td>Pithecophaga_jefferyi</td><td>Accipitriformes</td><td>Accipitridae</td><td>5175.32</td><td>84.6747</td><td>CR</td><td>4</td><td>0.5161775</td><td>0.4161924</td><td>0.5855067</td><td>3.188781</td></tr>
 </tbody>
 </table>
+
+```R
+# Find the EDGE score for Gyps himalayensis
+Accip_FUDGE[Accip_FUDGE$Jetz_Name == "Gyps_himalayensis",]
+```
 
 <table>
 <caption>A data.frame: 1 × 13</caption>
@@ -701,12 +703,7 @@ Accip_FUDGE[Accip_FUDGE$FUDGE > quantile(Accip_FUDGE$FUDGE, 0.95),]
  <tr><th scope=row>203</th><td>Nisaetus floris        </td><td>Flores Hawk-eagle     </td><td>Nisaetus_floris        </td><td>Accipitriformes</td><td>Accipitridae</td><td>1475.12</td><td>41.76429</td><td>CR</td><td>4</td><td>0.08519898</td><td>0.08176336</td><td>0.1084768</td><td>2.854352</td></tr>
  <tr><th scope=row>213</th><td>Pithecophaga jefferyi  </td><td>Philippine Eagle      </td><td>Pithecophaga_jefferyi  </td><td>Accipitriformes</td><td>Accipitridae</td><td>5175.32</td><td>84.67470</td><td>CR</td><td>4</td><td>0.51617750</td><td>0.41619237</td><td>0.5855067</td><td>3.188781</td></tr>
  <tr><th scope=row>222</th><td>Sarcogyps calvus       </td><td>Red-headed Vulture    </td><td>Sarcogyps_calvus       </td><td>Accipitriformes</td><td>Accipitridae</td><td>4469.89</td><td>68.16769</td><td>CR</td><td>4</td><td>0.11786494</td><td>0.11142056</td><td>0.1507798</td><td>2.884009</td></tr>
- <tr><th scope=row>236</th><td>Trigonoceps occipitalis</td><td>White-headed Vulture  </td><td>Trigonoceps_occipitalis</td><td>Accipitriformes</td><td>Accipitridae</td><td>3016.00</td><td>71.85713</td><td>CR</td><td>4</td><td>0.41182176</td><td>0.34488090</td><td>0.4837879</td><td>3.117470</td>
-	</tr>
-	
-</tbody>
-
-</table>
+ <tr><th scope=row>236</th><td>Trigonoceps occipitalis</td><td>White-headed Vulture  </td><td>Trigonoceps_occipitalis</td><td>Accipitriformes</td><td>Accipitridae</td><td>3016.00</td><td>71.85713</td><td>CR</td><td>4</td><td>0.41182176</td><td>0.34488090</td><td>0.4837879</td><td>3.117470</td></tr></tbody></table>
 
 <br>
 
