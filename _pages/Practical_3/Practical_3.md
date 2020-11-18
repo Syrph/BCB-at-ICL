@@ -75,7 +75,7 @@ plot(Body_Mass ~ abs_latitude, data = duck_data)
 ```
 
 
-![png](Practical%203_8_0.png)
+![png](Practical 3_8_0.png)
 
 
 Now there doesn't seem to be much of a relationship at all from our plot. However, to double check we should look at the spread of data for both variables. In particular, body mass is often logarithmically distributed, with lots of small species and fewer large ones. Therefore we might not be seeing the true relationship! 
@@ -87,7 +87,7 @@ hist(duck_data$Body_Mass)
 ```
 
 
-![png](Practical%203_10_0.png)
+![png](Practical 3_10_0.png)
 
 
 As we suspected! The histogram suggests a log-normal distribution. If we take logs we might see a more normal distribution.
@@ -99,7 +99,7 @@ hist(duck_data$log_BM)
 ```
 
 
-![png](Practical%203_12_0.png)
+![png](Practical 3_12_0.png)
 
 
 Now we've got some data that resembles a more normal distribution! We'll now look at the spread of latitude.
@@ -110,7 +110,7 @@ hist(duck_data$abs_latitude)
 ```
 
 
-![png](Practical%203_14_0.png)
+![png](Practical 3_14_0.png)
 
 
 Not great, but no obvious signs of left or right skews in the data, so we can work with it. We'll leave it as it is.
@@ -122,7 +122,7 @@ plot(log_BM ~ abs_latitude, data = duck_data)
 ```
 
 
-![png](Practical%203_16_0.png)
+![png](Practical 3_16_0.png)
 
 
 Now we're starting to see some kind of relationship! There's a lot of spread to the points, but we can see the smallest species at the lowest latitudes, and the largest at the highest. To really find out if there's a relationship we can test our hypothesis with a linear model. 
@@ -207,7 +207,7 @@ segments(x, y, x, predict(linear))
 ```
 
 
-![png](Practical%203_20_0.png)
+![png](Practical 3_20_0.png)
 
 
 From the plots we can see that the blue linear model line passes closer to all of our data points than simply using the mean line. The black lines from our data points to the linear model are the residual variation left over once we've accounted for x. This is often referred to as the residuals.
@@ -254,7 +254,7 @@ abline(duck_model)
 ```
 
 
-![png](Practical%203_24_0.png)
+![png](Practical 3_24_0.png)
 
 
 Of course, we can see that many data points don't fit this line. If we look at the adjusted R-squared, we can see that our model explains roughly 9% of the variation in body size. Most macroevolutionary studies have low R-squared values, so this is quite high! We could potentially increase this more by including other predictors which influence body size. Have a think about what these predictors could be. 
@@ -270,7 +270,7 @@ plot(density(duck_model$residuals))
 ```
 
 
-![png](Practical%203_26_0.png)
+![png](Practical 3_26_0.png)
 
 
 Our residuals look pretty normally distributed. It's normally good enough just to inspect these plots by eye, to check there's no extreme left or right skew to the distribution. 
@@ -292,7 +292,7 @@ plot(duck_tree)
 ```
 
 
-![png](Practical%203_28_0.png)
+![png](Practical 3_28_0.png)
 
 
 We now need to attach our body mass data and tree together, and we can do this by creating a comparative data object from the `caper` package.
@@ -395,7 +395,7 @@ plot(duck_comp$phy)
 ```
 
 
-![png](Practical%203_33_0.png)
+![png](Practical 3_33_0.png)
 
 
 So we can see that our comparative object has worked as it should. Now we can run a pgls to see if information on the phylogeny makes any difference.
@@ -484,7 +484,7 @@ plot(lambda_0_tree, show.tip.label = FALSE, direction = "downwards", main = "0.0
 ```
 
 
-![png](Practical%203_39_0.png)
+![png](Practical 3_39_0.png)
 
 
 What's actually happening is the lambda value shortens all the interal branches (everything except the tips). This reduces the difference between species. In the last plot we can see a lambda value of zero, and all the branches are equally close to the root, and therefore to each other. This means that all our species are now independent points, and if we ran a pgls we would get similar results to a linear model. Try it out running a pgls with different lambda values and see what happens!
@@ -502,7 +502,7 @@ plot(lambda_likelihood)
 ```
 
 
-![png](Practical%203_41_0.png)
+![png](Practical 3_41_0.png)
 
 
 On the horizontal axis we can see potential lambda values, and on the vertical is how likely they are. Red lines show the 95% confidence intervals. This shows that we are fairly confident in our lambda value. It's always worth plotting the our lambda profile, as a flatter line would mean we're less confident in our lambda, and might not have controlled for our phylogeny properly. Also be wary of smaller phylogenies, as the lambda value is harder to estimate. Try and pick a group with more than 100 species for your coursework just to be safe. 
@@ -697,7 +697,7 @@ plot(Accip_maps$Shape[1], axes=TRUE)
 ```
 
 
-![png](Practical%203_49_0.png)
+![png](Practical 3_49_0.png)
 
 
 Some species have multiple rows, based on different types of ranges (i.e. breeding range, see (http://datazone.birdlife.org/species/spcdistPOS) for more information). We need to combine different ranges for each species and calculate the range size. 
@@ -779,7 +779,7 @@ plot(range_raster, col=rainbow(2))
 ```
 
 
-![png](Practical%203_54_0.png)
+![png](Practical 3_54_0.png)
 
 
 So now we can see where all the small range sizes are relative to the large ones. However, it doesn't look very pretty and countries without any ranges are left off the map. We can make a much clearer map using `ggplot2`. 
@@ -838,7 +838,7 @@ range_plot
 ```
 
 
-![png](Practical%203_57_0.png)
+![png](Practical 3_57_0.png)
 
 
 That looks much better than the first. Experiment with your own maps to create a map for your report. Try changing how you show ranges, such as what detirmines if a range is large or small, or anything else you can think of! You can save your plots as a file using different formats like a jpeg. Watch out for how the map transforms when it's saved and edit your plots accordingly.
@@ -889,7 +889,7 @@ hist(Accip_data$lat.bins, breaks = 7)
 ```
 
 
-![png](Practical%203_61_0.png)
+![png](Practical 3_61_0.png)
 
 
 It definetly looks like a pattern is going on there! We can investigate this using a model. Because the data is count, it looks like it has a poisson distribution. For this reason we might want to utilise a generalised linear model instead. Also because we've binned species, we won't use a pgls for this question. First let's generate species richness.
@@ -983,7 +983,7 @@ lines(species_richness$lat.bins, accip_model$fitted.values)
 ```
 
 
-![png](Practical%203_67_0.png)
+![png](Practical 3_67_0.png)
 
 
 Don't worry if that seems confusing! It's initially quite hard to understand, but in the plot you can see that there's roughly a 5% decrease in species richness with every 1 degree latitude increase. 
@@ -1000,7 +1000,7 @@ plot(SR_raster)
 ```
 
 
-![png](Practical%203_69_0.png)
+![png](Practical 3_69_0.png)
 
 
 Again we can make this map nicer!
@@ -1030,5 +1030,5 @@ richness_plot
 ```
 
 
-![png](Practical%203_71_0.png)
+![png](Practical 3_71_0.png)
 
