@@ -588,17 +588,70 @@ Yes! Funnily enough the Philippine Eagle is again the species we need to check. 
 # Get the top 5% of FD scores.
 Accip_FUDGE[Accip_FUDGE$FD > quantile(Accip_FUDGE$FD, 0.95),]
 ```
-
 <table>
 <caption>A data.frame: 12 × 13</caption>
 <thead>
-	<tr><th></th><th scope=col>Birdlife_Name</th><th scope=col>Birdlife_common.name</th><th scope=col>Jetz_Name</th><th scope=col>Jetz_order</th><th scope=col>Jetz_family</th><th scope=col>Body_mass</th><th scope=col>Beak</th><th scope=col>Redlist_cat</th><th scope=col>GE</th><th scope=col>FD</th><th scope=col>FDlog</th><th scope=col>FDn</th><th scope=col>FUDGE</th></tr>
-	<tr><th></th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th></tr>
+	<tr><th></th>
+		<th scope=col>Birdlife_Name</th>
+		<th scope=col>Birdlife_common.name</th>
+		<th scope=col>Jetz_Name</th>
+		<th scope=col>Jetz_order</th>
+		<th scope=col>Jetz_family</th>
+		<th scope=col>Body_mass</th>
+		<th scope=col>Beak</th>
+		<th scope=col>Redlist_cat</th>
+		<th scope=col>GE</th>
+		<th scope=col>FD</th>
+		<th scope=col>FDlog</th>
+		<th scope=col>FDn</th>
+		<th scope=col>FUDGE</th></tr>
+	<tr><th></th>
+		<th scope=col>&lt;chr&gt;</th>
+		<th scope=col>&lt;chr&gt;</th>
+		<th scope=col>&lt;chr&gt;</th>
+		<th scope=col>&lt;chr&gt;</th>
+		<th scope=col>&lt;chr&gt;</th>
+		<th scope=col>&lt;dbl&gt;</th>
+		<th scope=col>&lt;dbl&gt;</th>
+		<th scope=col>&lt;chr&gt;</th>
+		<th scope=col>&lt;dbl&gt;</th>
+		<th scope=col>&lt;dbl&gt;</th>
+		<th scope=col>&lt;dbl&gt;</th>
+		<th scope=col>&lt;dbl&gt;</th>
+		<th scope=col>&lt;dbl&gt;</th></tr>
 </thead>
 <tbody>
-	<tr><th scope=row>47</th><td>Aegypius monachus      </td><td>Cinereous Vulture     </td><td>Aegypius_monachus       </td><td>Accipitriformes</td><td>Accipitridae</td><td>9320.55</td><td>87.34178</td><td>NT</td><td>1</td><td>0.9245229</td><td>0.6546781</td><td>0.9256830</td><td>1.3478253</td></tr>
-	<tr><th scope=row>143</th><td>Gyps africanus         </td><td>White-backed Vulture  </td><td>Gyps_africanus          </td><td>Accipitriformes</td><td>Accipitridae</td><td>5432.99</td><td>61.52963</td><td>CR</td><td>4</td><td>0.4787813</td><td>0.3912183</td><td>0.5498837</td><td>3.1638070</td></tr>
-	<tr><th scope=row>145</th><td>Gyps coprotheres       </td><td>Cape Vulture          </td><td>Gyps_coprotheres        </td><td>Accipitriformes</td><td>Accipitridae</td><td>8176.99</td><td>80.53995</td><td>EN</td><td>3</td><td>0.4589860</td><td>0.3777417</td><td>0.5306606</td><td>2.4571832</td></tr>
+	<tr><th scope=row>47</th>
+		<td>Aegypius monachus      </td>
+		<td>Cinereous Vulture     </td>
+		<td>Aegypius_monachus       </td>
+		<td>Accipitriformes</td>
+		<td>Accipitridae</td>
+		<td>9320.55</td>
+		<td>87.34178</td>
+		<td>NT</td>
+		<td>1</td>
+		<td>0.9245229</td>
+		<td>0.6546781</td>
+		<td>0.9256830</td>
+		<td>1.3478253</td></tr>
+	<tr><th scope=row>143</th>
+		<td>Gyps africanus         </td>
+		<td>White-backed Vulture  </td>
+		<td>Gyps_africanus          </td>
+		<td>Accipitriformes</td>
+		<td>Accipitridae</td>
+		<td>5432.99</td>
+		<td>61.52963</td>
+		<td>CR</td>
+		<td>4</td>
+		<td>0.4787813</td>
+		<td>0.3912183</td>
+		<td>0.5498837</td>
+		<td>3.1638070</td></tr>
+	<tr><th scope=row>145</th>
+		<td>Gyps coprotheres       </td>
+		<td>Cape Vulture          </td><td>Gyps_coprotheres        </td><td>Accipitriformes</td><td>Accipitridae</td><td>8176.99</td><td>80.53995</td><td>EN</td><td>3</td><td>0.4589860</td><td>0.3777417</td><td>0.5306606</td><td>2.4571832</td></tr>
 	<tr><th scope=row>146</th><td>Gyps fulvus            </td><td>Griffon Vulture       </td><td>Gyps_fulvus             </td><td>Accipitriformes</td><td>Accipitridae</td><td>7435.99</td><td>78.58641</td><td>LC</td><td>0</td><td>0.3966918</td><td>0.3341064</td><td>0.4684193</td><td>0.3341064</td></tr>
 	<tr><th scope=row>147</th><td>Gyps himalayensis      </td><td>Himalayan Griffon     </td><td>Gyps_himalayensis       </td><td>Accipitriformes</td><td>Accipitridae</td><td>9797.95</td><td>82.81149</td><td>NT</td><td>1</td><td>1.0274505</td><td>0.7067791</td><td>1.0000000</td><td>1.3999263</td></tr>
 	<tr><th scope=row>155</th><td>Haliaeetus pelagicus   </td><td>Steller's Sea-eagle   </td><td>Haliaeetus_pelagicus    </td><td>Accipitriformes</td><td>Accipitridae</td><td>7756.99</td><td>90.42081</td><td>VU</td><td>2</td><td>0.7143908</td><td>0.5390578</td><td>0.7607621</td><td>1.9253521</td></tr>
@@ -606,8 +659,22 @@ Accip_FUDGE[Accip_FUDGE$FD > quantile(Accip_FUDGE$FD, 0.95),]
 	<tr><th scope=row>206</th><td>Nisaetus nipalensis    </td><td>Mountain Hawk-eagle   </td><td>Nisaetus_nipalensis     </td><td>Accipitriformes</td><td>Accipitridae</td><td>3004.99</td><td>44.87933</td><td>LC</td><td>0</td><td>0.4170020</td><td>0.3485433</td><td>0.4890121</td><td>0.3485433</td></tr>
 	<tr><th scope=row>212</th><td>Pernis ptilorhynchus   </td><td>Oriental Honey-buzzard</td><td>Pernis_ptilorhyncus     </td><td>Accipitriformes</td><td>Accipitridae</td><td>1141.13</td><td>55.50556</td><td>LC</td><td>0</td><td>0.4356067</td><td>0.3615875</td><td>0.5076183</td><td>0.3615875</td></tr>
 	<tr><th scope=row>213</th><td>Pithecophaga jefferyi  </td><td>Philippine Eagle      </td><td>Pithecophaga_jefferyi   </td><td>Accipitriformes</td><td>Accipitridae</td><td>5175.32</td><td>84.67470</td><td>CR</td><td>4</td><td>0.5161775</td><td>0.4161924</td><td>0.5855067</td><td>3.1887811</td></tr>
-	<tr><th scope=row>235</th><td>Torgos tracheliotos    </td><td>Lappet-faced Vulture  </td><td>Torgos_tracheliotos     </td><td>Accipitriformes</td><td>Accipitridae</td><td>6969.00</td><td>88.86140</td><td>EN</td><td>3</td><td>0.4858887</td><td>0.3960130</td><td>0.5567229</td><td>2.4754546</td></tr>
-	<tr><th scope=row>236</th><td>Trigonoceps occipitalis</td><td>White-headed Vulture  </td><td>Trigonoceps_occipitalis </td><td>Accipitriformes</td><td>Accipitridae</td><td>3016.00</td><td>71.85713</td><td>CR</td><td>4</td><td>0.4118218</td><td>0.3448809</td><td>0.4837879</td><td>3.1174696</td></tr>
+	<tr><th scope=row>235</th><td>Torgos tracheliotos    </td><td>Lappet-faced Vulture  </td><td>Torgos_tracheliotos     </td><td>Accipitriformes</td><td>Accipitridae</td><td>6969.00</td><td>88.86140</td><td>EN</td><td>3</td><td>0.4858887</td><td>0.3960130</td><td>0.5567229</td>
+		<td>2.4754546</td></tr>
+	<tr><th scope=row>236</th>
+		<td>Trigonoceps occipitalis</td>
+		<td>White-headed Vulture  </td>
+		<td>Trigonoceps_occipitalis </td>
+		<td>Accipitriformes</td>
+		<td>Accipitridae</td>
+		<td>3016.00</td>
+		<td>71.85713</td>
+		<td>CR</td>
+		<td>4</td>
+		<td>0.4118218</td>
+		<td>0.3448809</td>
+		<td>0.4837879</td>
+		<td>3.1174696</td></tr>
 </tbody>
 </table>
 
