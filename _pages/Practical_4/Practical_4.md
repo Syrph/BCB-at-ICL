@@ -19,7 +19,7 @@ sidebar:
 
 This practical is aimed to introduce you to the EDGE & FUDGE Scores that you'll need for your conservation strategy coursework. Put briefly, these scores balance the distinctiveness of species against their risk of extinction to detirmine conservation priorities. You can find out more information about EDGE scores from the ZSL website: 
 
-https://www.zsl.org/conservation/our-priorities/wildlife-back-from-the-brink/animals-on-the-edge 
+<https://www.zsl.org/conservation/our-priorities/wildlife-back-from-the-brink/animals-on-the-edge>
 
 We will also try plotting a simple map of IUCN categories so we can visual the risk to our clade across the globe.
 
