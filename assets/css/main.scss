@@ -34,10 +34,7 @@ $type-size-8 : 0.625em;  // ~10px
 
 /* rescale text and images */
 body {
-font-size: 85%;
-transform: scale(1.1);
-transform-origin: 0 0;
-   // add prefixed versions too.
+font-size: 80%;
 }
 
 img[alt="png"] {
