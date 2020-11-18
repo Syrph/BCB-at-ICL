@@ -150,7 +150,7 @@ plot(bird_tree)
 
 
 
-![png](Practical%204_9_1.png)
+![png](Practical 4_9_1.png)
 
 
 ### 2. ED Scores
@@ -448,7 +448,7 @@ hist(Accip_EDGE$EDGE, breaks = 20)
 ```
 
 
-![png](Practical%204_29_0.png)
+![png](Practical 4_29_0.png)
 
 
 
@@ -541,7 +541,7 @@ plot(trait_tree, cex=0.4)
 ```
 
 
-![png](Practical%204_37_0.png)
+![png](Practical 4_37_0.png)
 
 
 FD trees can fail if there are too many NAs in the data. If this is the case for your taxa, either impute missing data using genus averages (following Swenson et al. 2013) or remove species or traits with high NA counts from FD analysis. Note, however, that the bird data is very complete so there should be no need to remove NA species from the dataset; this should be a last resort so only do this if the analyses are failing repeatedly.
@@ -850,7 +850,7 @@ hist(Accip_EcoEDGE$EcoEDGE, breaks = 20)
 
 
 
-![png](Practical%204_53_3.png)
+![png](Practical 4_53_3.png)
 
 
 Unsuprisingly, the 	Philippine Eagle is again the highest species. However, most birds in Accipitridae are not currently threatened by extinction according to IUCN criteria. For your own taxa, this may be a very different story, and ED and FD scores may matter a lot more. It's also up to you if you want to down weight GE scores, or you agree that conservation priority goes to those species most threatened with extinction. How you chose to interpret and present your results is up to you, and will depend on the group that you've chosen.
@@ -985,7 +985,7 @@ plot(GE_raster)
 ```
 
 
-![png](Practical%204_59_0.png)
+![png](Practical 4_59_0.png)
 
 
 Now we've created our stack of range maps, and each are coded for their IUCN category. In this case we'll take the maximum GE score as the one that's shown. So if two ranges overlap, we take the highest score. 
@@ -1055,8 +1055,7 @@ GE_plot
     
 
 
-
-![png](Practical%204_62_1.png)
+![png](Practical 4_62_1.png)
 
 
 There's our finished map! Think how you'd change it yourself if you want to include one in your report. It's up to you and what you think is the best way to visualise your data!
