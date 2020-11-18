@@ -35,11 +35,14 @@ $type-size-8 : 0.625em;  // ~10px
 /* rescale text and images */
 body {
 font-size: 85%;
+transform: scale(1.1);
+transform-origin: 0 0;
+   // add prefixed versions too.
 }
 
 img[alt="png"] {
-   width: 775px;
-   height: 775px;
+   width: 700px;
+   height: 700px;
 }
 
 @import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}"; // skin
