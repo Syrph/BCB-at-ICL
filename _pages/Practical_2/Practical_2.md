@@ -1,6 +1,3 @@
-
-## Phylogenetics in R
-
 ---
 title: ""
 permalink: /Practical_2/
@@ -13,6 +10,8 @@ classes: wide
 sidebar:
   nav: docs
 ---
+
+## Phylogenetics in R
 
 ### 1. Introduction and resources
 
