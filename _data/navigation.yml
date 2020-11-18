@@ -52,3 +52,20 @@ docs:
         url: Practical_3/#4-rapoports-rule
       - title: "Latitudinal diversity gradient"
         url: Practical_3/#5-latitudinal-diversity-gradient
+ - title: "4. Setting conservation priorities"
+    url: /Practical_4/
+    children:
+      - title: "Introduction and resources"
+        url: Practical_4/#1-introduction-and-resources
+      - title: "Preparing your data"
+        url: Practical_4/#2-preparing-your-data
+      - title: "ED scores"
+        url: Practical_4/#3-ed-scores
+      - title: "EDGE scores"
+        url: Practical_4/#4-edge-scores
+      - title: "FUDGE scores"
+        url: Practical_4/#5-fudge-scores
+      - title: "EcoEDGE scores"
+        url: Practical_4/#6-ecoedge-scores
+      - title: "Plotting a map of IUCN categories"
+        url: Practical_4/#7-plotting-a-map-of-iucn-categories
