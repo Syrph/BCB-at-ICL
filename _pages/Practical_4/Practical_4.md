@@ -607,7 +607,7 @@ FD[FD$FDn == max(FD$FDn),]
 
 So the species with the largest FD score is	*Gyps himalayensis*, the Himalayan Griffon. Not suprising seeing as Himalayan Griffons are one of the heaviest flying birds alive today! We can also combine GE scores to see how IUCN categories change our priorities. We use the same formula as before:
 
-$$FUDGE=ln⁡(1+FD)+GE×ln⁡(2)$$
+$ FUDGE=ln⁡(1+FD)+GE×ln⁡(2) $
 
 
 ```R
@@ -638,7 +638,7 @@ head(Accip_FUDGE)
 
 
 
-And does IUCN categories change our conservation priorities?
+And does including IUCN categories change our conservation priorities?
 
 
 ```R
@@ -708,38 +708,32 @@ Accip_FUDGE[Accip_FUDGE$FD > quantile(Accip_FUDGE$FD, 0.95),]
 </tbody>
 </table>
 
-
-
-
 ```R
 # Get the top 5% of FUDGE scores.
 Accip_FUDGE[Accip_FUDGE$FUDGE > quantile(Accip_FUDGE$FUDGE, 0.95),]
 ```
 
-
 <table>
 <caption>A data.frame: 12 × 13</caption>
 <thead>
-	<tr><th></th><th scope=col>Birdlife_Name</th><th scope=col>Birdlife_common.name</th><th scope=col>Jetz_Name</th><th scope=col>Jetz_order</th><th scope=col>Jetz_family</th><th scope=col>Body_mass</th><th scope=col>Beak</th><th scope=col>Redlist_cat</th><th scope=col>GE</th><th scope=col>FD</th><th scope=col>FDlog</th><th scope=col>FDn</th><th scope=col>FUDGE</th></tr>
-	<tr><th></th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th></tr>
+ <tr><th></th><th scope=col>Birdlife_Name</th><th scope=col>Birdlife_common.name</th><th scope=col>Jetz_Name</th><th scope=col>Jetz_order</th><th scope=col>Jetz_family</th><th scope=col>Body_mass</th><th scope=col>Beak</th><th scope=col>Redlist_cat</th><th scope=col>GE</th><th scope=col>FD</th><th scope=col>FDlog</th><th scope=col>FDn</th><th scope=col>FUDGE</th></tr>
+ <tr><th></th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th></tr>
 </thead>
 <tbody>
-	<tr><th scope=row>85</th><td>Buteo ridgwayi         </td><td>Ridgway's Hawk        </td><td>Buteo_ridgwayi         </td><td>Accipitriformes</td><td>Accipitridae</td><td> 866.40</td><td>26.00103</td><td>CR</td><td>4</td><td>0.16777342</td><td>0.15509888</td><td>0.2130826</td><td>2.927688</td></tr>
-	<tr><th scope=row>102</th><td>Chondrohierax wilsonii </td><td>Cuban Kite            </td><td>Chondrohierax_wilsonii </td><td>Accipitriformes</td><td>Accipitridae</td><td> 286.07</td><td>38.38535</td><td>CR</td><td>4</td><td>0.15625039</td><td>0.14518234</td><td>0.1989377</td><td>2.917771</td></tr>
-	<tr><th scope=row>143</th><td>Gyps africanus         </td><td>White-backed Vulture  </td><td>Gyps_africanus         </td><td>Accipitriformes</td><td>Accipitridae</td><td>5432.99</td><td>61.52963</td><td>CR</td><td>4</td><td>0.47878128</td><td>0.39121829</td><td>0.5498837</td><td>3.163807</td></tr>
-	<tr><th scope=row>144</th><td>Gyps bengalensis       </td><td>White-rumped Vulture  </td><td>Gyps_bengalensis       </td><td>Accipitriformes</td><td>Accipitridae</td><td>4385.00</td><td>64.26252</td><td>CR</td><td>4</td><td>0.15868281</td><td>0.14728385</td><td>0.2019353</td><td>2.919873</td></tr>
-	<tr><th scope=row>148</th><td>Gyps indicus           </td><td>Indian Vulture        </td><td>Gyps_indicus           </td><td>Accipitriformes</td><td>Accipitridae</td><td>5515.00</td><td>71.58808</td><td>CR</td><td>4</td><td>0.26868324</td><td>0.23797954</td><td>0.3313037</td><td>3.010568</td></tr>
-	<tr><th scope=row>149</th><td>Gyps rueppelli         </td><td>R<fc>ppell's Vulture  </td><td>Gyps_rueppellii        </td><td>Accipitriformes</td><td>Accipitridae</td><td>7399.99</td><td>78.07370</td><td>CR</td><td>4</td><td>0.36141861</td><td>0.30852725</td><td>0.4319331</td><td>3.081116</td></tr>
-	<tr><th scope=row>150</th><td>Gyps tenuirostris      </td><td>Slender-billed Vulture</td><td>Gyps_tenuirostris      </td><td>Accipitriformes</td><td>Accipitridae</td><td>5515.00</td><td>76.21631</td><td>CR</td><td>4</td><td>0.20001224</td><td>0.18233175</td><td>0.2519276</td><td>2.954920</td></tr>
-	<tr><th scope=row>198</th><td>Necrosyrtes monachus   </td><td>Hooded Vulture        </td><td>Necrosyrtes_monachus   </td><td>Accipitriformes</td><td>Accipitridae</td><td>2043.00</td><td>63.29313</td><td>CR</td><td>4</td><td>0.25903647</td><td>0.23034672</td><td>0.3204163</td><td>3.002935</td></tr>
-	<tr><th scope=row>203</th><td>Nisaetus floris        </td><td>Flores Hawk-eagle     </td><td>Nisaetus_floris        </td><td>Accipitriformes</td><td>Accipitridae</td><td>1475.12</td><td>41.76429</td><td>CR</td><td>4</td><td>0.08519898</td><td>0.08176336</td><td>0.1084768</td><td>2.854352</td></tr>
-	<tr><th scope=row>213</th><td>Pithecophaga jefferyi  </td><td>Philippine Eagle      </td><td>Pithecophaga_jefferyi  </td><td>Accipitriformes</td><td>Accipitridae</td><td>5175.32</td><td>84.67470</td><td>CR</td><td>4</td><td>0.51617750</td><td>0.41619237</td><td>0.5855067</td><td>3.188781</td></tr>
-	<tr><th scope=row>222</th><td>Sarcogyps calvus       </td><td>Red-headed Vulture    </td><td>Sarcogyps_calvus       </td><td>Accipitriformes</td><td>Accipitridae</td><td>4469.89</td><td>68.16769</td><td>CR</td><td>4</td><td>0.11786494</td><td>0.11142056</td><td>0.1507798</td><td>2.884009</td></tr>
-	<tr><th scope=row>236</th><td>Trigonoceps occipitalis</td><td>White-headed Vulture  </td><td>Trigonoceps_occipitalis</td><td>Accipitriformes</td><td>Accipitridae</td><td>3016.00</td><td>71.85713</td><td>CR</td><td>4</td><td>0.41182176</td><td>0.34488090</td><td>0.4837879</td><td>3.117470</td></tr>
+ <tr><th scope=row>85</th><td>Buteo ridgwayi         </td><td>Ridgway's Hawk        </td><td>Buteo_ridgwayi         </td><td>Accipitriformes</td><td>Accipitridae</td><td> 866.40</td><td>26.00103</td><td>CR</td><td>4</td><td>0.16777342</td><td>0.15509888</td><td>0.2130826</td><td>2.927688</td></tr>
+ <tr><th scope=row>102</th><td>Chondrohierax wilsonii </td><td>Cuban Kite            </td><td>Chondrohierax_wilsonii </td><td>Accipitriformes</td><td>Accipitridae</td><td> 286.07</td><td>38.38535</td><td>CR</td><td>4</td><td>0.15625039</td><td>0.14518234</td><td>0.1989377</td><td>2.917771</td></tr>
+ <tr><th scope=row>143</th><td>Gyps africanus         </td><td>White-backed Vulture  </td><td>Gyps_africanus         </td><td>Accipitriformes</td><td>Accipitridae</td><td>5432.99</td><td>61.52963</td><td>CR</td><td>4</td><td>0.47878128</td><td>0.39121829</td><td>0.5498837</td><td>3.163807</td></tr>
+ <tr><th scope=row>144</th><td>Gyps bengalensis       </td><td>White-rumped Vulture  </td><td>Gyps_bengalensis       </td><td>Accipitriformes</td><td>Accipitridae</td><td>4385.00</td><td>64.26252</td><td>CR</td><td>4</td><td>0.15868281</td><td>0.14728385</td><td>0.2019353</td><td>2.919873</td></tr>
+ <tr><th scope=row>148</th><td>Gyps indicus           </td><td>Indian Vulture        </td><td>Gyps_indicus           </td><td>Accipitriformes</td><td>Accipitridae</td><td>5515.00</td><td>71.58808</td><td>CR</td><td>4</td><td>0.26868324</td><td>0.23797954</td><td>0.3313037</td><td>3.010568</td></tr>
+ <tr><th scope=row>149</th><td>Gyps rueppelli         </td><td>R<fc>ppell's Vulture  </td><td>Gyps_rueppellii        </td><td>Accipitriformes</td><td>Accipitridae</td><td>7399.99</td><td>78.07370</td><td>CR</td><td>4</td><td>0.36141861</td><td>0.30852725</td><td>0.4319331</td><td>3.081116</td></tr>
+ <tr><th scope=row>150</th><td>Gyps tenuirostris      </td><td>Slender-billed Vulture</td><td>Gyps_tenuirostris      </td><td>Accipitriformes</td><td>Accipitridae</td><td>5515.00</td><td>76.21631</td><td>CR</td><td>4</td><td>0.20001224</td><td>0.18233175</td><td>0.2519276</td><td>2.954920</td></tr>
+ <tr><th scope=row>198</th><td>Necrosyrtes monachus   </td><td>Hooded Vulture        </td><td>Necrosyrtes_monachus   </td><td>Accipitriformes</td><td>Accipitridae</td><td>2043.00</td><td>63.29313</td><td>CR</td><td>4</td><td>0.25903647</td><td>0.23034672</td><td>0.3204163</td><td>3.002935</td></tr>
+ <tr><th scope=row>203</th><td>Nisaetus floris        </td><td>Flores Hawk-eagle     </td><td>Nisaetus_floris        </td><td>Accipitriformes</td><td>Accipitridae</td><td>1475.12</td><td>41.76429</td><td>CR</td><td>4</td><td>0.08519898</td><td>0.08176336</td><td>0.1084768</td><td>2.854352</td></tr>
+ <tr><th scope=row>213</th><td>Pithecophaga jefferyi  </td><td>Philippine Eagle      </td><td>Pithecophaga_jefferyi  </td><td>Accipitriformes</td><td>Accipitridae</td><td>5175.32</td><td>84.67470</td><td>CR</td><td>4</td><td>0.51617750</td><td>0.41619237</td><td>0.5855067</td><td>3.188781</td></tr>
+ <tr><th scope=row>222</th><td>Sarcogyps calvus       </td><td>Red-headed Vulture    </td><td>Sarcogyps_calvus       </td><td>Accipitriformes</td><td>Accipitridae</td><td>4469.89</td><td>68.16769</td><td>CR</td><td>4</td><td>0.11786494</td><td>0.11142056</td><td>0.1507798</td><td>2.884009</td></tr>
+ <tr><th scope=row>236</th><td>Trigonoceps occipitalis</td><td>White-headed Vulture  </td><td>Trigonoceps_occipitalis</td><td>Accipitriformes</td><td>Accipitridae</td><td>3016.00</td><td>71.85713</td><td>CR</td><td>4</td><td>0.41182176</td><td>0.34488090</td><td>0.4837879</td><td>3.117470</td></tr>
 </tbody>
 </table>
-
-
 
 As we can see, all of the higest FUDGE scores are critically endangered. This has been a criticism of FUDGE scores, that functional diversity isn't weighted highly enough. Of course for our taxa these are probably the species we want to protect, and maybe GE should be the more pressing issue. However if your taxa has very few CR species, it's worth checking FD scores as well, as you may want to adjust your GE scores to give more weighting to FD.
 
