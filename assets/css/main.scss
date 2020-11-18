@@ -32,14 +32,12 @@ $type-size-6 : 0.75em;   // ~12px
 $type-size-7 : 0.6875em; // ~11px
 $type-size-8 : 0.625em;  // ~10px
 
-
-transform: scale(0.75);
-transform-origin: 0 0;
+font-size: 75%%
 
 
 img[alt="png"] {
-   width: 500px;
-   height: 500px;
+   width: 750px;
+   height: 750px;
 }
 
 @import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}"; // skin
