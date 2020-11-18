@@ -14,7 +14,6 @@ sidebar:
 
 ## Setting conservation priorities
 
-
 ### 1. Introduction and resources
 
 This practical is aimed to introduce you to the EDGE & FUDGE Scores that you'll need for your conservation strategy coursework. Put briefly, these scores balance the distinctiveness of species against their risk of extinction to detirmine conservation priorities. You can find out more information about EDGE scores from the ZSL website: 
@@ -25,10 +24,9 @@ We will also try plotting a simple map of IUCN categories so we can visual the r
 
 ### 2. Preparing your Data
 
-To calculate EDGE metrics, we need data on the species we're interested in, and their phylogenetic relationship. For the coursework we're interested in EDGE scores for a specific clade, however it's also common to look at areas such as national parks. 
+To calculate EDGE metrics, we need data on the species we're interested in, and their phylogenetic relationship. For the coursework we're interested in EDGE scores for a specific clade, however it's also common to look at areas such as national parks.
 
-For this practical we're going to use the same family as Practical 3, Accipitridae. We'll use the same table of traits from Practical 3 to import our data and filter it. 
-
+For this practical we're going to use the same family as Practical 3, Accipitridae. We'll use the same table of traits from Practical 3 to import our data and filter it.
 
 ```R
 trait_data <- read.csv("coursework_trait_data.csv")
@@ -36,7 +34,7 @@ str(trait_data)
 head(trait_data)
 ```
 
-    'data.frame':	9872 obs. of  8 variables:
+    'data.frame': 9872 obs. of  8 variables:
      $ Birdlife_Name       : chr  "Abeillia abeillei" "Abroscopus albogularis" "Abroscopus schisticeps" "Abroscopus superciliaris" ...
      $ Birdlife_common.name: chr  "Emerald-chinned Hummingbird" "Rufous-faced Warbler" "Black-faced Warbler" "Yellow-bellied Warbler" ...
      $ Jetz_Name           : chr  "Abeillia_abeillei" "Abroscopus_albogularis" "Abroscopus_schisticeps" "Abroscopus_superciliaris" ...
@@ -46,28 +44,23 @@ head(trait_data)
      $ Beak                : num  13.34 9.88 9.42 12.16 37.03 ...
      $ Redlist_cat         : chr  "LC" "LC" "LC" "LC" ...
 
-
-
 <table>
 <caption>A data.frame: 6 × 8</caption>
 <thead>
 	<tr><th></th><th scope=col>Birdlife_Name</th><th scope=col>Birdlife_common.name</th><th scope=col>Jetz_Name</th><th scope=col>Jetz_order</th><th scope=col>Jetz_family</th><th scope=col>Body_mass</th><th scope=col>Beak</th><th scope=col>Redlist_cat</th></tr>
-	<tr><th></th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;chr&gt;</th></tr>
+ <tr><th></th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;chr&gt;</th></tr>
 </thead>
 <tbody>
 	<tr><th scope=row>1</th><td>Abeillia abeillei       </td><td>Emerald-chinned Hummingbird</td><td>Abeillia_abeillei       </td><td>Apodiformes  </td><td>Trochilidae </td><td>   2.70</td><td>13.338358</td><td>LC</td></tr>
 	<tr><th scope=row>2</th><td>Abroscopus albogularis  </td><td>Rufous-faced Warbler       </td><td>Abroscopus_albogularis  </td><td>Passeriformes</td><td>Cettidae    </td><td>   4.84</td><td> 9.878526</td><td>LC</td></tr>
-	<tr><th scope=row>3</th><td>Abroscopus schisticeps  </td><td>Black-faced Warbler        </td><td>Abroscopus_schisticeps  </td><td>Passeriformes</td><td>Cettidae    </td><td>   4.70</td><td> 9.419303</td><td>LC</td></tr>
-	<tr><th scope=row>4</th><td>Abroscopus superciliaris</td><td>Yellow-bellied Warbler     </td><td>Abroscopus_superciliaris</td><td>Passeriformes</td><td>Cettidae    </td><td>   6.48</td><td>12.157208</td><td>LC</td></tr>
-	<tr><th scope=row>5</th><td>Aburria aburri          </td><td>Wattled Guan               </td><td>Aburria_aburri          </td><td>Galliformes  </td><td>Cracidae    </td><td>1405.08</td><td>37.027875</td><td>NT</td></tr>
-	<tr><th scope=row>6</th><td>Acanthagenys rufogularis</td><td>Spiny-cheeked Honeyeater   </td><td>Acanthagenys_rufogularis</td><td>Passeriformes</td><td>Meliphagidae</td><td>  47.80</td><td>24.232124</td><td>LC</td></tr>
+ <tr><th scope=row>3</th><td>Abroscopus schisticeps  </td><td>Black-faced Warbler        </td><td>Abroscopus_schisticeps  </td><td>Passeriformes</td><td>Cettidae    </td><td>   4.70</td><td> 9.419303</td><td>LC</td></tr>
+ <tr><th scope=row>4</th><td>Abroscopus superciliaris</td><td>Yellow-bellied Warbler     </td><td>Abroscopus_superciliaris</td><td>Passeriformes</td><td>Cettidae    </td><td>   6.48</td><td>12.157208</td><td>LC</td></tr>
+ <tr><th scope=row>5</th><td>Aburria aburri          </td><td>Wattled Guan               </td><td>Aburria_aburri          </td><td>Galliformes  </td><td>Cracidae    </td><td>1405.08</td><td>37.027875</td><td>NT</td></tr>
+ <tr><th scope=row>6</th><td>Acanthagenys rufogularis</td><td>Spiny-cheeked Honeyeater   </td><td>Acanthagenys_rufogularis</td><td>Passeriformes</td><td>Meliphagidae</td><td>  47.80</td><td>24.232124</td><td>LC</td></tr>
 </tbody>
 </table>
 
-
-
 And again filter for Accipitridae.
-
 
 ```R
 library(dplyr)
@@ -88,33 +81,25 @@ nrow(Accip_data)
     
         intersect, setdiff, setequal, union
     
-    
-
-
 
 237
 
-
-Because we're going to use EDGE scores, we should check for any extinct species we need to remove. 
-
+Because we're going to use EDGE scores, we should check for any extinct species we need to remove.
 
 ```R
 # This operator | means OR. EW means extinct in the wild.
 Accip_data %>% filter(Redlist_cat == "EX" | Redlist_cat == "EW")
 ```
 
-
 <table>
 <caption>A data.frame: 0 × 8</caption>
 <thead>
-	<tr><th scope=col>Birdlife_Name</th><th scope=col>Birdlife_common.name</th><th scope=col>Jetz_Name</th><th scope=col>Jetz_order</th><th scope=col>Jetz_family</th><th scope=col>Body_mass</th><th scope=col>Beak</th><th scope=col>Redlist_cat</th></tr>
-	<tr><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;chr&gt;</th></tr>
+ <tr><th scope=col>Birdlife_Name</th><th scope=col>Birdlife_common.name</th><th scope=col>Jetz_Name</th><th scope=col>Jetz_order</th><th scope=col>Jetz_family</th><th scope=col>Body_mass</th><th scope=col>Beak</th><th scope=col>Redlist_cat</th></tr>
+ <tr><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;chr&gt;</th></tr>
 </thead>
 <tbody>
 </tbody>
 </table>
-
-
 
 Great, no extinct species in this family! There shouldn't really be many in our Jetz phylogeny, but some do turn up occasionally.
 
@@ -123,7 +108,6 @@ Now we need to load in our tree. For this practical we're using a random tree ex
 Because we're not sure on the exact placement of some species tips, the Jetz tree has multiple versions, each with a slightly different layout. Normally this only means a few species have swapped places slighly. This is why we've chosen a random tree for our analysis. There are other (better) methods for dealing with this uncertainty, but for these practicals it will be enough to use a random tree. If you're interested in these methods then this is a good paper to check out:
 
 https://academic.oup.com/cz/article/61/6/959/1800551
-
 
 ```R
 library(ape)
@@ -146,19 +130,14 @@ plot(bird_tree)
     
     
     Loading required package: mvtnorm
-    
-
-
 
 ![png](Practical 4_9_1.png)
-
 
 ### 3. ED Scores
 
 Now that we've got our tree and our species we can start calculating our ED (Evolutionary Distinctiveness) scores. Because we are calculating the evolutionary distinctiveness of Accipitridae, we want to use the whole bird phylogeny to compare against. Then we can find then out if our species in the UK are very closely related to others in the tree, or represent distinct lineages that might want to conserve to protect valuable evolutionary diversity.
 
 We can do this easily using a simple function from the `caper` package. This sometimes takes a while to run.
-
 
 ```R
 # We can first transform our tree into a matrix of distances from each tip to tip. This step is optional but stops a warning message from ed.calc, which prefers a matrix to a tree.
@@ -169,27 +148,23 @@ ED <- ed.calc(bird_matrix)$spp
 head(ED)
 ```
 
-
 <table>
 <caption>A data.frame: 6 × 2</caption>
 <thead>
-	<tr><th></th><th scope=col>species</th><th scope=col>ED</th></tr>
-	<tr><th></th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;dbl&gt;</th></tr>
+ <tr><th></th><th scope=col>species</th><th scope=col>ED</th></tr>
+ <tr><th></th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;dbl&gt;</th></tr>
 </thead>
 <tbody>
-	<tr><th scope=row>1</th><td>Nothura_maculosa      </td><td>12.22294</td></tr>
-	<tr><th scope=row>2</th><td>Nothura_minor         </td><td>12.22294</td></tr>
-	<tr><th scope=row>3</th><td>Nothura_darwinii      </td><td>10.19624</td></tr>
-	<tr><th scope=row>4</th><td>Nothura_boraquira     </td><td>10.19624</td></tr>
-	<tr><th scope=row>5</th><td>Nothura_chacoensis    </td><td>13.05058</td></tr>
+ <tr><th scope=row>1</th><td>Nothura_maculosa      </td><td>12.22294</td></tr>
+ <tr><th scope=row>2</th><td>Nothura_minor         </td><td>12.22294</td></tr>
+ <tr><th scope=row>3</th><td>Nothura_darwinii      </td><td>10.19624</td></tr>
+ <tr><th scope=row>4</th><td>Nothura_boraquira     </td><td>10.19624</td></tr>
+ <tr><th scope=row>5</th><td>Nothura_chacoensis    </td><td>13.05058</td></tr>
 	<tr><th scope=row>6</th><td>Nothoprocta_perdicaria</td><td>15.18505</td></tr>
 </tbody>
 </table>
 
-
-
 Now that we've got our ED scores for each species, we need to log transform and normalise our scores. 
-
 
 ```R
 # By adding 1 to our scores, this prevents negative logs when our ED scores are below 1. 
@@ -199,7 +174,6 @@ ED$EDlog <- log(1+ED$ED)
 ED$EDn <- (ED$EDlog - min(ED$EDlog)) / (max(ED$EDlog) - min(ED$EDlog))
 head(ED)
 ```
-
 
 <table>
 <caption>A data.frame: 6 × 4</caption>
@@ -217,10 +191,7 @@ head(ED)
 </tbody>
 </table>
 
-
-
 Now that we have our normalised scores for all birds, we need to subset the list for just Accipitridae.
-
 
 ```R
 # Pull out the ED row numbers for our species list.
@@ -237,15 +208,12 @@ str(Accip_ED)
      $ EDlog  : num  2.97 2.97 3.1 3.1 3.33 ...
      $ EDn    : num  0.638 0.638 0.672 0.672 0.731 ...
 
-
 We now have the ED scores of 237 species in Accipitridae. With these scores we can see how unique our species are in terms of the evolutionary pathway.
-
 
 ```R
 # Find the highest ED score
 Accip_ED[Accip_ED$EDn == max(Accip_ED$EDn),]
 ```
-
 
 <table>
 <caption>A data.frame: 2 × 4</caption>
@@ -259,8 +227,6 @@ Accip_ED[Accip_ED$EDn == max(Accip_ED$EDn),]
 </tbody>
 </table>
 
-
-
 The highest ED scores belong to *Chelictinia riocourii*,  the scissor-tailed kite, and *Gampsonyx swainsonii*, the pearl kite. Both species are the only member of a monotypic genus, and part of the small subfamily Elaninae, the elanine kites. This subfamily only has six species, and all the others form one genus. Therefore, with so few close relatives, we might consider this species a conservation priority to protect as much diversity as we can. However we don't yet know if this species needs conserving...
 
 ### 4. EDGE Scores
@@ -268,7 +234,6 @@ The highest ED scores belong to *Chelictinia riocourii*,  the scissor-tailed kit
 This is where EDGE scores come in. By combining ED scores with IUCN categories we can select the species that need conservation action, and represent unique evolutionary variation.
 
 First we need to convert the IUCN status in GE (Globally Endangered) scores. This is relatively simple as we're just assigning numeric rankings, but we'll use a for loop to practice our skills! We'll also use an `if` statement as well because we have two catergories with the same GE score (near threatened and deficient).
-
 
 ```R
 # Create an empty column to store our GE scores.
@@ -294,11 +259,9 @@ for (category in redlist_cats){
 }
 ```
 
-
 ```R
 unique(Accip_data$Redlist_cat)
 ```
-
 
 <style>
 .list-inline {list-style: none; margin:0; padding: 0}
@@ -307,13 +270,9 @@ unique(Accip_data$Redlist_cat)
 </style>
 <ol class="list-inline"><li>'LC'</li><li>'VU'</li><li>'NT'</li><li>'EN'</li><li>'CR'</li><li>'DD'</li></ol>
 
-
-
-
 ```R
 unique(Accip_data$GE)
 ```
-
 
 <style>
 .list-inline {list-style: none; margin:0; padding: 0}
@@ -322,17 +281,13 @@ unique(Accip_data$GE)
 </style>
 <ol class="list-inline"><li>0</li><li>2</li><li>1</li><li>3</li><li>4</li></ol>
 
-
-
 Now we'll merge our GE scores with our ED scores in one dataframe.
-
 
 ```R
 # Join the last two columns of UK_Jetz to ED scores. This time we'll use the 'by' arguement rather than change the column names.
 Accip_EDGE <- left_join(Accip_data, Accip_ED,  by = c("Jetz_Name" = "species"))
 head(Accip_EDGE)
 ```
-
 
 <table>
 <caption>A data.frame: 6 × 12</caption>
@@ -350,21 +305,18 @@ head(Accip_EDGE)
 </tbody>
 </table>
 
-
-
 We can now calculate our EDGE scores using some simple maths:
 
+<img src="https://render.githubusercontent.com/render/math?math=EDGE=ln⁡(1+ED)+GE×ln⁡(2)">
 $$EDGE=ln⁡(1+ED)+GE×ln⁡(2)$$
 
 We have already done the first half. Now we just need to multiply GE scores by the natural log of 2, and combine them.
-
 
 ```R
 # The log function uses natural logarithims by default.
 Accip_EDGE$EDGE <- Accip_EDGE$EDlog + Accip_EDGE$GE * log(2)
 head(Accip_EDGE)
 ```
-
 
 <table>
 <caption>A data.frame: 6 × 13</caption>
@@ -382,10 +334,7 @@ head(Accip_EDGE)
 </tbody>
 </table>
 
-
-
 Now we have our EDGE scores, we can see if our conservation priority has changed in light of IUCN categories.
-
 
 ```R
 # Find the highest EDGE score.
@@ -395,7 +344,6 @@ Accip_EDGE[Accip_EDGE$EDGE == max(Accip_EDGE$EDGE),]
 Accip_EDGE[Accip_EDGE$Jetz_Name == "Chelictinia_riocourii",]
 Accip_EDGE[Accip_EDGE$Jetz_Name == "Gampsonyx_swainsonii",]
 ```
-
 
 <table>
 <caption>A data.frame: 1 × 13</caption>
@@ -408,9 +356,6 @@ Accip_EDGE[Accip_EDGE$Jetz_Name == "Gampsonyx_swainsonii",]
 </tbody>
 </table>
 
-
-
-
 <table>
 <caption>A data.frame: 1 × 13</caption>
 <thead>
@@ -421,9 +366,6 @@ Accip_EDGE[Accip_EDGE$Jetz_Name == "Gampsonyx_swainsonii",]
 	<tr><th scope=row>100</th><td>Chelictinia riocourii</td><td>Scissor-tailed Kite</td><td>Chelictinia_riocourii</td><td>Accipitriformes</td><td>Accipitridae</td><td>110</td><td>17.95656</td><td>LC</td><td>0</td><td>26.82268</td><td>3.325852</td><td>0.7308933</td><td>3.325852</td></tr>
 </tbody>
 </table>
-
-
-
 
 <table>
 <caption>A data.frame: 1 × 13</caption>
@@ -436,27 +378,20 @@ Accip_EDGE[Accip_EDGE$Jetz_Name == "Gampsonyx_swainsonii",]
 </tbody>
 </table>
 
-
-
-So now we can see that the top conservation priority is Pithecophaga jefferyi	Philippine Eagle. Whilst our previous kites are still high, their low IUCN score means its less of a priority than P. jefferyi, which is critically endangered. 
+So now we can see that the top conservation priority is Pithecophaga jefferyi	Philippine Eagle. Whilst our previous kites are still high, their low IUCN score means its less of a priority than P. jefferyi, which is critically endangered.
 
 In reality, you want to preserve more than just one species! We can see from the spread of EDGE scores that there are few species with high EDGE scores, and we would ideally like to create a plan that maximises the conservation of all of them (if it's possible). Based on your own taxa you'll decide what constitutes a high EDGE score.
-
 
 ```R
 hist(Accip_EDGE$EDGE, breaks = 20)
 ```
 
-
 ![png](Practical 4_29_0.png)
-
-
 
 ```R
 # With the filter function we can split our dataframes based on rules for certain columns.
 Accip_EDGE %>% filter(EDGE > 5)
 ```
-
 
 <table>
 <caption>A data.frame: 7 × 13</caption>
@@ -475,17 +410,13 @@ Accip_EDGE %>% filter(EDGE > 5)
 </tbody>
 </table>
 
-
-
 ### 5. FUDGE Scores
 
-Instead of evolutionary distinctiveness, we might instead be interested in what functional traits each species provides. Species with low functional diversity may be 'functionally redundant' in the ecosystem, whereas those with high functional diversity may provide key ecosystem services that aren't easily replaceable. 
+Instead of evolutionary distinctiveness, we might instead be interested in what functional traits each species provides. Species with low functional diversity may be 'functionally redundant' in the ecosystem, whereas those with high functional diversity may provide key ecosystem services that aren't easily replaceable.
 
 Unlike ED, we will not calculate functional distinctiveness (FD and FDn) in relation to all species within the order worldwide. Instead, we will calculate FD and FDn for just our chosen species. The reason for this is that FD is traditionally used in the context of a specific community or radiation of species (i.e. all birds found within a national park, or all species of lemur).
 
-We need to change row names to species names and remove all the columns except traits. Then normalise our trait data so that body_mass and beak have the same scale (the same variance). 
-
-
+We need to change row names to species names and remove all the columns except traits. Then normalise our trait data so that body_mass and beak have the same scale (the same variance).
 
 ```R
 # Make a copy of Accip Data
@@ -499,7 +430,6 @@ Accip_traits <- Accip_traits[,6:7]
 Accip_traits <- scale(Accip_traits, scale=T)
 head(Accip_traits)
 ```
-
 
 <table>
 <caption>A matrix: 6 × 2 of type dbl</caption>
@@ -516,10 +446,7 @@ head(Accip_traits)
 </tbody>
 </table>
 
-
-
 To calculate functional diversity we'll create a distance matrix of our traits. Species with similar traits will have smaller 'distances'.
-
 
 ```R
 # Create a matrix
@@ -531,7 +458,6 @@ distance_matrix <- dist(traits_matrix)
 
 The next step is to create a new tree using the neighbour-joining method (Saitou & Nei, 1987) (Google for more information!). This will create a tree where branch lengths show how similar species are in trait space rather than evolutionary distance. This function may take a while with more species so don't be alarmed if the group you've chosen takes much longer.
 
-
 ```R
 # Create the tree
 trait_tree <- nj(distance_matrix)
@@ -540,14 +466,11 @@ trait_tree <- nj(distance_matrix)
 plot(trait_tree, cex=0.4)
 ```
 
-
 ![png](Practical 4_37_0.png)
-
 
 FD trees can fail if there are too many NAs in the data. If this is the case for your taxa, either impute missing data using genus averages (following Swenson et al. 2013) or remove species or traits with high NA counts from FD analysis. Note, however, that the bird data is very complete so there should be no need to remove NA species from the dataset; this should be a last resort so only do this if the analyses are failing repeatedly.
 
-With our tree of functional space, we can now calculate FD scores the same way we calculated ED scores. 
-
+With our tree of functional space, we can now calculate FD scores the same way we calculated ED scores.
 
 ```R
 # Create a matrix of distance from tip to tip.
@@ -560,7 +483,6 @@ FD <- ed.calc(tree_matrix)$spp
 colnames(FD)[2] <- "FD"
 head(FD)
 ```
-
 
 <table>
 <caption>A data.frame: 6 × 2</caption>
@@ -578,10 +500,7 @@ head(FD)
 </tbody>
 </table>
 
-
-
-Log and normalise the data as we did before with ED so we could compare FD scores from different groups. 
-
+Log and normalise the data as we did before with ED so we could compare FD scores from different groups.
 
 ```R
 FD$FDlog <- log(1+FD$FD)
@@ -590,7 +509,6 @@ FD$FDn <- (FD$FDlog - min(FD$FDlog)) / (max(FD$FDlog) - min(FD$FDlog))
 # Find the highest FD score
 FD[FD$FDn == max(FD$FDn),]
 ```
-
 
 <table>
 <caption>A data.frame: 1 × 4</caption>
@@ -603,12 +521,9 @@ FD[FD$FDn == max(FD$FDn),]
 </tbody>
 </table>
 
-
-
 So the species with the largest FD score is	*Gyps himalayensis*, the Himalayan Griffon. Not suprising seeing as Himalayan Griffons are one of the heaviest flying birds alive today! We can also combine GE scores to see how IUCN categories change our priorities. We use the same formula as before:
 
 $FUDGE=ln⁡(1+FD)+GE×ln⁡(2)$
-
 
 ```R
 # Join FD and GE scores
@@ -618,7 +533,6 @@ Accip_FUDGE <- left_join(Accip_data, FD, by = c("Jetz_Name" = "species"))
 Accip_FUDGE$FUDGE <- Accip_FUDGE$FDlog + Accip_FUDGE$GE * log(2)
 head(Accip_FUDGE)
 ```
-
 
 <table>
 <caption>A data.frame: 6 × 13</caption>
@@ -636,10 +550,7 @@ head(Accip_FUDGE)
 </tbody>
 </table>
 
-
-
 And does including IUCN categories change our conservation priorities?
-
 
 ```R
 # Find the highest EDGE score
@@ -648,7 +559,6 @@ Accip_FUDGE[Accip_FUDGE$FUDGE == max(Accip_FUDGE$FUDGE),]
 # Find the EDGE score for Gyps himalayensis
 Accip_FUDGE[Accip_FUDGE$Jetz_Name == "Gyps_himalayensis",]
 ```
-
 
 <table>
 <caption>A data.frame: 1 × 13</caption>
@@ -661,9 +571,6 @@ Accip_FUDGE[Accip_FUDGE$Jetz_Name == "Gyps_himalayensis",]
 </tbody>
 </table>
 
-
-
-
 <table>
 <caption>A data.frame: 1 × 13</caption>
 <thead>
@@ -675,16 +582,12 @@ Accip_FUDGE[Accip_FUDGE$Jetz_Name == "Gyps_himalayensis",]
 </tbody>
 </table>
 
-
-
-Yes! Funnily enough the Philippine Eagle is again the species we need to check. This may be because the GE component of FUDGE scores is weighted much higher than the FD component. In fact, looking at FD, the Himalayan Griffon has a higher score. 
-
+Yes! Funnily enough the Philippine Eagle is again the species we need to check. This may be because the GE component of FUDGE scores is weighted much higher than the FD component. In fact, looking at FD, the Himalayan Griffon has a higher score.
 
 ```R
 # Get the top 5% of FD scores.
 Accip_FUDGE[Accip_FUDGE$FD > quantile(Accip_FUDGE$FD, 0.95),]
 ```
-
 
 <table>
 <caption>A data.frame: 12 × 13</caption>
@@ -745,7 +648,6 @@ $$EcoEDGE= (0.5×EDn + 0.5×FDn) + GE×ln⁡(2)$$
 
 And remember our EDn and FDn scores have already been logged, so we don't need to log them now.
 
-
 ```R
 # Merge FD and ED scores.
 Accip_EcoEDGE <- left_join(Accip_EDGE, Accip_FUDGE)
@@ -756,9 +658,6 @@ head(Accip_EcoEDGE)
 ```
 
     Joining, by = c("Birdlife_Name", "Birdlife_common.name", "Jetz_Name", "Jetz_order", "Jetz_family", "Body_mass", "Beak", "Redlist_cat", "GE")
-    
-
-
 
 <table>
 <caption>A data.frame: 6 × 18</caption>
@@ -776,10 +675,7 @@ head(Accip_EcoEDGE)
 </tbody>
 </table>
 
-
-
 We can again look at the spread and see which are the highest species.
-
 
 ```R
 # Get the highest scoring species
@@ -792,7 +688,6 @@ Accip_EcoEDGE[Accip_EcoEDGE$EcoEDGE > quantile(Accip_EcoEDGE$EcoEDGE, 0.9),]
 hist(Accip_EcoEDGE$EcoEDGE, breaks = 20)
 ```
 
-
 <table>
 <caption>A data.frame: 1 × 18</caption>
 <thead>
@@ -803,9 +698,6 @@ hist(Accip_EcoEDGE$EcoEDGE, breaks = 20)
 	<tr><th scope=row>213</th><td>Pithecophaga jefferyi</td><td>Philippine Eagle</td><td>Pithecophaga_jefferyi</td><td>Accipitriformes</td><td>Accipitridae</td><td>5175.32</td><td>84.6747</td><td>CR</td><td>4</td><td>22.25013</td><td>3.146311</td><td>0.6844798</td><td>5.9189</td><td>0.5161775</td><td>0.4161924</td><td>0.5855067</td><td>3.188781</td><td>3.407582</td></tr>
 </tbody>
 </table>
-
-
-
 
 <table>
 <caption>A data.frame: 24 × 18</caption>
@@ -841,24 +733,17 @@ hist(Accip_EcoEDGE$EcoEDGE, breaks = 20)
 </tbody>
 </table>
 
-
-
-
 ![png](Practical 4_53_3.png)
 
-
-Unsuprisingly, the 	Philippine Eagle is again the highest species. However, most birds in Accipitridae are not currently threatened by extinction according to IUCN criteria. For your own taxa, this may be a very different story, and ED and FD scores may matter a lot more. It's also up to you if you want to down weight GE scores, or you agree that conservation priority goes to those species most threatened with extinction. How you chose to interpret and present your results is up to you, and will depend on the group that you've chosen.
+Unsuprisingly, the Philippine Eagle is again the highest species. However, most birds in Accipitridae are not currently threatened by extinction according to IUCN criteria. For your own taxa, this may be a very different story, and ED and FD scores may matter a lot more. It's also up to you if you want to down weight GE scores, or you agree that conservation priority goes to those species most threatened with extinction. How you chose to interpret and present your results is up to you, and will depend on the group that you've chosen.
 
 For the practicals and coursework we've chosen to use a simplified version of EcoEDGE scores. If you're interested in learning more, check out this paper which first proposed the use of EcoEDGE scores:
 
 https://onlinelibrary.wiley.com/doi/full/10.1111/ddi.12320
 
+### 7. Plotting a map of IUCN categories
 
-
-### 7. Plotting a map of IUCN categories.
-
-You may wish to plot maps of your IUCN redlist categories, especially if you're intersted in what areas of the world are most threatened by extinction. We can do this easily using similar code from practical 3. 
-
+You may wish to plot maps of your IUCN redlist categories, especially if you're intersted in what areas of the world are most threatened by extinction. We can do this easily using similar code from practical 3.
 
 ```R
 # First load in the spatial packages we'll need
@@ -877,7 +762,7 @@ class(Accip_maps)
 head(Accip_maps)
 ```
 
-    
+
     Attaching package: ‘raster’
     
     
@@ -919,20 +804,14 @@ head(Accip_maps)
     The following object is masked from ‘package:base’:
     
         plot
+
     
-    
-
-
-
 <style>
 .list-inline {list-style: none; margin:0; padding: 0}
 .list-inline>li {display: inline-block}
 .list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
 </style>
 <ol class="list-inline"><li>'sf'</li><li>'data.frame'</li></ol>
-
-
-
 
 <table>
 <caption>A sf: 6 × 18</caption>
@@ -950,19 +829,15 @@ head(Accip_maps)
 </tbody>
 </table>
 
-
-
 We'll run the same code as before to compile our spatial dataframe into a single raster layer. The only difference is this time we're assigning values based on GE rating rather than range size.
 
-
 ```R
-# We want to subset our range maps for each species and only the range maps in which it is present now (not historical). 
+# We want to subset our range maps for each species and only the range maps in which it is present now (not historical).
 Accip_maps <- subset(Accip_maps, Accip_maps$PRESENCE %in% c(1,2,3))
 
 # And combine the two datasets into one object.
 Accip_maps <- left_join(Accip_EcoEDGE, Accip_maps, by = c("Birdlife_Name" = "SCINAME"))
 ```
-
 
 ```R
 # Start by creating an empty raster stack to store our data in.
@@ -982,16 +857,11 @@ plot(GE_raster)
 ![png](Practical 4_59_0.png)
 
 
-Now we've created our stack of range maps, and each are coded for their IUCN category. In this case we'll take the maximum GE score as the one that's shown. So if two ranges overlap, we take the highest score. 
-
-
+Now we've created our stack of range maps, and each are coded for their IUCN category. In this case we'll take the maximum GE score as the one that's shown. So if two ranges overlap, we take the highest score.
 
 > Extra task: Do you think this is a good way to show the data? What would you do differently? Could you use another metric from today's practical? And is taking the highest score when cells overlap the best option? Try and make another map to show the data.
 
-
-
 So now you can see the spread of GE scores throughout the globe. For your own species you may wish to focus on a specific area of Earth using the `crop()` function. Again we'll use ggplot2 to make them a little nicer to look at.
-
 
 ```R
 library(tidyr)
@@ -1023,12 +893,12 @@ GE_plot <- ggplot() +
   borders(ylim = c(-60,90), fill = "grey90", colour = "grey90") +
   
   # Borders() xlim is -160/200 to catch the edge of russia. We need to reset the xlim to -180/180 to fit our raster_stack.
-  xlim(-180, 180) + 
+  xlim(-180, 180) +
 
   # Add the GE information on top.
   geom_tile(aes(x = long, y = lat, fill = index), data = raster_data) +
   colScale +
-  ggtitle("Accipitridae Threat Map") + 
+  ggtitle("Accipitridae Threat Map") +
   theme_classic() +
   ylab("Latitude") + 
   xlab("Longitude") + coord_fixed() # coord_fixed() makes ggplot keep our aspect ratio the same, rather than stretching the plot to fit all available space.
@@ -1038,7 +908,7 @@ options(repr.plot.width=15, repr.plot.height=10)
 GE_plot
 ```
 
-    
+
     Attaching package: ‘tidyr’
     
     
@@ -1047,9 +917,6 @@ GE_plot
         extract
     
     
-
-
 ![png](Practical 4_62_1.png)
-
 
 There's our finished map! Think how you'd change it yourself if you want to include one in your report. It's up to you and what you think is the best way to visualise your data!
