@@ -38,8 +38,8 @@ font-size: 85%;
 }
 
 img[alt="png"] {
-   width: 900px;
-   height: 900px;
+   width: 775px;
+   height: 775px;
 }
 
 @import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}"; // skin
