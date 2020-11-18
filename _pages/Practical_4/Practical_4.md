@@ -153,7 +153,7 @@ plot(bird_tree)
 ![png](Practical 4_9_1.png)
 
 
-### 2. ED Scores
+### 3. ED Scores
 
 Now that we've got our tree and our species we can start calculating our ED (Evolutionary Distinctiveness) scores. Because we are calculating the evolutionary distinctiveness of Accipitridae, we want to use the whole bird phylogeny to compare against. Then we can find then out if our species in the UK are very closely related to others in the tree, or represent distinct lineages that might want to conserve to protect valuable evolutionary diversity.
 
@@ -263,7 +263,7 @@ Accip_ED[Accip_ED$EDn == max(Accip_ED$EDn),]
 
 The highest ED scores belong to *Chelictinia riocourii*,  the scissor-tailed kite, and *Gampsonyx swainsonii*, the pearl kite. Both species are the only member of a monotypic genus, and part of the small subfamily Elaninae, the elanine kites. This subfamily only has six species, and all the others form one genus. Therefore, with so few close relatives, we might consider this species a conservation priority to protect as much diversity as we can. However we don't yet know if this species needs conserving...
 
-### 3. EDGE Scores
+### 4. EDGE Scores
 
 This is where EDGE scores come in. By combining ED scores with IUCN categories we can select the species that need conservation action, and represent unique evolutionary variation.
 
@@ -477,7 +477,7 @@ Accip_EDGE %>% filter(EDGE > 5)
 
 
 
-### 4. FUDGE Scores
+### 5. FUDGE Scores
 
 Instead of evolutionary distinctiveness, we might instead be interested in what functional traits each species provides. Species with low functional diversity may be 'functionally redundant' in the ecosystem, whereas those with high functional diversity may provide key ecosystem services that aren't easily replaceable. 
 
@@ -607,7 +607,7 @@ FD[FD$FDn == max(FD$FDn),]
 
 So the species with the largest FD score is	*Gyps himalayensis*, the Himalayan Griffon. Not suprising seeing as Himalayan Griffons are one of the heaviest flying birds alive today! We can also combine GE scores to see how IUCN categories change our priorities. We use the same formula as before:
 
-$ FUDGE=ln⁡(1+FD)+GE×ln⁡(2) $
+$FUDGE=ln⁡(1+FD)+GE×ln⁡(2)$
 
 
 ```R
@@ -737,7 +737,7 @@ Accip_FUDGE[Accip_FUDGE$FUDGE > quantile(Accip_FUDGE$FUDGE, 0.95),]
 
 As we can see, all of the higest FUDGE scores are critically endangered. This has been a criticism of FUDGE scores, that functional diversity isn't weighted highly enough. Of course for our taxa these are probably the species we want to protect, and maybe GE should be the more pressing issue. However if your taxa has very few CR species, it's worth checking FD scores as well, as you may want to adjust your GE scores to give more weighting to FD.
 
-### 5. EcoEDGE Scores
+### 6. EcoEDGE Scores
 
 So we've used EDGE scores to combine extinction risk with evolutionary diversity, and FUDGE scores to do the same with functional diversity. However, both are important, and we might want to combine all three into one metric. This is exactly what EcoEDGE scores do. And we've pretty much done all the hard work already. The equation is similar to the ones we've used, but we give ED and FD scores equal weighting:
 
@@ -855,7 +855,7 @@ https://onlinelibrary.wiley.com/doi/full/10.1111/ddi.12320
 
 
 
-### 6. Plotting a map of IUCN categories.
+### 7. Plotting a map of IUCN categories.
 
 You may wish to plot maps of your IUCN redlist categories, especially if you're intersted in what areas of the world are most threatened by extinction. We can do this easily using similar code from practical 3. 
 
