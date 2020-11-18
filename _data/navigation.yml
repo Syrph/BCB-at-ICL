@@ -53,8 +53,8 @@ docs:
       - title: "Latitudinal diversity gradient"
         url: Practical_3/#5-latitudinal-diversity-gradient
  - title: "4. Setting conservation priorities"
-    url: /Practical_4/
-    children:
+   url: /Practical_4/
+   children:
       - title: "Introduction and resources"
         url: Practical_4/#1-introduction-and-resources
       - title: "Preparing your data"
