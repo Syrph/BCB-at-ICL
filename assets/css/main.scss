@@ -32,11 +32,10 @@ $type-size-6 : 0.75em;   // ~12px
 $type-size-7 : 0.6875em; // ~11px
 $type-size-8 : 0.625em;  // ~10px
 
-body {
-   transform: scale(0.75);
-   transform-origin: 0 0;
-   // add prefixed versions too.
-}
+
+transform: scale(0.75);
+transform-origin: 0 0;
+
 
 img[alt="png"] {
    width: 500px;
