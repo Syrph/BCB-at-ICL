@@ -1,0 +1,980 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phylogenetics in R &#8212; Biodiversity and Conservation Biology</title>
+    
+  <link rel="stylesheet" href="_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Macroecology analyses" href="Practical_3.html" />
+    <link rel="prev" title="Basics in R" href="Practical_1.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="index.html">
+  
+  
+  <h1 class="site-logo" id="site-title">Biodiversity and Conservation Biology</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro.html">
+   Introduction
+  </a>
+ </li>
+</ul>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Practical_1.html">
+   Basics in R
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Phylogenetics in R
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Practical_3.html">
+   Macroecology analyses
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Practical_4.html">
+   Setting conservation priorities
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/Practical_2.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#introduction-and-resources">
+   1. Introduction and resources
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#installing-and-loading-extra-packages-in-r">
+     Installing and loading extra packages in R
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#a-refresher-of-phylogenetic-trees">
+   2. A refresher of phylogenetic trees
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#a-tree-parameters">
+     A. Tree parameters
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#b-informatic-representations-of-tree">
+     B. Informatic representations of tree
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#text-based-formats">
+     Text based formats
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#edge-table">
+     Edge table
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#records-pointers">
+     Records &amp; pointers
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#loading-your-phylogeny-and-data-into-r">
+   3. Loading your phylogeny and data into
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     R
+    </span>
+   </code>
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#reading-in-a-phylogeny-from-a-file">
+     Reading in a phylogeny from a file
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#reading-in-a-phylogeny-that-is-already-built-into-r">
+     Reading in a phylogeny that is already built into
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       R
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#reading-and-viewing-your-data-in-r">
+     Reading and viewing your data in
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       R
+      </span>
+     </code>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#basic-tree-viewing-in-r">
+   4. Basic tree viewing in
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     R
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#manipulating-phylogenetic-trees-in-r">
+   5. Manipulating phylogenetic trees in
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     R
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#adding-trait-data-to-trees-in-r">
+   6. Adding trait data to trees in
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     R
+    </span>
+   </code>
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="phylogenetics-in-r">
+<h1>Phylogenetics in R<a class="headerlink" href="#phylogenetics-in-r" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="introduction-and-resources">
+<h2>1. Introduction and resources<a class="headerlink" href="#introduction-and-resources" title="Permalink to this headline">¶</a></h2>
+<p>This practical introduces you to basic phylogenetic computing in <code class="docutils literal notranslate"><span class="pre">R</span></code>. We will review importing phylogenetic trees as data files, displaying phylogenetic trees visually, and some basic evolutionary computations that can be conducted with phylogenetic trees. This practical will deliver some of the important background for Coursework 1. Below you will find some of the relevant resources required for this practical.</p>
+<p>Parts (sections 2,3,4) of this practical are written by <a class="reference external" href="http://nhcooper123.github.io/">Natalie Cooper</a>.
+The original can be found <a class="reference external" href="https://github.com/nhcooper123/TeachingMaterials/blob/master/PhD_Museum/VisualisingPhylo.Rmd">here</a>. Whereas, parts (section 5 &amp; 6) of this practical are written by Adam Devenish &amp; Rob Barber (a.devenish&#64;imperial.ac.uk) (r.barber19&#64;imperial.ac.uk).</p>
+<div class="section" id="installing-and-loading-extra-packages-in-r">
+<h3>Installing and loading extra packages in R<a class="headerlink" href="#installing-and-loading-extra-packages-in-r" title="Permalink to this headline">¶</a></h3>
+<p>To plot phylogenies (or use any specialized analysis) in R, you need to download one or more additional packages from the basic R installation. For this practical you will need to load the following packages:</p>
+<p>• ape</p>
+<p>• phytools</p>
+<p>We’ve installed these packages in the last practical by using the code <code class="docutils literal notranslate"><span class="pre">source(&quot;install.R&quot;)</span></code>, but they don’t automatically get loaded into your <code class="docutils literal notranslate"><span class="pre">R</span></code> session.
+Instead you need to tell <code class="docutils literal notranslate"><span class="pre">R</span></code> to load them <strong>every time</strong> you start a new <code class="docutils literal notranslate"><span class="pre">R</span></code> session and want to use functions from these packages.
+To load the package <code class="docutils literal notranslate"><span class="pre">ape</span></code> into your current <code class="docutils literal notranslate"><span class="pre">R</span></code> session:</p>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="nf">library</span><span class="p">(</span><span class="n">ape</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>You can think of <code class="docutils literal notranslate"><span class="pre">install.packages</span></code> like installing an app from the App Store on your smart phone - you only do this once - and <code class="docutils literal notranslate"><span class="pre">library</span></code> as being like pushing the app button on your phone - you do this every time you want to use the app.</p>
+<p>Don’t forget to load <code class="docutils literal notranslate"><span class="pre">phytools</span></code> too!</p>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="nf">library</span><span class="p">(</span><span class="n">phytools</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Loading required package: maps
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="a-refresher-of-phylogenetic-trees">
+<h2>2. A refresher of phylogenetic trees<a class="headerlink" href="#a-refresher-of-phylogenetic-trees" title="Permalink to this headline">¶</a></h2>
+<p>This section will review some basic aspects of phylogenetic trees and introduce how trees are handled at the level of software. Because you are now interacting with phylogenetic trees at a ‘lower level’ (i.e. at the bioinformatics level), it is also helpful to know some of the names for parts of phylogenetic trees used in computer science.</p>
+<div class="section" id="a-tree-parameters">
+<h3>A. Tree parameters<a class="headerlink" href="#a-tree-parameters" title="Permalink to this headline">¶</a></h3>
+<p>A phylogenetic tree is an ordered, multifurcating graph with labeled <strong>tips</strong> (or <strong>leaves</strong>) (and sometimes labeled histories). It represents the relative degrees of relationships of species (i.e. tips or OTUs). The graph consists of a series of <strong>branches</strong> (or <strong>edges</strong>) with join successively towards <strong>nodes</strong> (or <strong>vertices</strong>, <em>sing.</em> <strong>vertex</strong>). Each node is subtended by a single branch, representing the lineage of ancestors leading to a node. The node is thus the common ancestor of two or more descendant branches. All the descendant branches of a given node (and all of the their respective descendants) are said to form a <strong>clade</strong> (or <strong>monophyletic group</strong>).</p>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="c1"># rtree creates a random tree. Setting the seed means that the same &#39;random&#39; tree will plotted each time. This is because random</span>
+<span class="c1"># numbers from your computer are generated using the internal clock. Google it for more info!</span>
+<span class="nf">set.seed</span><span class="p">(</span><span class="m">0</span><span class="p">);</span> <span class="nf">plot</span><span class="p">(</span><span class="nf">rtree</span><span class="p">(</span><span class="m">10</span><span class="p">),</span> <span class="s">&quot;unrooted&quot;</span><span class="p">)</span>
+
+<span class="c1"># Plot clade label</span>
+<span class="nf">rect</span><span class="p">(</span><span class="m">1.3</span><span class="p">,</span><span class="m">2.0</span><span class="p">,</span><span class="m">2.5</span><span class="p">,</span><span class="m">2.7</span><span class="p">,</span> <span class="n">border</span> <span class="o">=</span> <span class="s">&quot;grey&quot;</span><span class="p">)</span>
+<span class="nf">text</span><span class="p">(</span><span class="m">2.8</span><span class="p">,</span> <span class="m">2.5</span><span class="p">,</span> <span class="s">&quot;Clade&quot;</span><span class="p">)</span>
+
+<span class="c1"># Plot node label</span>
+<span class="nf">arrows</span><span class="p">(</span><span class="m">0.35</span><span class="p">,</span><span class="m">0.9</span><span class="p">,</span><span class="m">0.75</span><span class="p">,</span><span class="m">1</span><span class="p">,</span> <span class="n">length</span> <span class="o">=</span> <span class="m">0.125</span><span class="p">,</span> <span class="n">angle</span> <span class="o">=</span> <span class="m">20</span><span class="p">,</span> <span class="n">code</span> <span class="o">=</span> <span class="m">1</span><span class="p">)</span>
+<span class="nf">text</span><span class="p">(</span><span class="m">1.0</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="s">&quot;Node&quot;</span><span class="p">)</span>
+
+<span class="c1"># Plot edge label</span>
+<span class="nf">arrows</span><span class="p">(</span><span class="m">0.65</span><span class="p">,</span><span class="m">1.45</span><span class="p">,</span><span class="m">0.15</span><span class="p">,</span><span class="m">1.4</span><span class="p">,</span> <span class="n">length</span> <span class="o">=</span> <span class="m">0.125</span><span class="p">,</span> <span class="n">angle</span> <span class="o">=</span> <span class="m">20</span><span class="p">,</span> <span class="n">code</span> <span class="o">=</span> <span class="m">1</span><span class="p">)</span>
+<span class="nf">text</span><span class="p">(</span><span class="m">-0.1</span><span class="p">,</span> <span class="m">1.4</span><span class="p">,</span> <span class="s">&quot;Edge&quot;</span><span class="p">)</span>
+
+<span class="c1"># Plot tip label</span>
+<span class="nf">arrows</span><span class="p">(</span><span class="m">-0.15</span><span class="p">,</span><span class="m">2.8</span><span class="p">,</span><span class="m">-0.45</span><span class="p">,</span><span class="m">2.95</span><span class="p">,</span> <span class="n">length</span> <span class="o">=</span> <span class="m">0.125</span><span class="p">,</span> <span class="n">angle</span> <span class="o">=</span> <span class="m">20</span><span class="p">,</span> <span class="n">code</span> <span class="o">=</span> <span class="m">1</span><span class="p">)</span>
+<span class="nf">text</span><span class="p">(</span><span class="m">-0.6</span><span class="p">,</span> <span class="m">3</span><span class="p">,</span> <span class="s">&quot;Tip&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<a class="bg-primary reference internal image-reference" href="_images/Practical_2_9_0.png"><img alt="plot" class="bg-primary align-center" src="_images/Practical_2_9_0.png" style="width: 700px;" /></a>
+<p>When we select a node to act as the base of a tree, the tree is said to be <strong>rooted</strong>. At the bottom of a tree, is the <strong>root node</strong> (or simply the <strong>root</strong>).</p>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="c1"># You can also read in trees directly from text by specifying the branch lengths after each node/tip. More info below!</span>
+<span class="n">tree</span> <span class="o">&lt;-</span> <span class="nf">read.tree</span><span class="p">(</span><span class="n">text</span> <span class="o">=</span> <span class="s">&quot;(((Homo:1, Pan:1):1, Gorilla:1):1, Pongo:1);&quot;</span><span class="p">)</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">tree</span><span class="p">)</span>
+
+<span class="c1"># Plot root label</span>
+<span class="nf">lines</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="m">-0.5</span><span class="p">,</span><span class="m">0</span><span class="p">),</span> <span class="nf">c</span><span class="p">(</span><span class="m">3.18</span><span class="p">,</span><span class="m">3.18</span><span class="p">))</span>
+<span class="nf">arrows</span><span class="p">(</span><span class="m">0.03</span><span class="p">,</span><span class="m">3.18</span><span class="p">,</span><span class="m">0.35</span><span class="p">,</span><span class="m">3.18</span><span class="p">,</span> <span class="n">length</span> <span class="o">=</span> <span class="m">0.125</span><span class="p">,</span> <span class="n">angle</span> <span class="o">=</span> <span class="m">20</span><span class="p">,</span> <span class="n">code</span> <span class="o">=</span> <span class="m">1</span><span class="p">)</span>
+<span class="nf">text</span><span class="p">(</span><span class="m">0.5</span><span class="p">,</span> <span class="m">3.18</span><span class="p">,</span> <span class="s">&quot;Root&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<a class="bg-primary reference internal image-reference" href="_images/Practical_2_11_0.png"><img alt="plot" class="bg-primary align-center" src="_images/Practical_2_11_0.png" style="width: 700px;" /></a>
+<p>Phylogenetic trees of the kind shown above are fairly simple and lack information about time or character changes occurring along a branch. We can assign branch length in the form of either time or the amount of change/substitution along a branch. A tree with <strong>branch lengths</strong> depicted can be called a <strong>phylogram</strong>.</p>
+<p>When (an implied) dimension of time is being considered, all the tips of the tree must be at the level representing the time in which they are observed. For trees where all the species are extant, the tips are flush at the top. This representation is called an <strong>ultrametric</strong> tree.</p>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="n">tree</span> <span class="o">&lt;-</span> <span class="nf">read.tree</span><span class="p">(</span><span class="n">text</span> <span class="o">=</span> <span class="s">&quot;(((Homo:6.3, Pan:6.3):2.5, Gorilla:8.8):6.9, Pongo:15.7);&quot;</span><span class="p">)</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">tree</span><span class="p">)</span>
+<span class="nf">axisPhylo</span><span class="p">()</span>
+</pre></div>
+</div>
+<a class="bg-primary reference internal image-reference" href="_images/Practical_2_13_0.png"><img alt="plot" class="bg-primary align-center" src="_images/Practical_2_13_0.png" style="width: 700px;" /></a>
+</div>
+<div class="section" id="b-informatic-representations-of-tree">
+<h3>B. Informatic representations of tree<a class="headerlink" href="#b-informatic-representations-of-tree" title="Permalink to this headline">¶</a></h3>
+<p>To perform any useful calculations on a tree, we need both a computer-readable tree format and (in part) to understand how trees are constructed in computer memory.</p>
+</div>
+<div class="section" id="text-based-formats">
+<h3>Text based formats<a class="headerlink" href="#text-based-formats" title="Permalink to this headline">¶</a></h3>
+<p>Storage of trees for transfer between different software is essential. This is most commonly achieved with a text-based format stored in a file. The most common file format for representing phylogenetic trees is <strong>Newick format</strong>. This consists of clades represented within parentheses. Commas separate each clade. Either tip names or symbols representing the tips are nested within the lowest orders of parentheses. Each tip or branch can be associated with a branch length scalar that follows a colon.</p>
+<p>For example:</p>
+<p><code class="docutils literal notranslate"><span class="pre">&quot;(((Homo,</span> <span class="pre">Pan),</span> <span class="pre">Gorilla),</span> <span class="pre">Pongo);&quot;</span></code></p>
+<p>Or with branch length:</p>
+<p><code class="docutils literal notranslate"><span class="pre">&quot;(((Homo:6.3,</span> <span class="pre">Pan:6.3):2.5,</span> <span class="pre">Gorilla:8.8):6.9,</span> <span class="pre">Pongo:15.7);&quot;</span></code></p>
+<p>Trees are also increasing use of XML formats such as PhyloXML and NeXML.</p>
+<p>In this practical we are going to use the <code class="docutils literal notranslate"><span class="pre">elopomorph.tre</span></code> newick tree.
+You can open it with a simple text editor to see the newick tree structure.</p>
+</div>
+<div class="section" id="edge-table">
+<h3>Edge table<a class="headerlink" href="#edge-table" title="Permalink to this headline">¶</a></h3>
+<p>It is also possible to represent a phylogenetic tree as a matrix of edges and vertices called an edge table. This is an even less intuitive representation, but it is implemented in <code class="docutils literal notranslate"><span class="pre">R</span></code> and worth reviewing here.</p>
+<p>There are a number of conventions that can be used to create an edge table. The general concept consists of numbering the tips <em>1 - n</em>, and all internal nodes labeled <em>n+1 … n+n-1</em>. The numbers for the internal nodes can be assigned arbitrarily or according to an algorithm.</p>
+<p>In <code class="docutils literal notranslate"><span class="pre">R</span></code> packages like <code class="docutils literal notranslate"><span class="pre">ape</span></code>, edge tables are constructed as follows:</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>node</p></th>
+<th class="head"><p>connects to</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>5</p></td>
+<td><p>6</p></td>
+</tr>
+<tr class="row-odd"><td><p>6</p></td>
+<td><p>7</p></td>
+</tr>
+<tr class="row-even"><td><p>7</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td><p>7</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-even"><td><p>6</p></td>
+<td><p>3</p></td>
+</tr>
+<tr class="row-odd"><td><p>5</p></td>
+<td><p>4</p></td>
+</tr>
+</tbody>
+</table>
+<p>You read the table as follows: node <code class="docutils literal notranslate"><span class="pre">5</span></code> (root) connects to node <code class="docutils literal notranslate"><span class="pre">6</span></code>. The node <code class="docutils literal notranslate"><span class="pre">6</span></code> connects to node <code class="docutils literal notranslate"><span class="pre">7</span></code>. Node <code class="docutils literal notranslate"><span class="pre">7</span></code> connects to node <code class="docutils literal notranslate"><span class="pre">1</span></code> that happen to be the first tip (<code class="docutils literal notranslate"><span class="pre">Homo</span></code>) and to node <code class="docutils literal notranslate"><span class="pre">2</span></code> (<code class="docutils literal notranslate"><span class="pre">Pan</span></code>) etc… Note that in a binary tree (i.e. a tree where each node has only two descendants) each node always connects to two elements (nodes or tips).</p>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="n">tree</span> <span class="o">&lt;-</span> <span class="nf">read.tree</span><span class="p">(</span><span class="n">text</span> <span class="o">=</span> <span class="s">&quot;(((Homo, Pan), Gorilla), Pongo);&quot;</span><span class="p">)</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">tree</span><span class="p">,</span> <span class="n">label.offset</span> <span class="o">=</span> <span class="m">0.1</span><span class="p">)</span>
+<span class="nf">nodelabels</span><span class="p">()</span> <span class="p">;</span> <span class="nf">tiplabels</span><span class="p">()</span>
+</pre></div>
+</div>
+<a class="bg-primary reference internal image-reference" href="_images/Practical_2_15_0.png"><img alt="plot" class="bg-primary align-center" src="_images/Practical_2_15_0.png" style="width: 700px;" /></a>
+</div>
+<div class="section" id="records-pointers">
+<h3>Records &amp; pointers<a class="headerlink" href="#records-pointers" title="Permalink to this headline">¶</a></h3>
+<p>At a lower level, phylogenetic trees can be represented in computer memory as more complex data objects. We don’t need to go into detail here, but if you consider nodes and tips as data objects (i.e. a dataframe), a tree could be stored as an array of dataframes which store information about which store information about which members of that same array are descendants and which are ancestors.</p>
+</div>
+</div>
+<div class="section" id="loading-your-phylogeny-and-data-into-r">
+<h2>3. Loading your phylogeny and data into <code class="docutils literal notranslate"><span class="pre">R</span></code><a class="headerlink" href="#loading-your-phylogeny-and-data-into-r" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="reading-in-a-phylogeny-from-a-file">
+<h3>Reading in a phylogeny from a file<a class="headerlink" href="#reading-in-a-phylogeny-from-a-file" title="Permalink to this headline">¶</a></h3>
+<p>To load a tree you need the function <code class="docutils literal notranslate"><span class="pre">read.tree</span></code>.
+<code class="docutils literal notranslate"><span class="pre">read.tree</span></code> can read any newick format trees (see above) like the <code class="docutils literal notranslate"><span class="pre">elopomorph.tre</span></code> file.</p>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="n">fishtree</span> <span class="o">&lt;-</span> <span class="nf">read.tree</span><span class="p">(</span><span class="s">&quot;elopomorph.tre&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Be sure you are always in the right directory. Remember you can navigate in <code class="docutils literal notranslate"><span class="pre">R</span></code> using <code class="docutils literal notranslate"><span class="pre">setwd()</span></code>, <code class="docutils literal notranslate"><span class="pre">getwd()</span></code> and <code class="docutils literal notranslate"><span class="pre">list.files()</span></code> (to see what’s in the current directory). While using this notebook all the files are stored in the main binder, so you shouldn’t need to change the directory.</strong></p>
+</div>
+<div class="section" id="reading-in-a-phylogeny-that-is-already-built-into-r">
+<h3>Reading in a phylogeny that is already built into <code class="docutils literal notranslate"><span class="pre">R</span></code><a class="headerlink" href="#reading-in-a-phylogeny-that-is-already-built-into-r" title="Permalink to this headline">¶</a></h3>
+<p>The bird and anole phylogenies are already built into <code class="docutils literal notranslate"><span class="pre">R</span></code> so we don’t need to read them in using <code class="docutils literal notranslate"><span class="pre">read.tree</span></code>.
+Instead we just use:</p>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="nf">data</span><span class="p">(</span><span class="n">bird.orders</span><span class="p">)</span>
+<span class="nf">data</span><span class="p">(</span><span class="n">anoletree</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="reading-and-viewing-your-data-in-r">
+<h3>Reading and viewing your data in <code class="docutils literal notranslate"><span class="pre">R</span></code><a class="headerlink" href="#reading-and-viewing-your-data-in-r" title="Permalink to this headline">¶</a></h3>
+<p>Later we will use some Greater Antillean <em>Anolis</em> lizard data to add data to a phylogeny.
+Before we can add data to our tree, we need to load the data we are going to use.
+<code class="docutils literal notranslate"><span class="pre">R</span></code> can read files in lots of formats, including comma-delimited and tab-delimited files.
+Excel (and many other applications) can output files in this format (it’s an option in the <code class="docutils literal notranslate"><span class="pre">Save</span> <span class="pre">As</span></code> dialogue box under the <code class="docutils literal notranslate"><span class="pre">File</span></code> menu).
+To save time I have given you a comma-delimited text file called <code class="docutils literal notranslate"><span class="pre">anole.data.csv</span></code> which we are going to use.
+Load these data as follows.
+I am assuming you have set your working directory, if not don’t forget the path.</p>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="n">anoledata</span> <span class="o">&lt;-</span> <span class="nf">read.csv</span><span class="p">(</span><span class="s">&quot;anole.data.csv&quot;</span><span class="p">,</span> <span class="n">header</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>You can use <code class="docutils literal notranslate"><span class="pre">read.delim</span></code> for tab delimited files or <code class="docutils literal notranslate"><span class="pre">read.csv</span></code> for comma delimited files (<strong>c</strong>omma <strong>s</strong>eparated <strong>v</strong>alues).
+<code class="docutils literal notranslate"><span class="pre">header</span> <span class="pre">=</span> <span class="pre">TRUE</span></code>, indicates that the first line of the data contains column headings.</p>
+<p>This is a good point to note that unless you <strong>tell</strong> <code class="docutils literal notranslate"><span class="pre">R</span></code> you want to do something, it won’t do it automatically.
+So here if you successfully entered the data, <code class="docutils literal notranslate"><span class="pre">R</span></code> won’t give you any indication that it worked.
+Instead you need to specifically ask <code class="docutils literal notranslate"><span class="pre">R</span></code> to look at the data.</p>
+<p>We can look at the data by typing:</p>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="nf">str</span><span class="p">(</span><span class="n">anoledata</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;data.frame&#39;:	100 obs. of  23 variables:
+ $ species               : chr  &quot;ahli&quot; &quot;alayoni&quot; &quot;alfaroi&quot; &quot;aliniger&quot; ...
+ $ AVG.SVL               : num  4.04 3.82 3.53 4.04 4.38 ...
+ $ AVG.hl                : num  2.88 2.7 2.38 2.9 3.36 ...
+ $ AVG.hw                : num  2.36 1.99 1.56 2.37 2.69 ...
+ $ AVG.hh                : num  2.13 1.75 1.39 2.05 2.32 ...
+ $ AVG.ljl               : num  2.85 2.71 2.32 2.9 3.38 ...
+ $ AVG.outlever          : num  2.75 2.62 2.26 2.83 3.29 ...
+ $ AVG.jugal.to.symphysis: num  2.54 2.37 2.08 2.6 3.07 ...
+ $ AVG.femur             : num  2.74 2.07 2.17 2.48 2.8 ...
+ $ AVG.tibia             : num  2.69 2.02 2.09 2.34 2.69 ...
+ $ AVG.met               : num  2.25 1.54 1.55 1.87 2.18 ...
+ $ AVG.ltoe.IV           : num  2.55 1.88 1.73 2.26 2.53 ...
+ $ AVG.toe.IV.lam.width  : num  0.1795 0.0488 -0.5361 0.4904 0.8441 ...
+ $ AVG.humerus           : num  2.46 1.95 1.63 2.3 2.62 ...
+ $ AVG.radius            : num  2.27 1.69 1.4 2.09 2.34 ...
+ $ AVG.lfing.IV          : num  1.94 1.4 1.04 1.7 1.98 ...
+ $ AVG.fing.IV.lam.width : num  0.0754 -0.0739 -0.755 0.3155 0.6584 ...
+ $ AVG.pelv.ht           : num  1.99 1.51 1.19 1.87 2.1 ...
+ $ AVG.pelv.wd           : num  1.71 1.419 0.946 1.752 2.014 ...
+ $ Foot.Lam.num          : num  3.28 3.43 3.2 3.58 3.72 ...
+ $ Hand.Lam.num          : num  2.87 3.08 2.73 3.16 3.24 ...
+ $ Avg.lnSVL2            : num  3.94 3.74 3.48 3.93 4.36 ...
+ $ Avg.ln.t1             : num  4.41 4 4.37 4.44 5.04 ...
+</pre></div>
+</div>
+<p><strong>Always</strong> look at your data before beginning any analysis to check it read in correctly.</p>
+<p><code class="docutils literal notranslate"><span class="pre">str</span></code> shows the structure of the data frame (this can be a really useful command when you have a big data file).
+It also tells you what kind of variables <code class="docutils literal notranslate"><span class="pre">R</span></code> thinks you have (characters, integers, numeric, factors etc.).
+Some <code class="docutils literal notranslate"><span class="pre">R</span></code> functions need the data to be certain kinds of variables so it’s useful to check this.</p>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="nf">head</span><span class="p">(</span><span class="n">anoledata</span><span class="p">)</span>
+</pre></div>
+</div>
+<table>
+<caption>A data.frame: 6 × 23</caption>
+<thead>
+	<tr><th></th><th scope=col>species</th><th scope=col>AVG.SVL</th><th scope=col>AVG.hl</th><th scope=col>AVG.hw</th><th scope=col>AVG.hh</th><th scope=col>AVG.ljl</th><th scope=col>AVG.outlever</th><th scope=col>AVG.jugal.to.symphysis</th><th scope=col>AVG.femur</th><th scope=col>AVG.tibia</th><th scope=col>⋯</th><th scope=col>AVG.humerus</th><th scope=col>AVG.radius</th><th scope=col>AVG.lfing.IV</th><th scope=col>AVG.fing.IV.lam.width</th><th scope=col>AVG.pelv.ht</th><th scope=col>AVG.pelv.wd</th><th scope=col>Foot.Lam.num</th><th scope=col>Hand.Lam.num</th><th scope=col>Avg.lnSVL2</th><th scope=col>Avg.ln.t1</th></tr>
+	<tr><th></th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>⋯</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th></tr>
+</thead>
+<tbody>
+	<tr><th scope=row>1</th><td>ahli    </td><td>4.039125</td><td>2.882657</td><td>2.356126</td><td>2.131599</td><td>2.854745</td><td>2.754934</td><td>2.538052</td><td>2.741378</td><td>2.686032</td><td>⋯</td><td>2.460728</td><td>2.268511</td><td>1.943288</td><td> 0.07541664</td><td>1.987646</td><td>1.7095849</td><td>3.279600</td><td>2.866197</td><td>3.939015</td><td>4.406652</td></tr>
+	<tr><th scope=row>2</th><td>alayoni </td><td>3.815705</td><td>2.702116</td><td>1.990610</td><td>1.751588</td><td>2.708966</td><td>2.617852</td><td>2.371995</td><td>2.065121</td><td>2.016402</td><td>⋯</td><td>1.947873</td><td>1.687093</td><td>1.403029</td><td>-0.07391568</td><td>1.507128</td><td>1.4194873</td><td>3.432372</td><td>3.075269</td><td>3.743863</td><td>4.002788</td></tr>
+	<tr><th scope=row>3</th><td>alfaroi </td><td>3.526655</td><td>2.378156</td><td>1.556037</td><td>1.390037</td><td>2.323857</td><td>2.263844</td><td>2.077565</td><td>2.172476</td><td>2.094946</td><td>⋯</td><td>1.628260</td><td>1.401183</td><td>1.040277</td><td>-0.75502258</td><td>1.189367</td><td>0.9458495</td><td>3.198016</td><td>2.733866</td><td>3.478776</td><td>4.369448</td></tr>
+	<tr><th scope=row>4</th><td>aliniger</td><td>4.036557</td><td>2.898836</td><td>2.366592</td><td>2.046660</td><td>2.903946</td><td>2.828555</td><td>2.596821</td><td>2.475445</td><td>2.344015</td><td>⋯</td><td>2.298878</td><td>2.091864</td><td>1.702199</td><td> 0.31554040</td><td>1.867949</td><td>1.7521520</td><td>3.582875</td><td>3.156774</td><td>3.933181</td><td>4.441203</td></tr>
+	<tr><th scope=row>5</th><td>allisoni</td><td>4.375390</td><td>3.358957</td><td>2.690339</td><td>2.317309</td><td>3.381306</td><td>3.288402</td><td>3.071149</td><td>2.795145</td><td>2.687734</td><td>⋯</td><td>2.618551</td><td>2.341565</td><td>1.983412</td><td> 0.65838319</td><td>2.097302</td><td>2.0142361</td><td>3.721185</td><td>3.239211</td><td>4.355582</td><td>5.039851</td></tr>
+	<tr><th scope=row>6</th><td>allogus </td><td>4.040138</td><td>2.861027</td><td>2.351275</td><td>2.142107</td><td>2.848331</td><td>2.750404</td><td>2.539320</td><td>2.739175</td><td>2.684476</td><td>⋯</td><td>2.459994</td><td>2.267176</td><td>1.919010</td><td> 0.05329130</td><td>2.008426</td><td>1.6875679</td><td>3.335990</td><td>2.808270</td><td>4.028863</td><td>4.510920</td></tr>
+</tbody>
+</table>
+<p>This gives you the first few rows of data along with the column headings.</p>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="nf">names</span><span class="p">(</span><span class="n">anoledata</span><span class="p">)</span>
+</pre></div>
+</div>
+<style>
+.list-inline {list-style: none; margin:0; padding: 0}
+.list-inline>li {display: inline-block}
+.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
+</style>
+<ol class="list-inline"><li>'species'</li><li>'AVG.SVL'</li><li>'AVG.hl'</li><li>'AVG.hw'</li><li>'AVG.hh'</li><li>'AVG.ljl'</li><li>'AVG.outlever'</li><li>'AVG.jugal.to.symphysis'</li><li>'AVG.femur'</li><li>'AVG.tibia'</li><li>'AVG.met'</li><li>'AVG.ltoe.IV'</li><li>'AVG.toe.IV.lam.width'</li><li>'AVG.humerus'</li><li>'AVG.radius'</li><li>'AVG.lfing.IV'</li><li>'AVG.fing.IV.lam.width'</li><li>'AVG.pelv.ht'</li><li>'AVG.pelv.wd'</li><li>'Foot.Lam.num'</li><li>'Hand.Lam.num'</li><li>'Avg.lnSVL2'</li><li>'Avg.ln.t1'</li></ol>
+<p>This gives you the names of the columns.</p>
+</div>
+</div>
+<div class="section" id="basic-tree-viewing-in-r">
+<h2>4. Basic tree viewing in <code class="docutils literal notranslate"><span class="pre">R</span></code><a class="headerlink" href="#basic-tree-viewing-in-r" title="Permalink to this headline">¶</a></h2>
+<p>Now let’s visualise some phylogenies! We’ll use the Elopomorpha (eels and similar fishes) tree to start as it is simple.</p>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="n">fishtree</span> <span class="o">&lt;-</span> <span class="nf">read.tree</span><span class="p">(</span><span class="s">&quot;elopomorph.tre&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Let’s examine the tree by typing:</p>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="n">fishtree</span>
+<span class="nf">str</span><span class="p">(</span><span class="n">fishtree</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Phylogenetic tree with 62 tips and 61 internal nodes.
+
+Tip labels:
+  Moringua_edwardsi, Kaupichthys_nuchalis, Gorgasia_taiwanensis, Heteroconger_hassi, Venefica_proboscidea, Anguilla_rostrata, ...
+
+Rooted; includes branch lengths.
+
+
+List of 4
+ $ edge       : int [1:122, 1:2] 63 64 64 65 66 67 68 68 69 70 ...
+ $ edge.length: num [1:122] 0.0105 0.0672 0.00537 0.00789 0.00157 ...
+ $ Nnode      : int 61
+ $ tip.label  : chr [1:62] &quot;Moringua_edwardsi&quot; &quot;Kaupichthys_nuchalis&quot; &quot;Gorgasia_taiwanensis&quot; &quot;Heteroconger_hassi&quot; ...
+ - attr(*, &quot;class&quot;)= chr &quot;phylo&quot;
+ - attr(*, &quot;order&quot;)= chr &quot;cladewise&quot;
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">fishtree</span></code> is a fully resolved tree with branch lengths.
+There are 62 species and 61 internal nodes.
+We can plot the tree by using the <code class="docutils literal notranslate"><span class="pre">plot.phylo</span></code> function of <code class="docutils literal notranslate"><span class="pre">ape</span></code>.
+Note that we can just use the function <code class="docutils literal notranslate"><span class="pre">plot</span></code> to do this as <code class="docutils literal notranslate"><span class="pre">R</span></code> knows if we ask it to plot a phylogeny to use <code class="docutils literal notranslate"><span class="pre">plot.phylo</span></code> instead!</p>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="nf">plot</span><span class="p">(</span><span class="n">fishtree</span><span class="p">,</span> <span class="n">cex</span> <span class="o">=</span> <span class="m">0.5</span><span class="p">)</span>
+</pre></div>
+</div>
+<a class="bg-primary reference internal image-reference" href="_images/Practical_2_37_0.png"><img alt="plot" class="bg-primary align-center" src="_images/Practical_2_37_0.png" style="width: 700px;" /></a>
+<p><code class="docutils literal notranslate"><span class="pre">cex</span> <span class="pre">=</span> <span class="pre">0.5</span></code> reduces the size of the tip labels so we can read them.</p>
+<p>We can also zoom into different sections of the tree that you’re interested in:</p>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="nf">zoom</span><span class="p">(</span><span class="n">fishtree</span><span class="p">,</span> <span class="nf">grep</span><span class="p">(</span><span class="s">&quot;Gymnothorax&quot;</span><span class="p">,</span> <span class="n">fishtree</span><span class="o">$</span><span class="n">tip.label</span><span class="p">),</span> <span class="n">subtree</span> <span class="o">=</span> <span class="kc">FALSE</span><span class="p">,</span> <span class="n">cex</span> <span class="o">=</span> <span class="m">0.8</span><span class="p">)</span>
+</pre></div>
+</div>
+<a class="bg-primary reference internal image-reference" href="_images/Practical_2_39_0.png"><img alt="plot" class="bg-primary align-center" src="_images/Practical_2_39_0.png" style="width: 700px;" /></a>
+<p>The <code class="docutils literal notranslate"><span class="pre">grep</span></code> function is a generic function in <code class="docutils literal notranslate"><span class="pre">R</span></code> that allows to <em>grab</em> any element in an object containing the desired characters.
+In this example, <code class="docutils literal notranslate"><span class="pre">grep</span></code> is going to search for all the elements in <code class="docutils literal notranslate"><span class="pre">fishtree$tip.label</span></code> that contains <code class="docutils literal notranslate"><span class="pre">Gymnothorax</span></code> (e.g. <code class="docutils literal notranslate"><span class="pre">Gymnothorax_kidako</span></code>, <code class="docutils literal notranslate"><span class="pre">Gymnothorax_reticularis</span></code>).
+Try using only <code class="docutils literal notranslate"><span class="pre">grep(&quot;thorax&quot;,</span> <span class="pre">fishtree$tip.label)</span></code> to see if it also only selects the members of the <em>Gymnothorax</em> genus.</p>
+<p>In this example, we just display the tree for the <em>Gymnothorax</em> genus but you can also see how the species fit into the rest of the tree using:</p>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="nf">zoom</span><span class="p">(</span><span class="n">fishtree</span><span class="p">,</span> <span class="nf">grep</span><span class="p">(</span><span class="s">&quot;Gymnothorax&quot;</span><span class="p">,</span> <span class="n">fishtree</span><span class="o">$</span><span class="n">tip.label</span><span class="p">),</span> <span class="n">subtree</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">,</span> <span class="n">cex</span> <span class="o">=</span> <span class="m">0.8</span><span class="p">)</span>
+</pre></div>
+</div>
+<a class="bg-primary reference internal image-reference" href="_images/Practical_2_41_0.png"><img alt="plot" class="bg-primary align-center" src="_images/Practical_2_41_0.png" style="width: 700px;" /></a>
+<p>Note that <code class="docutils literal notranslate"><span class="pre">zoom</span></code> is a specific plotting function that will automatically set the plotting window to display two plots at once. This might create some conflicts if you’re using RStudio. The bug can be easily solved though by typing <code class="docutils literal notranslate"><span class="pre">dev.off()</span></code> to reinitialise the plotting window and then proceed to the normal <code class="docutils literal notranslate"><span class="pre">zoom(...)</span></code> function as written above.</p>
+<p>You can also reset this to one plot only per window by using:</p>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="nf">par</span><span class="p">(</span><span class="n">mfrow</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">1</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>To get further options for the plotting of phylogenies:</p>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="o">?</span><span class="n">plot.phylo</span>
+</pre></div>
+</div>
+<p>Using the question mark (<code class="docutils literal notranslate"><span class="pre">?</span></code>) can also be done for every function if you want more details!</p>
+<p>Note that although you can use <code class="docutils literal notranslate"><span class="pre">plot</span></code> to plot the phylogeny, you need to specify <code class="docutils literal notranslate"><span class="pre">plot.phylo</span></code> to find out the options for plotting trees. You can change the style of the tree (<code class="docutils literal notranslate"><span class="pre">type</span></code>), the color of the branches and tips (<code class="docutils literal notranslate"><span class="pre">edge.color</span></code>, <code class="docutils literal notranslate"><span class="pre">tip.color</span></code>), and the size of the tip labels (<code class="docutils literal notranslate"><span class="pre">cex</span></code>).
+Here’s an fun/hideous example!</p>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="nf">plot</span><span class="p">(</span><span class="n">fishtree</span><span class="p">,</span> <span class="n">type</span> <span class="o">=</span> <span class="s">&quot;unrooted&quot;</span><span class="p">,</span> <span class="n">edge.color</span> <span class="o">=</span> <span class="s">&quot;deeppink&quot;</span><span class="p">,</span> <span class="n">tip.color</span> <span class="o">=</span> <span class="s">&quot;springgreen&quot;</span><span class="p">,</span>  <span class="n">cex</span> <span class="o">=</span> <span class="m">0.5</span><span class="p">)</span>
+</pre></div>
+</div>
+<a class="bg-primary reference internal image-reference" href="_images/Practical_2_47_0.png"><img alt="plot" class="bg-primary align-center" src="_images/Practical_2_47_0.png" style="width: 700px;" /></a>
+<p>Or try</p>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="nf">plot</span><span class="p">(</span><span class="nf">ladderize</span><span class="p">(</span><span class="n">fishtree</span><span class="p">),</span> <span class="n">type</span> <span class="o">=</span> <span class="s">&quot;c&quot;</span><span class="p">,</span> <span class="n">edge.color</span> <span class="o">=</span> <span class="s">&quot;darkviolet&quot;</span><span class="p">,</span> <span class="n">tip.color</span> <span class="o">=</span> <span class="s">&quot;hotpink&quot;</span><span class="p">,</span>  <span class="n">cex</span> <span class="o">=</span> <span class="m">0.5</span><span class="p">)</span>
+</pre></div>
+</div>
+<a class="bg-primary reference internal image-reference" href="_images/Practical_2_49_0.png"><img alt="plot" class="bg-primary align-center" src="_images/Practical_2_49_0.png" style="width: 700px;" /></a>
+<p>The <code class="docutils literal notranslate"><span class="pre">ladderize</span></code> function allows to display the branches from shortest to longest.</p>
+<blockquote>
+<div><p>Try to modify the graphical options (colors, display, size, ordering of the nodes, etc.) to obtain the most beautiful or ugliest Elopomorpha phylogeny!</p>
+</div></blockquote>
+</div>
+<div class="section" id="manipulating-phylogenetic-trees-in-r">
+<h2>5. Manipulating phylogenetic trees in <code class="docutils literal notranslate"><span class="pre">R</span></code><a class="headerlink" href="#manipulating-phylogenetic-trees-in-r" title="Permalink to this headline">¶</a></h2>
+<p>There are a range of ways in which we can manipulate trees in R. To start lets take a look at the bird family Turdidae.</p>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="n">Turdidae_tree</span> <span class="o">&lt;-</span> <span class="nf">read.nexus</span><span class="p">(</span><span class="s">&quot;Turdidae_birdtree.nex&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>As this multiphylo object (i.e. contains 100 different trees) we need to first choose one random tree before we start.</p>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="n">Ran_Turdidae_tree</span> <span class="o">&lt;-</span> <span class="nf">sample</span><span class="p">(</span><span class="n">Turdidae_tree</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="m">1</span><span class="p">)[[</span><span class="m">1</span><span class="p">]]</span>
+<span class="nf">plotTree</span><span class="p">(</span><span class="n">Ran_Turdidae_tree</span><span class="p">,</span><span class="n">type</span><span class="o">=</span><span class="s">&quot;fan&quot;</span><span class="p">,</span><span class="n">fsize</span><span class="o">=</span><span class="m">0.4</span><span class="p">,</span><span class="n">lwd</span><span class="o">=</span><span class="m">0.5</span><span class="p">,</span><span class="n">ftype</span><span class="o">=</span><span class="s">&quot;i&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<a class="bg-primary reference internal image-reference" href="_images/Practical_2_55_0.png"><img alt="plot" class="bg-primary align-center" src="_images/Practical_2_55_0.png" style="width: 700px;" /></a>
+<p>First, lets see what species are in the tree.</p>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="n">Ran_Turdidae_tree</span><span class="o">$</span><span class="n">tip.label</span>
+</pre></div>
+</div>
+<style>
+.list-inline {list-style: none; margin:0; padding: 0}
+.list-inline>li {display: inline-block}
+.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
+</style>
+<ol class="list-inline"><li>'Zoothera_everetti'</li><li>'Zoothera_naevia'</li><li>'Zoothera_pinicola'</li><li>'Hylocichla_mustelina'</li><li>'Catharus_aurantiirostris'</li><li>'Catharus_mexicanus'</li><li>'Catharus_dryas'</li><li>'Catharus_fuscater'</li><li>'Catharus_ustulatus'</li><li>'Catharus_bicknelli'</li><li>'Catharus_fuscescens'</li><li>'Catharus_minimus'</li><li>'Catharus_frantzii'</li><li>'Catharus_guttatus'</li><li>'Catharus_occidentalis'</li><li>'Catharus_gracilirostris'</li><li>'Entomodestes_coracinus'</li><li>'Entomodestes_leucotis'</li><li>'Cichlopsis_leucogenys'</li><li>'Turdus_mupinensis'</li><li>'Psophocichla_litsitsirupa'</li><li>'Turdus_viscivorus'</li><li>'Turdus_menachensis'</li><li>'Turdus_plebejus'</li><li>'Turdus_helleri'</li><li>'Turdus_olivaceus'</li><li>'Turdus_ludoviciae'</li><li>'Turdus_iliacus'</li><li>'Turdus_lherminieri'</li><li>'Turdus_subalaris'</li><li>'Turdus_tephronotus'</li><li>'Turdus_merula'</li><li>'Turdus_pelios'</li><li>'Turdus_leucops'</li><li>'Turdus_fulviventris'</li><li>'Turdus_olivater'</li><li>'Turdus_serranus'</li><li>'Turdus_fuscater'</li><li>'Turdus_nigriceps'</li><li>'Turdus_chiguanco'</li><li>'Nesocichla_eremita'</li><li>'Turdus_ignobilis'</li><li>'Turdus_maranonicus'</li><li>'Turdus_amaurochalinus'</li><li>'Turdus_reevei'</li><li>'Turdus_rufopalliatus'</li><li>'Turdus_lawrencii'</li><li>'Turdus_flavipes'</li><li>'Turdus_obsoletus'</li><li>'Turdus_albicollis'</li><li>'Turdus_assimilis'</li><li>'Turdus_fumigatus'</li><li>'Turdus_hauxwelli'</li><li>'Turdus_leucomelas'</li><li>'Turdus_rufiventris'</li><li>'Turdus_grayi'</li><li>'Turdus_haplochrous'</li><li>'Turdus_nudigenis'</li><li>'Turdus_maculirostris'</li><li>'Turdus_daguae'</li><li>'Turdus_falcklandii'</li><li>'Turdus_olivaceofuscus'</li><li>'Turdus_libonyanus'</li><li>'Turdus_bewsheri'</li><li>'Turdus_rufitorques'</li><li>'Turdus_migratorius'</li><li>'Turdus_infuscatus'</li><li>'Turdus_nigrescens'</li><li>'Turdus_plumbeus'</li><li>'Turdus_aurantius'</li><li>'Turdus_jamaicensis'</li><li>'Turdus_swalesi'</li><li>'Turdus_boulboul'</li><li>'Turdus_hortulorum'</li><li>'Turdus_cardis'</li><li>'Turdus_unicolor'</li><li>'Turdus_dissimilis'</li><li>'Turdus_rubrocanus'</li><li>'Turdus_albocinctus'</li><li>'Turdus_kessleri'</li><li>'Turdus_pilaris'</li><li>'Turdus_ruficollis'</li><li>'Turdus_naumanni'</li><li>'Turdus_torquatus'</li><li>'Turdus_poliocephalus'</li><li>'Turdus_feae'</li><li>'Turdus_obscurus'</li><li>'Turdus_pallidus'</li><li>'Turdus_celaenops'</li><li>'Turdus_chrysolaus'</li><li>'Turdus_philomelos'</li><li>'Zoothera_guttata'</li><li>'Zoothera_gurneyi'</li><li>'Zoothera_wardii'</li><li>'Zoothera_crossleyi'</li><li>'Zoothera_oberlaenderi'</li><li>'Zoothera_machiki'</li><li>'Zoothera_piaggiae'</li><li>'Zoothera_tanganjicae'</li><li>'Zoothera_major'</li><li>'Zoothera_princei'</li><li>'Cataponera_turdoides'</li><li>'Zoothera_camaronensis'</li><li>'Zoothera_imbricata'</li><li>'Zoothera_spiloptera'</li><li>'Zoothera_citrina'</li><li>'Zoothera_interpres'</li><li>'Zoothera_dohertyi'</li><li>'Zoothera_leucolaema'</li><li>'Zoothera_peronii'</li><li>'Zoothera_cinerea'</li><li>'Zoothera_mendeni'</li><li>'Zoothera_erythronota'</li><li>'Zoothera_turipavae'</li><li>'Zoothera_schistacea'</li><li>'Zoothera_margaretae'</li><li>'Zoothera_sibirica'</li><li>'Zoothera_lunulata'</li><li>'Zoothera_heinei'</li><li>'Zoothera_dumasi'</li><li>'Zoothera_talaseae'</li><li>'Zoothera_dauma'</li><li>'Zoothera_andromedae'</li><li>'Zoothera_monticola'</li><li>'Zoothera_joiceyi'</li><li>'Zoothera_marginata'</li><li>'Zoothera_mollissima'</li><li>'Zoothera_dixoni'</li><li>'Cochoa_purpurea'</li><li>'Cochoa_azurea'</li><li>'Cochoa_viridis'</li><li>'Cochoa_beccarii'</li><li>'Chlamydochaera_jefferyi'</li><li>'Geomalia_heinrichi'</li><li>'Sialia_currucoides'</li><li>'Sialia_mexicana'</li><li>'Sialia_sialis'</li><li>'Myadestes_genibarbis'</li><li>'Myadestes_ralloides'</li><li>'Myadestes_melanops'</li><li>'Myadestes_coloratus'</li><li>'Myadestes_palmeri'</li><li>'Myadestes_elisabeth'</li><li>'Myadestes_townsendi'</li><li>'Myadestes_obscurus'</li><li>'Myadestes_occidentalis'</li><li>'Myadestes_unicolor'</li><li>'Myadestes_lanaiensis'</li><li>'Neocossyphus_poensis'</li><li>'Stizorhina_fraseri'</li><li>'Stizorhina_finschi'</li><li>'Neocossyphus_rufus'</li><li>'Alethe_fuelleborni'</li><li>'Alethe_choloensis'</li><li>'Alethe_poliophrys'</li><li>'Alethe_poliocephala'</li><li>'Alethe_diademata'</li><li>'Myophonus_borneensis'</li><li>'Myophonus_castaneus'</li><li>'Myophonus_melanurus'</li><li>'Myophonus_blighi'</li><li>'Myophonus_robinsoni'</li><li>'Myophonus_insularis'</li><li>'Myophonus_horsfieldii'</li><li>'Myophonus_caeruleus'</li><li>'Myophonus_glaucinus'</li><li>'Brachypteryx_stellata'</li><li>'Brachypteryx_montana'</li><li>'Brachypteryx_hyperythra'</li><li>'Brachypteryx_leucophrys'</li><li>'Heinrichia_calligyna'</li></ol>
+<p>Lets say we want to drop all species with the Myadestes genus. In this instance we first find all the associated tip.labels.</p>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="n">drop.species</span> <span class="o">&lt;-</span> <span class="p">(</span><span class="s">&quot;Myadestes&quot;</span><span class="p">)</span>
+
+<span class="c1"># sapply is a function that will iterate a given function over a vector (check out apply, lapply, mapply for more info)</span>
+<span class="c1"># in this case, we&#39;re using the grep function to find the index of anything in tip.labels that matches drop.species</span>
+<span class="n">selected.tips</span> <span class="o">&lt;-</span> <span class="nf">sapply</span><span class="p">(</span><span class="n">drop.species</span><span class="p">,</span><span class="n">grep</span><span class="p">,</span><span class="n">Ran_Turdidae_tree</span><span class="o">$</span><span class="n">tip.label</span><span class="p">)</span>
+
+<span class="c1"># We then use the indices to select only the tips we want from all the available tip labels</span>
+<span class="n">drop.species</span> <span class="o">&lt;-</span> <span class="n">Ran_Turdidae_tree</span><span class="o">$</span><span class="n">tip.label</span><span class="p">[</span><span class="n">selected.tips</span><span class="p">]</span>
+<span class="n">drop.species</span>
+</pre></div>
+</div>
+<style>
+.list-inline {list-style: none; margin:0; padding: 0}
+.list-inline>li {display: inline-block}
+.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
+</style>
+<ol class="list-inline"><li>'Myadestes_genibarbis'</li><li>'Myadestes_ralloides'</li><li>'Myadestes_melanops'</li><li>'Myadestes_coloratus'</li><li>'Myadestes_palmeri'</li><li>'Myadestes_elisabeth'</li><li>'Myadestes_townsendi'</li><li>'Myadestes_obscurus'</li><li>'Myadestes_occidentalis'</li><li>'Myadestes_unicolor'</li><li>'Myadestes_lanaiensis'</li></ol>
+<p>Now, we create a new tree, with the Myadestes tips dropped from it.</p>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="c1"># drop.tip will remove any matching tips from the tree</span>
+<span class="n">Ran_Turdidae_tree_NM</span><span class="o">&lt;-</span><span class="nf">drop.tip</span><span class="p">(</span><span class="n">Ran_Turdidae_tree</span><span class="p">,</span><span class="n">drop.species</span><span class="p">)</span>
+<span class="nf">plotTree</span><span class="p">(</span><span class="n">Ran_Turdidae_tree_NM</span><span class="p">,</span><span class="n">type</span><span class="o">=</span><span class="s">&quot;fan&quot;</span><span class="p">,</span><span class="n">fsize</span><span class="o">=</span><span class="m">0.4</span><span class="p">,</span><span class="n">lwd</span><span class="o">=</span><span class="m">0.5</span><span class="p">,</span><span class="n">ftype</span><span class="o">=</span><span class="s">&quot;i&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<a class="bg-primary reference internal image-reference" href="_images/Practical_2_61_0.png"><img alt="plot" class="bg-primary align-center" src="_images/Practical_2_61_0.png" style="width: 700px;" /></a>
+<p>Alternatively, lets say we want to extract the clade within the tree that includes the pre identified selected range of species.</p>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set diff will find all the tips that don&#39;t match drop.species, and then drop.tip will remove them</span>
+<span class="n">pruned_birdtree</span><span class="o">&lt;-</span><span class="nf">drop.tip</span><span class="p">(</span><span class="n">Ran_Turdidae_tree</span><span class="p">,</span>
+    <span class="nf">setdiff</span><span class="p">(</span><span class="n">Ran_Turdidae_tree</span><span class="o">$</span><span class="n">tip.label</span><span class="p">,</span><span class="n">drop.species</span><span class="p">))</span>
+<span class="nf">plotTree</span><span class="p">(</span><span class="n">pruned_birdtree</span><span class="p">,</span><span class="n">ftype</span><span class="o">=</span><span class="s">&quot;i&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<a class="bg-primary reference internal image-reference" href="_images/Practical_2_63_0.png"><img alt="plot" class="bg-primary align-center" src="_images/Practical_2_63_0.png" style="width: 700px;" /></a>
+<p><strong>Remember, always to save your new revised tree. As this will save you time from having to prune it everytime. Use <code class="docutils literal notranslate"><span class="pre">write.tree</span></code> or <code class="docutils literal notranslate"><span class="pre">write.nexus</span></code> the same as you would to save a dataframe.</strong></p>
+<p>For some analyses, you might want to work with on a genus level tree. This can easily be done by a few key steps. We can do this using base <code class="docutils literal notranslate"><span class="pre">R</span></code>, but we’ll use some packages from the <code class="docutils literal notranslate"><span class="pre">tidyverse</span></code> that have some very useful functions.
+First load <code class="docutils literal notranslate"><span class="pre">stringr</span></code> (for manipulating strings) and <code class="docutils literal notranslate"><span class="pre">dplyr</span></code> (for manipulating dataframes). You’ll see that it masks functions from other packages like stats. If you need those functions you can use code like this: <code class="docutils literal notranslate"><span class="pre">stats::filter()</span></code> to specify the package you want.</p>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="nf">library</span><span class="p">(</span><span class="n">stringr</span><span class="p">)</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">dplyr</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="c1"># Copy a list of all the tips from the tree</span>
+<span class="n">bird_tips</span> <span class="o">&lt;-</span> <span class="n">Ran_Turdidae_tree</span><span class="o">$</span><span class="n">tip.label</span>
+
+<span class="c1"># Split the labels into two strings where there&#39;s an underscore (simplfy returns the splits as separate columns in a dataframe)</span>
+<span class="n">bird_genera</span> <span class="o">&lt;-</span> <span class="n">bird_tips</span> <span class="o">%&gt;%</span> <span class="nf">str_split</span><span class="p">(</span><span class="n">pattern</span> <span class="o">=</span> <span class="s">&quot;_&quot;</span><span class="p">,</span> <span class="n">simplify</span><span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span>
+<span class="nf">colnames</span><span class="p">(</span><span class="n">bird_genera</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="s">&quot;Genus&quot;</span><span class="p">,</span> <span class="s">&quot;Species&quot;</span><span class="p">)</span>
+
+<span class="c1"># Pull out the rows that have an distinct genus name. This will be the first instance in the dataframe for that genus.</span>
+<span class="n">bird_genera</span> <span class="o">&lt;-</span> <span class="nf">as.data.frame</span><span class="p">(</span><span class="n">bird_genera</span><span class="p">)</span> <span class="o">%&gt;%</span> <span class="nf">distinct</span><span class="p">(</span><span class="n">Genus</span><span class="p">,</span> <span class="n">.keep_all</span> <span class="o">=</span> <span class="bp">T</span><span class="p">)</span>
+<span class="n">bird_genera</span>
+</pre></div>
+</div>
+<table>
+<caption>A data.frame: 20 × 2</caption>
+<thead>
+	<tr><th scope=col>Genus</th><th scope=col>Species</th></tr>
+	<tr><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;chr&gt;</th></tr>
+</thead>
+<tbody>
+	<tr><td>Zoothera      </td><td>everetti       </td></tr>
+	<tr><td>Hylocichla    </td><td>mustelina      </td></tr>
+	<tr><td>Catharus      </td><td>aurantiirostris</td></tr>
+	<tr><td>Entomodestes  </td><td>coracinus      </td></tr>
+	<tr><td>Cichlopsis    </td><td>leucogenys     </td></tr>
+	<tr><td>Turdus        </td><td>mupinensis     </td></tr>
+	<tr><td>Psophocichla  </td><td>litsitsirupa   </td></tr>
+	<tr><td>Nesocichla    </td><td>eremita        </td></tr>
+	<tr><td>Cataponera    </td><td>turdoides      </td></tr>
+	<tr><td>Cochoa        </td><td>purpurea       </td></tr>
+	<tr><td>Chlamydochaera</td><td>jefferyi       </td></tr>
+	<tr><td>Geomalia      </td><td>heinrichi      </td></tr>
+	<tr><td>Sialia        </td><td>currucoides    </td></tr>
+	<tr><td>Myadestes     </td><td>genibarbis     </td></tr>
+	<tr><td>Neocossyphus  </td><td>poensis        </td></tr>
+	<tr><td>Stizorhina    </td><td>fraseri        </td></tr>
+	<tr><td>Alethe        </td><td>fuelleborni    </td></tr>
+	<tr><td>Myophonus     </td><td>borneensis     </td></tr>
+	<tr><td>Brachypteryx  </td><td>stellata       </td></tr>
+	<tr><td>Heinrichia    </td><td>calligyna      </td></tr>
+</tbody>
+</table>
+<p>We now have a dataframe of species, with one tip per each unique genus.</p>
+<p>A few things to note about the ‘tidy’ code we just ran:</p>
+<p><code class="docutils literal notranslate"><span class="pre">%&gt;%</span></code> is an operator used to ‘pipe’ an object into a function. Piping is common in most computing languages so look it up for more information! It can make code less clutered by separating the data from the function you need to use. This isn’t unique to <code class="docutils literal notranslate"><span class="pre">tidyverse</span></code> functions, but you’ll see it used a lot more in their documentation.</p>
+<p>For the <code class="docutils literal notranslate"><span class="pre">distinct</span></code> function, we specified a column name without using quotation marks. To make code easier to read, most tidy functions will process column names (or other labels) this way.</p>
+<p>We can now use our unique species from each genera to drop all the other tips in the tree.</p>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="c1"># Combine the columns and add back in the underscore so they match the labels in the tree</span>
+<span class="n">genera_tips</span> <span class="o">&lt;-</span> <span class="nf">paste</span><span class="p">(</span><span class="n">bird_genera</span><span class="o">$</span><span class="n">Genus</span><span class="p">,</span> <span class="n">bird_genera</span><span class="o">$</span><span class="n">Species</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s">&quot;_&quot;</span><span class="p">)</span>
+
+<span class="c1"># Pull out the tips we want to drop</span>
+<span class="n">drop.tips</span> <span class="o">&lt;-</span> <span class="nf">setdiff</span><span class="p">(</span><span class="n">Ran_Turdidae_tree</span><span class="o">$</span><span class="n">tip.label</span><span class="p">,</span> <span class="n">genera_tips</span><span class="p">)</span>
+
+<span class="c1"># Remove all the species except one per genus</span>
+<span class="n">genera_tree</span><span class="o">&lt;-</span><span class="nf">drop.tip</span><span class="p">(</span><span class="n">Ran_Turdidae_tree</span><span class="p">,</span> <span class="n">drop.tips</span><span class="p">)</span>
+<span class="nf">plotTree</span><span class="p">(</span><span class="n">genera_tree</span><span class="p">,</span><span class="n">ftype</span><span class="o">=</span><span class="s">&quot;i&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>![png](_images/Pratical_2_68_0.png
+:alt: plot
+:class: bg-primary
+:width: 700px
+:align: center</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+
+
+As the tree has dropped all but one species per genus, this means we will finally need to also rename the tip labels as well to reflect this change.
+
+
+
+```R
+# It&#39;s definitely worth checking that the labels match up properly when you change tip labels
+par(mfrow=c(1,2))
+plotTree(genera_tree,ftype=&quot;i&quot;)
+
+# Swap species names for genera
+genera_tree$tip.label&lt;- bird_genera$Genus
+plotTree(genera_tree,ftype=&quot;i&quot;)
+</pre></div>
+</div>
+<a class="bg-primary reference internal image-reference" href="_images/Practical_2_70_0.png"><img alt="plot" class="bg-primary align-center" src="_images/Practical_2_70_0.png" style="width: 700px;" /></a>
+<p>It is important to note, that a big limitation with this approach is that by selecting only one species per genus to keep, that you may run the risk of unintentially dropping tips of species that are paraphyletic. For example, Zoothera genus is spread throughout Turdidae tree.</p>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="nf">plotTree</span><span class="p">(</span><span class="n">Ran_Turdidae_tree</span><span class="p">,</span><span class="n">fsize</span><span class="o">=</span><span class="m">0.2</span><span class="p">,</span><span class="n">lwd</span><span class="o">=</span><span class="m">0.2</span><span class="p">,</span><span class="n">ftype</span><span class="o">=</span><span class="s">&quot;i&quot;</span><span class="p">)</span>
+<span class="nf">zoom</span><span class="p">(</span><span class="n">Ran_Turdidae_tree</span><span class="p">,</span> <span class="nf">grep</span><span class="p">(</span><span class="s">&quot;Zoothera&quot;</span><span class="p">,</span> <span class="n">Ran_Turdidae_tree</span><span class="o">$</span><span class="n">tip.label</span><span class="p">),</span> <span class="n">subtree</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">,</span> <span class="n">cex</span> <span class="o">=</span> <span class="m">0.8</span><span class="p">)</span>
+</pre></div>
+</div>
+<a class="bg-primary reference internal image-reference" href="_images/Practical_2_72_0.png"><img alt="plot" class="bg-primary align-center" src="_images/Practical_2_72_0.png" style="width: 700px;" /></a>
+<a class="bg-primary reference internal image-reference" href="_images/Practical_2_72_1.png"><img alt="plot" class="bg-primary align-center" src="_images/Practical_2_72_1.png" style="width: 700px;" /></a>
+<p>This means that when collapsing a phylogenetic tree you run the risk of miss representing the relationship between the different genera. The only way to get round this is by:</p>
+<p>a) making sure check to see how paraphyletic your tree is at the start; this can be done more easily by uploading and viewing your tree file &#64; https://itol.embl.de/.
+b) Renaming your conflicting paraphyletic clades within your phylogeny, by altering the individual species names.</p>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="n">Ran_Turdidae_tree</span><span class="o">$</span><span class="n">tip.label</span><span class="p">[</span><span class="n">Ran_Turdidae_tree</span><span class="o">$</span><span class="n">tip.label</span><span class="o">==</span><span class="s">&quot;Turdus_philomelos&quot;</span><span class="p">]</span><span class="o">&lt;-</span><span class="s">&quot;Turdus1_philomelos&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="adding-trait-data-to-trees-in-r">
+<h2>6. Adding trait data to trees in <code class="docutils literal notranslate"><span class="pre">R</span></code><a class="headerlink" href="#adding-trait-data-to-trees-in-r" title="Permalink to this headline">¶</a></h2>
+<p>Often basic tree plots in R are all you need for exploring data and your analysis. However, for publications and presentations it may be useful to plot trees with associated trait data. We will try plotting data with a tree, using the package <code class="docutils literal notranslate"><span class="pre">ggtree</span></code>, and extension of <code class="docutils literal notranslate"><span class="pre">ggplot2</span></code>.</p>
+<p>For this exercise we will use the Turdidae tree (Thrushes) with some data on different habitat types.
+Load in the data:</p>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="n">turdidae_data</span> <span class="o">&lt;-</span> <span class="nf">read.csv</span><span class="p">(</span><span class="s">&quot;Turdidae_data.csv&quot;</span><span class="p">)</span>
+<span class="nf">str</span><span class="p">(</span><span class="n">turdidae_data</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;data.frame&#39;:	173 obs. of  3 variables:
+ $ Jetz_Name: chr  &quot;Alethe choloensis&quot; &quot;Alethe diademata&quot; &quot;Alethe fuelleborni&quot; &quot;Alethe poliocephala&quot; ...
+ $ Habitat  : chr  &quot;Dense&quot; &quot;Dense&quot; &quot;Dense&quot; &quot;Dense&quot; ...
+ $ Body.Mass: num  41.3 31.5 52 32.4 35.2 ...
+</pre></div>
+</div>
+<p>We first need to match our data to the tip labels. First we need to put an underscore in the names, and then match them to see if there’s any name differences or missing species. In your coursework you will find that occasionally because of taxonomic disagreements, you might be missing species. The easiset way to solve this is by manually checking tips that don’t match.</p>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="c1"># Replace the blank space with an underscore</span>
+<span class="n">turdidae_data</span><span class="o">$</span><span class="n">Jetz_Name</span> <span class="o">&lt;-</span> <span class="n">turdidae_data</span><span class="o">$</span><span class="n">Jetz_Name</span> <span class="o">%&gt;%</span> <span class="nf">str_replace</span><span class="p">(</span><span class="s">&quot; &quot;</span><span class="p">,</span> <span class="s">&quot;_&quot;</span><span class="p">)</span>
+<span class="nf">head</span><span class="p">(</span><span class="n">turdidae_data</span><span class="p">)</span>
+</pre></div>
+</div>
+<table>
+<caption>A data.frame: 6 × 3</caption>
+<thead>
+	<tr><th></th><th scope=col>Jetz_Name</th><th scope=col>Habitat</th><th scope=col>Body.Mass</th></tr>
+	<tr><th></th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;dbl&gt;</th></tr>
+</thead>
+<tbody>
+	<tr><th scope=row>1</th><td>Alethe_choloensis      </td><td>Dense    </td><td>41.30</td></tr>
+	<tr><th scope=row>2</th><td>Alethe_diademata       </td><td>Dense    </td><td>31.54</td></tr>
+	<tr><th scope=row>3</th><td>Alethe_fuelleborni     </td><td>Dense    </td><td>52.00</td></tr>
+	<tr><th scope=row>4</th><td>Alethe_poliocephala    </td><td>Dense    </td><td>32.37</td></tr>
+	<tr><th scope=row>5</th><td>Alethe_poliophrys      </td><td>Dense    </td><td>35.20</td></tr>
+	<tr><th scope=row>6</th><td>Brachypteryx_hyperythra</td><td>Semi-Open</td><td>78.00</td></tr>
+</tbody>
+</table>
+<p>We’ll use the <code class="docutils literal notranslate"><span class="pre">%in%</span></code> operator, which is useful checking if our species are in the tip labels</p>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="n">turdidae_data</span><span class="o">$</span><span class="n">Jetz_Name</span> <span class="o">%in%</span> <span class="n">Ran_Turdidae_tree</span><span class="o">$</span><span class="n">tip.label</span>
+</pre></div>
+</div>
+<style>
+.list-inline {list-style: none; margin:0; padding: 0}
+.list-inline>li {display: inline-block}
+.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
+</style>
+<ol class="list-inline"><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>FALSE</li><li>FALSE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li><li>TRUE</li></ol>
+<p>We can save the results, and use this to select the rows we need from turdidae_data. We’ll use the <code class="docutils literal notranslate"><span class="pre">!</span></code> operator, which means NOT. So in this case it’s the species that are not in the tip labels. This can also work for lots of other functions as well so try experimenting!</p>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="n">index</span> <span class="o">&lt;-</span> <span class="o">!</span><span class="p">(</span><span class="n">turdidae_data</span><span class="o">$</span><span class="n">Jetz_Name</span> <span class="o">%in%</span> <span class="n">Ran_Turdidae_tree</span><span class="o">$</span><span class="n">tip.label</span><span class="p">)</span>
+<span class="n">turdidae_data</span><span class="p">[</span><span class="n">index</span><span class="p">,]</span>
+</pre></div>
+</div>
+<table>
+<caption>A data.frame: 2 × 3</caption>
+<thead>
+	<tr><th></th><th scope=col>Jetz_Name</th><th scope=col>Habitat</th><th scope=col>Body.Mass</th></tr>
+	<tr><th></th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;dbl&gt;</th></tr>
+</thead>
+<tbody>
+	<tr><th scope=row>23</th><td>Chaetops_aurantius</td><td>Open</td><td>41.1</td></tr>
+	<tr><th scope=row>24</th><td>Chaetops_frenatus </td><td>Open</td><td>45.6</td></tr>
+</tbody>
+</table>
+<p>One of them we renamed so we’ll change that back for our plots. The others aren’t in our taxonomy. This is because they’ve been moved to Chaetopidae, a new family of just rockjumpers. This often happens as there are three main bird taxonomies: Jetz, Birdlife, and American Ornithological Society. We’ll just remove them from our dataset.</p>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="c1"># Change the name back</span>
+<span class="n">Ran_Turdidae_tree</span><span class="o">$</span><span class="n">tip.label</span><span class="p">[</span><span class="n">Ran_Turdidae_tree</span><span class="o">$</span><span class="n">tip.label</span><span class="o">==</span><span class="s">&quot;Turdus1_philomelos&quot;</span><span class="p">]</span><span class="o">&lt;-</span><span class="s">&quot;Turdus_philomelos&quot;</span>
+<span class="c1"># Get the species that ARE in the tips</span>
+<span class="n">index</span> <span class="o">&lt;-</span> <span class="n">turdidae_data</span><span class="o">$</span><span class="n">Jetz_Name</span> <span class="o">%in%</span> <span class="n">Ran_Turdidae_tree</span><span class="o">$</span><span class="n">tip.label</span>
+<span class="c1"># Select only these species</span>
+<span class="n">turdidae_data</span> <span class="o">&lt;-</span> <span class="n">turdidae_data</span><span class="p">[</span><span class="n">index</span><span class="p">,]</span>
+</pre></div>
+</div>
+<p>Now we can drop the tips that don’t match and get plotting!</p>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="n">drop.tips</span> <span class="o">&lt;-</span> <span class="nf">setdiff</span><span class="p">(</span><span class="n">Ran_Turdidae_tree</span><span class="o">$</span><span class="n">tip.label</span><span class="p">,</span> <span class="n">turdidae_data</span><span class="o">$</span><span class="n">Jetz_Name</span><span class="p">)</span>
+
+<span class="c1"># Remove all the species except one per genus</span>
+<span class="n">turdi_tree</span> <span class="o">&lt;-</span><span class="nf">drop.tip</span><span class="p">(</span><span class="n">Ran_Turdidae_tree</span><span class="p">,</span> <span class="n">drop.tips</span><span class="p">)</span>
+<span class="nf">plotTree</span><span class="p">(</span><span class="n">turdi_tree</span><span class="p">,</span><span class="n">ftype</span><span class="o">=</span><span class="s">&quot;i&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<a class="bg-primary reference internal image-reference" href="_images/Practical_2_86_0.png"><img alt="plot" class="bg-primary align-center" src="_images/Practical_2_86_0.png" style="width: 700px;" /></a>
+<p>Now lets try using ggtree to plot our data with our phylogeny. First we need to install <code class="docutils literal notranslate"><span class="pre">ggtree</span></code>. This package was intentionally left out of the ‘install.R’ script. Because not all packages are available from <code class="docutils literal notranslate"><span class="pre">CRAN</span></code> directly through <code class="docutils literal notranslate"><span class="pre">R</span></code>, we’ll install <code class="docutils literal notranslate"><span class="pre">BiocManager</span></code>. <code class="docutils literal notranslate"><span class="pre">devtools</span></code> is another great package for installing packages from github.</p>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="nf">install.packages</span><span class="p">(</span><span class="s">&quot;BiocManager&quot;</span><span class="p">)</span>
+<span class="n">BiocManager</span><span class="o">::</span><span class="nf">install</span><span class="p">(</span><span class="s">&quot;ggtree&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Installing package into ‘/usr/local/lib/R/site-library’
+(as ‘lib’ is unspecified)
+
+Bioconductor version 3.12 (BiocManager 1.30.10), R 4.0.3 (2020-10-10)
+
+Installing package(s) &#39;ggtree&#39;
+
+Old packages: &#39;lubridate&#39;, &#39;magrittr&#39;, &#39;rprojroot&#39;, &#39;rstudioapi&#39;, &#39;vctrs&#39;,
+  &#39;foreign&#39;
+</pre></div>
+</div>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="nf">library</span><span class="p">(</span><span class="n">ggtree</span><span class="p">)</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">ggplot2</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">ggtree</span></code> is a bit more complicated than just normal tree plots, but you can also do a lot more. We’ll create a basic tree plot structure first and then add tip labels and traits after. We’ll also make the plotting window bigger.</p>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="c1"># This resizes the plot windows if you use an online notebook. In RStudio you can do this when you export plots using jpeg() etc.</span>
+<span class="nf">options</span><span class="p">(</span><span class="n">repr.plot.width</span><span class="o">=</span><span class="m">15</span><span class="p">,</span> <span class="n">repr.plot.height</span><span class="o">=</span><span class="m">15</span><span class="p">)</span>
+<span class="n">turdidae_plot</span> <span class="o">&lt;-</span> <span class="nf">ggtree</span><span class="p">(</span><span class="n">turdi_tree</span><span class="p">,</span> <span class="n">layout</span> <span class="o">=</span> <span class="s">&quot;circular&quot;</span><span class="p">)</span>
+<span class="n">turdidae_plot</span>
+</pre></div>
+</div>
+<a class="bg-primary reference internal image-reference" href="_images/Practical_2_91_0.png"><img alt="plot" class="bg-primary align-center" src="_images/Practical_2_91_0.png" style="width: 700px;" /></a>
+<p>Now we’ll create a simple one column dataframe with just the habitat data to plot and the species names as row names.</p>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="n">habitat_data</span> <span class="o">&lt;-</span> <span class="nf">as.data.frame</span><span class="p">(</span><span class="n">turdidae_data</span><span class="p">[,</span><span class="m">2</span><span class="p">])</span>
+<span class="nf">rownames</span><span class="p">(</span><span class="n">habitat_data</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="n">turdidae_data</span><span class="o">$</span><span class="n">Jetz_Name</span>
+<span class="nf">colnames</span><span class="p">(</span><span class="n">habitat_data</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="s">&quot;Habitat&quot;</span>
+</pre></div>
+</div>
+<p>Now we can make our plot!</p>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create the heat map using habitat data. Offset tells us how far from the tips to plot the data and width is how wide the bars are.</span>
+<span class="n">gheat</span> <span class="o">&lt;-</span> <span class="nf">gheatmap</span><span class="p">(</span><span class="n">p</span><span class="o">=</span><span class="n">turdidae_plot</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">habitat_data</span><span class="p">,</span> <span class="n">offset</span> <span class="o">=</span> <span class="m">0.05</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="m">0.1</span><span class="p">,</span> <span class="n">colnames</span> <span class="o">=</span> <span class="kc">FALSE</span><span class="p">)</span> <span class="o">+</span> 
+<span class="c1"># Scale fill manual is a ggplot function. It lets the plot know what to &#39;fill&#39; and what colours to use.</span>
+<span class="nf">scale_fill_manual</span><span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">&#39;Habitat&#39;</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;deeppink3&quot;</span><span class="p">,</span> <span class="s">&quot;goldenrod2&quot;</span><span class="p">,</span> <span class="s">&quot;cyan4&quot;</span><span class="p">))</span> <span class="o">+</span> 
+<span class="c1"># Add the tip labels and offset them further from the bars</span>
+<span class="nf">geom_tiplab</span><span class="p">(</span><span class="n">offset</span> <span class="o">=</span> <span class="m">5</span><span class="p">,</span> <span class="n">cex</span><span class="o">=</span><span class="m">4</span><span class="p">)</span> <span class="o">+</span> 
+<span class="c1"># We&#39;re adding tip labels on top of an existing plot, so we need to make the axes bigger so our labels don&#39;t fall off the edge.</span>
+<span class="nf">xlim</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">40</span><span class="p">)</span> <span class="o">+</span>
+<span class="c1"># This resizes the legend and makes the text bigger than the default. Try changing the numbers!</span>
+<span class="nf">theme</span><span class="p">(</span><span class="n">legend.key.width</span> <span class="o">=</span> <span class="nf">unit</span><span class="p">(</span><span class="m">0.8</span><span class="p">,</span> <span class="s">&quot;cm&quot;</span><span class="p">),</span> <span class="n">legend.key.height</span> <span class="o">=</span> <span class="nf">unit</span><span class="p">(</span><span class="m">0.8</span><span class="p">,</span> <span class="s">&quot;cm&quot;</span><span class="p">),</span> <span class="n">legend.text</span> <span class="o">=</span> <span class="nf">element_text</span><span class="p">(</span><span class="n">size</span> <span class="o">=</span> <span class="m">13</span><span class="p">),</span> <span class="n">legend.title</span> <span class="o">=</span> <span class="nf">element_text</span><span class="p">(</span><span class="n">size</span> <span class="o">=</span> <span class="m">13</span><span class="p">))</span>
+
+<span class="c1"># Lastly plot the data!</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">gheat</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Scale for &#39;y&#39; is already present. Adding another scale for &#39;y&#39;, which will
+replace the existing scale.
+
+Scale for &#39;fill&#39; is already present. Adding another scale for &#39;fill&#39;, which
+will replace the existing scale.
+</pre></div>
+</div>
+<a class="bg-primary reference internal image-reference" href="_images/Practical_2_95_1.png"><img alt="plot" class="bg-primary align-center" src="_images/Practical_2_95_1.png" style="width: 700px;" /></a>
+<p>And now we have a plot where we can see the spread of habitat types in Thrushes. Try experimenting with different colours and sizes to create some beautiful trees that put this one to shame! There’s also lots of other ways you can label trees. For more info this guide is a great place to start:
+https://4va.github.io/biodatasci/r-ggtree.html#the_ggtree_package</p>
+<blockquote>
+<div><p>Extra task: Can you make another plot for continuous body mass data? Think about how you’d show this with colour. Can you change the key to better display the change in body mass? Is body mass more clumped in the tree than habitat?</p>
+</div></blockquote>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="Practical_1.html" title="previous page">Basics in R</a>
+    <a class='right-next' id="next-link" href="Practical_3.html" title="next page">Macroecology analyses</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By The Jupyter Book community<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>
