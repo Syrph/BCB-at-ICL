@@ -1,0 +1,957 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basics in R &#8212; Biodiversity and Conservation Biology</title>
+    
+  <link rel="stylesheet" href="_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Phylogenetics in R" href="Practical_2.html" />
+    <link rel="prev" title="Introduction" href="intro.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="index.html">
+  
+  
+  <h1 class="site-logo" id="site-title">Biodiversity and Conservation Biology</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro.html">
+   Introduction
+  </a>
+ </li>
+</ul>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Basics in R
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Practical_2.html">
+   Phylogenetics in R
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Practical_3.html">
+   Macroecology analyses
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Practical_4.html">
+   Setting conservation priorities
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/Practical_1.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#introduction-and-resources">
+   1. Introduction and resources
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#working-directory-and-using-scripts">
+     Working directory and using scripts
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#installing-packages-for-practicals">
+     Installing packages for practicals
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#revision-of-data-types">
+   2. Revision of data types
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#reading-writing-and-rdata-files">
+   3. Reading, writing and .Rdata files
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#plotting-data">
+   4. Plotting data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#handling-spatial-data">
+   5. Handling spatial data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#using-the-tidyverse">
+   6. Using the Tidyverse
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="basics-in-r">
+<h1>Basics in R<a class="headerlink" href="#basics-in-r" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="introduction-and-resources">
+<h2>1. Introduction and resources<a class="headerlink" href="#introduction-and-resources" title="Permalink to this headline">¶</a></h2>
+<p>The aim of this practical is to revise some basic functions in <code class="docutils literal notranslate"><span class="pre">R</span></code> relating to data management and plotting. We will then look at handling spatial data.</p>
+<p>For your practicals we will be using <code class="docutils literal notranslate"><span class="pre">RStudio</span></code>. <code class="docutils literal notranslate"><span class="pre">RStudio</span></code> is a IDE (Interactive Development Environment) that is designed especially for <code class="docutils literal notranslate"><span class="pre">R</span></code>. IDEs can highlight different types of codes (comments or strings for example), and give you error messages if it looks like something is wrong. That makes <code class="docutils literal notranslate"><span class="pre">RStudio</span></code> a great choice for working in <code class="docutils literal notranslate"><span class="pre">R</span></code>.</p>
+<p>Practicals will be in the format of notebooks, and you should type the code in each block into your own <code class="docutils literal notranslate"><span class="pre">RStudio</span></code> environment on your laptop. You will learn much more from manually typing each block of code into <code class="docutils literal notranslate"><span class="pre">RStudio</span></code> than by copying and pasting, so try not be tempted! For anyone who has trouble with accessing or running <code class="docutils literal notranslate"><span class="pre">R</span></code>/<code class="docutils literal notranslate"><span class="pre">RStudio</span></code> on their own laptop or a university computer, we have a second option to run the notebooks online in a browser using <code class="docutils literal notranslate"><span class="pre">google</span> <span class="pre">colab</span></code>. However, coding your coursework (and future work!) will be easier if you’ve taken the time to set up your own R environment on your laptop, so this should be a last resort!</p>
+<div class="section" id="working-directory-and-using-scripts">
+<h3>Working directory and using scripts<a class="headerlink" href="#working-directory-and-using-scripts" title="Permalink to this headline">¶</a></h3>
+<p>The first step when starting a new session is to set your working directory. Think of it as the ‘folder’ that you work out of on your computer. Unless you specify differently, anything that you read in or save will be in this folder. The working directory is set using the function <code class="docutils literal notranslate"><span class="pre">setwd()</span></code> and the path to the folders location, for example:</p>
+<p><code class="docutils literal notranslate"><span class="pre">setwd(&quot;C:/Users/rb417/Desktop/BCB_Practicals&quot;)</span></code></p>
+<p>You can also see what folder you’re currently in:</p>
+<p><code class="docutils literal notranslate"><span class="pre">getwd()</span></code></p>
+<p>I recomend storing all the files you need for the practicals in one folder called “BCB_Practicals”, and setting your working directory to this folder at the start of each R session. If you’re in <code class="docutils literal notranslate"><span class="pre">RStudio</span></code> you can also use <code class="docutils literal notranslate"><span class="pre">Tools</span> <span class="pre">-&gt;</span> <span class="pre">Global</span> <span class="pre">Options</span></code> to change your default working directory to your preferred folder.</p>
+<p>Remember that you can find the R help for a particular function by using <code class="docutils literal notranslate"><span class="pre">?function</span></code> or <code class="docutils literal notranslate"><span class="pre">??function</span></code> e.g. <code class="docutils literal notranslate"><span class="pre">?setwd</span></code>. Also recall that <code class="docutils literal notranslate"><span class="pre">ls()</span></code> lists and <code class="docutils literal notranslate"><span class="pre">rm(list=ls())</span></code> clears your workspace.</p>
+<p>You can open a new script by going to <code class="docutils literal notranslate"><span class="pre">File</span> <span class="pre">-&gt;</span> <span class="pre">New</span> <span class="pre">File</span> <span class="pre">-&gt;</span> <span class="pre">R</span> <span class="pre">script</span></code>. Also on windows you can type <code class="docutils literal notranslate"><span class="pre">CTRL</span> <span class="pre">+</span> <span class="pre">SHIFT</span> <span class="pre">+</span> <span class="pre">N</span></code>. Remember that when you save this script you need to add .R (Practical1.R). Save often! Although you can write commands directly into the console window, using a script allows you to save a record of your code that can easily be re-run. This is particuarly useful if you find a mistake later on, or want to update models with new data.</p>
+<p>To run a single line of your script at a time in windows, a convinent short cut is <code class="docutils literal notranslate"><span class="pre">CTRL</span> <span class="pre">+</span> <span class="pre">ENTER</span></code>.</p>
+</div>
+<div class="section" id="installing-packages-for-practicals">
+<h3>Installing packages for practicals<a class="headerlink" href="#installing-packages-for-practicals" title="Permalink to this headline">¶</a></h3>
+<p>To ease potential online working, we’ve compiled a script of packages to install, called <code class="docutils literal notranslate"><span class="pre">install.R</span></code>. To run this you can either open the script in <code class="docutils literal notranslate"><span class="pre">RStudio</span></code> and run each line, or you can save time using this code:</p>
+<p><code class="docutils literal notranslate"><span class="pre">source(&quot;install.R&quot;)</span></code></p>
+<p>Just make sure the install.R file is saved in your current directory. Or specify the location using a filepathway such as:</p>
+<p><code class="docutils literal notranslate"><span class="pre">source(&quot;C:/Users/rb417/Desktop/BCB_Practicals/install.R&quot;)</span></code>.</p>
+<p>Mac and Linux users may have into install <code class="docutils literal notranslate"><span class="pre">GDAL</span></code> on their laptop. This is software for handling spatial data, which R uses and is preinstalled on Windows. This can be done from the Mac terminal using homebrew:</p>
+<p>First install homebrew if you haven’t by copying this code into your terminal:</p>
+<p><code class="docutils literal notranslate"><span class="pre">/bin/bash</span> <span class="pre">-c</span> <span class="pre">&quot;$(curl</span> <span class="pre">-fsSL</span> <span class="pre">https://raw.githubusercontent.com/Homebrew/install/master/install.sh)&quot;</span></code></p>
+<p>Then install GDAL by running this code:</p>
+<p><code class="docutils literal notranslate"><span class="pre">brew</span> <span class="pre">install</span> <span class="pre">gdal</span></code></p>
+<p>Linux users can use the commands (will install other spatial packages):</p>
+<p><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">apt-get</span> <span class="pre">update</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">apt-get</span> <span class="pre">install</span> <span class="pre">libgdal-dev</span> <span class="pre">libproj-dev</span> <span class="pre">libgeos-dev</span> <span class="pre">libudunits2-dev</span> <span class="pre">libv8-dev</span> <span class="pre">libprotobuf-dev</span> <span class="pre">libjq-dev</span></code></p>
+</div>
+</div>
+<div class="section" id="revision-of-data-types">
+<h2>2. Revision of data types<a class="headerlink" href="#revision-of-data-types" title="Permalink to this headline">¶</a></h2>
+<p>We’ll start with some basics data manipulation in R to get started.</p>
+<p>For anyone unfamiliar, ‘#’ proceeds comments in scripts that won’t be acted on by R, which allows us to label our scripts. Comments are very useful! Try and make as many comments as possible, and use more detail than you think you need. You’d be suprised how quickly you can forget what a function or script does, so detailed comments are a lifesaver!</p>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="c1"># We&#39;ll first try defining some basic variables</span>
+
+<span class="c1"># A number</span>
+<span class="n">a</span> <span class="o">&lt;-</span> <span class="m">5.7</span>
+<span class="n">a</span>
+<span class="nf">class</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>5.7</p>
+<p>‘numeric’</p>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="c1"># A string</span>
+<span class="n">b</span> <span class="o">&lt;-</span> <span class="s">&quot;hello&quot;</span>
+<span class="n">b</span>
+<span class="nf">class</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>‘hello’</p>
+<p>‘character’</p>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="c1"># A logical object</span>
+<span class="n">c</span> <span class="o">&lt;-</span> <span class="kc">TRUE</span>
+<span class="n">c</span>
+<span class="nf">class</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>TRUE</p>
+<p>‘logical’</p>
+<p>In R variables are stored as vectors. Often vectors will be lists of variables such as 1,2,3,4,5. However, even single variables are still stored as vectors! Try <code class="docutils literal notranslate"><span class="pre">is.vector()</span></code> on each of the variables you just created to see! Vectors are one of the most basic (and useful) ways of storing data in R.</p>
+<p>Now we’ll try creating some basic vectors and manipulating them.</p>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="c1"># Generates a sequence from 0 to 9 by intervals of 1. Try ?seq() for more information</span>
+<span class="n">d</span> <span class="o">&lt;-</span> <span class="nf">seq</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">9</span><span class="p">,</span> <span class="m">1</span><span class="p">)</span> 
+<span class="n">d</span>
+</pre></div>
+</div>
+<style>
+.list-inline {list-style: none; margin:0; padding: 0}
+.list-inline>li {display: inline-block}
+.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
+</style>
+<ol class="list-inline"><li>0</li><li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li><li>8</li><li>9</li></ol>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="c1"># Cocatenate variables into one vector</span>
+<span class="n">e</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">,</span><span class="m">3</span><span class="p">,</span><span class="m">4</span><span class="p">,</span><span class="m">5</span><span class="p">,</span><span class="m">6</span><span class="p">,</span><span class="m">7</span><span class="p">,</span><span class="m">8</span><span class="p">,</span><span class="m">9</span><span class="p">)</span>
+<span class="n">e</span>
+</pre></div>
+</div>
+<style>
+.list-inline {list-style: none; margin:0; padding: 0}
+.list-inline>li {display: inline-block}
+.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
+</style>
+<ol class="list-inline"><li>0</li><li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li><li>8</li><li>9</li></ol>
+<p><code class="docutils literal notranslate"><span class="pre">c()</span></code> is one of the most used functions in R! It allows you to join together two objects. For example:</p>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="n">d</span><span class="p">,</span><span class="n">e</span><span class="p">)</span>
+<span class="n">f</span>
+</pre></div>
+</div>
+<style>
+.list-inline {list-style: none; margin:0; padding: 0}
+.list-inline>li {display: inline-block}
+.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
+</style>
+<ol class="list-inline"><li>0</li><li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li><li>8</li><li>9</li><li>0</li><li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li><li>8</li><li>9</li></ol>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="c1"># Vectors can also be strings or logicals</span>
+<span class="n">g</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="s">&quot;red&quot;</span><span class="p">,</span><span class="s">&quot;blue&quot;</span><span class="p">,</span><span class="s">&quot;green&quot;</span><span class="p">)</span>
+<span class="n">g</span>
+<span class="nf">class</span><span class="p">(</span><span class="n">g</span><span class="p">)</span>
+</pre></div>
+</div>
+<style>
+.list-inline {list-style: none; margin:0; padding: 0}
+.list-inline>li {display: inline-block}
+.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
+</style>
+<ol class="list-inline"><li>'red'</li><li>'blue'</li><li>'green'</li></ol>
+<p>‘character’</p>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="n">h</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="kc">TRUE</span><span class="p">,</span> <span class="kc">TRUE</span><span class="p">,</span> <span class="kc">FALSE</span><span class="p">)</span>
+<span class="n">h</span>
+<span class="nf">class</span><span class="p">(</span><span class="n">h</span><span class="p">)</span>
+</pre></div>
+</div>
+<style>
+.list-inline {list-style: none; margin:0; padding: 0}
+.list-inline>li {display: inline-block}
+.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
+</style>
+<ol class="list-inline"><li>TRUE</li><li>TRUE</li><li>FALSE</li></ol>
+<p>‘logical’</p>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="c1"># find the length of a vector</span>
+<span class="nf">length</span><span class="p">(</span><span class="n">e</span><span class="p">)</span> 
+</pre></div>
+</div>
+<p>10</p>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="c1"># Indexing is an easy way to pull out certain elements of a vector based on their position</span>
+<span class="n">e</span><span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="c1"># the first element</span>
+
+<span class="n">e</span><span class="p">[</span><span class="m">5</span><span class="p">]</span> <span class="c1"># the fifth element</span>
+
+<span class="n">e</span><span class="p">[</span><span class="m">10</span><span class="p">]</span> <span class="c1"># the tenth element</span>
+</pre></div>
+</div>
+<p>0</p>
+<p>4</p>
+<p>9</p>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="c1"># Indexing can also pull out groups of variables</span>
+
+<span class="n">e</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">5</span><span class="p">]</span> <span class="c1"># elements 1 to 5</span>
+
+<span class="n">e</span><span class="p">[</span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">4</span><span class="p">)]</span> <span class="c1"># elements 1 and 4</span>
+
+<span class="n">e</span><span class="p">[</span><span class="m">-4</span><span class="p">]</span> <span class="c1"># e without the fourth element</span>
+</pre></div>
+</div>
+<style>
+.list-inline {list-style: none; margin:0; padding: 0}
+.list-inline>li {display: inline-block}
+.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
+</style>
+<ol class="list-inline"><li>0</li><li>1</li><li>2</li><li>3</li><li>4</li></ol>
+<style>
+.list-inline {list-style: none; margin:0; padding: 0}
+.list-inline>li {display: inline-block}
+.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
+</style>
+<ol class="list-inline"><li>0</li><li>3</li></ol>
+<style>
+.list-inline {list-style: none; margin:0; padding: 0}
+.list-inline>li {display: inline-block}
+.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
+</style>
+<ol class="list-inline"><li>0</li><li>1</li><li>2</li><li>4</li><li>5</li><li>6</li><li>7</li><li>8</li><li>9</li></ol>
+<p>Vectors can be combined into a matrix.</p>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="n">numbers</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">,</span><span class="m">3</span><span class="p">,</span><span class="m">4</span><span class="p">,</span><span class="m">5</span><span class="p">)</span>
+<span class="n">other.numbers</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="m">6</span><span class="p">,</span><span class="m">7</span><span class="p">,</span><span class="m">8</span><span class="p">,</span><span class="m">9</span><span class="p">,</span><span class="m">10</span><span class="p">)</span>
+<span class="n">all.numbers</span> <span class="o">&lt;-</span> <span class="nf">cbind</span><span class="p">(</span><span class="n">numbers</span><span class="p">,</span> <span class="n">other.numbers</span><span class="p">)</span> <span class="c1"># cbind is short for column bind, which joins two vectors together as columns</span>
+<span class="n">all.numbers</span>
+</pre></div>
+</div>
+<table>
+<caption>A matrix: 5 × 2 of type dbl</caption>
+<thead>
+	<tr><th scope=col>numbers</th><th scope=col>other.numbers</th></tr>
+</thead>
+<tbody>
+	<tr><td>1</td><td> 6</td></tr>
+	<tr><td>2</td><td> 7</td></tr>
+	<tr><td>3</td><td> 8</td></tr>
+	<tr><td>4</td><td> 9</td></tr>
+	<tr><td>5</td><td>10</td></tr>
+</tbody>
+</table>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="nf">class</span><span class="p">(</span><span class="n">all.numbers</span><span class="p">)</span>
+</pre></div>
+</div>
+<style>
+.list-inline {list-style: none; margin:0; padding: 0}
+.list-inline>li {display: inline-block}
+.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
+</style>
+<ol class="list-inline"><li>'matrix'</li><li>'array'</li></ol>
+<p>Dataframes are special case of matrices, where each column can be a different type. Often this is how ecological data will be collected and stored. This is also most often what you will be handling in R.</p>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="n">numbers</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">,</span><span class="m">3</span><span class="p">,</span><span class="m">4</span><span class="p">,</span><span class="m">5</span><span class="p">)</span>
+<span class="n">characters</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="s">&quot;a&quot;</span><span class="p">,</span><span class="s">&quot;b&quot;</span><span class="p">,</span><span class="s">&quot;c&quot;</span><span class="p">,</span><span class="s">&quot;d&quot;</span><span class="p">,</span><span class="s">&quot;e&quot;</span><span class="p">)</span>
+<span class="n">both.types</span> <span class="o">&lt;-</span> <span class="nf">cbind</span><span class="p">(</span><span class="n">numbers</span><span class="p">,</span> <span class="n">characters</span><span class="p">)</span>
+<span class="n">both.types</span>
+</pre></div>
+</div>
+<table>
+<caption>A matrix: 5 × 2 of type chr</caption>
+<thead>
+	<tr><th scope=col>numbers</th><th scope=col>characters</th></tr>
+</thead>
+<tbody>
+	<tr><td>1</td><td>a</td></tr>
+	<tr><td>2</td><td>b</td></tr>
+	<tr><td>3</td><td>c</td></tr>
+	<tr><td>4</td><td>d</td></tr>
+	<tr><td>5</td><td>e</td></tr>
+</tbody>
+</table>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="nf">class</span><span class="p">(</span><span class="n">both.types</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>‘data.frame’</p>
+<p>What happened there? ‘both.types’ was a matrix and not a dataframe. Be careful combining strings and numbers together without specifying that you want a dataframe. R will coerce the numbers in strings, so each value is represented as “1”, “2”, “3”… rather than as actual numbers.</p>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="n">both.types</span><span class="p">[</span><span class="n">numbers</span><span class="p">]</span>
+<span class="nf">class</span><span class="p">(</span><span class="n">both.types</span><span class="p">[</span><span class="n">numbers</span><span class="p">])</span>
+</pre></div>
+</div>
+<style>
+.list-inline {list-style: none; margin:0; padding: 0}
+.list-inline>li {display: inline-block}
+.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
+</style>
+<ol class="list-inline"><li>'1'</li><li>'2'</li><li>'3'</li><li>'4'</li><li>'5'</li></ol>
+<p>‘character’</p>
+<p>Instead try being more explicit.</p>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="n">both.types</span> <span class="o">&lt;-</span> <span class="nf">data.frame</span><span class="p">(</span><span class="n">numbers</span><span class="p">,</span> <span class="n">characters</span><span class="p">)</span>
+<span class="n">both.types</span>
+</pre></div>
+</div>
+<table>
+<caption>A data.frame: 5 × 2</caption>
+<thead>
+	<tr><th scope=col>numbers</th><th scope=col>characters</th></tr>
+	<tr><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;chr&gt;</th></tr>
+</thead>
+<tbody>
+	<tr><td>1</td><td>a</td></tr>
+	<tr><td>2</td><td>b</td></tr>
+	<tr><td>3</td><td>c</td></tr>
+	<tr><td>4</td><td>d</td></tr>
+	<tr><td>5</td><td>e</td></tr>
+</tbody>
+</table>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="nf">class</span><span class="p">(</span><span class="n">both.types</span><span class="p">)</span>
+<span class="nf">class</span><span class="p">(</span><span class="n">both.types</span><span class="o">$</span><span class="n">numbers</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>‘data.frame’</p>
+<p>‘numeric’</p>
+<p><strong>An important note: It’s tempting to name variables as single letters (a, b, c) as we did at the beginning of the practical. However, for anything slightly more complex than what we’ve done this becomes confusing very quickly. It’s much better to use longer variables like ‘numbers’ or ‘letters’. This describes what the variable is, and makes it easier for yourself and others to read your code and understand it! An easy way to separate words is to use periods ‘.’ or underscores ‘_’.</strong></p>
+<p>Dataframes have lots of useful functions that make them easy to use. First we’ll make a slightly longer dataframe.</p>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="n">small.numbers</span> <span class="o">&lt;-</span> <span class="nf">seq</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">10</span><span class="p">,</span> <span class="m">1</span><span class="p">)</span>
+<span class="n">large.numbers</span> <span class="o">&lt;-</span> <span class="nf">seq</span><span class="p">(</span><span class="m">100</span><span class="p">,</span> <span class="m">1000</span><span class="p">,</span> <span class="m">100</span><span class="p">)</span>
+
+<span class="n">all.numbers</span> <span class="o">&lt;-</span> <span class="nf">data.frame</span><span class="p">(</span><span class="n">small.numbers</span><span class="p">,</span> <span class="n">large.numbers</span><span class="p">)</span>
+<span class="n">all.numbers</span>
+</pre></div>
+</div>
+<table>
+<caption>A data.frame: 10 × 2</caption>
+<thead>
+	<tr><th scope=col>small.numbers</th><th scope=col>large.numbers</th></tr>
+	<tr><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th></tr>
+</thead>
+<tbody>
+	<tr><td> 1</td><td> 100</td></tr>
+	<tr><td> 2</td><td> 200</td></tr>
+	<tr><td> 3</td><td> 300</td></tr>
+	<tr><td> 4</td><td> 400</td></tr>
+	<tr><td> 5</td><td> 500</td></tr>
+	<tr><td> 6</td><td> 600</td></tr>
+	<tr><td> 7</td><td> 700</td></tr>
+	<tr><td> 8</td><td> 800</td></tr>
+	<tr><td> 9</td><td> 900</td></tr>
+	<tr><td>10</td><td>1000</td></tr>
+</tbody>
+</table>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get the top 6 values</span>
+<span class="nf">head</span><span class="p">(</span><span class="n">all.numbers</span><span class="p">)</span>
+</pre></div>
+</div>
+<table>
+<caption>A matrix: 5 × 2 of type dbl</caption>
+<thead>
+	<tr><th scope=col>numbers</th><th scope=col>other.numbers</th></tr>
+</thead>
+<tbody>
+	<tr><td>1</td><td> 6</td></tr>
+	<tr><td>2</td><td> 7</td></tr>
+	<tr><td>3</td><td> 8</td></tr>
+	<tr><td>4</td><td> 9</td></tr>
+	<tr><td>5</td><td>10</td></tr>
+</tbody>
+</table>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get the bottom 6 values</span>
+<span class="nf">tail</span><span class="p">(</span><span class="n">all.numbers</span><span class="p">)</span>
+</pre></div>
+</div>
+<table>
+<caption>A matrix: 5 × 2 of type dbl</caption>
+<thead>
+	<tr><th></th><th scope=col>numbers</th><th scope=col>other.numbers</th></tr>
+</thead>
+<tbody>
+	<tr><th scope=row>[1,]</th><td>1</td><td> 6</td></tr>
+	<tr><th scope=row>[2,]</th><td>2</td><td> 7</td></tr>
+	<tr><th scope=row>[3,]</th><td>3</td><td> 8</td></tr>
+	<tr><th scope=row>[4,]</th><td>4</td><td> 9</td></tr>
+	<tr><th scope=row>[5,]</th><td>5</td><td>10</td></tr>
+</tbody>
+</table>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="c1">#Get the structure of the dataframe</span>
+<span class="nf">str</span><span class="p">(</span><span class="n">both.types</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;data.frame&#39;:	5 obs. of  2 variables:
+ $ numbers   : num  1 2 3 4 5
+ $ characters: chr  &quot;a&quot; &quot;b&quot; &quot;c&quot; &quot;d&quot; ...
+</pre></div>
+</div>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get the number of rows and columns</span>
+<span class="nf">nrow</span><span class="p">(</span><span class="n">all.numbers</span><span class="p">)</span>
+<span class="nf">ncol</span><span class="p">(</span><span class="n">all.numbers</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>10</p>
+<p>2</p>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="c1"># Change the column names</span>
+<span class="nf">colnames</span><span class="p">(</span><span class="n">all.numbers</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="s">&quot;small_numbers&quot;</span><span class="p">,</span> <span class="s">&quot;large_numbers&quot;</span><span class="p">)</span>
+<span class="nf">colnames</span><span class="p">(</span><span class="n">all.numbers</span><span class="p">)</span>
+</pre></div>
+</div>
+<style>
+.list-inline {list-style: none; margin:0; padding: 0}
+.list-inline>li {display: inline-block}
+.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
+</style>
+<ol class="list-inline"><li>'small_numbers'</li><li>'large_numbers'</li></ol>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="c1"># Change just one column name</span>
+<span class="nf">colnames</span><span class="p">(</span><span class="n">all.numbers</span><span class="p">)[</span><span class="m">1</span><span class="p">]</span> <span class="o">&lt;-</span> <span class="s">&quot;one_to_ten&quot;</span>
+<span class="nf">colnames</span><span class="p">(</span><span class="n">all.numbers</span><span class="p">)</span>
+</pre></div>
+</div>
+<style>
+.list-inline {list-style: none; margin:0; padding: 0}
+.list-inline>li {display: inline-block}
+.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
+</style>
+<ol class="list-inline"><li>'one_to_ten'</li><li>'large_numbers'</li></ol>
+<p>Indexing dataframes is similar to indexing vectors. The only difference is now there is two dimensions, separated with commas. You can also leave either dimension blank to select all the rows or columns.</p>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="c1"># First row and first column</span>
+<span class="n">all.numbers</span><span class="p">[</span><span class="m">1</span><span class="p">,</span><span class="m">1</span><span class="p">]</span>
+</pre></div>
+</div>
+<p><strong>one_to_ten:</strong> 1</p>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="c1"># First column</span>
+<span class="n">all.numbers</span><span class="p">[,</span><span class="m">1</span><span class="p">]</span>
+</pre></div>
+</div>
+<style>
+.list-inline {list-style: none; margin:0; padding: 0}
+.list-inline>li {display: inline-block}
+.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
+</style>
+<ol class="list-inline"><li>1</li><li>2</li><li>3</li><li>4</li><li>5</li></ol>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="c1"># First row (because columns can contain different data types, selecting accross a row returns a dataframe)</span>
+<span class="n">all.numbers</span><span class="p">[</span><span class="m">1</span><span class="p">,]</span>
+</pre></div>
+</div>
+<style>
+.dl-inline {width: auto; margin:0; padding: 0}
+.dl-inline>dt, .dl-inline>dd {float: none; width: auto; display: inline-block}
+.dl-inline>dt::after {content: ":\0020"; padding-right: .5ex}
+.dl-inline>dt:not(:first-of-type) {padding-left: .5ex}
+</style><dl class="dl-inline"><dt>one_to_ten</dt><dd>1</dd><dt>large_numbers</dt><dd>6</dd></dl>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="c1"># You can also specify columns in a dataframe by using column names in two ways:</span>
+
+<span class="c1">#Get the small numbers</span>
+<span class="n">all.numbers</span><span class="o">$</span><span class="n">one_to_ten</span>
+
+<span class="c1">#Get the large numbers (the comma specifies to take them from all rows. Try adding in indexes to the left of the comma)</span>
+<span class="n">all.numbers</span><span class="p">[,</span><span class="s">&quot;large_numbers&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+<style>
+.list-inline {list-style: none; margin:0; padding: 0}
+.list-inline>li {display: inline-block}
+.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
+</style>
+<ol class="list-inline"><li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li><li>8</li><li>9</li><li>10</li></ol>
+<style>
+.list-inline {list-style: none; margin:0; padding: 0}
+.list-inline>li {display: inline-block}
+.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
+</style>
+<ol class="list-inline"><li>100</li><li>200</li><li>300</li><li>400</li><li>500</li><li>600</li><li>700</li><li>800</li><li>900</li><li>1000</li></ol>
+</div>
+<div class="section" id="reading-writing-and-rdata-files">
+<h2>3. Reading, writing and .Rdata files<a class="headerlink" href="#reading-writing-and-rdata-files" title="Permalink to this headline">¶</a></h2>
+<p>Because we’re working with jupyter notebooks we won’t cover reading and writing in much detail. Briefly, you can export data (especially dataframes) using a few simple functions:</p>
+<p>As a tab-separated text file</p>
+<p><code class="docutils literal notranslate"><span class="pre">write.table(dataframe.to.export,</span> <span class="pre">file=&quot;data.txt&quot;,sep=&quot;\t&quot;,</span> <span class="pre">row.names=FALSE)</span></code></p>
+<p>As a comma-separated file</p>
+<p><code class="docutils literal notranslate"><span class="pre">write.csv(dataframe.to.export,</span> <span class="pre">file=&quot;data.csv&quot;,</span> <span class="pre">row.names=FALSE)</span></code></p>
+<p>To read files back in:</p>
+<p><code class="docutils literal notranslate"><span class="pre">new.data</span> <span class="pre">&lt;-</span> <span class="pre">read.table(&quot;data.txt&quot;,header=TRUE,sep=&quot;\t&quot;)</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">new.data</span> <span class="pre">&lt;-</span> <span class="pre">read.csv(&quot;data.csv&quot;)</span></code></p>
+<p>Objects can also be saved as .RData and loaded back into R at a later time using save() and load(). This is handy when models may take a long time to run, and you don’t have to rerun them everytime you start a new R session.</p>
+</div>
+<div class="section" id="plotting-data">
+<h2>4. Plotting data<a class="headerlink" href="#plotting-data" title="Permalink to this headline">¶</a></h2>
+<p>R can be used to produce a wide array of plots and has a large capacity for customisation. We will touch upon some basic plots which are useful to visual data during your analysis. For more advanced plots, most biolgists use the package <em>ggplot2</em>. A useful guide is the R cookbook, that includes information on customising plots: http://www.cookbook-r.com/Graphs/</p>
+<p>We’ll start with a scatterplot.</p>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create some data</span>
+<span class="n">x</span><span class="o">&lt;-</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">10</span><span class="p">)</span>
+<span class="n">y</span><span class="o">&lt;-</span><span class="nf">seq</span><span class="p">(</span><span class="m">2</span><span class="p">,</span><span class="m">20</span><span class="p">,</span><span class="m">2</span><span class="p">)</span>
+
+<span class="c1"># Plot a basic scatter plot</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">pch</span><span class="o">=</span><span class="m">16</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="s">&quot;red&quot;</span><span class="p">,</span> <span class="n">main</span><span class="o">=</span><span class="s">&quot;My plot&quot;</span><span class="p">,</span> <span class="n">xlab</span><span class="o">=</span><span class="s">&quot;x values&quot;</span><span class="p">,</span> <span class="n">ylab</span><span class="o">=</span><span class="s">&quot;y values&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<a class="bg-primary reference internal image-reference" href="_images/Practical_1_43_0.png"><img alt="plot" class="bg-primary align-center" src="_images/Practical_1_43_0.png" style="width: 700px;" /></a>
+<p><code class="docutils literal notranslate"><span class="pre">pch</span></code> stands for ‘point character’ and is the symbol to denote values. Try changing it to other values!</p>
+<p>You can also get R to plot the scatter plot as a single line using <code class="docutils literal notranslate"><span class="pre">type</span> <span class="pre">=</span> <span class="pre">&quot;l&quot;</span></code></p>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="nf">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="s">&quot;red&quot;</span><span class="p">,</span> <span class="n">main</span><span class="o">=</span><span class="s">&quot;My plot&quot;</span><span class="p">,</span> <span class="n">xlab</span><span class="o">=</span><span class="s">&quot;x values&quot;</span><span class="p">,</span> <span class="n">ylab</span><span class="o">=</span><span class="s">&quot;y values&quot;</span><span class="p">,</span> <span class="n">type</span> <span class="o">=</span> <span class="s">&quot;l&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<a class="bg-primary reference internal image-reference" href="_images/Practical_1_45_0.png"><img alt="plot" class="bg-primary align-center" src="_images/Practical_1_45_0.png" style="width: 700px;" /></a>
+<p>Some of the most useful plots for visualling the spread of data are histograms and density plots. R comes built in with functions for sampling distributions we can use for plots.</p>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="c1"># Sample fifty points randomly from a normal distribution (try taking more or less samples to create smoother curves)</span>
+<span class="n">normal.distribution</span> <span class="o">&lt;-</span><span class="nf">rnorm</span><span class="p">(</span><span class="m">50</span><span class="p">)</span>
+
+<span class="c1"># Plot a histogram</span>
+<span class="nf">hist</span><span class="p">(</span><span class="n">normal.distribution</span><span class="p">,</span> <span class="n">main</span> <span class="o">=</span> <span class="s">&quot;My histogram&quot;</span><span class="p">,</span> <span class="n">xlab</span> <span class="o">=</span> <span class="s">&quot;sample value&quot;</span><span class="p">)</span>
+
+<span class="c1"># Plot a density plot instead (where frequency of samples is normalised to sum to 1)</span>
+<span class="nf">plot</span><span class="p">(</span><span class="nf">density</span><span class="p">(</span><span class="n">normal.distribution</span><span class="p">),</span> <span class="n">main</span> <span class="o">=</span> <span class="s">&quot;My distribution&quot;</span><span class="p">,</span> <span class="n">xlab</span> <span class="o">=</span> <span class="s">&quot;sample value&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<a class="bg-primary reference internal image-reference" href="_images/Practical_1_47_0.png"><img alt="plot" class="bg-primary align-center" src="_images/Practical_1_47_0.png" style="width: 700px;" /></a>
+<a class="bg-primary reference internal image-reference" href="_images/Practical_1_47_1.png"><img alt="plot" class="bg-primary align-center" src="_images/Practical_1_47_1.png" style="width: 700px;" /></a>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="c1"># You can change the grapical parameters to plot graphs side by side</span>
+<span class="nf">par</span><span class="p">(</span><span class="n">mfrow</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">))</span>
+<span class="nf">hist</span><span class="p">(</span><span class="n">normal.distribution</span><span class="p">,</span> <span class="n">main</span> <span class="o">=</span> <span class="s">&quot;My histogram&quot;</span><span class="p">,</span> <span class="n">xlab</span> <span class="o">=</span> <span class="s">&quot;sample value&quot;</span><span class="p">)</span>
+<span class="nf">plot</span><span class="p">(</span><span class="nf">density</span><span class="p">(</span><span class="n">normal.distribution</span><span class="p">),</span> <span class="n">main</span> <span class="o">=</span> <span class="s">&quot;My distribution&quot;</span><span class="p">,</span> <span class="n">xlab</span> <span class="o">=</span> <span class="s">&quot;sample value&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<a class="bg-primary reference internal image-reference" href="_images/Practical_1_48_0.png"><img alt="plot" class="bg-primary align-center" src="_images/Practical_1_48_0.png" style="width: 700px;" /></a>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="c1"># To reset your graph parameters to the default, simply turn off the open graphical device</span>
+<span class="nf">dev.off</span><span class="p">()</span>
+</pre></div>
+</div>
+<p><strong>null device:</strong> 1</p>
+<p>When plotting histograms, you can also use the arguement <code class="docutils literal notranslate"><span class="pre">breaks</span> <span class="pre">=</span> <span class="pre">n</span></code> to manually set the number of breaks. Plots can also be saved as objects for future use the same way as assigning any object. Also look at the functions barplot() and boxplot().</p>
+<p>You can export your plots using pdf(), jpeg() or png()</p>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="c1"># Opens a new graphical device called &#39;my.plot.name.jpg&#39; in the current working directory</span>
+<span class="nf">jpeg</span><span class="p">(</span><span class="s">&quot;My.plot.name.jpg&quot;</span><span class="p">)</span>
+
+<span class="c1"># Create a plot as usual</span>
+<span class="nf">hist</span><span class="p">(</span><span class="n">normal.distribution</span><span class="p">,</span> <span class="n">main</span> <span class="o">=</span> <span class="s">&quot;My histogram&quot;</span><span class="p">,</span> <span class="n">xlab</span> <span class="o">=</span> <span class="s">&quot;sample value&quot;</span><span class="p">)</span>
+
+<span class="c1"># Turn off the device to save any changes</span>
+<span class="nf">dev.off</span><span class="p">()</span>
+</pre></div>
+</div>
+<p><strong>png:</strong> 2</p>
+</div>
+<div class="section" id="handling-spatial-data">
+<h2>5. Handling spatial data<a class="headerlink" href="#handling-spatial-data" title="Permalink to this headline">¶</a></h2>
+<p>As conservation biologists, you’ll often be required to handle spatial data. This might be for plotting species’ ranges, predicting distributions, redlist criteria, and many other reasons. There are two common methods for handling spatial data, using GIS software such as ARCGIS, or using R. Whilst GIS softward is tempting because of its visual interface, I would recomend using R. Because you can easily save and rerun your scripts, you can perform repeatable analyses that isn’t always possible when clicking buttons in a visual interface. You can also upload your scripts when you publish papers, so that others can verify your results. Furthermore, you’ll often have to do statistical tests on your spatial data, and R has a multitude of packages to achieve this. For this practical we’ll introduce you to handling simple spatial data.</p>
+<p>Spatial data is available in a number of formats. Shapefiles contain spatial vector data for example spatial lines, points or polygons. Rasters contain a grid of values in pixels. In this session we will look at some examples.</p>
+<p>First we will look at plotting rasters from the WorldClim dataset (Hijmans et al. 2005). Specifically, we want bioclim variables which are often used to describe species’ environmental niches. Google for more info!</p>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load the raster package for spatial data</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">raster</span><span class="p">)</span>
+
+<span class="c1"># getData is a function from the raster package that allows us to download some spatial data. </span>
+<span class="n">bio</span> <span class="o">&lt;-</span> <span class="nf">getData</span><span class="p">(</span><span class="s">&quot;worldclim&quot;</span><span class="p">,</span> <span class="n">var</span><span class="o">=</span><span class="s">&quot;bio&quot;</span><span class="p">,</span> <span class="n">res</span><span class="o">=</span><span class="m">10</span><span class="p">)</span>
+
+<span class="c1"># Get the class for our rasters</span>
+<span class="nf">class</span><span class="p">(</span><span class="n">bio</span><span class="p">)</span>
+
+<span class="c1"># Return details of our rasters</span>
+<span class="n">bio</span>
+</pre></div>
+</div>
+<p>‘RasterStack’</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>class      : RasterStack 
+dimensions : 900, 2160, 1944000, 19  (nrow, ncol, ncell, nlayers)
+resolution : 0.1666667, 0.1666667  (x, y)
+extent     : -180, 180, -60, 90  (xmin, xmax, ymin, ymax)
+crs        : +proj=longlat +datum=WGS84 +ellps=WGS84 +towgs84=0,0,0 
+names      :  bio1,  bio2,  bio3,  bio4,  bio5,  bio6,  bio7,  bio8,  bio9, bio10, bio11, bio12, bio13, bio14, bio15, ... 
+min values :  -269,     9,     8,    72,   -59,  -547,    53,  -251,  -450,   -97,  -488,     0,     0,     0,     0, ... 
+max values :   314,   211,    95, 22673,   489,   258,   725,   375,   364,   380,   289,  9916,  2088,   652,   261, ... 
+</pre></div>
+</div>
+<p>We’ve downloaded 19 raster layers, with different information on rainfall, temperature, and other environmental predictors. They are organised in a ‘stack’, which is like a list of raster layers. As you can see rasters have dimensions (the number of cells), a resolution (the size of each cell), an extent (where it is located geographically) and a crs, coordinate reference system (the set of coordinates used). When working with spatial data you must ensure all files use the same coordinate system. If different objects use different coordinate systems you will need to reproject them to the same system using a function such as <code class="docutils literal notranslate"><span class="pre">spTransform()</span></code>.</p>
+<p>We can also use indexing to extract a specfic raster:</p>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="c1"># Using one set of [] returns a &#39;list&#39; of length 1 with the raster inside.</span>
+<span class="nf">class</span><span class="p">(</span><span class="n">bio</span><span class="p">[</span><span class="m">12</span><span class="p">])</span>
+
+<span class="c1"># Using two sets of [] returns the actual raster layer.</span>
+<span class="nf">class</span><span class="p">(</span><span class="n">bio</span><span class="p">[[</span><span class="m">12</span><span class="p">]])</span>
+
+<span class="c1"># Return the raster layer</span>
+<span class="n">bio</span><span class="p">[[</span><span class="m">12</span><span class="p">]]</span>
+</pre></div>
+</div>
+<style>
+.list-inline {list-style: none; margin:0; padding: 0}
+.list-inline>li {display: inline-block}
+.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
+</style>
+<ol class="list-inline"><li>'matrix'</li><li>'array'</li></ol>
+<p>‘RasterLayer’</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>class      : RasterLayer 
+dimensions : 900, 2160, 1944000  (nrow, ncol, ncell)
+resolution : 0.1666667, 0.1666667  (x, y)
+extent     : -180, 180, -60, 90  (xmin, xmax, ymin, ymax)
+crs        : +proj=longlat +datum=WGS84 +ellps=WGS84 +towgs84=0,0,0 
+source     : /content/My Git Repo/My Git Repo/My Git Repo/wc10/bio12.bil 
+names      : bio12 
+values     : 0, 9916  (min, max)
+</pre></div>
+</div>
+<p>Remember to use two square brackets to get the actual raster.</p>
+<p>Now let’s try plotting our raster.</p>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create a scale of 100 rainbow colours</span>
+<span class="n">rainbow_colours</span> <span class="o">&lt;-</span> <span class="nf">rainbow</span><span class="p">(</span><span class="m">100</span><span class="p">)</span>
+
+<span class="c1"># plot annual precipitation (mm) with our colours</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">bio</span><span class="p">[[</span><span class="m">12</span><span class="p">]],</span> <span class="n">col</span><span class="o">=</span><span class="n">rainbow_colours</span><span class="p">)</span>
+</pre></div>
+</div>
+<a class="bg-primary reference internal image-reference" href="_images/Practical_1_57_0.png"><img alt="plot" class="bg-primary align-center" src="_images/Practical_1_57_0.png" style="width: 700px;" /></a>
+<p>You can also create blank rasters of the desired extent and resolution. The following code creates a raster of the same extent and resolution as the precipitation raster. We can also assign values to the cells, such as 0 in this case.</p>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create a blank raster</span>
+<span class="n">blank_raster</span> <span class="o">&lt;-</span> <span class="nf">raster</span><span class="p">(</span><span class="n">res</span><span class="o">=</span><span class="m">0.1666667</span><span class="p">,</span><span class="n">xmn</span><span class="o">=</span><span class="m">-180</span><span class="p">,</span><span class="n">xmx</span><span class="o">=</span><span class="m">180</span><span class="p">,</span><span class="n">ymn</span><span class="o">=</span><span class="m">-60</span><span class="p">,</span><span class="n">ymx</span><span class="o">=</span><span class="m">90</span><span class="p">,</span>
+                  <span class="n">crs</span><span class="o">=</span><span class="s">&quot;+proj=longlat +datum=WGS84 +towgs84=0,0,0&quot;</span><span class="p">)</span>
+
+<span class="c1"># We can assign values to all the cells</span>
+<span class="nf">values</span><span class="p">(</span><span class="n">blank_raster</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="m">0</span>
+
+<span class="c1"># Return the raster</span>
+<span class="n">blank_raster</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>class      : RasterLayer 
+dimensions : 900, 2160, 1944000  (nrow, ncol, ncell)
+resolution : 0.1666667, 0.1666667  (x, y)
+extent     : -180, 180.0001, -60.00003, 90  (xmin, xmax, ymin, ymax)
+crs        : +proj=longlat +datum=WGS84 +towgs84=0,0,0 +ellps=WGS84 
+source     : memory
+names      : layer 
+values     : 0, 0  (min, max)
+</pre></div>
+</div>
+<p>Rasters can also be cropped to a certain extent. For example if we just wanted to consider Egypt. First we’ll download the country information as a spatial polygon. Spatial polygons are similar to rasters, but only has an extent and crs, rather than cells with values.</p>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="c1"># Download country boundary (http://www.gadm.org/)</span>
+<span class="n">Egypt</span> <span class="o">&lt;-</span> <span class="nf">getData</span><span class="p">(</span><span class="s">&quot;GADM&quot;</span><span class="p">,</span> <span class="n">country</span><span class="o">=</span><span class="s">&quot;EGY&quot;</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="m">0</span><span class="p">)</span> 
+
+<span class="c1"># Return our polygon (notice the lack of cell values and resolution)</span>
+<span class="n">Egypt</span>
+
+<span class="c1"># Plot the polygon</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">Egypt</span><span class="p">)</span> 
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>class       : SpatialPolygonsDataFrame 
+features    : 1 
+extent      : 24.6981, 36.24875, 21.72539, 31.66792  (xmin, xmax, ymin, ymax)
+crs         : +proj=longlat +datum=WGS84 +ellps=WGS84 +towgs84=0,0,0 
+variables   : 2
+names       : GID_0, NAME_0 
+value       :   EGY,  Egypt 
+</pre></div>
+</div>
+<a class="bg-primary reference internal image-reference" href="_images/Practical_1_61_1.png"><img alt="plot" class="bg-primary align-center" src="_images/Practical_1_61_1.png" style="width: 700px;" /></a>
+<p>Now we can crop our rainfall layer to just Egypt.</p>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="c1"># Crop precipitation raster to just show Egypt</span>
+<span class="n">Egypt_rain</span> <span class="o">&lt;-</span> <span class="nf">crop</span><span class="p">(</span><span class="n">bio</span><span class="p">[[</span><span class="m">12</span><span class="p">]],</span> <span class="n">Egypt</span><span class="p">)</span> 
+
+<span class="c1"># Plot our new rainfall map</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">Egypt_rain</span><span class="p">)</span>
+</pre></div>
+</div>
+<a class="bg-primary reference internal image-reference" href="_images/Practical_1_63_0.png"><img alt="plot" class="bg-primary align-center" src="_images/Practical_1_63_0.png" style="width: 700px;" /></a>
+<p>If you want to make the resolution higher, download the bioclim variables again and change the resolution.</p>
+<p>Next we will use IUCN range maps (IUCN 2015) to look at species richness. This example is from the package letsR (Vilela, Villalobos &amp; Poisot 2015). This example uses IUCN data available the frog genus Phyllomedusa.</p>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load the library letsR</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">letsR</span><span class="p">)</span>
+
+<span class="c1"># The data function loads the Phyllomedusa data directly into the R environment</span>
+<span class="nf">data</span><span class="p">(</span><span class="n">Phyllomedusa</span><span class="p">)</span>
+
+<span class="c1"># This is a SpatialPolygonsDataFrame containing the occurences of 32 species</span>
+<span class="n">Phyllomedusa</span> 
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>class       : SpatialPolygonsDataFrame 
+features    : 46 
+extent      : -78.42399, -35.0976, -34.9093, 11.45836  (xmin, xmax, ymin, ymax)
+crs         : NA 
+variables   : 4
+names       :              binomial, presence, origin, seasonal 
+min values  : Phyllomedusa araguari,        1,      1,        1 
+max values  :  Phyllomedusa venusta,        1,      1,        1 
+</pre></div>
+</div>
+<p>Let’s look at a specific species, Phyllomedusa ayeaye, as an example.</p>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="c1"># Retrieve the polygon that matches the bionomial name &quot;Phyllomedusa ayeaye&quot;. Notice the double =, which means equal to. One = works the same as &lt;- </span>
+<span class="n">Phyllomedusa_ayeaye</span> <span class="o">&lt;-</span> <span class="n">Phyllomedusa</span><span class="p">[</span><span class="n">Phyllomedusa</span><span class="o">@</span><span class="n">data</span><span class="o">$</span><span class="n">binomial</span> <span class="o">==</span> <span class="s">&quot;Phyllomedusa ayeaye&quot;</span><span class="p">,]</span>
+
+<span class="c1"># Look at the attributes table</span>
+<span class="n">Phyllomedusa_ayeaye</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>class       : SpatialPolygonsDataFrame 
+features    : 3 
+extent      : -47.30213, -46.274, -21.82913, -20.06817  (xmin, xmax, ymin, ymax)
+crs         : NA 
+variables   : 4
+names       :            binomial, presence, origin, seasonal 
+min values  : Phyllomedusa ayeaye,        1,      1,        1 
+max values  : Phyllomedusa ayeaye,        1,      1,        1 
+</pre></div>
+</div>
+<p>One of the cool things we can do with this presence absence data is make distribution maps based on presences and absences.</p>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="c1"># Creates presence absence grid using the P. ayeaye example. We can specify min and max values for x and y to zoom in our map. Try it without them.</span>
+<span class="c1"># Resol tells the function to use 1 degree of latitude as the resolution for the grid.</span>
+<span class="n">P_ayeaye_presab</span> <span class="o">&lt;-</span> <span class="nf">lets.presab</span><span class="p">(</span><span class="n">Phyllomedusa_ayeaye</span><span class="p">,</span> <span class="n">xmn</span><span class="o">=</span><span class="m">-90</span><span class="p">,</span> <span class="n">xmx</span><span class="o">=</span><span class="m">-20</span><span class="p">,</span> <span class="n">ymn</span><span class="o">=</span><span class="m">-50</span><span class="p">,</span> <span class="n">ymx</span><span class="o">=</span><span class="m">20</span><span class="p">,</span> <span class="n">resol</span><span class="o">=</span><span class="m">0.5</span><span class="p">)</span>
+
+<span class="c1"># Plot the map</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">P_ayeaye_presab</span><span class="p">)</span>
+</pre></div>
+</div>
+<a class="bg-primary reference internal image-reference" href="_images/Practical_1_69_0.png"><img alt="plot" class="bg-primary align-center" src="_images/Practical_1_69_0.png" style="width: 700px;" /></a>
+<p>Phyllomedusa ayeaye has a tiny range! If we want to make a more impressive map, we can use data on all 32 species to create a map of species richness.</p>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run the function with the spatialpolygon dataframe of all 32 species.</span>
+<span class="n">species_richness</span> <span class="o">&lt;-</span> <span class="nf">lets.presab</span><span class="p">(</span><span class="n">Phyllomedusa</span><span class="p">,</span> <span class="n">xmn</span><span class="o">=</span><span class="m">-90</span><span class="p">,</span> <span class="n">xmx</span><span class="o">=</span><span class="m">-20</span><span class="p">,</span> <span class="n">ymn</span><span class="o">=</span><span class="m">-50</span><span class="p">,</span> <span class="n">ymx</span><span class="o">=</span><span class="m">20</span><span class="p">,</span> <span class="n">resol</span><span class="o">=</span><span class="m">1</span><span class="p">)</span>
+
+<span class="c1"># Plot it</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">species_richness</span><span class="p">)</span>
+</pre></div>
+</div>
+<a class="bg-primary reference internal image-reference" href="_images/Practical_1_71_0.png"><img alt="plot" class="bg-primary align-center" src="_images/Practical_1_71_0.png" style="width: 700px;" /></a>
+<p>Of course, you can play around with plot settings to create some impressive maps!</p>
+</div>
+<div class="section" id="using-the-tidyverse">
+<h2>6. Using the Tidyverse<a class="headerlink" href="#using-the-tidyverse" title="Permalink to this headline">¶</a></h2>
+<p>We have chosen to teach the BCB practicals predominantly using base <code class="docutils literal notranslate"><span class="pre">R</span></code>. This is because anyone new to <code class="docutils literal notranslate"><span class="pre">R</span></code> needs to learn how base <code class="docutils literal notranslate"><span class="pre">R</span></code> works first. However, more and more researchers are choosing to use a group of packages for data handling called the <code class="docutils literal notranslate"><span class="pre">tidyverse</span></code>. These packages provide a slightly different way of coding in <code class="docutils literal notranslate"><span class="pre">R</span></code>, which makes data handling easier. I’ve already mentioned <code class="docutils literal notranslate"><span class="pre">ggplot2</span></code>, a <code class="docutils literal notranslate"><span class="pre">tidyverse</span></code> package, and one of the most useful in <code class="docutils literal notranslate"><span class="pre">R</span></code>!. We’ll cover a few key packages for some  of the practical tasks, but if you’d like to know about coding in the ‘tidy’ way:</p>
+<p>https://www.tidyverse.org/</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="intro.html" title="previous page">Introduction</a>
+    <a class='right-next' id="next-link" href="Practical_2.html" title="next page">Phylogenetics in R</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By The Jupyter Book community<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>

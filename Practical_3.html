@@ -1,0 +1,1055 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Macroecology analyses &#8212; Biodiversity and Conservation Biology</title>
+    
+  <link rel="stylesheet" href="_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Setting conservation priorities" href="Practical_4.html" />
+    <link rel="prev" title="Phylogenetics in R" href="Practical_2.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="index.html">
+  
+  
+  <h1 class="site-logo" id="site-title">Biodiversity and Conservation Biology</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro.html">
+   Introduction
+  </a>
+ </li>
+</ul>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Practical_1.html">
+   Basics in R
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Practical_2.html">
+   Phylogenetics in R
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Macroecology analyses
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Practical_4.html">
+   Setting conservation priorities
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/Practical_3.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#introduction-and-resources">
+   1. Introduction and resources
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#linear-models">
+   2. Linear models
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#phylogenetic-generalised-least-squares-models">
+   3. Phylogenetic Generalised Least Squares Models
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#rapport-s-rule">
+   4. Rapport’s Rule
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#latitudinal-diversity-gradient">
+   5. Latitudinal Diversity Gradient
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="macroecology-analyses">
+<h1>Macroecology analyses<a class="headerlink" href="#macroecology-analyses" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="introduction-and-resources">
+<h2>1. Introduction and resources<a class="headerlink" href="#introduction-and-resources" title="Permalink to this headline">¶</a></h2>
+<p>This practical should be a refresher on linear models in <code class="docutils literal notranslate"><span class="pre">R</span></code>, before introducing you to a phylogentic least squares model, or a PGLS. Because species that are closely related often share similar traits, this means we can’t treat them as statistically independent. However, if we look at how the traits are spread throughout the tree, we can ‘control’ for this non-independance. We’ll go into more detail when we run our PGLS.</p>
+</div>
+<div class="section" id="linear-models">
+<h2>2. Linear models<a class="headerlink" href="#linear-models" title="Permalink to this headline">¶</a></h2>
+<p>For this pratical we’ll be working data from the family Anatidae (ducks) to investigate Bergmann’s rule - if there is a relationship between latitude and body mass.
+First, we’ll load in the data and inspect it:</p>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load the duck latitudinal and bodymass data</span>
+<span class="n">duck_data</span> <span class="o">&lt;-</span> <span class="nf">read.csv</span><span class="p">(</span><span class="s">&quot;duck_data.csv&quot;</span><span class="p">,</span><span class="n">h</span><span class="o">=</span><span class="bp">T</span><span class="p">)</span> 
+
+<span class="c1"># Check it&#39;s been imported</span>
+<span class="nf">str</span><span class="p">(</span><span class="n">duck_data</span><span class="p">)</span>
+<span class="nf">head</span><span class="p">(</span><span class="n">duck_data</span><span class="p">)</span>
+
+<span class="c1"># Remove any NAs in the data (make sure to check you&#39;re not loosing too much data!)</span>
+<span class="n">duck_data</span> <span class="o">&lt;-</span> <span class="nf">na.omit</span><span class="p">(</span><span class="n">duck_data</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;data.frame&#39;:	156 obs. of  3 variables:
+ $ Jetz_Name: chr  &quot;Dendrocygna viduata&quot; &quot;Dendrocygna autumnalis&quot; &quot;Dendrocygna guttata&quot; &quot;Dendrocygna arborea&quot; ...
+ $ Latitude : num  -5.68 -5.68 -3.41 19.66 -0.38 ...
+ $ Body_Mass: num  690 755 800 1150 756 ...
+</pre></div>
+</div>
+<table>
+<caption>A data.frame: 6 × 3</caption>
+<thead>
+	<tr><th></th><th scope=col>Jetz_Name</th><th scope=col>Latitude</th><th scope=col>Body_Mass</th></tr>
+	<tr><th></th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th></tr>
+</thead>
+<tbody>
+	<tr><th scope=row>1</th><td>Dendrocygna viduata   </td><td> -5.68</td><td> 689.99</td></tr>
+	<tr><th scope=row>2</th><td>Dendrocygna autumnalis</td><td> -5.68</td><td> 755.30</td></tr>
+	<tr><th scope=row>3</th><td>Dendrocygna guttata   </td><td> -3.41</td><td> 800.00</td></tr>
+	<tr><th scope=row>4</th><td>Dendrocygna arborea   </td><td> 19.66</td><td>1150.00</td></tr>
+	<tr><th scope=row>5</th><td>Dendrocygna bicolor   </td><td> -0.38</td><td> 756.37</td></tr>
+	<tr><th scope=row>6</th><td>Dendrocygna eytoni    </td><td>-21.27</td><td> 789.99</td></tr>
+</tbody>
+</table>
+<p>The midpoint latitude is the center of the distribution of each species. Because we’re interested in the distance from equator, we’ll use the <code class="docutils literal notranslate"><span class="pre">abs()</span></code> function to convert our data.</p>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="n">duck_data</span><span class="o">$</span><span class="n">abs_latitude</span> <span class="o">&lt;-</span> <span class="nf">abs</span><span class="p">(</span><span class="n">duck_data</span><span class="o">$</span><span class="n">Latitude</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>We’ll start by looking at the relationship between body mass and latitude using a scatterplot.</p>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="nf">plot</span><span class="p">(</span><span class="n">Body_Mass</span> <span class="o">~</span> <span class="n">abs_latitude</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">duck_data</span><span class="p">)</span>
+</pre></div>
+</div>
+<a class="bg-primary reference internal image-reference" href="_images/Practical_3_8_0.png"><img alt="plot" class="bg-primary align-center" src="_images/Practical_3_8_0.png" style="width: 700px;" /></a>
+<p>Now there doesn’t seem to be much of a relationship at all from our plot. However, to double check we should look at the spread of data for both variables. In particular, body mass is often logarithmically distributed, with lots of small species and fewer large ones. Therefore we might not be seeing the true relationship!</p>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="c1"># We&#39;ll use a histogram to look at the spread.</span>
+<span class="nf">hist</span><span class="p">(</span><span class="n">duck_data</span><span class="o">$</span><span class="n">Body_Mass</span><span class="p">)</span>
+</pre></div>
+</div>
+<a class="bg-primary reference internal image-reference" href="_images/Practical_3_10_0.png"><img alt="plot" class="bg-primary align-center" src="_images/Practical_3_10_0.png" style="width: 700px;" /></a>
+<p>As we suspected! The histogram suggests a log-normal distribution. If we take logs we might see a more normal distribution.</p>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="n">duck_data</span><span class="o">$</span><span class="n">log_BM</span> <span class="o">&lt;-</span> <span class="nf">log</span><span class="p">(</span><span class="n">duck_data</span><span class="o">$</span><span class="n">Body_Mass</span><span class="p">)</span>
+<span class="nf">hist</span><span class="p">(</span><span class="n">duck_data</span><span class="o">$</span><span class="n">log_BM</span><span class="p">)</span>
+</pre></div>
+</div>
+<a class="bg-primary reference internal image-reference" href="_images/Practical_3_12_0.png"><img alt="plot" class="bg-primary align-center" src="_images/Practical_3_12_0.png" style="width: 700px;" /></a>
+<p>Now we’ve got some data that resembles a more normal distribution! We’ll now look at the spread of latitude.</p>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="nf">hist</span><span class="p">(</span><span class="n">duck_data</span><span class="o">$</span><span class="n">abs_latitude</span><span class="p">)</span>
+</pre></div>
+</div>
+<a class="bg-primary reference internal image-reference" href="_images/Practical_3_14_0.png"><img alt="plot" class="bg-primary align-center" src="_images/Practical_3_14_0.png" style="width: 700px;" /></a>
+<p>Not great, but no obvious signs of left or right skews in the data, so we can work with it. We’ll leave it as it is.
+Let’s look at the new relationship between the two variables:</p>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="nf">plot</span><span class="p">(</span><span class="n">log_BM</span> <span class="o">~</span> <span class="n">abs_latitude</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">duck_data</span><span class="p">)</span>
+</pre></div>
+</div>
+<a class="bg-primary reference internal image-reference" href="_images/Practical_3_16_0.png"><img alt="plot" class="bg-primary align-center" src="_images/Practical_3_16_0.png" style="width: 700px;" /></a>
+<p>Now we’re starting to see some kind of relationship! There’s a lot of spread to the points, but we can see the smallest species at the lowest latitudes, and the largest at the highest. To really find out if there’s a relationship we can test our hypothesis with a linear model.</p>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run a basic linear model. We separate our dependant variables from predictors using a tilda ~</span>
+<span class="n">duck_model</span> <span class="o">&lt;-</span> <span class="nf">lm</span><span class="p">(</span><span class="n">log_BM</span> <span class="o">~</span> <span class="n">abs_latitude</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">duck_data</span><span class="p">)</span>
+
+<span class="c1"># Inspect our linear model</span>
+<span class="nf">summary</span><span class="p">(</span><span class="n">duck_model</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Call:
+lm(formula = log_BM ~ abs_latitude, data = duck_data)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-1.3202 -0.5291 -0.0613  0.3249  2.1978 
+
+Coefficients:
+             Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)  6.505760   0.124237  52.366  &lt; 2e-16 ***
+abs_latitude 0.011639   0.002933   3.969 0.000112 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 0.725 on 150 degrees of freedom
+Multiple R-squared:  0.09503,	Adjusted R-squared:  0.089 
+F-statistic: 15.75 on 1 and 150 DF,  p-value: 0.0001117
+</pre></div>
+</div>
+<p>Now we can investigate if there is a relationship. There’s quite a lot going on with our output, but for this practical we’ll focus on just a few main things:</p>
+<p><code class="docutils literal notranslate"><span class="pre">Coefficients</span></code>: This tells us about our predictors in the model. In this one there’s 2, the intercept, and latitude.  We’ll break each section down further.</p>
+<p><code class="docutils literal notranslate"><span class="pre">Estimate</span></code>: This tells us what mean values of our coefficients should have. For the intercept this will be the point that crosses the y axis. For latitude, this will be the gradient of the relationship between latitude and body mass.</p>
+<p><code class="docutils literal notranslate"><span class="pre">Std.</span> <span class="pre">Error</span></code>: This shows how much faith we have in our estimates. We’re fairly certain that our estimates will fall within the range: Estimate +- Standard Error.</p>
+<p><code class="docutils literal notranslate"><span class="pre">t</span> <span class="pre">value</span></code>: This is our test statistic. In a linear model we’re testing if each of our estimated values are significantly different from zero. If the Estimate +- (2 x Standard Errors) doesn’t overlap zero, it normally means they are significant.</p>
+<p><code class="docutils literal notranslate"><span class="pre">Pr(&gt;|t|)</span></code>: This is our p values for each predictor. This is calculated by weighing up the degrees of freedom against our test statistic, and tells us what the chance is that we observed the same pattern in our data given that there was no relationship, i.e. the null hypothesis is true.</p>
+<p><code class="docutils literal notranslate"><span class="pre">Multiple</span> <span class="pre">R-squared</span></code>: This tells us how much of the variation in our response variable is explained by our model. Large values are better, but often in macro-evolution we see smaller values. Because traits at a macro scale are often driven by multiple selection pressures, which may sometimes be species-specific, we expect less variation to be explained than in smaller more targeted studies.</p>
+<p><code class="docutils literal notranslate"><span class="pre">Adjusted</span> <span class="pre">R</span> <span class="pre">squared</span></code>: This also tells us the varition explained in response, but penalises us for including more predictors. This reduces the chances of over-fitting models with lots of predictors that don’t contribute much. This is the R-squared that tends to be reported in publications.</p>
+<p><code class="docutils literal notranslate"><span class="pre">F</span> <span class="pre">Statistc</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">DF</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">p-value</span></code>: The last line reports the overall results of our model. When reporting the statistic tests in the results section, we tend to quote these values for the model. This test is comparing our model line against a flat horizontal line at the mean body mass. Simply put, does our latitude model explain more of the variance in body mass than the mean. This is easiest to explain with a quick example:</p>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create some data</span>
+<span class="n">x</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="m">12</span><span class="p">,</span><span class="m">18</span><span class="p">,</span><span class="m">21</span><span class="p">,</span> <span class="m">36</span><span class="p">,</span> <span class="m">44</span><span class="p">,</span> <span class="m">54</span><span class="p">,</span> <span class="m">59</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="m">2</span><span class="p">,</span> <span class="m">4</span><span class="p">,</span> <span class="m">7</span><span class="p">,</span> <span class="m">11</span><span class="p">,</span> <span class="m">12</span><span class="p">,</span> <span class="m">14</span><span class="p">,</span> <span class="m">15</span><span class="p">)</span>
+
+<span class="c1"># Create a linear model based only on the mean of body mass</span>
+<span class="n">mean</span> <span class="o">&lt;-</span> <span class="nf">lm</span><span class="p">(</span><span class="n">y</span> <span class="o">~</span> <span class="m">1</span><span class="p">)</span>
+
+<span class="c1"># Create a linear model where x predicts y</span>
+<span class="n">linear</span> <span class="o">&lt;-</span> <span class="nf">lm</span><span class="p">(</span><span class="n">y</span> <span class="o">~</span> <span class="n">x</span><span class="p">)</span>
+
+<span class="c1"># Create a plot window with one row and two columns</span>
+<span class="nf">par</span><span class="p">(</span><span class="n">mfrow</span> <span class="o">=</span><span class="nf">c </span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">))</span>
+
+<span class="c1"># Plot our data for the mean</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span> <span class="n">xlim</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="m">60</span><span class="p">),</span> <span class="n">ylim</span> <span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="m">15</span><span class="p">),</span> <span class="n">main</span> <span class="o">=</span> <span class="s">&quot;Mean&quot;</span><span class="p">)</span> 
+
+<span class="c1"># Add the line of the linear model based on the mean</span>
+<span class="nf">abline</span><span class="p">(</span><span class="n">mean</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="s">&quot;red&quot;</span><span class="p">)</span>
+
+<span class="c1"># Add in lines to show the distance from each point to mean line (the residuals)</span>
+<span class="nf">segments</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="nf">predict</span><span class="p">(</span><span class="n">mean</span><span class="p">))</span>
+
+<span class="c1"># Do the same to plot our data with the linear model based on x</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span> <span class="n">xlim</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="m">60</span><span class="p">),</span> <span class="n">ylim</span> <span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="m">15</span><span class="p">),</span> <span class="n">main</span> <span class="o">=</span> <span class="s">&quot;Linear&quot;</span><span class="p">)</span>  
+<span class="nf">abline</span><span class="p">(</span><span class="n">linear</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="s">&quot;blue&quot;</span><span class="p">)</span>
+<span class="nf">segments</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="nf">predict</span><span class="p">(</span><span class="n">linear</span><span class="p">))</span>
+</pre></div>
+</div>
+<a class="bg-primary reference internal image-reference" href="_images/Practical_3_20_0.png"><img alt="plot" class="bg-primary align-center" src="_images/Practical_3_20_0.png" style="width: 700px;" /></a>
+<p>From the plots we can see that the blue linear model line passes closer to all of our data points than simply using the mean line. The black lines from our data points to the linear model are the residual variation left over once we’ve accounted for x. This is often referred to as the residuals.</p>
+<p>The F statistic in our summary output is testing if there is a siginificant difference between the residuals from using our mean line against using our linear model instead. This is weighed up against the number of degrees of freedom to calculate our p-value.</p>
+<p>Degrees of freedom are often poorly known but are actually quite simple to understand. They are calculated from the number of independent data points in your model, minus the number of predictors. This is to prevent models that over-fit the data. So models with lots of data points have high degrees of freedom which means we need lower F statistic values to be certain of our model. For models with few data points it depends on the number of predictors. If there’s few predictors, like in our model, that means that we can accept lower F statistics. We can be more confident in our relationship if we used fewer predictors to describe it. If we use lots of predictors, we can be less certain in our model, because each predictor may explain some of the variation just by chance. Therefore we need a higher F statistic. When you report your models, report both the degrees of freedom and the F statistic alongside your p-value for the whole model.</p>
+<p>Now that we understand a bit more about our summary report, lets look at it again to investigate the relationship between body mass and latitude.</p>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="nf">summary</span><span class="p">(</span><span class="n">duck_model</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Call:
+lm(formula = log_BM ~ abs_latitude, data = duck_data)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-1.3202 -0.5291 -0.0613  0.3249  2.1978 
+
+Coefficients:
+             Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)  6.505760   0.124237  52.366  &lt; 2e-16 ***
+abs_latitude 0.011639   0.002933   3.969 0.000112 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 0.725 on 150 degrees of freedom
+Multiple R-squared:  0.09503,	Adjusted R-squared:  0.089 
+F-statistic: 15.75 on 1 and 150 DF,  p-value: 0.0001117
+</pre></div>
+</div>
+<p>We can see from our model that both the intercept and latitude are significant predictors. That the intercept is significant isn’t very interesting. It means at 0 latitude (the equator), body mass is significantly different from zero. Seeing as it’s impossible to have a species with zero body mass, this isn’t suprising! What’s more interesting is latitude. We can see a significant p-value, so there is a relationship between latitude and body mass. As the estimate is postive, we can see that as latitude increases, so does body mass. For every 1 degree of latitude, log(body mass) increases by 0.012, supporting Bergmann’s rule. We can see that by plotting our model line with our data.</p>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="nf">plot</span><span class="p">(</span><span class="n">log_BM</span> <span class="o">~</span> <span class="n">abs_latitude</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">duck_data</span><span class="p">)</span>
+<span class="nf">abline</span><span class="p">(</span><span class="n">duck_model</span><span class="p">)</span>
+</pre></div>
+</div>
+<a class="bg-primary reference internal image-reference" href="_images/Practical_3_24_0.png"><img alt="plot" class="bg-primary align-center" src="_images/Practical_3_24_0.png" style="width: 700px;" /></a>
+<p>Of course, we can see that many data points don’t fit this line. If we look at the adjusted R-squared, we can see that our model explains roughly 9% of the variation in body size. Most macroevolutionary studies have low R-squared values, so this is quite high! We could potentially increase this more by including other predictors which influence body size. Have a think about what these predictors could be.</p>
+<p>We can also see from the bottom line of output that our overall model is significant. Because there is only one predictor (except the intercept), this value will be the same as our p-value for body mass.</p>
+<p>As we’ve ran a standard linear model, we should also check our residuals to see if they are normally distributed. This is one of the assumptions of parametric tests, and if not we might consider using a generalised linear model instead.</p>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot a density curve of the residuals</span>
+<span class="nf">plot</span><span class="p">(</span><span class="nf">density</span><span class="p">(</span><span class="n">duck_model</span><span class="o">$</span><span class="n">residuals</span><span class="p">))</span>
+</pre></div>
+</div>
+<a class="bg-primary reference internal image-reference" href="_images/Practical_3_26_0.png"><img alt="plot" class="bg-primary align-center" src="_images/Practical_3_26_0.png" style="width: 700px;" /></a>
+<p>Our residuals look pretty normally distributed. It’s normally good enough just to inspect these plots by eye, to check there’s no extreme left or right skew to the distribution.</p>
+</div>
+<div class="section" id="phylogenetic-generalised-least-squares-models">
+<h2>3. Phylogenetic Generalised Least Squares Models<a class="headerlink" href="#phylogenetic-generalised-least-squares-models" title="Permalink to this headline">¶</a></h2>
+<p>Up until now we have been treating all our species as independant data points. However, technically this isn’t true. Each species is related to each other, and some are more closely related than others. We might expect that closely related species in the same genus are more likely to have a similar body mass than species from different genera. We then come to the conclusion that there are more large species at higher latitudes because they all shared one common ancestor, who happened to be a large species. This would suggest that the evolutionary history of ducks is responsible for the patterns of body mass, rather than a true relationship between latitude and body mass. Fortunately, we can test this using phylogenetically-controlled linear models. One of the easiest to use a PGLS.</p>
+<p>First let’s load up the packages we need and the phylogenetic tree of ducks.</p>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="nf">library</span><span class="p">(</span><span class="n">ape</span><span class="p">)</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">caper</span><span class="p">)</span>
+
+<span class="c1"># Read in the tree</span>
+<span class="n">duck_tree</span> <span class="o">&lt;-</span> <span class="nf">read.tree</span><span class="p">(</span><span class="s">&quot;duck_tree.tre&quot;</span><span class="p">)</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">duck_tree</span><span class="p">)</span>
+</pre></div>
+</div>
+<a class="bg-primary reference internal image-reference" href="_images/Practical_3_28_0.png"><img alt="plot" class="bg-primary align-center" src="_images/Practical_3_28_0.png" style="width: 700px;" /></a>
+<p>We now need to attach our body mass data and tree together, and we can do this by creating a comparative data object from the <code class="docutils literal notranslate"><span class="pre">caper</span></code> package.</p>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="c1"># We need to change the Jetz names so that they match the tip labels. gsub is another function to swap patterns in strings.</span>
+<span class="n">duck_data</span><span class="o">$</span><span class="n">Jetz_Name</span> <span class="o">&lt;-</span> <span class="nf">gsub</span><span class="p">(</span><span class="s">&quot; &quot;</span><span class="p">,</span> <span class="s">&quot;_&quot;</span><span class="p">,</span> <span class="n">duck_data</span><span class="o">$</span><span class="n">Jetz_Name</span><span class="p">)</span>
+
+<span class="c1"># We specify the phylogeny we need, the data, and which column has the tip label names in</span>
+<span class="n">duck_comp</span> <span class="o">&lt;-</span> <span class="nf">comparative.data</span><span class="p">(</span><span class="n">phy</span> <span class="o">=</span> <span class="n">duck_tree</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">duck_data</span><span class="p">,</span> <span class="n">names.col</span> <span class="o">=</span> <span class="s">&quot;Jetz_Name&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>We can inspect our comparative data object to check that it’s worked.</p>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="c1"># Return the data </span>
+<span class="n">duck_comp</span><span class="o">$</span><span class="n">data</span>
+</pre></div>
+</div>
+<table>
+<caption>A data.frame: 152 × 4</caption>
+<thead>
+	<tr><th></th><th scope=col>Latitude</th><th scope=col>Body_Mass</th><th scope=col>abs_latitude</th><th scope=col>log_BM</th></tr>
+	<tr><th></th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th></tr>
+</thead>
+<tbody>
+	<tr><th scope=row>Dendrocygna_arborea</th><td> 19.66</td><td> 1150.00</td><td>19.66</td><td>7.047517</td></tr>
+	<tr><th scope=row>Dendrocygna_autumnalis</th><td> -5.68</td><td>  755.30</td><td> 5.68</td><td>6.627115</td></tr>
+	<tr><th scope=row>Dendrocygna_arcuata</th><td> -7.97</td><td>  796.18</td><td> 7.97</td><td>6.679825</td></tr>
+	<tr><th scope=row>Dendrocygna_javanica</th><td> 18.86</td><td>  519.61</td><td>18.86</td><td>6.253079</td></tr>
+	<tr><th scope=row>Dendrocygna_eytoni</th><td>-21.27</td><td>  789.99</td><td>21.27</td><td>6.672020</td></tr>
+	<tr><th scope=row>Dendrocygna_guttata</th><td> -3.41</td><td>  800.00</td><td> 3.41</td><td>6.684612</td></tr>
+	<tr><th scope=row>Dendrocygna_bicolor</th><td> -0.38</td><td>  756.37</td><td> 0.38</td><td>6.628531</td></tr>
+	<tr><th scope=row>Dendrocygna_viduata</th><td> -5.68</td><td>  689.99</td><td> 5.68</td><td>6.536677</td></tr>
+	<tr><th scope=row>Thalassornis_leuconotus</th><td> -7.97</td><td>  698.33</td><td> 7.97</td><td>6.548692</td></tr>
+	<tr><th scope=row>Cygnus_columbianus</th><td> 67.98</td><td> 6377.96</td><td>67.98</td><td>8.760604</td></tr>
+	<tr><th scope=row>Cygnus_buccinator</th><td> 56.68</td><td>11071.13</td><td>56.68</td><td>9.312096</td></tr>
+	<tr><th scope=row>Cygnus_cygnus</th><td> 59.51</td><td> 9349.99</td><td>59.51</td><td>9.143131</td></tr>
+	<tr><th scope=row>Cygnus_olor</th><td> 49.21</td><td>10682.04</td><td>49.21</td><td>9.276319</td></tr>
+	<tr><th scope=row>Cygnus_atratus</th><td>-27.91</td><td> 5623.16</td><td>27.91</td><td>8.634649</td></tr>
+	<tr><th scope=row>Cygnus_melancoryphus</th><td>-38.75</td><td> 4711.68</td><td>38.75</td><td>8.457800</td></tr>
+	<tr><th scope=row>Chen_canagica</th><td> 66.06</td><td> 2136.49</td><td>66.06</td><td>7.666920</td></tr>
+	<tr><th scope=row>Chen_caerulescens</th><td> 70.07</td><td> 2636.15</td><td>70.07</td><td>7.877075</td></tr>
+	<tr><th scope=row>Chen_rossii</th><td> 62.61</td><td> 1635.99</td><td>62.61</td><td>7.400003</td></tr>
+	<tr><th scope=row>Anser_indicus</th><td> 38.75</td><td> 2212.55</td><td>38.75</td><td>7.701901</td></tr>
+	<tr><th scope=row>Anser_erythropus</th><td> 67.98</td><td> 1755.50</td><td>67.98</td><td>7.470509</td></tr>
+	<tr><th scope=row>Anser_brachyrhynchus</th><td> 66.06</td><td> 2642.04</td><td>66.06</td><td>7.879307</td></tr>
+	<tr><th scope=row>Anser_cygnoides</th><td> 49.21</td><td> 3511.94</td><td>49.21</td><td>8.163924</td></tr>
+	<tr><th scope=row>Anser_anser</th><td> 50.37</td><td> 3302.41</td><td>50.37</td><td>8.102408</td></tr>
+	<tr><th scope=row>Anser_fabalis</th><td> 61.02</td><td> 2754.73</td><td>61.02</td><td>7.921075</td></tr>
+	<tr><th scope=row>Anser_albifrons</th><td> 67.98</td><td> 2506.39</td><td>67.98</td><td>7.826599</td></tr>
+	<tr><th scope=row>Branta_leucopsis</th><td> 64.28</td><td> 1683.97</td><td>64.28</td><td>7.428909</td></tr>
+	<tr><th scope=row>Branta_sandvicensis</th><td> 20.06</td><td> 2044.12</td><td>20.06</td><td>7.622723</td></tr>
+	<tr><th scope=row>Branta_canadensis</th><td> 52.78</td><td> 2811.68</td><td>52.78</td><td>7.941537</td></tr>
+	<tr><th scope=row>Branta_ruficollis</th><td> 70.07</td><td> 1226.47</td><td>70.07</td><td>7.111895</td></tr>
+	<tr><th scope=row>Branta_bernicla</th><td> 70.07</td><td> 1277.91</td><td>70.07</td><td>7.152981</td></tr>
+	<tr><th scope=row>⋮</th><td>⋮</td><td>⋮</td><td>⋮</td><td>⋮</td></tr>
+	<tr><th scope=row>Anas_versicolor</th><td>-35.91</td><td> 595.21</td><td>35.91</td><td>6.388914</td></tr>
+	<tr><th scope=row>Anas_platalea</th><td>-34.99</td><td> 465.43</td><td>34.99</td><td>6.142962</td></tr>
+	<tr><th scope=row>Anas_clypeata</th><td> 54.04</td><td> 612.56</td><td>54.04</td><td>6.417647</td></tr>
+	<tr><th scope=row>Anas_rhynchotis</th><td>-30.51</td><td> 638.96</td><td>30.51</td><td>6.459842</td></tr>
+	<tr><th scope=row>Anas_smithii</th><td>-24.55</td><td> 591.46</td><td>24.55</td><td>6.382594</td></tr>
+	<tr><th scope=row>Anas_discors</th><td> 46.96</td><td> 359.44</td><td>46.96</td><td>5.884547</td></tr>
+	<tr><th scope=row>Anas_cyanoptera</th><td> 20.46</td><td> 377.45</td><td>20.46</td><td>5.933438</td></tr>
+	<tr><th scope=row>Anas_querquedula</th><td> 51.56</td><td> 325.60</td><td>51.56</td><td>5.785670</td></tr>
+	<tr><th scope=row>Anas_hottentota</th><td>-12.58</td><td> 276.36</td><td>12.58</td><td>5.621704</td></tr>
+	<tr><th scope=row>Anas_formosa</th><td> 62.61</td><td> 433.98</td><td>62.61</td><td>6.072998</td></tr>
+	<tr><th scope=row>Anas_wyvilliana</th><td> 21.27</td><td> 843.42</td><td>21.27</td><td>6.737465</td></tr>
+	<tr><th scope=row>Tachyeres_leucocephalus</th><td>-43.75</td><td>3013.00</td><td>43.75</td><td>8.010692</td></tr>
+	<tr><th scope=row>Tachyeres_patachonicus</th><td>-45.87</td><td>2821.55</td><td>45.87</td><td>7.945042</td></tr>
+	<tr><th scope=row>Tachyeres_brachypterus</th><td>-51.56</td><td>3450.00</td><td>51.56</td><td>8.146130</td></tr>
+	<tr><th scope=row>Tachyeres_pteneres</th><td>-51.56</td><td>4737.59</td><td>51.56</td><td>8.463284</td></tr>
+	<tr><th scope=row>Lophonetta_specularioides</th><td>-32.27</td><td>1019.93</td><td>32.27</td><td>6.927489</td></tr>
+	<tr><th scope=row>Speculanas_specularis</th><td>-45.87</td><td>1496.07</td><td>45.87</td><td>7.310597</td></tr>
+	<tr><th scope=row>Amazonetta_brasiliensis</th><td>-13.35</td><td> 499.99</td><td>13.35</td><td>6.214588</td></tr>
+	<tr><th scope=row>Oxyura_australis</th><td>-32.27</td><td> 798.00</td><td>32.27</td><td>6.682109</td></tr>
+	<tr><th scope=row>Oxyura_leucocephala</th><td> 46.96</td><td> 661.09</td><td>46.96</td><td>6.493890</td></tr>
+	<tr><th scope=row>Oxyura_maccoa</th><td>-18.86</td><td> 674.00</td><td>18.86</td><td>6.513230</td></tr>
+	<tr><th scope=row>Oxyura_jamaicensis</th><td> 40.71</td><td> 608.15</td><td>40.71</td><td>6.410422</td></tr>
+	<tr><th scope=row>Oxyura_vittata</th><td>-35.91</td><td> 642.68</td><td>35.91</td><td>6.465647</td></tr>
+	<tr><th scope=row>Plectropterus_gambensis</th><td>  1.13</td><td>3869.00</td><td> 1.13</td><td>8.260751</td></tr>
+	<tr><th scope=row>Nomonyx_dominicus</th><td> -8.73</td><td> 364.97</td><td> 8.73</td><td>5.899815</td></tr>
+	<tr><th scope=row>Nettapus_auritus</th><td>  1.13</td><td> 266.00</td><td> 1.13</td><td>5.583496</td></tr>
+	<tr><th scope=row>Nettapus_coromandelianus</th><td> 19.66</td><td> 391.33</td><td>19.66</td><td>5.969551</td></tr>
+	<tr><th scope=row>Nettapus_pulchellus</th><td>-16.48</td><td> 306.98</td><td>16.48</td><td>5.726783</td></tr>
+	<tr><th scope=row>Heteronetta_atricapilla</th><td>-32.27</td><td> 538.37</td><td>32.27</td><td>6.288546</td></tr>
+	<tr><th scope=row>Stictonetta_naevosa</th><td>-30.51</td><td> 903.27</td><td>30.51</td><td>6.806022</td></tr>
+</tbody>
+</table>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot the phylogeny</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">duck_comp</span><span class="o">$</span><span class="n">phy</span><span class="p">)</span>
+</pre></div>
+</div>
+<a class="bg-primary reference internal image-reference" href="_images/Practical_3_33_0.png"><img alt="plot" class="bg-primary align-center" src="_images/Practical_3_33_0.png" style="width: 700px;" /></a>
+<p>So we can see that our comparative object has worked as it should. Now we can run a pgls to see if information on the phylogeny makes any difference.</p>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="n">duck_pgls</span> <span class="o">&lt;-</span> <span class="nf">pgls</span><span class="p">(</span><span class="n">log_BM</span> <span class="o">~</span> <span class="n">abs_latitude</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">duck_comp</span><span class="p">,</span> <span class="n">lambda</span> <span class="o">=</span> <span class="s">&quot;ML&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The code for a pgls looks largely the same. The only difference is that we have a third arguement, which is the lambda value. The lambda value tells us how randomly body mass and latitude are spread throughout the tree. By saying <code class="docutils literal notranslate"><span class="pre">&quot;ML&quot;</span></code> we’ve asked the function to calculate lambda using maximum likelihood methods, rather than give it an exact value.</p>
+<p>Let’s take a look at the results of the pgls.</p>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="nf">summary</span><span class="p">(</span><span class="n">duck_pgls</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Call:
+pgls(formula = log_BM ~ abs_latitude, data = duck_comp, lambda = &quot;ML&quot;)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-0.97464 -0.13915 -0.00982  0.12795  0.56476 
+
+Branch length transformations:
+
+kappa  [Fix]  : 1.000
+lambda [ ML]  : 0.983
+   lower bound : 0.000, p = &lt; 2.22e-16
+   upper bound : 1.000, p = &lt; 2.22e-16
+   95.0% CI   : (0.959, 0.993)
+delta  [Fix]  : 1.000
+
+Coefficients:
+              Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)  6.7827025  0.7205697  9.4130   &lt;2e-16 ***
+abs_latitude 0.0026244  0.0019744  1.3292   0.1858    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 0.2301 on 150 degrees of freedom
+Multiple R-squared: 0.01164,	Adjusted R-squared: 0.005052 
+F-statistic: 1.767 on 1 and 150 DF,  p-value: 0.1858 
+</pre></div>
+</div>
+<p>The output of the summary look largely the same as our linear model. The key difference is we now have information on the branch length transformations, which shows how our trait is influenced by phylogeny. We can also see that our p-value for latitude is now much higher, and above the 0.05 threshold. When we look at our estimate, we can see that it’s a postive value, so the same relationship is there, but we can no longer be confident enough to reject our null hypothesis. This is why for macro-evolutionary studies, we always have to include information on the phylogeny!</p>
+<p>We should take a second to look at the lambda value. Ours is 0.98 according to the pgls summary. But what does it mean?</p>
+<p>Lambda is scaled between 0 and 1, and it’s easiest to think of it as how much our trait is bunched up in the tree. Values closer to zero suggest that body mass would be spread randomly among the tree, and the phylogeny does not matter. Values closer to one suggest that body mass is organised strongly throughout the tree, with closer species having more similar sizes.</p>
+<p>For an excellent explanation of lambda values, check out this paper by Natalie Cooper at the Natural History Museum, who helped write the second practical on this course.</p>
+<p>https://royalsocietypublishing.org/doi/full/10.1098/rstb.2012.0341</p>
+<p>What the lambda value actually does is change the length of the branches on the tree, to reflect how body mass is related between species. We can visualise this by plotting trees with different lambda values.</p>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load the package geiger that has the rescale function. You&#39;ll have to install it if you&#39;re in Rstudio on your own laptops.</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">geiger</span><span class="p">)</span>
+
+<span class="c1"># We&#39;ll create six trees with different lambda values </span>
+<span class="n">lambda_1_tree</span> <span class="o">&lt;-</span> <span class="nf">rescale</span><span class="p">(</span><span class="n">duck_tree</span><span class="p">,</span> <span class="s">&quot;lambda&quot;</span><span class="p">,</span> <span class="m">1</span><span class="p">)</span>
+<span class="n">lambda_0.8_tree</span> <span class="o">&lt;-</span> <span class="nf">rescale</span><span class="p">(</span><span class="n">duck_tree</span><span class="p">,</span> <span class="s">&quot;lambda&quot;</span><span class="p">,</span> <span class="m">0.8</span><span class="p">)</span>
+<span class="n">lambda_0.6_tree</span> <span class="o">&lt;-</span> <span class="nf">rescale</span><span class="p">(</span><span class="n">duck_tree</span><span class="p">,</span> <span class="s">&quot;lambda&quot;</span><span class="p">,</span> <span class="m">0.6</span><span class="p">)</span>
+<span class="n">lambda_0.4_tree</span> <span class="o">&lt;-</span> <span class="nf">rescale</span><span class="p">(</span><span class="n">duck_tree</span><span class="p">,</span> <span class="s">&quot;lambda&quot;</span><span class="p">,</span> <span class="m">0.4</span><span class="p">)</span>
+<span class="n">lambda_0.2_tree</span> <span class="o">&lt;-</span> <span class="nf">rescale</span><span class="p">(</span><span class="n">duck_tree</span><span class="p">,</span> <span class="s">&quot;lambda&quot;</span><span class="p">,</span> <span class="m">0.2</span><span class="p">)</span>
+<span class="n">lambda_0_tree</span> <span class="o">&lt;-</span> <span class="nf">rescale</span><span class="p">(</span><span class="n">duck_tree</span><span class="p">,</span> <span class="s">&quot;lambda&quot;</span><span class="p">,</span> <span class="m">0</span><span class="p">)</span>
+
+<span class="c1"># Now we&#39;ll plot them alongside each other to see the difference</span>
+
+<span class="c1"># Change the number of plots and resize the window</span>
+<span class="nf">par</span><span class="p">(</span><span class="n">mfrow</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">2</span><span class="p">,</span><span class="m">3</span><span class="p">))</span>
+<span class="nf">options</span><span class="p">(</span><span class="n">repr.plot.width</span><span class="o">=</span><span class="m">15</span><span class="p">,</span> <span class="n">repr.plot.height</span><span class="o">=</span><span class="m">15</span><span class="p">)</span>
+
+<span class="nf">plot</span><span class="p">(</span><span class="n">lambda_1_tree</span><span class="p">,</span> <span class="n">show.tip.label</span> <span class="o">=</span> <span class="kc">FALSE</span><span class="p">,</span> <span class="n">direction</span> <span class="o">=</span> <span class="s">&quot;downwards&quot;</span><span class="p">,</span> <span class="n">main</span> <span class="o">=</span> <span class="s">&quot;1.0&quot;</span><span class="p">)</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">lambda_0.8_tree</span><span class="p">,</span> <span class="n">show.tip.label</span> <span class="o">=</span> <span class="kc">FALSE</span><span class="p">,</span> <span class="n">direction</span> <span class="o">=</span> <span class="s">&quot;downwards&quot;</span><span class="p">,</span> <span class="n">main</span> <span class="o">=</span> <span class="s">&quot;0.8&quot;</span><span class="p">)</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">lambda_0.6_tree</span><span class="p">,</span> <span class="n">show.tip.label</span> <span class="o">=</span> <span class="kc">FALSE</span><span class="p">,</span> <span class="n">direction</span> <span class="o">=</span> <span class="s">&quot;downwards&quot;</span><span class="p">,</span> <span class="n">main</span> <span class="o">=</span> <span class="s">&quot;0.6&quot;</span><span class="p">)</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">lambda_0.4_tree</span><span class="p">,</span> <span class="n">show.tip.label</span> <span class="o">=</span> <span class="kc">FALSE</span><span class="p">,</span> <span class="n">direction</span> <span class="o">=</span> <span class="s">&quot;downwards&quot;</span><span class="p">,</span> <span class="n">main</span> <span class="o">=</span> <span class="s">&quot;0.4&quot;</span><span class="p">)</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">lambda_0.2_tree</span><span class="p">,</span> <span class="n">show.tip.label</span> <span class="o">=</span> <span class="kc">FALSE</span><span class="p">,</span> <span class="n">direction</span> <span class="o">=</span> <span class="s">&quot;downwards&quot;</span><span class="p">,</span> <span class="n">main</span> <span class="o">=</span> <span class="s">&quot;0.2&quot;</span><span class="p">)</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">lambda_0_tree</span><span class="p">,</span> <span class="n">show.tip.label</span> <span class="o">=</span> <span class="kc">FALSE</span><span class="p">,</span> <span class="n">direction</span> <span class="o">=</span> <span class="s">&quot;downwards&quot;</span><span class="p">,</span> <span class="n">main</span> <span class="o">=</span> <span class="s">&quot;0.0&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<a class="bg-primary reference internal image-reference" href="_images/Practical_3_39_0.png"><img alt="plot" class="bg-primary align-center" src="_images/Practical_3_39_0.png" style="width: 700px;" /></a>
+<p>What’s actually happening is the lambda value shortens all the interal branches (everything except the tips). This reduces the difference between species. In the last plot we can see a lambda value of zero, and all the branches are equally close to the root, and therefore to each other. This means that all our species are now independent points, and if we ran a pgls we would get similar results to a linear model. Try it out running a pgls with different lambda values and see what happens!</p>
+<p>We can plot the profile of the lambda value from our pgls and see how we came to this number.</p>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get the potential values of lambda</span>
+<span class="n">lambda_likelihood</span> <span class="o">&lt;-</span> <span class="nf">pgls.profile</span><span class="p">(</span><span class="n">duck_pgls</span><span class="p">,</span> <span class="n">which</span> <span class="o">=</span> <span class="s">&quot;lambda&quot;</span><span class="p">)</span>
+
+<span class="c1"># Plot them</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">lambda_likelihood</span><span class="p">)</span>
+</pre></div>
+</div>
+<a class="bg-primary reference internal image-reference" href="_images/Practical_3_41_0.png"><img alt="plot" class="bg-primary align-center" src="_images/Practical_3_41_0.png" style="width: 700px;" /></a>
+<p>On the horizontal axis we can see potential lambda values, and on the vertical is how likely they are. Red lines show the 95% confidence intervals. This shows that we are fairly confident in our lambda value. It’s always worth plotting the our lambda profile, as a flatter line would mean we’re less confident in our lambda, and might not have controlled for our phylogeny properly. Also be wary of smaller phylogenies, as the lambda value is harder to estimate. Try and pick a group with more than 100 species for your coursework just to be safe.</p>
+<p>Don’t worry if you struggled to understand any of this! Lambda values can be tricky to get your head around. At this stage, it’s only important to be aware that a pgls uses a lambda value to decide how much to weight up the importance of the phylogeny.</p>
+<p>For more information on using a pgls check out this very useful papers that are aimed at beginners. In particular chapeter 6 which you find on researchgate:</p>
+<p>http://www.mpcm-evolution.com/book-sections/part-introduction/5-primer-phylogenetic-generalised-least-squares</p>
+<p>http://www.mpcm-evolution.com/book-sections/part-introduction/6-statistical-issues-assumptions-phylogenetic-generalised-least-squares</p>
+<p>https://onlinelibrary.wiley.com/doi/full/10.1111/j.1420-9101.2009.01757.x</p>
+</div>
+<div class="section" id="rapport-s-rule">
+<h2>4. Rapport’s Rule<a class="headerlink" href="#rapport-s-rule" title="Permalink to this headline">¶</a></h2>
+<p>For your coursework you might choose to investigate Rapport’s rule, does range size increase with latitude. To do this we’re going to use some of the mapping skills that we learnt from Practical 1 to extract range size and latitude. For this example we’ll use the family Accipitridae, which includes some birds of prey.</p>
+<p>First we’ll load in our data. This will be the same data available for your coursework:</p>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="n">trait_data</span> <span class="o">&lt;-</span> <span class="nf">read.csv</span><span class="p">(</span><span class="s">&quot;coursework_trait_data.csv&quot;</span><span class="p">)</span>
+<span class="nf">str</span><span class="p">(</span><span class="n">trait_data</span><span class="p">)</span>
+<span class="nf">head</span><span class="p">(</span><span class="n">trait_data</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;data.frame&#39;:	9872 obs. of  8 variables:
+ $ Birdlife_Name       : chr  &quot;Abeillia abeillei&quot; &quot;Abroscopus albogularis&quot; &quot;Abroscopus schisticeps&quot; &quot;Abroscopus superciliaris&quot; ...
+ $ Birdlife_common.name: chr  &quot;Emerald-chinned Hummingbird&quot; &quot;Rufous-faced Warbler&quot; &quot;Black-faced Warbler&quot; &quot;Yellow-bellied Warbler&quot; ...
+ $ Jetz_Name           : chr  &quot;Abeillia_abeillei&quot; &quot;Abroscopus_albogularis&quot; &quot;Abroscopus_schisticeps&quot; &quot;Abroscopus_superciliaris&quot; ...
+ $ Jetz_order          : chr  &quot;Apodiformes&quot; &quot;Passeriformes&quot; &quot;Passeriformes&quot; &quot;Passeriformes&quot; ...
+ $ Jetz_family         : chr  &quot;Trochilidae&quot; &quot;Cettidae&quot; &quot;Cettidae&quot; &quot;Cettidae&quot; ...
+ $ Body_mass           : num  2.7 4.84 4.7 6.48 1405.08 ...
+ $ Beak                : num  13.34 9.88 9.42 12.16 37.03 ...
+ $ Redlist_cat         : chr  &quot;LC&quot; &quot;LC&quot; &quot;LC&quot; &quot;LC&quot; ...
+</pre></div>
+</div>
+<table>
+<caption>A data.frame: 6 × 8</caption>
+<thead>
+	<tr><th></th><th scope=col>Birdlife_Name</th><th scope=col>Birdlife_common.name</th><th scope=col>Jetz_Name</th><th scope=col>Jetz_order</th><th scope=col>Jetz_family</th><th scope=col>Body_mass</th><th scope=col>Beak</th><th scope=col>Redlist_cat</th></tr>
+	<tr><th></th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;chr&gt;</th></tr>
+</thead>
+<tbody>
+	<tr><th scope=row>1</th><td>Abeillia abeillei       </td><td>Emerald-chinned Hummingbird</td><td>Abeillia_abeillei       </td><td>Apodiformes  </td><td>Trochilidae </td><td>   2.70</td><td>13.338358</td><td>LC</td></tr>
+	<tr><th scope=row>2</th><td>Abroscopus albogularis  </td><td>Rufous-faced Warbler       </td><td>Abroscopus_albogularis  </td><td>Passeriformes</td><td>Cettidae    </td><td>   4.84</td><td> 9.878526</td><td>LC</td></tr>
+	<tr><th scope=row>3</th><td>Abroscopus schisticeps  </td><td>Black-faced Warbler        </td><td>Abroscopus_schisticeps  </td><td>Passeriformes</td><td>Cettidae    </td><td>   4.70</td><td> 9.419303</td><td>LC</td></tr>
+	<tr><th scope=row>4</th><td>Abroscopus superciliaris</td><td>Yellow-bellied Warbler     </td><td>Abroscopus_superciliaris</td><td>Passeriformes</td><td>Cettidae    </td><td>   6.48</td><td>12.157208</td><td>LC</td></tr>
+	<tr><th scope=row>5</th><td>Aburria aburri          </td><td>Wattled Guan               </td><td>Aburria_aburri          </td><td>Galliformes  </td><td>Cracidae    </td><td>1405.08</td><td>37.027875</td><td>NT</td></tr>
+	<tr><th scope=row>6</th><td>Acanthagenys rufogularis</td><td>Spiny-cheeked Honeyeater   </td><td>Acanthagenys_rufogularis</td><td>Passeriformes</td><td>Meliphagidae</td><td>  47.80</td><td>24.232124</td><td>LC</td></tr>
+</tbody>
+</table>
+<p>So we can see the data is a near complete species list for the world’s birds, with some information on body mass, beak sizes and IUCN categories. We’ve included two different taxonomies, Birdlife and Jetz, because range maps were available from Birdlife, but our phylogeny uses the Jetz tree.</p>
+<p>For more info on the tree, and where download your own in the future, look here:</p>
+<p>http://birdtree.org/</p>
+<p>So we’ll first filter our traits based on the Jetz families.</p>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="nf">library</span><span class="p">(</span><span class="n">dplyr</span><span class="p">)</span>
+<span class="n">Accip_data</span> <span class="o">&lt;-</span> <span class="n">trait_data</span> <span class="o">%&gt;%</span> <span class="nf">filter</span><span class="p">(</span><span class="n">Jetz_family</span> <span class="o">==</span> <span class="s">&quot;Accipitridae&quot;</span><span class="p">)</span>
+<span class="nf">nrow</span><span class="p">(</span><span class="n">Accip_data</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Attaching package: ‘dplyr’
+
+
+The following object is masked from ‘package:MASS’:
+
+    select
+
+
+The following objects are masked from ‘package:stats’:
+
+    filter, lag
+
+
+The following objects are masked from ‘package:base’:
+
+    intersect, setdiff, setequal, union
+</pre></div>
+</div>
+<p>237</p>
+<p>Now we need to load in our range data. For convinence we’ve saved the range data as an <code class="docutils literal notranslate"><span class="pre">.Rdata</span></code> object, which <code class="docutils literal notranslate"><span class="pre">R</span></code> can load back into the working environment. <code class="docutils literal notranslate"><span class="pre">.Rdata</span></code> objects can be extremely useful, especially when you’ve ran a model that’s taken a long time, and wish to save the result without converting it to a specific file format. The maps for each family are available as a separate <code class="docutils literal notranslate"><span class="pre">R.data</span></code> file on blackboard.</p>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="c1"># First load in the spatial packages we&#39;ll need</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">raster</span><span class="p">)</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">rgdal</span><span class="p">)</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">sf</span><span class="p">)</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">geosphere</span><span class="p">)</span>
+
+
+<span class="c1"># Load the data into our environment</span>
+<span class="nf">load</span><span class="p">(</span><span class="s">&quot;Accipitridae_maps.Rdata&quot;</span><span class="p">)</span>
+
+<span class="c1"># Inspect the maps</span>
+<span class="nf">class</span><span class="p">(</span><span class="n">Accip_maps</span><span class="p">)</span>
+<span class="nf">head</span><span class="p">(</span><span class="n">Accip_maps</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Attaching package: ‘raster’
+
+
+The following object is masked from ‘package:dplyr’:
+
+    select
+
+
+The following object is masked from ‘package:tidyr’:
+
+    extract
+
+
+The following object is masked from ‘package:geiger’:
+
+    hdr
+
+
+The following objects are masked from ‘package:MASS’:
+
+    area, select
+
+
+The following objects are masked from ‘package:ape’:
+
+    rotate, zoom
+
+
+rgdal: version: 1.5-18, (SVN revision 1082)
+Geospatial Data Abstraction Library extensions to R successfully loaded
+Loaded GDAL runtime: GDAL 2.2.3, released 2017/11/20
+Path to GDAL shared files: /usr/share/gdal/2.2
+GDAL binary built with GEOS: TRUE 
+Loaded PROJ runtime: Rel. 4.9.3, 15 August 2016, [PJ_VERSION: 493]
+Path to PROJ shared files: (autodetected)
+Linking to sp version:1.4-4
+</pre></div>
+</div>
+<style>
+.list-inline {list-style: none; margin:0; padding: 0}
+.list-inline>li {display: inline-block}
+.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
+</style>
+<ol class="list-inline"><li>'sf'</li><li>'data.frame'</li></ol>
+<table>
+<caption>A sf: 6 × 18</caption>
+<thead>
+	<tr><th></th><th scope=col>SISID</th><th scope=col>SCINAME</th><th scope=col>DATE_</th><th scope=col>SOURCE</th><th scope=col>PRESENCE</th><th scope=col>ORIGIN</th><th scope=col>SEASONAL</th><th scope=col>DATA_SENS</th><th scope=col>SENS_COMM</th><th scope=col>COMPILER</th><th scope=col>TAX_COM</th><th scope=col>DIST_COM</th><th scope=col>REVIEWERS</th><th scope=col>CITATION</th><th scope=col>VERSION</th><th scope=col>Shape_Length</th><th scope=col>Shape_Area</th><th scope=col>Shape</th></tr>
+	<tr><th></th><th scope=col>&lt;int&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;int&gt;</th><th scope=col>&lt;int&gt;</th><th scope=col>&lt;int&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;MULTIPOLYGON [m]&gt;</th></tr>
+</thead>
+<tbody>
+	<tr><th scope=row>13027</th><td>22695535</td><td>Accipiter albogularis</td><td>2014</td><td>Doughty, 1999; Fergusson-Lees et al, 2001; del Hoyo et al, 1994; Dutson, 2011                                                                                                 </td><td>1</td><td>1</td><td>1</td><td>0</td><td> </td><td>Rob Martin, Philip Taylor; Joe Taylor (BirdLife International)                    </td><td>                         </td><td> </td><td>             </td><td>BirdLife International and Handbook of the Birds of the World (2019)</td><td>2017.2</td><td> 73.59322</td><td>   3.074696</td><td>MULTIPOLYGON (((167.2819 -9...</td></tr>
+	<tr><th scope=row>6</th><td>22695490</td><td><span style=white-space:pre-wrap>Accipiter badius     </span></td><td>2013</td><td><span style=white-space:pre-wrap>Fergusson-Lees &amp; Christie, 2001; del Hoyo et al, 1995; Aye et al, 2012; Rasmussen and Anderton, 2012                                                                          </span></td><td>1</td><td>1</td><td>2</td><td>0</td><td> </td><td><span style=white-space:pre-wrap>Philip Taylor; Joe Taylor (BirdLife International)                                </span></td><td><span style=white-space:pre-wrap>                         </span></td><td> </td><td><span style=white-space:pre-wrap>             </span></td><td>BirdLife International and Handbook of the Birds of the World (2019)</td><td>2017.2</td><td>153.40608</td><td> 165.044781</td><td>MULTIPOLYGON (((68.08551 45...</td></tr>
+	<tr><th scope=row>7</th><td>22695490</td><td><span style=white-space:pre-wrap>Accipiter badius     </span></td><td>2019</td><td>MacKinnon and Phillipps, 2000; Fergusson-Lees &amp; Christie, 2001; del Hoyo et al, 1995; Hockey et al, 2005; Jennings, 2010; Porter and Aspinall, 2010; Pedersen 2017; eBird 2019</td><td>1</td><td>1</td><td>1</td><td>0</td><td> </td><td><span style=white-space:pre-wrap>Rob Martin, Philip Taylor; Joe Taylor (BirdLife International)                    </span></td><td><span style=white-space:pre-wrap>                         </span></td><td> </td><td><span style=white-space:pre-wrap>             </span></td><td>BirdLife International and Handbook of the Birds of the World (2019)</td><td>2019.1</td><td>935.61334</td><td>1763.291563</td><td>MULTIPOLYGON (((32.91687 -2...</td></tr>
+	<tr><th scope=row>8</th><td>22695490</td><td><span style=white-space:pre-wrap>Accipiter badius     </span></td><td>2013</td><td><span style=white-space:pre-wrap>Fergusson-Lees &amp; Christie, 2001; del Hoyo et al, 1995; Jennings, 2010; Porter and Aspinall, 2010                                                                              </span></td><td>1</td><td>1</td><td>3</td><td>0</td><td> </td><td><span style=white-space:pre-wrap>Philip Taylor; Joe Taylor (BirdLife International)                                </span></td><td><span style=white-space:pre-wrap>                         </span></td><td> </td><td><span style=white-space:pre-wrap>             </span></td><td>BirdLife International and Handbook of the Birds of the World (2019)</td><td>2017.2</td><td> 62.96064</td><td><span style=white-space:pre-wrap>  41.606780</span></td><td>MULTIPOLYGON (((54.46491 17...</td></tr>
+	<tr><th scope=row>8572</th><td>22695669</td><td>Accipiter bicolor    </td><td>2006</td><td>Ridgley, 2003; Ferguson-Lees, 2005;Ridgely, 2002                                                                                                                              </td><td>1</td><td>1</td><td>1</td><td>0</td><td> </td><td>WWF-US, 2000; NatureServe, 2002                                                   </td><td>Accipiter bicolor bicolor</td><td> </td><td>Ridgely, 2002</td><td>BirdLife International and Handbook of the Birds of the World (2019)</td><td>2017.2</td><td>906.30544</td><td>1214.095562</td><td>MULTIPOLYGON (((-96.40631 1...</td></tr>
+	<tr><th scope=row>16871</th><td>22695605</td><td>Accipiter brachyurus </td><td>2018</td><td><span style=white-space:pre-wrap>Ferguson-Lees &amp; Christie, 2001, 2005; Buchanan et al. 2008                                                                                                                    </span></td><td>1</td><td>1</td><td>1</td><td>0</td><td> </td><td>Richard Johnson (BirdLife International); Hannah Wheatley (BirdLife International)</td><td><span style=white-space:pre-wrap>                         </span></td><td> </td><td><span style=white-space:pre-wrap>             </span></td><td>BirdLife International and Handbook of the Birds of the World (2019)</td><td>2018.1</td><td> 23.70288</td><td><span style=white-space:pre-wrap>   2.903495</span></td><td>MULTIPOLYGON (((152.9669 -4...</td></tr>
+</tbody>
+</table>
+<p>You can see that the range maps are stored in a spatial dataframe, called and <code class="docutils literal notranslate"><span class="pre">sf</span></code> class of object. We have information about ranges stored as text, and the spatial data stored as multiploygons. A polygon is one way that R stores spatial data. It records the coordinates of each corner, which it can use to calculate the full shape. Polygons also all have a coordinate reference system (such as longitude and latitude) which is how R knows where the shapes belong in the world. We can plot the polygons to see what they look like.</p>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="c1">#  Take the range polygon from the first row.</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">Accip_maps</span><span class="o">$</span><span class="n">Shape</span><span class="p">[</span><span class="m">1</span><span class="p">],</span> <span class="n">axes</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">)</span>
+</pre></div>
+</div>
+<a class="bg-primary reference internal image-reference" href="_images/Practical_3_49_0.png"><img alt="plot" class="bg-primary align-center" src="_images/Practical_3_49_0.png" style="width: 700px;" /></a>
+<p>Some species have multiple rows, based on different types of ranges (i.e. breeding range, see (http://datazone.birdlife.org/species/spcdistPOS) for more information). We need to combine different ranges for each species and calculate the range size.</p>
+<p>We can then plot the range sizes to view them at a global scale. For this practical we’ll split ranges in small and large, and highlight the smaller ranges on the map. To do this we need to utilise a <code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">loop</span></code> to go through our maps, which may be a new concept for some of you. Don’t be put off if it seems complicated! Remember you can query functions using <code class="docutils literal notranslate"><span class="pre">?</span></code> in front of functions like this: <code class="docutils literal notranslate"><span class="pre">?area</span></code>, <code class="docutils literal notranslate"><span class="pre">?subset</span></code>. You can also run each line of a loop one by one to better understand what’s happening.</p>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="c1"># And lets add columns to our data for storing range and latitude. </span>
+<span class="n">Accip_data</span><span class="o">$</span><span class="n">range_size</span> <span class="o">&lt;-</span> <span class="kc">NA</span>
+<span class="n">Accip_data</span><span class="o">$</span><span class="n">latitude</span> <span class="o">&lt;-</span> <span class="kc">NA</span>
+<span class="n">Accip_data</span><span class="o">$</span><span class="n">range_large</span> <span class="o">&lt;-</span> <span class="kc">NA</span>
+
+<span class="c1"># We want to subset our range maps for only the range maps in which it is present now (not historical).</span>
+<span class="n">Accip_maps</span> <span class="o">&lt;-</span> <span class="nf">subset</span><span class="p">(</span><span class="n">Accip_maps</span><span class="p">,</span> <span class="n">Accip_maps</span><span class="o">$</span><span class="n">PRESENCE</span> <span class="o">%in%</span> <span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">,</span><span class="m">3</span><span class="p">))</span>
+
+<span class="c1"># Open a for loop which will cycle through each species in our list of birdlife names. The object &#39;species&#39; is just a placeholder. We could name it whatever we want, as long as we give R a sensible object to iterate through.</span>
+<span class="c1"># The curly brackets show the beginning and the end of the loop, which will be repeated for each species.</span>
+<span class="nf">for </span><span class="p">(</span><span class="n">species</span> <span class="n">in</span> <span class="n">Accip_data</span><span class="o">$</span><span class="n">Birdlife_Name</span><span class="p">){</span>
+
+  <span class="c1"># We want to subset our range maps for each species, and combine the different ranges (breeding, winter etc.). st_combine combines each range, and as_Spatial converts it into an &#39;SpatialPolygons&#39; object.</span>
+  <span class="n">map_data</span> <span class="o">&lt;-</span> <span class="nf">subset</span><span class="p">(</span><span class="n">Accip_maps</span><span class="p">,</span> <span class="n">Accip_maps</span><span class="o">$</span><span class="n">SCINAME</span> <span class="o">==</span> <span class="n">species</span><span class="p">)</span>
+  <span class="n">combined_range</span> <span class="o">&lt;-</span> <span class="nf">as_Spatial</span><span class="p">(</span><span class="nf">st_combine</span><span class="p">(</span><span class="n">map_data</span><span class="o">$</span><span class="n">Shape</span><span class="p">))</span>
+
+  <span class="c1"># Extract the rangesize (area) and the latitude (the y component of the center of the polygon). Divide by 10^6 to convert from m^2 to km^2.</span>
+  <span class="n">range</span> <span class="o">&lt;-</span> <span class="nf">areaPolygon</span><span class="p">(</span><span class="n">combined_range</span><span class="p">,</span> <span class="n">na.rm</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span><span class="o">/</span><span class="m">1000000</span>
+  <span class="n">latitude</span> <span class="o">&lt;-</span> <span class="nf">centroid</span><span class="p">(</span><span class="n">combined_range</span><span class="p">)[</span><span class="m">2</span><span class="p">]</span>
+
+  <span class="c1"># Calculate if it&#39;s small range or a large range. IF functions have a logical expression inside the brackets. If it&#39;s TRUE it will run the line between the curly brackets. If it&#39;s FALSE, it will run what&#39;s after else.</span>
+  <span class="nf">if </span><span class="p">(</span><span class="n">range</span> <span class="o">&gt;</span> <span class="m">1000000</span><span class="p">){</span>
+    <span class="n">range_size</span> <span class="o">&lt;-</span> <span class="m">2</span>
+  <span class="p">}</span> <span class="n">else</span> <span class="p">{</span>
+    <span class="n">range_size</span> <span class="o">&lt;-</span> <span class="m">1</span>
+  <span class="p">}</span>
+
+  <span class="c1"># Save our variables in the dataframe, making sure the row matches the birdlife name for each iteration of the loop.</span>
+  <span class="n">Accip_data</span><span class="p">[</span><span class="n">Accip_data</span><span class="o">$</span><span class="n">Birdlife_Name</span> <span class="o">==</span> <span class="n">species</span><span class="p">,</span> <span class="s">&quot;range_size&quot;</span><span class="p">]</span> <span class="o">&lt;-</span> <span class="n">range</span>
+  <span class="n">Accip_data</span><span class="p">[</span><span class="n">Accip_data</span><span class="o">$</span><span class="n">Birdlife_Name</span> <span class="o">==</span> <span class="n">species</span><span class="p">,</span> <span class="s">&quot;latitude&quot;</span><span class="p">]</span> <span class="o">&lt;-</span> <span class="n">latitude</span>
+  <span class="n">Accip_data</span><span class="p">[</span><span class="n">Accip_data</span><span class="o">$</span><span class="n">Birdlife_Name</span> <span class="o">==</span> <span class="n">species</span><span class="p">,</span> <span class="s">&quot;range_large&quot;</span><span class="p">]</span> <span class="o">&lt;-</span> <span class="n">range_size</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Now you’ve got all the data you’ll need to investigate Rapoport’s rule.</p>
+<blockquote>
+<div><p>Extra task: Can you use skills from Practical 2 and 3 to run a PGLS to detirmine if Rapoport’s rule is true in Accipitridae? You’ll need to read in the ‘all_birds.tre’ and drop the tips for all the other species. You might also have to transform your data, as we did at the beginning of this practical.</p>
+</div></blockquote>
+<p>To plot the ranges we’re going to convert our sf dataframe of polygons into a raster image, similar to the ones in Practical 1. To do this we’ll install a new package, called <code class="docutils literal notranslate"><span class="pre">fasterize</span></code>. This package provides an updated version of the function <code class="docutils literal notranslate"><span class="pre">rasterize()</span></code>, but much faster! Both functions take a set of polygons, and transform them into rasters, using a template with the right size and resolution. We can also tell <code class="docutils literal notranslate"><span class="pre">fasterize</span></code> that we want our cells to be based on certain values, such as range_size.</p>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="nf">install.packages</span><span class="p">(</span><span class="s">&quot;fasterize&quot;</span><span class="p">)</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">fasterize</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Installing package into ‘/usr/local/lib/R/site-library’
+(as ‘lib’ is unspecified)
+</pre></div>
+</div>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="c1"># Combine the two datasets into one object so we have range size info and the polygons together. This turns our sf object into a normal dataframe.</span>
+<span class="n">Accip_all</span> <span class="o">&lt;-</span> <span class="nf">left_join</span><span class="p">(</span><span class="n">Accip_data</span><span class="p">,</span> <span class="n">Accip_maps</span><span class="p">,</span> <span class="n">by</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="s">&quot;Birdlife_Name&quot;</span> <span class="o">=</span> <span class="s">&quot;SCINAME&quot;</span><span class="p">))</span>
+
+<span class="c1"># Start by creating an empty raster stack to store our data in.</span>
+<span class="n">raster_template</span> <span class="o">&lt;-</span> <span class="nf">raster</span><span class="p">(</span><span class="n">ncols</span><span class="o">=</span><span class="m">2160</span><span class="p">,</span> <span class="n">nrows</span> <span class="o">=</span> <span class="m">900</span><span class="p">,</span> <span class="n">ymn</span> <span class="o">=</span> <span class="m">-60</span><span class="p">)</span>
+
+<span class="c1"># &#39;fasterize&#39; needs objects to be an sf class so we&#39;ll convert it back.</span>
+<span class="n">Accip_all</span> <span class="o">&lt;-</span> <span class="nf">st_sf</span><span class="p">(</span><span class="n">Accip_all</span><span class="p">)</span>
+
+<span class="c1"># Use the fasterize function with the raster template. We want to use the range_large field, and the function min takes the smallest value when they overlap. </span>
+<span class="c1"># (So small ranges are shown on top of large ranges)</span>
+<span class="n">range_raster</span> <span class="o">&lt;-</span> <span class="nf">fasterize</span><span class="p">(</span><span class="n">Accip_all</span><span class="p">,</span> <span class="n">raster_template</span><span class="p">,</span> <span class="n">field</span> <span class="o">=</span> <span class="s">&quot;range_large&quot;</span><span class="p">,</span> <span class="n">fun</span> <span class="o">=</span> <span class="s">&quot;min&quot;</span><span class="p">)</span>
+
+<span class="c1"># Plot the new map.</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">range_raster</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="nf">rainbow</span><span class="p">(</span><span class="m">2</span><span class="p">))</span>
+</pre></div>
+</div>
+<a class="bg-primary reference internal image-reference" href="_images/Practical_3_54_0.png"><img alt="plot" class="bg-primary align-center" src="_images/Practical_3_54_0.png" style="width: 700px;" /></a>
+<p>So now we can see where all the small range sizes are relative to the large ones. However, it doesn’t look very pretty and countries without any ranges are left off the map. We can make a much clearer map using <code class="docutils literal notranslate"><span class="pre">ggplot2</span></code>.</p>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="nf">library</span><span class="p">(</span><span class="n">tidyr</span><span class="p">)</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">ggplot2</span><span class="p">)</span>
+
+<span class="c1"># Convert the raster into a raster dataframe. This will be coordinates of the raster pixels (cols x and y) and the value of the raster pixels (col index_1). Remove rows with NA values from this dataframe.</span>
+<span class="n">raster_data</span> <span class="o">&lt;-</span> <span class="nf">as.data.frame</span><span class="p">(</span><span class="n">range_raster</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">)</span> <span class="o">%&gt;%</span> <span class="nf">drop_na</span><span class="p">()</span>
+<span class="nf">colnames</span><span class="p">(</span><span class="n">raster_data</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="s">&quot;long&quot;</span><span class="p">,</span> <span class="s">&quot;lat&quot;</span><span class="p">,</span> <span class="s">&quot;index&quot;</span><span class="p">)</span>
+
+<span class="c1"># Add labels for the range sizes so that ggplot colours them as discrete, rather than a continous number.</span>
+<span class="n">raster_data</span><span class="o">$</span><span class="n">ranges</span><span class="p">[</span><span class="n">raster_data</span><span class="o">$</span><span class="n">index</span> <span class="o">==</span> <span class="m">1</span><span class="p">]</span> <span class="o">&lt;-</span> <span class="s">&quot;Small&quot;</span>
+<span class="n">raster_data</span><span class="o">$</span><span class="n">ranges</span><span class="p">[</span><span class="n">raster_data</span><span class="o">$</span><span class="n">index</span> <span class="o">==</span> <span class="m">2</span><span class="p">]</span> <span class="o">&lt;-</span> <span class="s">&quot;Large&quot;</span>
+
+<span class="c1"># We can then plot this in ggplot. We have to first create the color scheme for our map.</span>
+<span class="n">myColors</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="s">&quot;grey80&quot;</span><span class="p">,</span> <span class="s">&quot;red&quot;</span><span class="p">)</span>
+
+<span class="c1"># Assign names to these colors that correspond to each range size.</span>
+<span class="nf">names</span><span class="p">(</span><span class="n">myColors</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="nf">unique</span><span class="p">(</span><span class="n">raster_data</span><span class="o">$</span><span class="n">ranges</span><span class="p">)</span>
+
+<span class="c1"># Create the color scale.</span>
+<span class="n">colScale</span> <span class="o">&lt;-</span> <span class="nf">scale_fill_manual</span><span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">&quot;Range Sizes&quot;</span><span class="p">,</span> <span class="n">values</span> <span class="o">=</span> <span class="n">myColors</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create a plot with ggplot (the plus signs at the end of a line carry over to the next line).</span>
+<span class="n">range_plot</span> <span class="o">&lt;-</span> <span class="nf">ggplot</span><span class="p">()</span> <span class="o">+</span>
+  <span class="c1"># borders imports all the country outlines onto the map. colour changes the color of the outlines, fill changes the color of the insides of the countries</span>
+  <span class="c1"># this will grey out any terrestrial area which isn&#39;t part of a range.</span>
+  <span class="nf">borders</span><span class="p">(</span><span class="n">ylim</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">-60</span><span class="p">,</span><span class="m">90</span><span class="p">),</span> <span class="n">fill</span> <span class="o">=</span> <span class="s">&quot;grey90&quot;</span><span class="p">,</span> <span class="n">colour</span> <span class="o">=</span> <span class="s">&quot;grey90&quot;</span><span class="p">)</span> <span class="o">+</span>
+  
+  <span class="c1"># Borders() xlim is -160/200 to catch the edge of russia. We need to reset the xlim to -180/180 to fit our raster_stack.</span>
+  <span class="nf">xlim</span><span class="p">(</span><span class="m">-180</span><span class="p">,</span> <span class="m">180</span><span class="p">)</span> <span class="o">+</span> 
+  
+  <span class="c1"># Add the range information on top.</span>
+  <span class="nf">geom_tile</span><span class="p">(</span><span class="nf">aes</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">long</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">lat</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span> <span class="n">ranges</span><span class="p">),</span> <span class="n">data</span><span class="o">=</span><span class="n">raster_data</span><span class="p">)</span> <span class="o">+</span>
+  <span class="c1"># Add colours.</span>
+  <span class="n">colScale</span> <span class="o">+</span>
+  <span class="c1"># Add title.</span>
+  <span class="nf">ggtitle</span><span class="p">(</span><span class="s">&quot;Small range sizes in the Accipitidae&quot;</span><span class="p">)</span> <span class="o">+</span> 
+  <span class="c1"># Add the classic theme (things like gridlines, font etc.)</span>
+  <span class="nf">theme_classic</span><span class="p">()</span> <span class="o">+</span>
+  <span class="c1"># Add axes labels.</span>
+  <span class="nf">ylab</span><span class="p">(</span><span class="s">&quot;Latitude&quot;</span><span class="p">)</span> <span class="o">+</span> 
+  <span class="nf">xlab</span><span class="p">(</span><span class="s">&quot;Longitude&quot;</span><span class="p">)</span> <span class="o">+</span> 
+  <span class="c1"># coord_fixed() makes ggplot keep our aspect ratio the same, rather than stretching the plot to fit all available space.</span>
+  <span class="nf">coord_fixed</span><span class="p">()</span> 
+
+<span class="c1"># Return the plot so we can view it.</span>
+<span class="nf">options</span><span class="p">(</span><span class="n">repr.plot.width</span><span class="o">=</span><span class="m">15</span><span class="p">,</span> <span class="n">repr.plot.height</span><span class="o">=</span><span class="m">10</span><span class="p">)</span>
+<span class="n">range_plot</span>
+</pre></div>
+</div>
+<a class="bg-primary reference internal image-reference" href="_images/Practical_3_57_0.png"><img alt="plot" class="bg-primary align-center" src="_images/Practical_3_57_0.png" style="width: 700px;" /></a>
+<p>That looks much better than the first. Experiment with your own maps to create a map for your report. Try changing how you show ranges, such as what detirmines if a range is large or small, or anything else you can think of! You can save your plots as a file using different formats like a jpeg. Watch out for how the map transforms when it’s saved and edit your plots accordingly.</p>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="c1"># Open up a new plotting device which will save a photo.</span>
+<span class="nf">jpeg</span><span class="p">(</span><span class="s">&quot;my_map.jpeg&quot;</span><span class="p">)</span>
+
+<span class="c1"># Add the plot to the plotting device.</span>
+<span class="n">range_plot</span>
+
+<span class="c1"># Turn off the plotting device to save it.</span>
+<span class="nf">dev.off</span><span class="p">()</span>
+</pre></div>
+</div>
+<p><strong>png:</strong> 2</p>
+<p>From this practical you should be able to run a pgls using the data we’ve generated and a species tree. You’ll have to explore your data and potentially transform variables. You should also have all the code to cut down your tree. You can find a tree for all Jetz species on blackboard called “all_birds.tre”, or you can download your own from:</p>
+<p>http://birdtree.org/</p>
+</div>
+<div class="section" id="latitudinal-diversity-gradient">
+<h2>5. Latitudinal Diversity Gradient<a class="headerlink" href="#latitudinal-diversity-gradient" title="Permalink to this headline">¶</a></h2>
+<p>Another question you might pick for your coursework is to investigate the latitudinal diversity gradient for your chosen taxa. We’ll explore the same relationship with Accipitridae. We’ve already extracted latitude but we for this model we will lump species into bins at 5 degree latitudes and see if some bins are bigger closer to the equator.</p>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="c1"># First we need to get absolute latitude.</span>
+<span class="n">Accip_data</span><span class="o">$</span><span class="n">abs.latitude</span> <span class="o">&lt;-</span> <span class="nf">abs</span><span class="p">(</span><span class="n">Accip_data</span><span class="o">$</span><span class="n">latitude</span><span class="p">)</span>
+
+<span class="c1"># First lets create a bin range (from 0 to 90 which is max latitude) and size (by=5)</span>
+<span class="n">range</span> <span class="o">&lt;-</span> <span class="nf">seq</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">90</span><span class="p">,</span> <span class="n">by</span><span class="o">=</span><span class="m">5</span><span class="p">)</span> 
+
+<span class="c1"># Create labels for our bins. We want to skip zero, as the labels refer to the upper limits of each break. </span>
+<span class="n">labels</span> <span class="o">&lt;-</span> <span class="nf">seq</span><span class="p">(</span><span class="m">5</span><span class="p">,</span> <span class="m">90</span><span class="p">,</span> <span class="m">5</span><span class="p">)</span>
+
+<span class="c1"># We can now &#39;cut&#39; up our latitude and put them into bins. This function adds an extra column, and adds a label for which bin each species should be in.</span>
+<span class="n">Accip_data</span><span class="o">$</span><span class="n">lat.bins</span> <span class="o">&lt;-</span> <span class="nf">cut</span><span class="p">(</span><span class="n">Accip_data</span><span class="o">$</span><span class="n">abs.latitude</span><span class="p">,</span> <span class="n">breaks</span><span class="o">=</span><span class="n">range</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">labels</span><span class="p">)</span> 
+
+<span class="c1"># The cut function creates the labels as factors, so we&#39;ll turn them back into numbers to plot. We turn them into characters first because as.numeric will convert factors into their level order, rather than the value they are.</span>
+<span class="n">Accip_data</span><span class="o">$</span><span class="n">lat.bins</span> <span class="o">&lt;-</span> <span class="nf">as.numeric</span><span class="p">(</span><span class="nf">as.character</span><span class="p">(</span><span class="n">Accip_data</span><span class="o">$</span><span class="n">lat.bins</span><span class="p">))</span>
+
+<span class="c1"># Plot our bins as a histogram</span>
+<span class="nf">hist</span><span class="p">(</span><span class="n">Accip_data</span><span class="o">$</span><span class="n">lat.bins</span><span class="p">,</span> <span class="n">breaks</span> <span class="o">=</span> <span class="m">7</span><span class="p">)</span> 
+</pre></div>
+</div>
+<a class="bg-primary reference internal image-reference" href="_images/Practical_3_61_0.png"><img alt="plot" class="bg-primary align-center" src="_images/Practical_3_61_0.png" style="width: 700px;" /></a>
+<p>It definetly looks like a pattern is going on there! We can investigate this using a model. Because the data is count, it looks like it has a poisson distribution. For this reason we might want to utilise a generalised linear model instead. Also because we’ve binned species, we won’t use a pgls for this question. First let’s generate species richness.</p>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get the frequency of each bin</span>
+<span class="n">species_richness</span> <span class="o">&lt;-</span> <span class="nf">count</span><span class="p">(</span><span class="n">Accip_data</span><span class="p">,</span> <span class="n">lat.bins</span><span class="p">)</span>
+<span class="nf">colnames</span><span class="p">(</span><span class="n">species_richness</span><span class="p">)[</span><span class="m">2</span><span class="p">]</span> <span class="o">&lt;-</span> <span class="s">&quot;richness&quot;</span>
+<span class="n">species_richness</span>
+</pre></div>
+</div>
+<table>
+<caption>A data.frame: 13 × 2</caption>
+<thead>
+	<tr><th scope=col>lat.bins</th><th scope=col>richness</th></tr>
+	<tr><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;int&gt;</th></tr>
+</thead>
+<tbody>
+	<tr><td> 5</td><td>56</td></tr>
+	<tr><td>10</td><td>57</td></tr>
+	<tr><td>15</td><td>13</td></tr>
+	<tr><td>20</td><td>24</td></tr>
+	<tr><td>25</td><td>30</td></tr>
+	<tr><td>30</td><td>20</td></tr>
+	<tr><td>35</td><td> 2</td></tr>
+	<tr><td>40</td><td> 7</td></tr>
+	<tr><td>45</td><td> 5</td></tr>
+	<tr><td>50</td><td> 6</td></tr>
+	<tr><td>55</td><td> 4</td></tr>
+	<tr><td>60</td><td> 7</td></tr>
+	<tr><td>65</td><td> 6</td></tr>
+</tbody>
+</table>
+<p>Now to run a glm, using a poisson error structure given our data is very skewed.</p>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="c1"># The only difference with running a glm is now we have to specify the family as well.</span>
+<span class="n">accip_model</span> <span class="o">&lt;-</span> <span class="nf">glm</span><span class="p">(</span><span class="n">richness</span> <span class="o">~</span> <span class="n">lat.bins</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">species_richness</span><span class="p">,</span> <span class="n">family</span> <span class="o">=</span> <span class="s">&quot;poisson&quot;</span><span class="p">)</span>
+<span class="nf">summary</span><span class="p">(</span><span class="n">accip_model</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Call:
+glm(formula = richness ~ lat.bins, family = &quot;poisson&quot;, data = species_richness)
+
+Deviance Residuals: 
+    Min       1Q   Median       3Q      Max  
+-3.9630  -0.8936   0.0432   1.5809   2.1750  
+
+Coefficients:
+             Estimate Std. Error z value Pr(&gt;|z|)    
+(Intercept)  4.232039   0.109065   38.80   &lt;2e-16 ***
+lat.bins    -0.049159   0.004344  -11.32   &lt;2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+(Dispersion parameter for poisson family taken to be 1)
+
+    Null deviance: 206.254  on 12  degrees of freedom
+Residual deviance:  46.306  on 11  degrees of freedom
+AIC: 105.87
+
+Number of Fisher Scoring iterations: 5
+</pre></div>
+</div>
+<p>You should be able to figure out if there’s a relationship there! One thing to remember about a glm is that we’ve applied a link function. For a poisson model this is a log-link function. This means that the relationship between our variables isn’t as simple as a 0.05 decrease in species richness with 1 degree of latitude. A log-link function takes a log of the entire right side of the model formula. For interpretation, we first need to back-transform the equation and write out our model as:</p>
+<div class="math notranslate nohighlight">
+\[Richness \sim e^{(4.232\ -\ 0.049\ \times lat.bins)}  \]</div>
+<p>Because of the law of exponents, we can simplify it to:</p>
+<div class="math notranslate nohighlight">
+\[Richness \sim \frac{e^{4.232}} {e^{0.049 \times lat.bins}}  \]</div>
+<p>The top half of the fraction is the intercept, which simplifies to approximately 69. This is the predicted species richness at the equator. We’re more interested in the change with latitude so we can simplify the bottom to get 1.05. Dividing by 1.05 is the same as a decrease of 5%. Therefore, for every increase of 1 degree of latitude, theres a 5% decrease in species richness (starting from the equator at 69). We can see this relationship by plotting our model.</p>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="c1"># We first plot raw values as just a scatter plot.</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">richness</span> <span class="o">~</span> <span class="n">lat.bins</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">species_richness</span><span class="p">)</span>
+
+<span class="c1"># And then add a line of the fitted values of the model.</span>
+<span class="nf">lines</span><span class="p">(</span><span class="n">species_richness</span><span class="o">$</span><span class="n">lat.bins</span><span class="p">,</span> <span class="n">accip_model</span><span class="o">$</span><span class="n">fitted.values</span><span class="p">)</span>
+</pre></div>
+</div>
+<a class="bg-primary reference internal image-reference" href="_images/Practical_3_67_0.png"><img alt="plot" class="bg-primary align-center" src="_images/Practical_3_67_0.png" style="width: 700px;" /></a>
+<p>Don’t worry if that seems confusing! It’s initially quite hard to understand, but in the plot you can see that there’s roughly a 5% decrease in species richness with every 1 degree latitude increase.</p>
+<p>Lastly, you might also want to plot a map of species richness to go alongside your plot. For this we just use the fasterize function again, but this time we leave out the field arguement. This means fasterize will count every range as 1, and will sum them where they overlap to get species richness.</p>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="c1"># Use the fasterize function with the raster template, summing species for species richness.</span>
+<span class="n">SR_raster</span> <span class="o">&lt;-</span> <span class="nf">fasterize</span><span class="p">(</span><span class="n">Accip_all</span><span class="p">,</span> <span class="n">raster_template</span><span class="p">,</span> <span class="n">fun</span> <span class="o">=</span> <span class="s">&quot;sum&quot;</span><span class="p">)</span>
+
+<span class="c1"># Plot the new map.</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">SR_raster</span><span class="p">)</span>
+</pre></div>
+</div>
+<a class="bg-primary reference internal image-reference" href="_images/Practical_3_69_0.png"><img alt="plot" class="bg-primary align-center" src="_images/Practical_3_69_0.png" style="width: 700px;" /></a>
+<p>Again we can make this map nicer!</p>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="c1"># Convert the raster into a raster dataframe. This will be coordinates of the raster pixels (cols x and y) and the value of the raster pixels (col index_1). Remove rows with NA values from this dataframe.</span>
+<span class="n">raster_data</span> <span class="o">&lt;-</span> <span class="nf">as.data.frame</span><span class="p">(</span><span class="n">SR_raster</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">)</span> <span class="o">%&gt;%</span> <span class="nf">drop_na</span><span class="p">()</span>
+<span class="nf">colnames</span><span class="p">(</span><span class="n">raster_data</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="s">&quot;long&quot;</span><span class="p">,</span> <span class="s">&quot;lat&quot;</span><span class="p">,</span> <span class="s">&quot;richness&quot;</span><span class="p">)</span>
+
+<span class="c1"># Plot with ggplot.</span>
+<span class="n">richness_plot</span> <span class="o">&lt;-</span> <span class="nf">ggplot</span><span class="p">()</span> <span class="o">+</span>
+  <span class="nf">borders</span><span class="p">(</span><span class="n">ylim</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">-60</span><span class="p">,</span><span class="m">90</span><span class="p">),</span> <span class="n">fill</span> <span class="o">=</span> <span class="s">&quot;grey90&quot;</span><span class="p">,</span> <span class="n">colour</span> <span class="o">=</span> <span class="s">&quot;grey90&quot;</span><span class="p">)</span> <span class="o">+</span>
+  <span class="nf">xlim</span><span class="p">(</span><span class="m">-180</span><span class="p">,</span> <span class="m">180</span><span class="p">)</span> <span class="o">+</span> 
+  <span class="nf">geom_tile</span><span class="p">(</span><span class="nf">aes</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">long</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">lat</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span> <span class="n">richness</span><span class="p">),</span> <span class="n">data</span><span class="o">=</span><span class="n">raster_data</span><span class="p">)</span> <span class="o">+</span>
+  <span class="nf">scale_fill_gradientn</span><span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">&quot;Species Richness&quot;</span><span class="p">,</span> <span class="n">colors</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="s">&quot;skyblue&quot;</span><span class="p">,</span> <span class="s">&quot;red&quot;</span><span class="p">))</span> <span class="o">+</span>
+  <span class="nf">ggtitle</span><span class="p">(</span><span class="s">&quot;Accipitridae Species Richness Heat Map&quot;</span><span class="p">)</span> <span class="o">+</span> 
+  <span class="nf">theme_classic</span><span class="p">()</span> <span class="o">+</span>
+  <span class="nf">ylab</span><span class="p">(</span><span class="s">&quot;Latitude&quot;</span><span class="p">)</span> <span class="o">+</span> 
+  <span class="nf">xlab</span><span class="p">(</span><span class="s">&quot;Longitude&quot;</span><span class="p">)</span> <span class="o">+</span> 
+    <span class="nf">theme_classic</span><span class="p">()</span> <span class="o">+</span>
+  <span class="nf">ylab</span><span class="p">(</span><span class="s">&quot;Latitude&quot;</span><span class="p">)</span> <span class="o">+</span> 
+  <span class="nf">xlab</span><span class="p">(</span><span class="s">&quot;Longitude&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="nf">coord_fixed</span><span class="p">()</span>
+
+<span class="c1"># Return the plot so we can view it.</span>
+<span class="n">richness_plot</span>
+</pre></div>
+</div>
+<a class="bg-primary reference internal image-reference" href="_images/Practical_3_71_0.png"><img alt="plot" class="bg-primary align-center" src="_images/Practical_3_71_0.png" style="width: 700px;" /></a>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="Practical_2.html" title="previous page">Phylogenetics in R</a>
+    <a class='right-next' id="next-link" href="Practical_4.html" title="next page">Setting conservation priorities</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By The Jupyter Book community<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>
