@@ -334,7 +334,7 @@ F-statistic: 15.75 on 1 and 150 DF,  p-value: 0.0001117
 <span class="n">x</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="m">12</span><span class="p">,</span><span class="m">18</span><span class="p">,</span><span class="m">21</span><span class="p">,</span> <span class="m">36</span><span class="p">,</span> <span class="m">44</span><span class="p">,</span> <span class="m">54</span><span class="p">,</span> <span class="m">59</span><span class="p">)</span>
 <span class="n">y</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="m">2</span><span class="p">,</span> <span class="m">4</span><span class="p">,</span> <span class="m">7</span><span class="p">,</span> <span class="m">11</span><span class="p">,</span> <span class="m">12</span><span class="p">,</span> <span class="m">14</span><span class="p">,</span> <span class="m">15</span><span class="p">)</span>
 
-<span class="c1"># Create a linear model based only on the mean of body mass</span>
+<span class="c1"># Create a linear model based only on the mean of y</span>
 <span class="n">mean</span> <span class="o">&lt;-</span> <span class="nf">lm</span><span class="p">(</span><span class="n">y</span> <span class="o">~</span> <span class="m">1</span><span class="p">)</span>
 
 <span class="c1"># Create a linear model where x predicts y</span>
@@ -543,7 +543,7 @@ F-statistic: 1.767 on 1 and 150 DF,  p-value: 0.1858
 <p>We should take a second to look at the lambda value. Ours is 0.98 according to the pgls summary. But what does it mean?</p>
 <p>Lambda is scaled between 0 and 1, and it’s easiest to think of it as how much our trait is bunched up in the tree. Values closer to zero suggest that body mass would be spread randomly among the tree, and the phylogeny does not matter. Values closer to one suggest that body mass is organised strongly throughout the tree, with closer species having more similar sizes.</p>
 <p>For an excellent explanation of lambda values, check out this paper by Natalie Cooper at the Natural History Museum, who helped write the second practical on this course.</p>
-<p>https://royalsocietypublishing.org/doi/full/10.1098/rstb.2012.0341</p>
+<p><a class="reference external" href="https://royalsocietypublishing.org/doi/full/10.1098/rstb.2012.0341">https://royalsocietypublishing.org/doi/full/10.1098/rstb.2012.0341</a></p>
 <p>What the lambda value actually does is change the length of the branches on the tree, to reflect how body mass is related between species. We can visualise this by plotting trees with different lambda values.</p>
 <div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load the package geiger that has the rescale function. You&#39;ll have to install it if you&#39;re in Rstudio on your own laptops.</span>
 <span class="nf">library</span><span class="p">(</span><span class="n">geiger</span><span class="p">)</span>
@@ -584,9 +584,9 @@ F-statistic: 1.767 on 1 and 150 DF,  p-value: 0.1858
 <p>On the horizontal axis we can see potential lambda values, and on the vertical is how likely they are. Red lines show the 95% confidence intervals. This shows that we are fairly confident in our lambda value. It’s always worth plotting the our lambda profile, as a flatter line would mean we’re less confident in our lambda, and might not have controlled for our phylogeny properly. Also be wary of smaller phylogenies, as the lambda value is harder to estimate. Try and pick a group with more than 100 species for your coursework just to be safe.</p>
 <p>Don’t worry if you struggled to understand any of this! Lambda values can be tricky to get your head around. At this stage, it’s only important to be aware that a pgls uses a lambda value to decide how much to weight up the importance of the phylogeny.</p>
 <p>For more information on using a pgls check out this very useful papers that are aimed at beginners. In particular chapeter 6 which you find on researchgate:</p>
-<p>http://www.mpcm-evolution.com/book-sections/part-introduction/5-primer-phylogenetic-generalised-least-squares</p>
-<p>http://www.mpcm-evolution.com/book-sections/part-introduction/6-statistical-issues-assumptions-phylogenetic-generalised-least-squares</p>
-<p>https://onlinelibrary.wiley.com/doi/full/10.1111/j.1420-9101.2009.01757.x</p>
+<p><a class="reference external" href="http://www.mpcm-evolution.com/book-sections/part-introduction/5-primer-phylogenetic-generalised-least-squares">http://www.mpcm-evolution.com/book-sections/part-introduction/5-primer-phylogenetic-generalised-least-squares</a></p>
+<p><a class="reference external" href="http://www.mpcm-evolution.com/book-sections/part-introduction/6-statistical-issues-assumptions-phylogenetic-generalised-least-squares">http://www.mpcm-evolution.com/book-sections/part-introduction/6-statistical-issues-assumptions-phylogenetic-generalised-least-squares</a></p>
+<p><a class="reference external" href="https://onlinelibrary.wiley.com/doi/full/10.1111/j.1420-9101.2009.01757.x">https://onlinelibrary.wiley.com/doi/full/10.1111/j.1420-9101.2009.01757.x</a></p>
 </div>
 <div class="section" id="rapport-s-rule">
 <h2>4. Rapport’s Rule<a class="headerlink" href="#rapport-s-rule" title="Permalink to this headline">¶</a></h2>
@@ -625,7 +625,7 @@ F-statistic: 1.767 on 1 and 150 DF,  p-value: 0.1858
 </table>
 <p>So we can see the data is a near complete species list for the world’s birds, with some information on body mass, beak sizes and IUCN categories. We’ve included two different taxonomies, Birdlife and Jetz, because range maps were available from Birdlife, but our phylogeny uses the Jetz tree.</p>
 <p>For more info on the tree, and where download your own in the future, look here:</p>
-<p>http://birdtree.org/</p>
+<p><a class="reference external" href="http://birdtree.org/">http://birdtree.org/</a></p>
 <p>So we’ll first filter our traits based on the Jetz families.</p>
 <div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="nf">library</span><span class="p">(</span><span class="n">dplyr</span><span class="p">)</span>
 <span class="n">Accip_data</span> <span class="o">&lt;-</span> <span class="n">trait_data</span> <span class="o">%&gt;%</span> <span class="nf">filter</span><span class="p">(</span><span class="n">Jetz_family</span> <span class="o">==</span> <span class="s">&quot;Accipitridae&quot;</span><span class="p">)</span>
@@ -862,8 +862,6 @@ Linking to sp version:1.4-4
 </pre></div>
 </div>
 <p><strong>png:</strong> 2</p>
-<p>From this practical you should be able to run a pgls using the data we’ve generated and a species tree. You’ll have to explore your data and potentially transform variables. You should also have all the code to cut down your tree. You can find a tree for all Jetz species on blackboard called “all_birds.tre”, or you can download your own from:</p>
-<p>http://birdtree.org/</p>
 </div>
 <div class="section" id="latitudinal-diversity-gradient">
 <h2>5. Latitudinal Diversity Gradient<a class="headerlink" href="#latitudinal-diversity-gradient" title="Permalink to this headline">¶</a></h2>

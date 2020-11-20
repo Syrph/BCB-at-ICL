@@ -211,7 +211,7 @@ Now we can investigate if there is a relationship. There's quite a lot going on 
 x <- c(12,18,21, 36, 44, 54, 59)
 y <- c(2, 4, 7, 11, 12, 14, 15)
 
-# Create a linear model based only on the mean of body mass
+# Create a linear model based only on the mean of y
 mean <- lm(y ~ 1)
 
 # Create a linear model where x predicts y
@@ -511,7 +511,7 @@ Lambda is scaled between 0 and 1, and it's easiest to think of it as how much ou
 
 For an excellent explanation of lambda values, check out this paper by Natalie Cooper at the Natural History Museum, who helped write the second practical on this course.
 
-https://royalsocietypublishing.org/doi/full/10.1098/rstb.2012.0341
+<https://royalsocietypublishing.org/doi/full/10.1098/rstb.2012.0341>
 
 What the lambda value actually does is change the length of the branches on the tree, to reflect how body mass is related between species. We can visualise this by plotting trees with different lambda values.
 
@@ -582,11 +582,11 @@ Don't worry if you struggled to understand any of this! Lambda values can be tri
 
 For more information on using a pgls check out this very useful papers that are aimed at beginners. In particular chapeter 6 which you find on researchgate: 
 
-http://www.mpcm-evolution.com/book-sections/part-introduction/5-primer-phylogenetic-generalised-least-squares 
+<http://www.mpcm-evolution.com/book-sections/part-introduction/5-primer-phylogenetic-generalised-least-squares>
 
-http://www.mpcm-evolution.com/book-sections/part-introduction/6-statistical-issues-assumptions-phylogenetic-generalised-least-squares
+<http://www.mpcm-evolution.com/book-sections/part-introduction/6-statistical-issues-assumptions-phylogenetic-generalised-least-squares>
 
-https://onlinelibrary.wiley.com/doi/full/10.1111/j.1420-9101.2009.01757.x
+<https://onlinelibrary.wiley.com/doi/full/10.1111/j.1420-9101.2009.01757.x>
 
 ### 4. Rapport's Rule
 
@@ -635,7 +635,7 @@ So we can see the data is a near complete species list for the world's birds, wi
 
 For more info on the tree, and where download your own in the future, look here:
 
-http://birdtree.org/
+<http://birdtree.org/>
 
 So we'll first filter our traits based on the Jetz families.
 
@@ -947,10 +947,6 @@ dev.off()
 
 <strong>png:</strong> 2
 
-
-From this practical you should be able to run a pgls using the data we've generated and a species tree. You'll have to explore your data and potentially transform variables. You should also have all the code to cut down your tree. You can find a tree for all Jetz species on blackboard called "all_birds.tre", or you can download your own from:
-
-http://birdtree.org/
 
 ### 5. Latitudinal Diversity Gradient
 

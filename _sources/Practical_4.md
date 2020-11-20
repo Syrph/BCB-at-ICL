@@ -31,7 +31,6 @@ For this practical we're going to use the same family as Practical 3, Accipitrid
 ```R
 trait_data <- read.csv("coursework_trait_data.csv")
 str(trait_data)
-head(trait_data)
 ```
 
     'data.frame': 9872 obs. of  8 variables:
@@ -44,21 +43,6 @@ head(trait_data)
      $ Beak                : num  13.34 9.88 9.42 12.16 37.03 ...
      $ Redlist_cat         : chr  "LC" "LC" "LC" "LC" ...
 
-    <table>
-<caption>A data.frame: 6 × 8</caption>
-<thead>
- <tr><th></th><th scope=col>Birdlife_Name</th><th scope=col>Birdlife_common.name</th><th scope=col>Jetz_Name</th><th scope=col>Jetz_order</th><th scope=col>Jetz_family</th><th scope=col>Body_mass</th><th scope=col>Beak</th><th scope=col>Redlist_cat</th></tr>
- <tr><th></th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;chr&gt;</th></tr>
-</thead>
-<tbody>
- <tr><th scope=row>1</th><td>Abeillia abeillei       </td><td>Emerald-chinned Hummingbird</td><td>Abeillia_abeillei       </td><td>Apodiformes  </td><td>Trochilidae </td><td>   2.70</td><td>13.338358</td><td>LC</td></tr>
- <tr><th scope=row>2</th><td>Abroscopus albogularis  </td><td>Rufous-faced Warbler       </td><td>Abroscopus_albogularis  </td><td>Passeriformes</td><td>Cettidae    </td><td>   4.84</td><td> 9.878526</td><td>LC</td></tr>
- <tr><th scope=row>3</th><td>Abroscopus schisticeps  </td><td>Black-faced Warbler        </td><td>Abroscopus_schisticeps  </td><td>Passeriformes</td><td>Cettidae    </td><td>   4.70</td><td> 9.419303</td><td>LC</td></tr>
- <tr><th scope=row>4</th><td>Abroscopus superciliaris</td><td>Yellow-bellied Warbler     </td><td>Abroscopus_superciliaris</td><td>Passeriformes</td><td>Cettidae    </td><td>   6.48</td><td>12.157208</td><td>LC</td></tr>
- <tr><th scope=row>5</th><td>Aburria aburri          </td><td>Wattled Guan               </td><td>Aburria_aburri          </td><td>Galliformes  </td><td>Cracidae    </td><td>1405.08</td><td>37.027875</td><td>NT</td></tr>
- <tr><th scope=row>6</th><td>Acanthagenys rufogularis</td><td>Spiny-cheeked Honeyeater   </td><td>Acanthagenys_rufogularis</td><td>Passeriformes</td><td>Meliphagidae</td><td>  47.80</td><td>24.232124</td><td>LC</td></tr>
-</tbody>
-</table>
 
 And again filter for Accipitridae.
 
@@ -311,7 +295,6 @@ head(Accip_EDGE)
 
 We can now calculate our EDGE scores using some simple maths:
 
-<img src="https://render.githubusercontent.com/render/math?math=EDGE=ln⁡(1+ED)+GE×ln⁡(2)">
 $$EDGE=ln⁡(1+ED)+GE×ln⁡(2)$$
 
 We have already done the first half. Now we just need to multiply GE scores by the natural log of 2, and combine them.
@@ -539,7 +522,7 @@ FD[FD$FDn == max(FD$FDn),]
 
 So the species with the largest FD score is *Gyps himalayensis*, the Himalayan Griffon. Not suprising seeing as Himalayan Griffons are one of the heaviest flying birds alive today! We can also combine GE scores to see how IUCN categories change our priorities. We use the same formula as before:
 
-$FUDGE=ln⁡(1+FD)+GE×ln⁡(2)$
+$$FUDGE=ln⁡(1+FD)+GE×ln⁡(2)$$
 
 ```R
 # Join FD and GE scores
