@@ -411,7 +411,7 @@ Loading required package: mvtnorm
 <div class="section" id="edge-scores">
 <h2>4. EDGE Scores<a class="headerlink" href="#edge-scores" title="Permalink to this headline">¶</a></h2>
 <p>This is where EDGE scores come in. By combining ED scores with IUCN categories we can select the species that need conservation action, and represent unique evolutionary variation.</p>
-<p>First we need to convert the IUCN status in GE (Globally Endangered) scores. This is relatively simple as we’re just assigning numeric rankings, but we’ll use a for loop to practice our skills! We’ll also use an <code class="docutils literal notranslate"><span class="pre">if</span></code> statement as well because we have two catergories with the same GE score (near threatened and deficient).</p>
+<p>First we need to convert the IUCN status in GE (Globally Endangered) scores. The GE scores for each category are: <br> LC = 0 <br> NT = 1 <br> DD = 1 <br> VU = 2 <br> EN = 3 <br> CR = 4 <br> This is relatively simple as we’re just assigning numeric rankings, but we’ll use a for loop to practice our skills! We’ll also use an <code class="docutils literal notranslate"><span class="pre">if</span></code> statement as well because we have two catergories with the same GE score (near threatened and deficient).</p>
 <div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create an empty column to store our GE scores.</span>
 <span class="n">Accip_data</span><span class="o">$</span><span class="n">GE</span> <span class="o">&lt;-</span> <span class="kc">NA</span>
 
