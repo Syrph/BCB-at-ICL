@@ -87,9 +87,7 @@ Great, no extinct species in this family! There shouldn't really be many in our 
 
 Now we need to load in our tree. For this practical we're using a random tree extracted from <http://birdtree.org/>
 
-Because we're not sure on the exact placement of some species tips, the Jetz tree has multiple versions, each with a slightly different layout. Normally this only means a few species have swapped places slighly. This is why we've chosen a random tree for our analysis. There are other (better) methods for dealing with this uncertainty, but for these practicals it will be enough to use a random tree. If you're interested in these methods then this is a good paper to check out:
-
-<https://academic.oup.com/cz/article/61/6/959/1800551>
+Because we're not sure on the exact placement of some species tips, the Jetz tree has multiple versions, each with a slightly different layout. Normally this only means a few species have swapped places slighly. This is why we've chosen a random tree for our analysis. There are other methods for dealing with this uncertainty, but for these practicals it will be enough to use a random tree. 
 
 ```R
 library(ape)

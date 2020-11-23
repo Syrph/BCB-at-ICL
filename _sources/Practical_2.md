@@ -663,14 +663,12 @@ plotTree(genera_tree,ftype="i")
 ```
 
 
-![png](_images/Pratical_2_68_0.png
+```{image} Pratical_2_68_0.png
 :alt: plot
 :class: bg-primary
 :width: 700px
 :align: center
 ```
-
-
 
 As the tree has dropped all but one species per genus, this means we will finally need to also rename the tip labels as well to reflect this change.
 
@@ -948,7 +946,7 @@ plot(gheat)
 
 
 And now we have a plot where we can see the spread of habitat types in Thrushes. Try experimenting with different colours and sizes to create some beautiful trees that put this one to shame! There's also lots of other ways you can label trees. For more info this guide is a great place to start: 
-https://4va.github.io/biodatasci/r-ggtree.html#the_ggtree_package
+<https://4va.github.io/biodatasci/r-ggtree.html#the_ggtree_package>
 
 
 

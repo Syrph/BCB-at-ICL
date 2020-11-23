@@ -1,14 +1,14 @@
 ---
-title: ""
-permalink: /Practical_3/
-excerpt: ""
-last_modified_at: 2020-07-27
-redirect_from:
-  - /theme-setup/
+title: ''
+excerpt: ''
+last_modified_at: '2020-07-27'
+output: pdf_document
 layout: single
-classes: wide
+permalink: /Practical_3/
+redirect_from: /theme-setup/
 sidebar:
   nav: docs
+classes: wide
 ---
 
 ## Macroecology analyses
@@ -777,7 +777,7 @@ plot(Accip_maps$Shape[1], axes=TRUE)
 
 
 
-Some species have multiple rows, based on different types of ranges (i.e. breeding range, see (http://datazone.birdlife.org/species/spcdistPOS) for more information). We need to combine different ranges for each species and calculate the range size. 
+Some species have multiple rows, based on different types of ranges (i.e. breeding range, see (<http://datazone.birdlife.org/species/spcdistPOS>) for more information). We need to combine different ranges for each species and calculate the range size. 
 
 We can then plot the range sizes to view them at a global scale. For this practical we'll split ranges in small and large, and highlight the smaller ranges on the map. To do this we need to utilise a `for loop` to go through our maps, which may be a new concept for some of you. Don't be put off if it seems complicated! Remember you can query functions using `?` in front of functions like this: `?area`, `?subset`. You can also run each line of a loop one by one to better understand what's happening.
 

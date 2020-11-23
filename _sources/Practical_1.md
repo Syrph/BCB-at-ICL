@@ -682,7 +682,7 @@ Objects can also be saved as .RData and loaded back into R at a later time using
 
 ### 4. Plotting data
 
-R can be used to produce a wide array of plots and has a large capacity for customisation. We will touch upon some basic plots which are useful to visual data during your analysis. For more advanced plots, most biolgists use the package *ggplot2*. A useful guide is the R cookbook, that includes information on customising plots: http://www.cookbook-r.com/Graphs/
+R can be used to produce a wide array of plots and has a large capacity for customisation. We will touch upon some basic plots which are useful to visual data during your analysis. For more advanced plots, most biolgists use the package *ggplot2*. A useful guide is the R cookbook, that includes information on customising plots: <http://www.cookbook-r.com/Graphs/>
 
 
 We'll start with a scatterplot.
@@ -1091,4 +1091,4 @@ Of course, you can play around with plot settings to create some impressive maps
 
 We have chosen to teach the BCB practicals predominantly using base `R`. This is because anyone new to `R` needs to learn how base `R` works first. However, more and more researchers are choosing to use a group of packages for data handling called the `tidyverse`. These packages provide a slightly different way of coding in `R`, which makes data handling easier. I've already mentioned `ggplot2`, a `tidyverse` package, and one of the most useful in `R`!. We'll cover a few key packages for some  of the practical tasks, but if you'd like to know about coding in the 'tidy' way: 
 
-https://www.tidyverse.org/
+<https://www.tidyverse.org/>

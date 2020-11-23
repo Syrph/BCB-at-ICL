@@ -4,7 +4,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Macroecology analyses &#8212; Biodiversity and Conservation Biology</title>
     
   <link rel="stylesheet" href="_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
@@ -25,8 +25,8 @@
     href="_static/vendor/lato_latin-ext/1.44.1/index.css">
 
     
-    <link rel="stylesheet" href="_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
@@ -112,6 +112,11 @@
  <li class="toctree-l1">
   <a class="reference internal" href="Practical_4.html">
    Setting conservation priorities
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="links.html">
+   Useful links
   </a>
  </li>
 </ul>
@@ -732,7 +737,7 @@ Linking to sp version:1.4-4
 </pre></div>
 </div>
 <a class="bg-primary reference internal image-reference" href="_images/Practical_3_49_0.png"><img alt="plot" class="bg-primary align-center" src="_images/Practical_3_49_0.png" style="width: 700px;" /></a>
-<p>Some species have multiple rows, based on different types of ranges (i.e. breeding range, see (http://datazone.birdlife.org/species/spcdistPOS) for more information). We need to combine different ranges for each species and calculate the range size.</p>
+<p>Some species have multiple rows, based on different types of ranges (i.e. breeding range, see (<a class="reference external" href="http://datazone.birdlife.org/species/spcdistPOS">http://datazone.birdlife.org/species/spcdistPOS</a>) for more information). We need to combine different ranges for each species and calculate the range size.</p>
 <p>We can then plot the range sizes to view them at a global scale. For this practical we’ll split ranges in small and large, and highlight the smaller ranges on the map. To do this we need to utilise a <code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">loop</span></code> to go through our maps, which may be a new concept for some of you. Don’t be put off if it seems complicated! Remember you can query functions using <code class="docutils literal notranslate"><span class="pre">?</span></code> in front of functions like this: <code class="docutils literal notranslate"><span class="pre">?area</span></code>, <code class="docutils literal notranslate"><span class="pre">?subset</span></code>. You can also run each line of a loop one by one to better understand what’s happening.</p>
 <div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="c1"># And lets add columns to our data for storing range and latitude. </span>
 <span class="n">Accip_data</span><span class="o">$</span><span class="n">range_size</span> <span class="o">&lt;-</span> <span class="kc">NA</span>

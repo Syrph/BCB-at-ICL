@@ -4,7 +4,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Phylogenetics in R &#8212; Biodiversity and Conservation Biology</title>
     
   <link rel="stylesheet" href="_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
@@ -25,8 +25,8 @@
     href="_static/vendor/lato_latin-ext/1.44.1/index.css">
 
     
-    <link rel="stylesheet" href="_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
@@ -112,6 +112,11 @@
  <li class="toctree-l1">
   <a class="reference internal" href="Practical_4.html">
    Setting conservation priorities
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="links.html">
+   Useful links
   </a>
  </li>
 </ul>
@@ -740,26 +745,15 @@ First load <code class="docutils literal notranslate"><span class="pre">stringr<
 <span class="nf">plotTree</span><span class="p">(</span><span class="n">genera_tree</span><span class="p">,</span><span class="n">ftype</span><span class="o">=</span><span class="s">&quot;i&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>![png](_images/Pratical_2_68_0.png
-:alt: plot
-:class: bg-primary
-:width: 700px
-:align: center</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+<a class="bg-primary reference internal image-reference" href="Pratical_2_68_0.png"><img alt="plot" class="bg-primary align-center" src="Pratical_2_68_0.png" style="width: 700px;" /></a>
+<p>As the tree has dropped all but one species per genus, this means we will finally need to also rename the tip labels as well to reflect this change.</p>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="c1"># It&#39;s definitely worth checking that the labels match up properly when you change tip labels</span>
+<span class="nf">par</span><span class="p">(</span><span class="n">mfrow</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">))</span>
+<span class="nf">plotTree</span><span class="p">(</span><span class="n">genera_tree</span><span class="p">,</span><span class="n">ftype</span><span class="o">=</span><span class="s">&quot;i&quot;</span><span class="p">)</span>
 
-
-As the tree has dropped all but one species per genus, this means we will finally need to also rename the tip labels as well to reflect this change.
-
-
-
-```R
-# It&#39;s definitely worth checking that the labels match up properly when you change tip labels
-par(mfrow=c(1,2))
-plotTree(genera_tree,ftype=&quot;i&quot;)
-
-# Swap species names for genera
-genera_tree$tip.label&lt;- bird_genera$Genus
-plotTree(genera_tree,ftype=&quot;i&quot;)
+<span class="c1"># Swap species names for genera</span>
+<span class="n">genera_tree</span><span class="o">$</span><span class="n">tip.label</span><span class="o">&lt;-</span> <span class="n">bird_genera</span><span class="o">$</span><span class="n">Genus</span>
+<span class="nf">plotTree</span><span class="p">(</span><span class="n">genera_tree</span><span class="p">,</span><span class="n">ftype</span><span class="o">=</span><span class="s">&quot;i&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <a class="bg-primary reference internal image-reference" href="_images/Practical_2_70_0.png"><img alt="plot" class="bg-primary align-center" src="_images/Practical_2_70_0.png" style="width: 700px;" /></a>
@@ -916,7 +910,7 @@ will replace the existing scale.
 </div>
 <a class="bg-primary reference internal image-reference" href="_images/Practical_2_95_1.png"><img alt="plot" class="bg-primary align-center" src="_images/Practical_2_95_1.png" style="width: 700px;" /></a>
 <p>And now we have a plot where we can see the spread of habitat types in Thrushes. Try experimenting with different colours and sizes to create some beautiful trees that put this one to shame! There’s also lots of other ways you can label trees. For more info this guide is a great place to start:
-https://4va.github.io/biodatasci/r-ggtree.html#the_ggtree_package</p>
+<a class="reference external" href="https://4va.github.io/biodatasci/r-ggtree.html#the_ggtree_package">https://4va.github.io/biodatasci/r-ggtree.html#the_ggtree_package</a></p>
 <blockquote>
 <div><p>Extra task: Can you make another plot for continuous body mass data? Think about how you’d show this with colour. Can you change the key to better display the change in body mass? Is body mass more clumped in the tree than habitat?</p>
 </div></blockquote>
