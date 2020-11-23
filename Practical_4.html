@@ -325,7 +325,7 @@ Loading required package: mvtnorm
 </div>
 <div class="section" id="ed-scores">
 <h2>3. ED Scores<a class="headerlink" href="#ed-scores" title="Permalink to this headline">¶</a></h2>
-<p>Now that we’ve got our tree and our species we can start calculating our ED (Evolutionary Distinctiveness) scores. Because we are calculating the evolutionary distinctiveness of Accipitridae, we want to use the whole bird phylogeny to compare against. Then we can find then out if our species in the UK are very closely related to others in the tree, or represent distinct lineages that might want to conserve to protect valuable evolutionary diversity.</p>
+<p>Now that we’ve got our tree and our species we can start calculating our ED (Evolutionary Distinctiveness) scores. Because we are calculating the evolutionary distinctiveness of Accipitridae, we want to use the whole bird phylogeny to compare against. Then we can find then out if our Accipitridae species are very closely related to others in the tree, or represent distinct lineages that might want to conserve to protect valuable evolutionary diversity.</p>
 <p>We can do this easily using a simple function from the <code class="docutils literal notranslate"><span class="pre">caper</span></code> package. This sometimes takes a while to run.</p>
 <div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="c1"># We can first transform our tree into a matrix of distances from each tip to tip. This step is optional but stops a warning message from ed.calc, which prefers a matrix to a tree.</span>
 <span class="n">bird_matrix</span> <span class="o">&lt;-</span> <span class="nf">clade.matrix</span><span class="p">(</span><span class="n">bird_tree</span><span class="p">)</span>
