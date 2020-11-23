@@ -4,7 +4,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Setting conservation priorities &#8212; Biodiversity and Conservation Biology</title>
     
   <link rel="stylesheet" href="_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
@@ -25,8 +25,8 @@
     href="_static/vendor/lato_latin-ext/1.44.1/index.css">
 
     
-    <link rel="stylesheet" href="_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
@@ -57,6 +57,7 @@
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Useful links" href="links.html" />
     <link rel="prev" title="Macroecology analyses" href="Practical_3.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -111,6 +112,11 @@
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
    Setting conservation priorities
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="links.html">
+   Useful links
   </a>
  </li>
 </ul>
@@ -243,7 +249,6 @@
 <p>For this practical we’re going to use the same family as Practical 3, Accipitridae. We’ll use the same table of traits from Practical 3 to import our data and filter it.</p>
 <div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="n">trait_data</span> <span class="o">&lt;-</span> <span class="nf">read.csv</span><span class="p">(</span><span class="s">&quot;coursework_trait_data.csv&quot;</span><span class="p">)</span>
 <span class="nf">str</span><span class="p">(</span><span class="n">trait_data</span><span class="p">)</span>
-<span class="nf">head</span><span class="p">(</span><span class="n">trait_data</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;data.frame&#39;: 9872 obs. of  8 variables:
@@ -255,24 +260,8 @@
  $ Body_mass           : num  2.7 4.84 4.7 6.48 1405.08 ...
  $ Beak                : num  13.34 9.88 9.42 12.16 37.03 ...
  $ Redlist_cat         : chr  &quot;LC&quot; &quot;LC&quot; &quot;LC&quot; &quot;LC&quot; ...
-
-&lt;table&gt;
 </pre></div>
 </div>
-<caption>A data.frame: 6 × 8</caption>
-<thead>
- <tr><th></th><th scope=col>Birdlife_Name</th><th scope=col>Birdlife_common.name</th><th scope=col>Jetz_Name</th><th scope=col>Jetz_order</th><th scope=col>Jetz_family</th><th scope=col>Body_mass</th><th scope=col>Beak</th><th scope=col>Redlist_cat</th></tr>
- <tr><th></th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;chr&gt;</th></tr>
-</thead>
-<tbody>
- <tr><th scope=row>1</th><td>Abeillia abeillei       </td><td>Emerald-chinned Hummingbird</td><td>Abeillia_abeillei       </td><td>Apodiformes  </td><td>Trochilidae </td><td>   2.70</td><td>13.338358</td><td>LC</td></tr>
- <tr><th scope=row>2</th><td>Abroscopus albogularis  </td><td>Rufous-faced Warbler       </td><td>Abroscopus_albogularis  </td><td>Passeriformes</td><td>Cettidae    </td><td>   4.84</td><td> 9.878526</td><td>LC</td></tr>
- <tr><th scope=row>3</th><td>Abroscopus schisticeps  </td><td>Black-faced Warbler        </td><td>Abroscopus_schisticeps  </td><td>Passeriformes</td><td>Cettidae    </td><td>   4.70</td><td> 9.419303</td><td>LC</td></tr>
- <tr><th scope=row>4</th><td>Abroscopus superciliaris</td><td>Yellow-bellied Warbler     </td><td>Abroscopus_superciliaris</td><td>Passeriformes</td><td>Cettidae    </td><td>   6.48</td><td>12.157208</td><td>LC</td></tr>
- <tr><th scope=row>5</th><td>Aburria aburri          </td><td>Wattled Guan               </td><td>Aburria_aburri          </td><td>Galliformes  </td><td>Cracidae    </td><td>1405.08</td><td>37.027875</td><td>NT</td></tr>
- <tr><th scope=row>6</th><td>Acanthagenys rufogularis</td><td>Spiny-cheeked Honeyeater   </td><td>Acanthagenys_rufogularis</td><td>Passeriformes</td><td>Meliphagidae</td><td>  47.80</td><td>24.232124</td><td>LC</td></tr>
-</tbody>
-</table>
 <p>And again filter for Accipitridae.</p>
 <div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="nf">library</span><span class="p">(</span><span class="n">dplyr</span><span class="p">)</span>
 <span class="n">Accip_data</span> <span class="o">&lt;-</span> <span class="n">trait_data</span> <span class="o">%&gt;%</span> <span class="nf">filter</span><span class="p">(</span><span class="n">Jetz_family</span> <span class="o">==</span> <span class="s">&quot;Accipitridae&quot;</span><span class="p">)</span>
@@ -309,8 +298,7 @@ The following objects are masked from ‘package:base’:
 </table>
 <p>Great, no extinct species in this family! There shouldn’t really be many in our Jetz phylogeny, but some do turn up occasionally.</p>
 <p>Now we need to load in our tree. For this practical we’re using a random tree extracted from <a class="reference external" href="http://birdtree.org/">http://birdtree.org/</a></p>
-<p>Because we’re not sure on the exact placement of some species tips, the Jetz tree has multiple versions, each with a slightly different layout. Normally this only means a few species have swapped places slighly. This is why we’ve chosen a random tree for our analysis. There are other (better) methods for dealing with this uncertainty, but for these practicals it will be enough to use a random tree. If you’re interested in these methods then this is a good paper to check out:</p>
-<p><a class="reference external" href="https://academic.oup.com/cz/article/61/6/959/1800551">https://academic.oup.com/cz/article/61/6/959/1800551</a></p>
+<p>Because we’re not sure on the exact placement of some species tips, the Jetz tree has multiple versions, each with a slightly different layout. Normally this only means a few species have swapped places slighly. This is why we’ve chosen a random tree for our analysis. There are other methods for dealing with this uncertainty, but for these practicals it will be enough to use a random tree.</p>
 <div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="nf">library</span><span class="p">(</span><span class="n">ape</span><span class="p">)</span>
 <span class="nf">library</span><span class="p">(</span><span class="n">caper</span><span class="p">)</span>
 
@@ -487,8 +475,8 @@ Loading required package: mvtnorm
 </tbody>
 </table>
 <p>We can now calculate our EDGE scores using some simple maths:</p>
-<img src="https://render.githubusercontent.com/render/math?math=EDGE=ln⁡(1+ED)+GE×ln⁡(2)">
-$$EDGE=ln⁡(1+ED)+GE×ln⁡(2)$$
+<div class="math notranslate nohighlight">
+\[EDGE=ln⁡(1+ED)+GE×ln⁡(2)\]</div>
 <p>We have already done the first half. Now we just need to multiply GE scores by the natural log of 2, and combine them.</p>
 <div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="c1"># The log function uses natural logarithims by default.</span>
 <span class="n">Accip_EDGE</span><span class="o">$</span><span class="n">EDGE</span> <span class="o">&lt;-</span> <span class="n">Accip_EDGE</span><span class="o">$</span><span class="n">EDlog</span> <span class="o">+</span> <span class="n">Accip_EDGE</span><span class="o">$</span><span class="n">GE</span> <span class="o">*</span> <span class="nf">log</span><span class="p">(</span><span class="m">2</span><span class="p">)</span>
@@ -671,7 +659,8 @@ $$EDGE=ln⁡(1+ED)+GE×ln⁡(2)$$
 </tbody>
 </table>
 <p>So the species with the largest FD score is <em>Gyps himalayensis</em>, the Himalayan Griffon. Not suprising seeing as Himalayan Griffons are one of the heaviest flying birds alive today! We can also combine GE scores to see how IUCN categories change our priorities. We use the same formula as before:</p>
-<p><span class="math notranslate nohighlight">\(FUDGE=ln⁡(1+FD)+GE×ln⁡(2)\)</span></p>
+<div class="math notranslate nohighlight">
+\[FUDGE=ln⁡(1+FD)+GE×ln⁡(2)\]</div>
 <div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="c1"># Join FD and GE scores</span>
 <span class="n">Accip_FUDGE</span> <span class="o">&lt;-</span> <span class="nf">left_join</span><span class="p">(</span><span class="n">Accip_data</span><span class="p">,</span> <span class="n">FD</span><span class="p">,</span> <span class="n">by</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="s">&quot;Jetz_Name&quot;</span> <span class="o">=</span> <span class="s">&quot;species&quot;</span><span class="p">))</span>
 
@@ -1133,6 +1122,7 @@ The following object is masked from ‘package:raster’:
     <div class='prev-next-bottom'>
         
     <a class='left-prev' id="prev-link" href="Practical_3.html" title="previous page">Macroecology analyses</a>
+    <a class='right-next' id="next-link" href="links.html" title="next page">Useful links</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">
